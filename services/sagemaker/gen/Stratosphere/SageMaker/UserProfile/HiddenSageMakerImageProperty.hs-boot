@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.UserProfile.HiddenSageMakerImageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HiddenSageMakerImageProperty :: Prelude.Type
+instance ToResourceProperties HiddenSageMakerImageProperty
+instance Prelude.Eq HiddenSageMakerImageProperty
+instance Prelude.Show HiddenSageMakerImageProperty
+instance JSON.ToJSON HiddenSageMakerImageProperty

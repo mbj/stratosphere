@@ -5,6 +5,7 @@ module Stratosphere.Bedrock.Prompt.TextPromptTemplateConfigurationProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.CachePointBlockProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.PromptInputVariableProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.Prompt.TextS3LocationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -12,6 +13,8 @@ import Stratosphere.Value
 data TextPromptTemplateConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html>
     TextPromptTemplateConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-cachepoint>
+                                             cachePoint :: (Prelude.Maybe CachePointBlockProperty),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-inputvariables>
                                              inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-text>
@@ -23,8 +26,9 @@ mkTextPromptTemplateConfigurationProperty ::
   TextPromptTemplateConfigurationProperty
 mkTextPromptTemplateConfigurationProperty
   = TextPromptTemplateConfigurationProperty
-      {haddock_workaround_ = (), inputVariables = Prelude.Nothing,
-       text = Prelude.Nothing, textS3Location = Prelude.Nothing}
+      {haddock_workaround_ = (), cachePoint = Prelude.Nothing,
+       inputVariables = Prelude.Nothing, text = Prelude.Nothing,
+       textS3Location = Prelude.Nothing}
 instance ToResourceProperties TextPromptTemplateConfigurationProperty where
   toResourceProperties TextPromptTemplateConfigurationProperty {..}
     = ResourceProperties
@@ -32,7 +36,8 @@ instance ToResourceProperties TextPromptTemplateConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "InputVariables" Prelude.<$> inputVariables,
+                           [(JSON..=) "CachePoint" Prelude.<$> cachePoint,
+                            (JSON..=) "InputVariables" Prelude.<$> inputVariables,
                             (JSON..=) "Text" Prelude.<$> text,
                             (JSON..=) "TextS3Location" Prelude.<$> textS3Location])}
 instance JSON.ToJSON TextPromptTemplateConfigurationProperty where
@@ -40,9 +45,15 @@ instance JSON.ToJSON TextPromptTemplateConfigurationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "InputVariables" Prelude.<$> inputVariables,
+              [(JSON..=) "CachePoint" Prelude.<$> cachePoint,
+               (JSON..=) "InputVariables" Prelude.<$> inputVariables,
                (JSON..=) "Text" Prelude.<$> text,
                (JSON..=) "TextS3Location" Prelude.<$> textS3Location]))
+instance Property "CachePoint" TextPromptTemplateConfigurationProperty where
+  type PropertyType "CachePoint" TextPromptTemplateConfigurationProperty = CachePointBlockProperty
+  set newValue TextPromptTemplateConfigurationProperty {..}
+    = TextPromptTemplateConfigurationProperty
+        {cachePoint = Prelude.pure newValue, ..}
 instance Property "InputVariables" TextPromptTemplateConfigurationProperty where
   type PropertyType "InputVariables" TextPromptTemplateConfigurationProperty = [PromptInputVariableProperty]
   set newValue TextPromptTemplateConfigurationProperty {..}

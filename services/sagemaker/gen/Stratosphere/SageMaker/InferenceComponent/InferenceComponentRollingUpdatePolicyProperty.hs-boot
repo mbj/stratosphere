@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.InferenceComponent.InferenceComponentRollingUpdatePolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InferenceComponentRollingUpdatePolicyProperty :: Prelude.Type
+instance ToResourceProperties InferenceComponentRollingUpdatePolicyProperty
+instance Prelude.Eq InferenceComponentRollingUpdatePolicyProperty
+instance Prelude.Show InferenceComponentRollingUpdatePolicyProperty
+instance JSON.ToJSON InferenceComponentRollingUpdatePolicyProperty

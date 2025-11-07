@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.CustomOriginConfigPro
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginCustomHeaderProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.OriginShieldProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.S3OriginConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.VpcOriginConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OriginProperty
@@ -31,8 +32,12 @@ data OriginProperty
                     originPath :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield>
                     originShield :: (Prelude.Maybe OriginShieldProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-responsecompletiontimeout>
+                    responseCompletionTimeout :: (Prelude.Maybe (Value Prelude.Integer)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig>
-                    s3OriginConfig :: (Prelude.Maybe S3OriginConfigProperty)}
+                    s3OriginConfig :: (Prelude.Maybe S3OriginConfigProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-vpcoriginconfig>
+                    vpcOriginConfig :: (Prelude.Maybe VpcOriginConfigProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOriginProperty ::
   Value Prelude.Text -> Value Prelude.Text -> OriginProperty
@@ -45,7 +50,9 @@ mkOriginProperty domainName id
        originAccessControlId = Prelude.Nothing,
        originCustomHeaders = Prelude.Nothing,
        originPath = Prelude.Nothing, originShield = Prelude.Nothing,
-       s3OriginConfig = Prelude.Nothing}
+       responseCompletionTimeout = Prelude.Nothing,
+       s3OriginConfig = Prelude.Nothing,
+       vpcOriginConfig = Prelude.Nothing}
 instance ToResourceProperties OriginProperty where
   toResourceProperties OriginProperty {..}
     = ResourceProperties
@@ -63,7 +70,10 @@ instance ToResourceProperties OriginProperty where
                                (JSON..=) "OriginCustomHeaders" Prelude.<$> originCustomHeaders,
                                (JSON..=) "OriginPath" Prelude.<$> originPath,
                                (JSON..=) "OriginShield" Prelude.<$> originShield,
-                               (JSON..=) "S3OriginConfig" Prelude.<$> s3OriginConfig]))}
+                               (JSON..=) "ResponseCompletionTimeout"
+                                 Prelude.<$> responseCompletionTimeout,
+                               (JSON..=) "S3OriginConfig" Prelude.<$> s3OriginConfig,
+                               (JSON..=) "VpcOriginConfig" Prelude.<$> vpcOriginConfig]))}
 instance JSON.ToJSON OriginProperty where
   toJSON OriginProperty {..}
     = JSON.object
@@ -79,7 +89,10 @@ instance JSON.ToJSON OriginProperty where
                   (JSON..=) "OriginCustomHeaders" Prelude.<$> originCustomHeaders,
                   (JSON..=) "OriginPath" Prelude.<$> originPath,
                   (JSON..=) "OriginShield" Prelude.<$> originShield,
-                  (JSON..=) "S3OriginConfig" Prelude.<$> s3OriginConfig])))
+                  (JSON..=) "ResponseCompletionTimeout"
+                    Prelude.<$> responseCompletionTimeout,
+                  (JSON..=) "S3OriginConfig" Prelude.<$> s3OriginConfig,
+                  (JSON..=) "VpcOriginConfig" Prelude.<$> vpcOriginConfig])))
 instance Property "ConnectionAttempts" OriginProperty where
   type PropertyType "ConnectionAttempts" OriginProperty = Value Prelude.Integer
   set newValue OriginProperty {..}
@@ -117,7 +130,16 @@ instance Property "OriginShield" OriginProperty where
   type PropertyType "OriginShield" OriginProperty = OriginShieldProperty
   set newValue OriginProperty {..}
     = OriginProperty {originShield = Prelude.pure newValue, ..}
+instance Property "ResponseCompletionTimeout" OriginProperty where
+  type PropertyType "ResponseCompletionTimeout" OriginProperty = Value Prelude.Integer
+  set newValue OriginProperty {..}
+    = OriginProperty
+        {responseCompletionTimeout = Prelude.pure newValue, ..}
 instance Property "S3OriginConfig" OriginProperty where
   type PropertyType "S3OriginConfig" OriginProperty = S3OriginConfigProperty
   set newValue OriginProperty {..}
     = OriginProperty {s3OriginConfig = Prelude.pure newValue, ..}
+instance Property "VpcOriginConfig" OriginProperty where
+  type PropertyType "VpcOriginConfig" OriginProperty = VpcOriginConfigProperty
+  set newValue OriginProperty {..}
+    = OriginProperty {vpcOriginConfig = Prelude.pure newValue, ..}

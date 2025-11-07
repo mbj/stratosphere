@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.CmafIngestCaptionLanguageMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CmafIngestCaptionLanguageMappingProperty :: Prelude.Type
+instance ToResourceProperties CmafIngestCaptionLanguageMappingProperty
+instance Prelude.Eq CmafIngestCaptionLanguageMappingProperty
+instance Prelude.Show CmafIngestCaptionLanguageMappingProperty
+instance JSON.ToJSON CmafIngestCaptionLanguageMappingProperty

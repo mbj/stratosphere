@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.QueryExecutionOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QueryExecutionOptionsProperty :: Prelude.Type
+instance ToResourceProperties QueryExecutionOptionsProperty
+instance Prelude.Eq QueryExecutionOptionsProperty
+instance Prelude.Show QueryExecutionOptionsProperty
+instance JSON.ToJSON QueryExecutionOptionsProperty

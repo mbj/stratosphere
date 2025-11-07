@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ArcAxisConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ArcAxisConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ArcAxisConfigurationProperty
+instance Prelude.Eq ArcAxisConfigurationProperty
+instance Prelude.Show ArcAxisConfigurationProperty
+instance JSON.ToJSON ArcAxisConfigurationProperty

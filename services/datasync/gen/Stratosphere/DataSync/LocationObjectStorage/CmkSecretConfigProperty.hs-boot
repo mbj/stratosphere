@@ -1,0 +1,9 @@
+module Stratosphere.DataSync.LocationObjectStorage.CmkSecretConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CmkSecretConfigProperty :: Prelude.Type
+instance ToResourceProperties CmkSecretConfigProperty
+instance Prelude.Eq CmkSecretConfigProperty
+instance Prelude.Show CmkSecretConfigProperty
+instance JSON.ToJSON CmkSecretConfigProperty

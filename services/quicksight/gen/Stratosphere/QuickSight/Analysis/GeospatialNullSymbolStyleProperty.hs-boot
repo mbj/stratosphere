@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialNullSymbolStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialNullSymbolStyleProperty :: Prelude.Type
+instance ToResourceProperties GeospatialNullSymbolStyleProperty
+instance Prelude.Eq GeospatialNullSymbolStyleProperty
+instance Prelude.Show GeospatialNullSymbolStyleProperty
+instance JSON.ToJSON GeospatialNullSymbolStyleProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.SlotResolutionImprovementSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SlotResolutionImprovementSpecificationProperty :: Prelude.Type
+instance ToResourceProperties SlotResolutionImprovementSpecificationProperty
+instance Prelude.Eq SlotResolutionImprovementSpecificationProperty
+instance Prelude.Show SlotResolutionImprovementSpecificationProperty
+instance JSON.ToJSON SlotResolutionImprovementSpecificationProperty

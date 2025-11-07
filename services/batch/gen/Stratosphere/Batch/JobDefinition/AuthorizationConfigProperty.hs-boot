@@ -1,9 +1,0 @@
-module Stratosphere.Batch.JobDefinition.AuthorizationConfigProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data AuthorizationConfigProperty :: Prelude.Type
-instance ToResourceProperties AuthorizationConfigProperty
-instance Prelude.Eq AuthorizationConfigProperty
-instance Prelude.Show AuthorizationConfigProperty
-instance JSON.ToJSON AuthorizationConfigProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.AudioStandardOutputConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioStandardOutputConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AudioStandardOutputConfigurationProperty
+instance Prelude.Eq AudioStandardOutputConfigurationProperty
+instance Prelude.Show AudioStandardOutputConfigurationProperty
+instance JSON.ToJSON AudioStandardOutputConfigurationProperty

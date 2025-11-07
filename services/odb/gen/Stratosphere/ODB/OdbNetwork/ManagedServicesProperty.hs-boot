@@ -1,0 +1,9 @@
+module Stratosphere.ODB.OdbNetwork.ManagedServicesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedServicesProperty :: Prelude.Type
+instance ToResourceProperties ManagedServicesProperty
+instance Prelude.Eq ManagedServicesProperty
+instance Prelude.Show ManagedServicesProperty
+instance JSON.ToJSON ManagedServicesProperty

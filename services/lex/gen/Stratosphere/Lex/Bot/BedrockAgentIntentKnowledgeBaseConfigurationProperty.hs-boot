@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.BedrockAgentIntentKnowledgeBaseConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BedrockAgentIntentKnowledgeBaseConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BedrockAgentIntentKnowledgeBaseConfigurationProperty
+instance Prelude.Eq BedrockAgentIntentKnowledgeBaseConfigurationProperty
+instance Prelude.Show BedrockAgentIntentKnowledgeBaseConfigurationProperty
+instance JSON.ToJSON BedrockAgentIntentKnowledgeBaseConfigurationProperty

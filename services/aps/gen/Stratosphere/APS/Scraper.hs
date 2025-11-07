@@ -5,7 +5,9 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.APS.Scraper.DestinationProperty as Exports
+import {-# SOURCE #-} Stratosphere.APS.Scraper.RoleConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.APS.Scraper.ScrapeConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.APS.Scraper.ScraperLoggingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.APS.Scraper.SourceProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -17,8 +19,12 @@ data Scraper
              alias :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-destination>
              destination :: DestinationProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-roleconfiguration>
+             roleConfiguration :: (Prelude.Maybe RoleConfigurationProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-scrapeconfiguration>
              scrapeConfiguration :: ScrapeConfigurationProperty,
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-scraperloggingconfiguration>
+             scraperLoggingConfiguration :: (Prelude.Maybe ScraperLoggingConfigurationProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-source>
              source :: SourceProperty,
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html#cfn-aps-scraper-tags>
@@ -31,7 +37,9 @@ mkScraper destination scrapeConfiguration source
   = Scraper
       {haddock_workaround_ = (), destination = destination,
        scrapeConfiguration = scrapeConfiguration, source = source,
-       alias = Prelude.Nothing, tags = Prelude.Nothing}
+       alias = Prelude.Nothing, roleConfiguration = Prelude.Nothing,
+       scraperLoggingConfiguration = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Scraper where
   toResourceProperties Scraper {..}
     = ResourceProperties
@@ -43,6 +51,9 @@ instance ToResourceProperties Scraper where
                             "Source" JSON..= source]
                            (Prelude.catMaybes
                               [(JSON..=) "Alias" Prelude.<$> alias,
+                               (JSON..=) "RoleConfiguration" Prelude.<$> roleConfiguration,
+                               (JSON..=) "ScraperLoggingConfiguration"
+                                 Prelude.<$> scraperLoggingConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Scraper where
   toJSON Scraper {..}
@@ -54,6 +65,9 @@ instance JSON.ToJSON Scraper where
                "Source" JSON..= source]
               (Prelude.catMaybes
                  [(JSON..=) "Alias" Prelude.<$> alias,
+                  (JSON..=) "RoleConfiguration" Prelude.<$> roleConfiguration,
+                  (JSON..=) "ScraperLoggingConfiguration"
+                    Prelude.<$> scraperLoggingConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Alias" Scraper where
   type PropertyType "Alias" Scraper = Value Prelude.Text
@@ -62,10 +76,18 @@ instance Property "Alias" Scraper where
 instance Property "Destination" Scraper where
   type PropertyType "Destination" Scraper = DestinationProperty
   set newValue Scraper {..} = Scraper {destination = newValue, ..}
+instance Property "RoleConfiguration" Scraper where
+  type PropertyType "RoleConfiguration" Scraper = RoleConfigurationProperty
+  set newValue Scraper {..}
+    = Scraper {roleConfiguration = Prelude.pure newValue, ..}
 instance Property "ScrapeConfiguration" Scraper where
   type PropertyType "ScrapeConfiguration" Scraper = ScrapeConfigurationProperty
   set newValue Scraper {..}
     = Scraper {scrapeConfiguration = newValue, ..}
+instance Property "ScraperLoggingConfiguration" Scraper where
+  type PropertyType "ScraperLoggingConfiguration" Scraper = ScraperLoggingConfigurationProperty
+  set newValue Scraper {..}
+    = Scraper {scraperLoggingConfiguration = Prelude.pure newValue, ..}
 instance Property "Source" Scraper where
   type PropertyType "Source" Scraper = SourceProperty
   set newValue Scraper {..} = Scraper {source = newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.EVS.Environment.HostInfoForCreateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HostInfoForCreateProperty :: Prelude.Type
+instance ToResourceProperties HostInfoForCreateProperty
+instance Prelude.Eq HostInfoForCreateProperty
+instance Prelude.Show HostInfoForCreateProperty
+instance JSON.ToJSON HostInfoForCreateProperty

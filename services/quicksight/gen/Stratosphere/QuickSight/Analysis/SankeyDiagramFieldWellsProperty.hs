@@ -1,0 +1,42 @@
+module Stratosphere.QuickSight.Analysis.SankeyDiagramFieldWellsProperty (
+        module Exports, SankeyDiagramFieldWellsProperty(..),
+        mkSankeyDiagramFieldWellsProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.SankeyDiagramAggregatedFieldWellsProperty as Exports
+import Stratosphere.ResourceProperties
+data SankeyDiagramFieldWellsProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramfieldwells.html>
+    SankeyDiagramFieldWellsProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramfieldwells.html#cfn-quicksight-analysis-sankeydiagramfieldwells-sankeydiagramaggregatedfieldwells>
+                                     sankeyDiagramAggregatedFieldWells :: (Prelude.Maybe SankeyDiagramAggregatedFieldWellsProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkSankeyDiagramFieldWellsProperty ::
+  SankeyDiagramFieldWellsProperty
+mkSankeyDiagramFieldWellsProperty
+  = SankeyDiagramFieldWellsProperty
+      {haddock_workaround_ = (),
+       sankeyDiagramAggregatedFieldWells = Prelude.Nothing}
+instance ToResourceProperties SankeyDiagramFieldWellsProperty where
+  toResourceProperties SankeyDiagramFieldWellsProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.SankeyDiagramFieldWells",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "SankeyDiagramAggregatedFieldWells"
+                              Prelude.<$> sankeyDiagramAggregatedFieldWells])}
+instance JSON.ToJSON SankeyDiagramFieldWellsProperty where
+  toJSON SankeyDiagramFieldWellsProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "SankeyDiagramAggregatedFieldWells"
+                 Prelude.<$> sankeyDiagramAggregatedFieldWells]))
+instance Property "SankeyDiagramAggregatedFieldWells" SankeyDiagramFieldWellsProperty where
+  type PropertyType "SankeyDiagramAggregatedFieldWells" SankeyDiagramFieldWellsProperty = SankeyDiagramAggregatedFieldWellsProperty
+  set newValue SankeyDiagramFieldWellsProperty {..}
+    = SankeyDiagramFieldWellsProperty
+        {sankeyDiagramAggregatedFieldWells = Prelude.pure newValue, ..}

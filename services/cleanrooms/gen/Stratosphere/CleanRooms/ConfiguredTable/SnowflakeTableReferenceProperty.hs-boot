@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.ConfiguredTable.SnowflakeTableReferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnowflakeTableReferenceProperty :: Prelude.Type
+instance ToResourceProperties SnowflakeTableReferenceProperty
+instance Prelude.Eq SnowflakeTableReferenceProperty
+instance Prelude.Show SnowflakeTableReferenceProperty
+instance JSON.ToJSON SnowflakeTableReferenceProperty

@@ -1,9 +1,11 @@
 module Stratosphere.MediaConnect.Bridge.BridgeNetworkSourceProperty (
-        BridgeNetworkSourceProperty(..), mkBridgeNetworkSourceProperty
+        module Exports, BridgeNetworkSourceProperty(..),
+        mkBridgeNetworkSourceProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.MediaConnect.Bridge.MulticastSourceSettingsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data BridgeNetworkSourceProperty
@@ -11,6 +13,8 @@ data BridgeNetworkSourceProperty
     BridgeNetworkSourceProperty {haddock_workaround_ :: (),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworksource.html#cfn-mediaconnect-bridge-bridgenetworksource-multicastip>
                                  multicastIp :: (Value Prelude.Text),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworksource.html#cfn-mediaconnect-bridge-bridgenetworksource-multicastsourcesettings>
+                                 multicastSourceSettings :: (Prelude.Maybe MulticastSourceSettingsProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworksource.html#cfn-mediaconnect-bridge-bridgenetworksource-name>
                                  name :: (Value Prelude.Text),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgenetworksource.html#cfn-mediaconnect-bridge-bridgenetworksource-networkname>
@@ -34,25 +38,41 @@ mkBridgeNetworkSourceProperty
   protocol
   = BridgeNetworkSourceProperty
       {haddock_workaround_ = (), multicastIp = multicastIp, name = name,
-       networkName = networkName, port = port, protocol = protocol}
+       networkName = networkName, port = port, protocol = protocol,
+       multicastSourceSettings = Prelude.Nothing}
 instance ToResourceProperties BridgeNetworkSourceProperty where
   toResourceProperties BridgeNetworkSourceProperty {..}
     = ResourceProperties
         {awsType = "AWS::MediaConnect::Bridge.BridgeNetworkSource",
          supportsTags = Prelude.False,
-         properties = ["MulticastIp" JSON..= multicastIp,
-                       "Name" JSON..= name, "NetworkName" JSON..= networkName,
-                       "Port" JSON..= port, "Protocol" JSON..= protocol]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["MulticastIp" JSON..= multicastIp, "Name" JSON..= name,
+                            "NetworkName" JSON..= networkName, "Port" JSON..= port,
+                            "Protocol" JSON..= protocol]
+                           (Prelude.catMaybes
+                              [(JSON..=) "MulticastSourceSettings"
+                                 Prelude.<$> multicastSourceSettings]))}
 instance JSON.ToJSON BridgeNetworkSourceProperty where
   toJSON BridgeNetworkSourceProperty {..}
     = JSON.object
-        ["MulticastIp" JSON..= multicastIp, "Name" JSON..= name,
-         "NetworkName" JSON..= networkName, "Port" JSON..= port,
-         "Protocol" JSON..= protocol]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["MulticastIp" JSON..= multicastIp, "Name" JSON..= name,
+               "NetworkName" JSON..= networkName, "Port" JSON..= port,
+               "Protocol" JSON..= protocol]
+              (Prelude.catMaybes
+                 [(JSON..=) "MulticastSourceSettings"
+                    Prelude.<$> multicastSourceSettings])))
 instance Property "MulticastIp" BridgeNetworkSourceProperty where
   type PropertyType "MulticastIp" BridgeNetworkSourceProperty = Value Prelude.Text
   set newValue BridgeNetworkSourceProperty {..}
     = BridgeNetworkSourceProperty {multicastIp = newValue, ..}
+instance Property "MulticastSourceSettings" BridgeNetworkSourceProperty where
+  type PropertyType "MulticastSourceSettings" BridgeNetworkSourceProperty = MulticastSourceSettingsProperty
+  set newValue BridgeNetworkSourceProperty {..}
+    = BridgeNetworkSourceProperty
+        {multicastSourceSettings = Prelude.pure newValue, ..}
 instance Property "Name" BridgeNetworkSourceProperty where
   type PropertyType "Name" BridgeNetworkSourceProperty = Value Prelude.Text
   set newValue BridgeNetworkSourceProperty {..}

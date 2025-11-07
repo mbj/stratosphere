@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Vehicle.PeriodicStateTemplateUpdateStrategyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PeriodicStateTemplateUpdateStrategyProperty :: Prelude.Type
+instance ToResourceProperties PeriodicStateTemplateUpdateStrategyProperty
+instance Prelude.Eq PeriodicStateTemplateUpdateStrategyProperty
+instance Prelude.Show PeriodicStateTemplateUpdateStrategyProperty
+instance JSON.ToJSON PeriodicStateTemplateUpdateStrategyProperty

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.PolicyGrant.OverrideDomainUnitOwnersPolicyGrantDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OverrideDomainUnitOwnersPolicyGrantDetailProperty :: Prelude.Type
+instance ToResourceProperties OverrideDomainUnitOwnersPolicyGrantDetailProperty
+instance Prelude.Eq OverrideDomainUnitOwnersPolicyGrantDetailProperty
+instance Prelude.Show OverrideDomainUnitOwnersPolicyGrantDetailProperty
+instance JSON.ToJSON OverrideDomainUnitOwnersPolicyGrantDetailProperty

@@ -13,6 +13,8 @@ data RunConfigProperty
                        activeTracing :: (Prelude.Maybe (Value Prelude.Bool)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables>
                        environmentVariables :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-ephemeralstorage>
+                       ephemeralStorage :: (Prelude.Maybe (Value Prelude.Integer)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb>
                        memoryInMB :: (Prelude.Maybe (Value Prelude.Integer)),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds>
@@ -23,7 +25,8 @@ mkRunConfigProperty
   = RunConfigProperty
       {haddock_workaround_ = (), activeTracing = Prelude.Nothing,
        environmentVariables = Prelude.Nothing,
-       memoryInMB = Prelude.Nothing, timeoutInSeconds = Prelude.Nothing}
+       ephemeralStorage = Prelude.Nothing, memoryInMB = Prelude.Nothing,
+       timeoutInSeconds = Prelude.Nothing}
 instance ToResourceProperties RunConfigProperty where
   toResourceProperties RunConfigProperty {..}
     = ResourceProperties
@@ -33,6 +36,7 @@ instance ToResourceProperties RunConfigProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "ActiveTracing" Prelude.<$> activeTracing,
                             (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
+                            (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                             (JSON..=) "MemoryInMB" Prelude.<$> memoryInMB,
                             (JSON..=) "TimeoutInSeconds" Prelude.<$> timeoutInSeconds])}
 instance JSON.ToJSON RunConfigProperty where
@@ -42,6 +46,7 @@ instance JSON.ToJSON RunConfigProperty where
            (Prelude.catMaybes
               [(JSON..=) "ActiveTracing" Prelude.<$> activeTracing,
                (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
+               (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                (JSON..=) "MemoryInMB" Prelude.<$> memoryInMB,
                (JSON..=) "TimeoutInSeconds" Prelude.<$> timeoutInSeconds]))
 instance Property "ActiveTracing" RunConfigProperty where
@@ -53,6 +58,10 @@ instance Property "EnvironmentVariables" RunConfigProperty where
   set newValue RunConfigProperty {..}
     = RunConfigProperty
         {environmentVariables = Prelude.pure newValue, ..}
+instance Property "EphemeralStorage" RunConfigProperty where
+  type PropertyType "EphemeralStorage" RunConfigProperty = Value Prelude.Integer
+  set newValue RunConfigProperty {..}
+    = RunConfigProperty {ephemeralStorage = Prelude.pure newValue, ..}
 instance Property "MemoryInMB" RunConfigProperty where
   type PropertyType "MemoryInMB" RunConfigProperty = Value Prelude.Integer
   set newValue RunConfigProperty {..}

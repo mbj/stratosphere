@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.CategoryInnerFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CategoryInnerFilterProperty :: Prelude.Type
+instance ToResourceProperties CategoryInnerFilterProperty
+instance Prelude.Eq CategoryInnerFilterProperty
+instance Prelude.Show CategoryInnerFilterProperty
+instance JSON.ToJSON CategoryInnerFilterProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Logs.DeliveryDestination.DestinationPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DestinationPolicyProperty :: Prelude.Type
+instance ToResourceProperties DestinationPolicyProperty
+instance Prelude.Eq DestinationPolicyProperty
+instance Prelude.Show DestinationPolicyProperty
+instance JSON.ToJSON DestinationPolicyProperty

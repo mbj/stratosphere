@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.SupplementalDataStorageLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SupplementalDataStorageLocationProperty :: Prelude.Type
+instance ToResourceProperties SupplementalDataStorageLocationProperty
+instance Prelude.Eq SupplementalDataStorageLocationProperty
+instance Prelude.Show SupplementalDataStorageLocationProperty
+instance JSON.ToJSON SupplementalDataStorageLocationProperty

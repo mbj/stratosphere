@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Connect.RoutingProfile.MediaConcurrencyProperty as Exports
+import {-# SOURCE #-} Stratosphere.Connect.RoutingProfile.RoutingProfileManualAssignmentQueueConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.RoutingProfile.RoutingProfileQueueConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -20,6 +21,8 @@ data RoutingProfile
                     description :: (Value Prelude.Text),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-instancearn>
                     instanceArn :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-manualassignmentqueueconfigs>
+                    manualAssignmentQueueConfigs :: (Prelude.Maybe [RoutingProfileManualAssignmentQueueConfigProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-mediaconcurrencies>
                     mediaConcurrencies :: [MediaConcurrencyProperty],
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html#cfn-connect-routingprofile-name>
@@ -47,6 +50,7 @@ mkRoutingProfile
        description = description, instanceArn = instanceArn,
        mediaConcurrencies = mediaConcurrencies, name = name,
        agentAvailabilityTimer = Prelude.Nothing,
+       manualAssignmentQueueConfigs = Prelude.Nothing,
        queueConfigs = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties RoutingProfile where
   toResourceProperties RoutingProfile {..}
@@ -63,6 +67,8 @@ instance ToResourceProperties RoutingProfile where
                            (Prelude.catMaybes
                               [(JSON..=) "AgentAvailabilityTimer"
                                  Prelude.<$> agentAvailabilityTimer,
+                               (JSON..=) "ManualAssignmentQueueConfigs"
+                                 Prelude.<$> manualAssignmentQueueConfigs,
                                (JSON..=) "QueueConfigs" Prelude.<$> queueConfigs,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON RoutingProfile where
@@ -78,6 +84,8 @@ instance JSON.ToJSON RoutingProfile where
               (Prelude.catMaybes
                  [(JSON..=) "AgentAvailabilityTimer"
                     Prelude.<$> agentAvailabilityTimer,
+                  (JSON..=) "ManualAssignmentQueueConfigs"
+                    Prelude.<$> manualAssignmentQueueConfigs,
                   (JSON..=) "QueueConfigs" Prelude.<$> queueConfigs,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AgentAvailabilityTimer" RoutingProfile where
@@ -97,6 +105,11 @@ instance Property "InstanceArn" RoutingProfile where
   type PropertyType "InstanceArn" RoutingProfile = Value Prelude.Text
   set newValue RoutingProfile {..}
     = RoutingProfile {instanceArn = newValue, ..}
+instance Property "ManualAssignmentQueueConfigs" RoutingProfile where
+  type PropertyType "ManualAssignmentQueueConfigs" RoutingProfile = [RoutingProfileManualAssignmentQueueConfigProperty]
+  set newValue RoutingProfile {..}
+    = RoutingProfile
+        {manualAssignmentQueueConfigs = Prelude.pure newValue, ..}
 instance Property "MediaConcurrencies" RoutingProfile where
   type PropertyType "MediaConcurrencies" RoutingProfile = [MediaConcurrencyProperty]
   set newValue RoutingProfile {..}

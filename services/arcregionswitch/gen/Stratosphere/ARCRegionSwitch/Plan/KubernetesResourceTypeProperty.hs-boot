@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.KubernetesResourceTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KubernetesResourceTypeProperty :: Prelude.Type
+instance ToResourceProperties KubernetesResourceTypeProperty
+instance Prelude.Eq KubernetesResourceTypeProperty
+instance Prelude.Show KubernetesResourceTypeProperty
+instance JSON.ToJSON KubernetesResourceTypeProperty

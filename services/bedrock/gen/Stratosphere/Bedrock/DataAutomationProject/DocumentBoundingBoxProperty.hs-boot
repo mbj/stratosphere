@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.DocumentBoundingBoxProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentBoundingBoxProperty :: Prelude.Type
+instance ToResourceProperties DocumentBoundingBoxProperty
+instance Prelude.Eq DocumentBoundingBoxProperty
+instance Prelude.Show DocumentBoundingBoxProperty
+instance JSON.ToJSON DocumentBoundingBoxProperty

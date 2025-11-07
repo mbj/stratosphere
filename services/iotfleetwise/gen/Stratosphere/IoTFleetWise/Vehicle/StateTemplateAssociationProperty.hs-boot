@@ -1,0 +1,9 @@
+module Stratosphere.IoTFleetWise.Vehicle.StateTemplateAssociationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StateTemplateAssociationProperty :: Prelude.Type
+instance ToResourceProperties StateTemplateAssociationProperty
+instance Prelude.Eq StateTemplateAssociationProperty
+instance Prelude.Show StateTemplateAssociationProperty
+instance JSON.ToJSON StateTemplateAssociationProperty

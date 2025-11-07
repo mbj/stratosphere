@@ -9,6 +9,8 @@ import Stratosphere.Value
 data EndpointConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html>
     EndpointConfigurationProperty {haddock_workaround_ :: (),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-ipaddresstype>
+                                   ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types>
                                    types :: (Prelude.Maybe (ValueList Prelude.Text)),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids>
@@ -17,8 +19,8 @@ data EndpointConfigurationProperty
 mkEndpointConfigurationProperty :: EndpointConfigurationProperty
 mkEndpointConfigurationProperty
   = EndpointConfigurationProperty
-      {haddock_workaround_ = (), types = Prelude.Nothing,
-       vpcEndpointIds = Prelude.Nothing}
+      {haddock_workaround_ = (), ipAddressType = Prelude.Nothing,
+       types = Prelude.Nothing, vpcEndpointIds = Prelude.Nothing}
 instance ToResourceProperties EndpointConfigurationProperty where
   toResourceProperties EndpointConfigurationProperty {..}
     = ResourceProperties
@@ -26,15 +28,22 @@ instance ToResourceProperties EndpointConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Types" Prelude.<$> types,
+                           [(JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+                            (JSON..=) "Types" Prelude.<$> types,
                             (JSON..=) "VpcEndpointIds" Prelude.<$> vpcEndpointIds])}
 instance JSON.ToJSON EndpointConfigurationProperty where
   toJSON EndpointConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Types" Prelude.<$> types,
+              [(JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
+               (JSON..=) "Types" Prelude.<$> types,
                (JSON..=) "VpcEndpointIds" Prelude.<$> vpcEndpointIds]))
+instance Property "IpAddressType" EndpointConfigurationProperty where
+  type PropertyType "IpAddressType" EndpointConfigurationProperty = Value Prelude.Text
+  set newValue EndpointConfigurationProperty {..}
+    = EndpointConfigurationProperty
+        {ipAddressType = Prelude.pure newValue, ..}
 instance Property "Types" EndpointConfigurationProperty where
   type PropertyType "Types" EndpointConfigurationProperty = ValueList Prelude.Text
   set newValue EndpointConfigurationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Membership.MembershipProtectedJobResultConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MembershipProtectedJobResultConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MembershipProtectedJobResultConfigurationProperty
+instance Prelude.Eq MembershipProtectedJobResultConfigurationProperty
+instance Prelude.Show MembershipProtectedJobResultConfigurationProperty
+instance JSON.ToJSON MembershipProtectedJobResultConfigurationProperty

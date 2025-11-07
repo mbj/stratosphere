@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.TopBottomMoversComputationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TopBottomMoversComputationProperty :: Prelude.Type
+instance ToResourceProperties TopBottomMoversComputationProperty
+instance Prelude.Eq TopBottomMoversComputationProperty
+instance Prelude.Show TopBottomMoversComputationProperty
+instance JSON.ToJSON TopBottomMoversComputationProperty

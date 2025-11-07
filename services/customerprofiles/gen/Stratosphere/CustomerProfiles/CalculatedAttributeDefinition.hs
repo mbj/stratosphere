@@ -28,7 +28,9 @@ data CalculatedAttributeDefinition
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-statistic>
                                    statistic :: (Value Prelude.Text),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-tags>
-                                   tags :: (Prelude.Maybe [Tag])}
+                                   tags :: (Prelude.Maybe [Tag]),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html#cfn-customerprofiles-calculatedattributedefinition-usehistoricaldata>
+                                   useHistoricalData :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCalculatedAttributeDefinition ::
   AttributeDetailsProperty
@@ -45,7 +47,8 @@ mkCalculatedAttributeDefinition
        calculatedAttributeName = calculatedAttributeName,
        domainName = domainName, statistic = statistic,
        conditions = Prelude.Nothing, description = Prelude.Nothing,
-       displayName = Prelude.Nothing, tags = Prelude.Nothing}
+       displayName = Prelude.Nothing, tags = Prelude.Nothing,
+       useHistoricalData = Prelude.Nothing}
 instance ToResourceProperties CalculatedAttributeDefinition where
   toResourceProperties CalculatedAttributeDefinition {..}
     = ResourceProperties
@@ -60,7 +63,8 @@ instance ToResourceProperties CalculatedAttributeDefinition where
                               [(JSON..=) "Conditions" Prelude.<$> conditions,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DisplayName" Prelude.<$> displayName,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "UseHistoricalData" Prelude.<$> useHistoricalData]))}
 instance JSON.ToJSON CalculatedAttributeDefinition where
   toJSON CalculatedAttributeDefinition {..}
     = JSON.object
@@ -73,7 +77,8 @@ instance JSON.ToJSON CalculatedAttributeDefinition where
                  [(JSON..=) "Conditions" Prelude.<$> conditions,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DisplayName" Prelude.<$> displayName,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "UseHistoricalData" Prelude.<$> useHistoricalData])))
 instance Property "AttributeDetails" CalculatedAttributeDefinition where
   type PropertyType "AttributeDetails" CalculatedAttributeDefinition = AttributeDetailsProperty
   set newValue CalculatedAttributeDefinition {..}
@@ -110,3 +115,8 @@ instance Property "Tags" CalculatedAttributeDefinition where
   type PropertyType "Tags" CalculatedAttributeDefinition = [Tag]
   set newValue CalculatedAttributeDefinition {..}
     = CalculatedAttributeDefinition {tags = Prelude.pure newValue, ..}
+instance Property "UseHistoricalData" CalculatedAttributeDefinition where
+  type PropertyType "UseHistoricalData" CalculatedAttributeDefinition = Value Prelude.Bool
+  set newValue CalculatedAttributeDefinition {..}
+    = CalculatedAttributeDefinition
+        {useHistoricalData = Prelude.pure newValue, ..}

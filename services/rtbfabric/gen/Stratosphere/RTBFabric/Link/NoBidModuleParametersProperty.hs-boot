@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.NoBidModuleParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NoBidModuleParametersProperty :: Prelude.Type
+instance ToResourceProperties NoBidModuleParametersProperty
+instance Prelude.Eq NoBidModuleParametersProperty
+instance Prelude.Show NoBidModuleParametersProperty
+instance JSON.ToJSON NoBidModuleParametersProperty

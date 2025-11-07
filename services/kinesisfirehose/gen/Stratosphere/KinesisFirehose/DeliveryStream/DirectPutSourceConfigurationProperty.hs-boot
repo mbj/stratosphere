@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.DirectPutSourceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DirectPutSourceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DirectPutSourceConfigurationProperty
+instance Prelude.Eq DirectPutSourceConfigurationProperty
+instance Prelude.Show DirectPutSourceConfigurationProperty
+instance JSON.ToJSON DirectPutSourceConfigurationProperty

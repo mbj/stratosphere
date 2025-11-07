@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Project.CfnTemplateProviderDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CfnTemplateProviderDetailProperty :: Prelude.Type
+instance ToResourceProperties CfnTemplateProviderDetailProperty
+instance Prelude.Eq CfnTemplateProviderDetailProperty
+instance Prelude.Show CfnTemplateProviderDetailProperty
+instance JSON.ToJSON CfnTemplateProviderDetailProperty

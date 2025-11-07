@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.DataStoriesSharingOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataStoriesSharingOptionProperty :: Prelude.Type
+instance ToResourceProperties DataStoriesSharingOptionProperty
+instance Prelude.Eq DataStoriesSharingOptionProperty
+instance Prelude.Show DataStoriesSharingOptionProperty
+instance JSON.ToJSON DataStoriesSharingOptionProperty

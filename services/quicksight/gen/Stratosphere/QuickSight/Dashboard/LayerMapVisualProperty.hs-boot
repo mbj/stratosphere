@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.LayerMapVisualProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LayerMapVisualProperty :: Prelude.Type
+instance ToResourceProperties LayerMapVisualProperty
+instance Prelude.Eq LayerMapVisualProperty
+instance Prelude.Show LayerMapVisualProperty
+instance JSON.ToJSON LayerMapVisualProperty

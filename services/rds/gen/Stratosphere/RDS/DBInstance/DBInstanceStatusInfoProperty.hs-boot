@@ -1,0 +1,9 @@
+module Stratosphere.RDS.DBInstance.DBInstanceStatusInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DBInstanceStatusInfoProperty :: Prelude.Type
+instance ToResourceProperties DBInstanceStatusInfoProperty
+instance Prelude.Eq DBInstanceStatusInfoProperty
+instance Prelude.Show DBInstanceStatusInfoProperty
+instance JSON.ToJSON DBInstanceStatusInfoProperty

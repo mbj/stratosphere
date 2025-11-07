@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.MssManifestConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MssManifestConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MssManifestConfigurationProperty
+instance Prelude.Eq MssManifestConfigurationProperty
+instance Prelude.Show MssManifestConfigurationProperty
+instance JSON.ToJSON MssManifestConfigurationProperty

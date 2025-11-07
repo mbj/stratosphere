@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data VPCEndpointService
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html>
@@ -18,7 +19,13 @@ data VPCEndpointService
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns>
                         networkLoadBalancerArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-payerresponsibility>
-                        payerResponsibility :: (Prelude.Maybe (Value Prelude.Text))}
+                        payerResponsibility :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-supportedipaddresstypes>
+                        supportedIpAddressTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-supportedregions>
+                        supportedRegions :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-tags>
+                        tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkVPCEndpointService :: VPCEndpointService
 mkVPCEndpointService
@@ -27,12 +34,14 @@ mkVPCEndpointService
        contributorInsightsEnabled = Prelude.Nothing,
        gatewayLoadBalancerArns = Prelude.Nothing,
        networkLoadBalancerArns = Prelude.Nothing,
-       payerResponsibility = Prelude.Nothing}
+       payerResponsibility = Prelude.Nothing,
+       supportedIpAddressTypes = Prelude.Nothing,
+       supportedRegions = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties VPCEndpointService where
   toResourceProperties VPCEndpointService {..}
     = ResourceProperties
         {awsType = "AWS::EC2::VPCEndpointService",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AcceptanceRequired" Prelude.<$> acceptanceRequired,
@@ -42,7 +51,11 @@ instance ToResourceProperties VPCEndpointService where
                               Prelude.<$> gatewayLoadBalancerArns,
                             (JSON..=) "NetworkLoadBalancerArns"
                               Prelude.<$> networkLoadBalancerArns,
-                            (JSON..=) "PayerResponsibility" Prelude.<$> payerResponsibility])}
+                            (JSON..=) "PayerResponsibility" Prelude.<$> payerResponsibility,
+                            (JSON..=) "SupportedIpAddressTypes"
+                              Prelude.<$> supportedIpAddressTypes,
+                            (JSON..=) "SupportedRegions" Prelude.<$> supportedRegions,
+                            (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON VPCEndpointService where
   toJSON VPCEndpointService {..}
     = JSON.object
@@ -55,7 +68,11 @@ instance JSON.ToJSON VPCEndpointService where
                  Prelude.<$> gatewayLoadBalancerArns,
                (JSON..=) "NetworkLoadBalancerArns"
                  Prelude.<$> networkLoadBalancerArns,
-               (JSON..=) "PayerResponsibility" Prelude.<$> payerResponsibility]))
+               (JSON..=) "PayerResponsibility" Prelude.<$> payerResponsibility,
+               (JSON..=) "SupportedIpAddressTypes"
+                 Prelude.<$> supportedIpAddressTypes,
+               (JSON..=) "SupportedRegions" Prelude.<$> supportedRegions,
+               (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "AcceptanceRequired" VPCEndpointService where
   type PropertyType "AcceptanceRequired" VPCEndpointService = Value Prelude.Bool
   set newValue VPCEndpointService {..}
@@ -81,3 +98,16 @@ instance Property "PayerResponsibility" VPCEndpointService where
   set newValue VPCEndpointService {..}
     = VPCEndpointService
         {payerResponsibility = Prelude.pure newValue, ..}
+instance Property "SupportedIpAddressTypes" VPCEndpointService where
+  type PropertyType "SupportedIpAddressTypes" VPCEndpointService = ValueList Prelude.Text
+  set newValue VPCEndpointService {..}
+    = VPCEndpointService
+        {supportedIpAddressTypes = Prelude.pure newValue, ..}
+instance Property "SupportedRegions" VPCEndpointService where
+  type PropertyType "SupportedRegions" VPCEndpointService = ValueList Prelude.Text
+  set newValue VPCEndpointService {..}
+    = VPCEndpointService {supportedRegions = Prelude.pure newValue, ..}
+instance Property "Tags" VPCEndpointService where
+  type PropertyType "Tags" VPCEndpointService = [Tag]
+  set newValue VPCEndpointService {..}
+    = VPCEndpointService {tags = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GeospatialLayerJoinDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialLayerJoinDefinitionProperty :: Prelude.Type
+instance ToResourceProperties GeospatialLayerJoinDefinitionProperty
+instance Prelude.Eq GeospatialLayerJoinDefinitionProperty
+instance Prelude.Show GeospatialLayerJoinDefinitionProperty
+instance JSON.ToJSON GeospatialLayerJoinDefinitionProperty

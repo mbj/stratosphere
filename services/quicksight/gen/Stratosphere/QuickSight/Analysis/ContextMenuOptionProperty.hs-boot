@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.ContextMenuOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContextMenuOptionProperty :: Prelude.Type
+instance ToResourceProperties ContextMenuOptionProperty
+instance Prelude.Eq ContextMenuOptionProperty
+instance Prelude.Show ContextMenuOptionProperty
+instance JSON.ToJSON ContextMenuOptionProperty

@@ -11,23 +11,38 @@ data ContributorInsightsSpecificationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html>
     ContributorInsightsSpecificationProperty {haddock_workaround_ :: (),
                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html#cfn-dynamodb-table-contributorinsightsspecification-enabled>
-                                              enabled :: (Value Prelude.Bool)}
+                                              enabled :: (Value Prelude.Bool),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html#cfn-dynamodb-table-contributorinsightsspecification-mode>
+                                              mode :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkContributorInsightsSpecificationProperty ::
   Value Prelude.Bool -> ContributorInsightsSpecificationProperty
 mkContributorInsightsSpecificationProperty enabled
   = ContributorInsightsSpecificationProperty
-      {haddock_workaround_ = (), enabled = enabled}
+      {haddock_workaround_ = (), enabled = enabled,
+       mode = Prelude.Nothing}
 instance ToResourceProperties ContributorInsightsSpecificationProperty where
   toResourceProperties ContributorInsightsSpecificationProperty {..}
     = ResourceProperties
         {awsType = "AWS::DynamoDB::Table.ContributorInsightsSpecification",
          supportsTags = Prelude.False,
-         properties = ["Enabled" JSON..= enabled]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Enabled" JSON..= enabled]
+                           (Prelude.catMaybes [(JSON..=) "Mode" Prelude.<$> mode]))}
 instance JSON.ToJSON ContributorInsightsSpecificationProperty where
   toJSON ContributorInsightsSpecificationProperty {..}
-    = JSON.object ["Enabled" JSON..= enabled]
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Enabled" JSON..= enabled]
+              (Prelude.catMaybes [(JSON..=) "Mode" Prelude.<$> mode])))
 instance Property "Enabled" ContributorInsightsSpecificationProperty where
   type PropertyType "Enabled" ContributorInsightsSpecificationProperty = Value Prelude.Bool
   set newValue ContributorInsightsSpecificationProperty {..}
     = ContributorInsightsSpecificationProperty {enabled = newValue, ..}
+instance Property "Mode" ContributorInsightsSpecificationProperty where
+  type PropertyType "Mode" ContributorInsightsSpecificationProperty = Value Prelude.Text
+  set newValue ContributorInsightsSpecificationProperty {..}
+    = ContributorInsightsSpecificationProperty
+        {mode = Prelude.pure newValue, ..}

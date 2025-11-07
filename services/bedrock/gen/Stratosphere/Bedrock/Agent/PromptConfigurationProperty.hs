@@ -11,8 +11,12 @@ import Stratosphere.Value
 data PromptConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html>
     PromptConfigurationProperty {haddock_workaround_ :: (),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html#cfn-bedrock-agent-promptconfiguration-additionalmodelrequestfields>
+                                 additionalModelRequestFields :: (Prelude.Maybe JSON.Object),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html#cfn-bedrock-agent-promptconfiguration-baseprompttemplate>
                                  basePromptTemplate :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html#cfn-bedrock-agent-promptconfiguration-foundationmodel>
+                                 foundationModel :: (Prelude.Maybe (Value Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html#cfn-bedrock-agent-promptconfiguration-inferenceconfiguration>
                                  inferenceConfiguration :: (Prelude.Maybe InferenceConfigurationProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html#cfn-bedrock-agent-promptconfiguration-parsermode>
@@ -27,7 +31,10 @@ data PromptConfigurationProperty
 mkPromptConfigurationProperty :: PromptConfigurationProperty
 mkPromptConfigurationProperty
   = PromptConfigurationProperty
-      {haddock_workaround_ = (), basePromptTemplate = Prelude.Nothing,
+      {haddock_workaround_ = (),
+       additionalModelRequestFields = Prelude.Nothing,
+       basePromptTemplate = Prelude.Nothing,
+       foundationModel = Prelude.Nothing,
        inferenceConfiguration = Prelude.Nothing,
        parserMode = Prelude.Nothing, promptCreationMode = Prelude.Nothing,
        promptState = Prelude.Nothing, promptType = Prelude.Nothing}
@@ -38,7 +45,10 @@ instance ToResourceProperties PromptConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "BasePromptTemplate" Prelude.<$> basePromptTemplate,
+                           [(JSON..=) "AdditionalModelRequestFields"
+                              Prelude.<$> additionalModelRequestFields,
+                            (JSON..=) "BasePromptTemplate" Prelude.<$> basePromptTemplate,
+                            (JSON..=) "FoundationModel" Prelude.<$> foundationModel,
                             (JSON..=) "InferenceConfiguration"
                               Prelude.<$> inferenceConfiguration,
                             (JSON..=) "ParserMode" Prelude.<$> parserMode,
@@ -50,18 +60,31 @@ instance JSON.ToJSON PromptConfigurationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "BasePromptTemplate" Prelude.<$> basePromptTemplate,
+              [(JSON..=) "AdditionalModelRequestFields"
+                 Prelude.<$> additionalModelRequestFields,
+               (JSON..=) "BasePromptTemplate" Prelude.<$> basePromptTemplate,
+               (JSON..=) "FoundationModel" Prelude.<$> foundationModel,
                (JSON..=) "InferenceConfiguration"
                  Prelude.<$> inferenceConfiguration,
                (JSON..=) "ParserMode" Prelude.<$> parserMode,
                (JSON..=) "PromptCreationMode" Prelude.<$> promptCreationMode,
                (JSON..=) "PromptState" Prelude.<$> promptState,
                (JSON..=) "PromptType" Prelude.<$> promptType]))
+instance Property "AdditionalModelRequestFields" PromptConfigurationProperty where
+  type PropertyType "AdditionalModelRequestFields" PromptConfigurationProperty = JSON.Object
+  set newValue PromptConfigurationProperty {..}
+    = PromptConfigurationProperty
+        {additionalModelRequestFields = Prelude.pure newValue, ..}
 instance Property "BasePromptTemplate" PromptConfigurationProperty where
   type PropertyType "BasePromptTemplate" PromptConfigurationProperty = Value Prelude.Text
   set newValue PromptConfigurationProperty {..}
     = PromptConfigurationProperty
         {basePromptTemplate = Prelude.pure newValue, ..}
+instance Property "FoundationModel" PromptConfigurationProperty where
+  type PropertyType "FoundationModel" PromptConfigurationProperty = Value Prelude.Text
+  set newValue PromptConfigurationProperty {..}
+    = PromptConfigurationProperty
+        {foundationModel = Prelude.pure newValue, ..}
 instance Property "InferenceConfiguration" PromptConfigurationProperty where
   type PropertyType "InferenceConfiguration" PromptConfigurationProperty = InferenceConfigurationProperty
   set newValue PromptConfigurationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.DataSource.SageMakerRunConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SageMakerRunConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties SageMakerRunConfigurationInputProperty
+instance Prelude.Eq SageMakerRunConfigurationInputProperty
+instance Prelude.Show SageMakerRunConfigurationInputProperty
+instance JSON.ToJSON SageMakerRunConfigurationInputProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.GeospatialWindowOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialWindowOptionsProperty :: Prelude.Type
+instance ToResourceProperties GeospatialWindowOptionsProperty
+instance Prelude.Eq GeospatialWindowOptionsProperty
+instance Prelude.Show GeospatialWindowOptionsProperty
+instance JSON.ToJSON GeospatialWindowOptionsProperty

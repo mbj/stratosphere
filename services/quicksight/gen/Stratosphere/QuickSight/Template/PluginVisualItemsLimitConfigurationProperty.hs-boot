@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.PluginVisualItemsLimitConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PluginVisualItemsLimitConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PluginVisualItemsLimitConfigurationProperty
+instance Prelude.Eq PluginVisualItemsLimitConfigurationProperty
+instance Prelude.Show PluginVisualItemsLimitConfigurationProperty
+instance JSON.ToJSON PluginVisualItemsLimitConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Partnership.X12ControlNumbersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12ControlNumbersProperty :: Prelude.Type
+instance ToResourceProperties X12ControlNumbersProperty
+instance Prelude.Eq X12ControlNumbersProperty
+instance Prelude.Show X12ControlNumbersProperty
+instance JSON.ToJSON X12ControlNumbersProperty

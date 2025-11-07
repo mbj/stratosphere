@@ -1,9 +1,10 @@
 module Stratosphere.IoTFleetWise.Vehicle (
-        Vehicle(..), mkVehicle
+        module Exports, Vehicle(..), mkVehicle
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.IoTFleetWise.Vehicle.StateTemplateAssociationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -20,6 +21,8 @@ data Vehicle
              modelManifestArn :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-statetemplates>
+             stateTemplates :: (Prelude.Maybe [StateTemplateAssociationProperty]),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html#cfn-iotfleetwise-vehicle-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -31,7 +34,8 @@ mkVehicle decoderManifestArn modelManifestArn name
       {haddock_workaround_ = (), decoderManifestArn = decoderManifestArn,
        modelManifestArn = modelManifestArn, name = name,
        associationBehavior = Prelude.Nothing,
-       attributes = Prelude.Nothing, tags = Prelude.Nothing}
+       attributes = Prelude.Nothing, stateTemplates = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Vehicle where
   toResourceProperties Vehicle {..}
     = ResourceProperties
@@ -44,6 +48,7 @@ instance ToResourceProperties Vehicle where
                            (Prelude.catMaybes
                               [(JSON..=) "AssociationBehavior" Prelude.<$> associationBehavior,
                                (JSON..=) "Attributes" Prelude.<$> attributes,
+                               (JSON..=) "StateTemplates" Prelude.<$> stateTemplates,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Vehicle where
   toJSON Vehicle {..}
@@ -55,6 +60,7 @@ instance JSON.ToJSON Vehicle where
               (Prelude.catMaybes
                  [(JSON..=) "AssociationBehavior" Prelude.<$> associationBehavior,
                   (JSON..=) "Attributes" Prelude.<$> attributes,
+                  (JSON..=) "StateTemplates" Prelude.<$> stateTemplates,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AssociationBehavior" Vehicle where
   type PropertyType "AssociationBehavior" Vehicle = Value Prelude.Text
@@ -75,6 +81,10 @@ instance Property "ModelManifestArn" Vehicle where
 instance Property "Name" Vehicle where
   type PropertyType "Name" Vehicle = Value Prelude.Text
   set newValue Vehicle {..} = Vehicle {name = newValue, ..}
+instance Property "StateTemplates" Vehicle where
+  type PropertyType "StateTemplates" Vehicle = [StateTemplateAssociationProperty]
+  set newValue Vehicle {..}
+    = Vehicle {stateTemplates = Prelude.pure newValue, ..}
 instance Property "Tags" Vehicle where
   type PropertyType "Tags" Vehicle = [Tag]
   set newValue Vehicle {..}

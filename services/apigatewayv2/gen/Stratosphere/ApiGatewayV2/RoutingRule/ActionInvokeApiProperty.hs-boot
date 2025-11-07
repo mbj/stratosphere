@@ -1,0 +1,9 @@
+module Stratosphere.ApiGatewayV2.RoutingRule.ActionInvokeApiProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ActionInvokeApiProperty :: Prelude.Type
+instance ToResourceProperties ActionInvokeApiProperty
+instance Prelude.Eq ActionInvokeApiProperty
+instance Prelude.Show ActionInvokeApiProperty
+instance JSON.ToJSON ActionInvokeApiProperty

@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.ImagePipeline.AutoDisablePolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoDisablePolicyProperty :: Prelude.Type
+instance ToResourceProperties AutoDisablePolicyProperty
+instance Prelude.Eq AutoDisablePolicyProperty
+instance Prelude.Show AutoDisablePolicyProperty
+instance JSON.ToJSON AutoDisablePolicyProperty

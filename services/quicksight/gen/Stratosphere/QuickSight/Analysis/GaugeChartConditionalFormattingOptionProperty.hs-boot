@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GaugeChartConditionalFormattingOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GaugeChartConditionalFormattingOptionProperty :: Prelude.Type
+instance ToResourceProperties GaugeChartConditionalFormattingOptionProperty
+instance Prelude.Eq GaugeChartConditionalFormattingOptionProperty
+instance Prelude.Show GaugeChartConditionalFormattingOptionProperty
+instance JSON.ToJSON GaugeChartConditionalFormattingOptionProperty

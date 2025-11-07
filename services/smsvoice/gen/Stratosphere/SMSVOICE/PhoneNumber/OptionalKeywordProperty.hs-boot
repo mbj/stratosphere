@@ -1,0 +1,9 @@
+module Stratosphere.SMSVOICE.PhoneNumber.OptionalKeywordProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OptionalKeywordProperty :: Prelude.Type
+instance ToResourceProperties OptionalKeywordProperty
+instance Prelude.Eq OptionalKeywordProperty
+instance Prelude.Show OptionalKeywordProperty
+instance JSON.ToJSON OptionalKeywordProperty

@@ -9,6 +9,8 @@ import Stratosphere.Value
 data ProjectCacheProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html>
     ProjectCacheProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-cachenamespace>
+                          cacheNamespace :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location>
                           location :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes>
@@ -21,7 +23,8 @@ mkProjectCacheProperty ::
 mkProjectCacheProperty type'
   = ProjectCacheProperty
       {haddock_workaround_ = (), type' = type',
-       location = Prelude.Nothing, modes = Prelude.Nothing}
+       cacheNamespace = Prelude.Nothing, location = Prelude.Nothing,
+       modes = Prelude.Nothing}
 instance ToResourceProperties ProjectCacheProperty where
   toResourceProperties ProjectCacheProperty {..}
     = ResourceProperties
@@ -31,7 +34,8 @@ instance ToResourceProperties ProjectCacheProperty where
                         ((Prelude.<>)
                            ["Type" JSON..= type']
                            (Prelude.catMaybes
-                              [(JSON..=) "Location" Prelude.<$> location,
+                              [(JSON..=) "CacheNamespace" Prelude.<$> cacheNamespace,
+                               (JSON..=) "Location" Prelude.<$> location,
                                (JSON..=) "Modes" Prelude.<$> modes]))}
 instance JSON.ToJSON ProjectCacheProperty where
   toJSON ProjectCacheProperty {..}
@@ -40,8 +44,13 @@ instance JSON.ToJSON ProjectCacheProperty where
            ((Prelude.<>)
               ["Type" JSON..= type']
               (Prelude.catMaybes
-                 [(JSON..=) "Location" Prelude.<$> location,
+                 [(JSON..=) "CacheNamespace" Prelude.<$> cacheNamespace,
+                  (JSON..=) "Location" Prelude.<$> location,
                   (JSON..=) "Modes" Prelude.<$> modes])))
+instance Property "CacheNamespace" ProjectCacheProperty where
+  type PropertyType "CacheNamespace" ProjectCacheProperty = Value Prelude.Text
+  set newValue ProjectCacheProperty {..}
+    = ProjectCacheProperty {cacheNamespace = Prelude.pure newValue, ..}
 instance Property "Location" ProjectCacheProperty where
   type PropertyType "Location" ProjectCacheProperty = Value Prelude.Text
   set newValue ProjectCacheProperty {..}

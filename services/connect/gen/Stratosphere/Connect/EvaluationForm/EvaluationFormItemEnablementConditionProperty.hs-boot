@@ -1,0 +1,9 @@
+module Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EvaluationFormItemEnablementConditionProperty :: Prelude.Type
+instance ToResourceProperties EvaluationFormItemEnablementConditionProperty
+instance Prelude.Eq EvaluationFormItemEnablementConditionProperty
+instance Prelude.Show EvaluationFormItemEnablementConditionProperty
+instance JSON.ToJSON EvaluationFormItemEnablementConditionProperty

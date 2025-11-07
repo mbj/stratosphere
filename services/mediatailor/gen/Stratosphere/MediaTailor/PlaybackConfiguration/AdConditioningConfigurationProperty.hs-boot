@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.AdConditioningConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdConditioningConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AdConditioningConfigurationProperty
+instance Prelude.Eq AdConditioningConfigurationProperty
+instance Prelude.Show AdConditioningConfigurationProperty
+instance JSON.ToJSON AdConditioningConfigurationProperty

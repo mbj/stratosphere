@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-glue
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS Glue.
+description:    Integration into stratosphere to generate resources and properties for AWS Glue
+category:       AWS, Cloud, Glue
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -31,12 +34,19 @@ library
       Stratosphere.Glue.Classifier.JsonClassifierProperty
       Stratosphere.Glue.Classifier.XMLClassifierProperty
       Stratosphere.Glue.Connection
+      Stratosphere.Glue.Connection.AuthenticationConfigurationInputProperty
+      Stratosphere.Glue.Connection.AuthorizationCodePropertiesProperty
+      Stratosphere.Glue.Connection.BasicAuthenticationCredentialsProperty
       Stratosphere.Glue.Connection.ConnectionInputProperty
+      Stratosphere.Glue.Connection.OAuth2ClientApplicationProperty
+      Stratosphere.Glue.Connection.OAuth2CredentialsProperty
+      Stratosphere.Glue.Connection.OAuth2PropertiesInputProperty
       Stratosphere.Glue.Connection.PhysicalConnectionRequirementsProperty
       Stratosphere.Glue.Crawler
       Stratosphere.Glue.Crawler.CatalogTargetProperty
       Stratosphere.Glue.Crawler.DeltaTargetProperty
       Stratosphere.Glue.Crawler.DynamoDBTargetProperty
+      Stratosphere.Glue.Crawler.HudiTargetProperty
       Stratosphere.Glue.Crawler.IcebergTargetProperty
       Stratosphere.Glue.Crawler.JdbcTargetProperty
       Stratosphere.Glue.Crawler.LakeFormationConfigurationProperty
@@ -108,7 +118,12 @@ library
       Stratosphere.Glue.Table.TableIdentifierProperty
       Stratosphere.Glue.Table.TableInputProperty
       Stratosphere.Glue.TableOptimizer
+      Stratosphere.Glue.TableOptimizer.IcebergConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.IcebergRetentionConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.OrphanFileDeletionConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.RetentionConfigurationProperty
       Stratosphere.Glue.TableOptimizer.TableOptimizerConfigurationProperty
+      Stratosphere.Glue.TableOptimizer.VpcConfigurationProperty
       Stratosphere.Glue.Trigger
       Stratosphere.Glue.Trigger.ActionProperty
       Stratosphere.Glue.Trigger.ConditionProperty
@@ -153,8 +168,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

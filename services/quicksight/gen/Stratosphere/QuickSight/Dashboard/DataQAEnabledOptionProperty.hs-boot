@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.DataQAEnabledOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataQAEnabledOptionProperty :: Prelude.Type
+instance ToResourceProperties DataQAEnabledOptionProperty
+instance Prelude.Eq DataQAEnabledOptionProperty
+instance Prelude.Show DataQAEnabledOptionProperty
+instance JSON.ToJSON DataQAEnabledOptionProperty

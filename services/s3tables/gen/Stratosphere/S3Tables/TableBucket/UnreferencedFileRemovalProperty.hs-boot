@@ -1,0 +1,9 @@
+module Stratosphere.S3Tables.TableBucket.UnreferencedFileRemovalProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UnreferencedFileRemovalProperty :: Prelude.Type
+instance ToResourceProperties UnreferencedFileRemovalProperty
+instance Prelude.Eq UnreferencedFileRemovalProperty
+instance Prelude.Show UnreferencedFileRemovalProperty
+instance JSON.ToJSON UnreferencedFileRemovalProperty

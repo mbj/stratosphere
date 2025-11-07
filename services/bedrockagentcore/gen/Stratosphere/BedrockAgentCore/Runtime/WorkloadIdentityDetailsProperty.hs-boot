@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Runtime.WorkloadIdentityDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkloadIdentityDetailsProperty :: Prelude.Type
+instance ToResourceProperties WorkloadIdentityDetailsProperty
+instance Prelude.Eq WorkloadIdentityDetailsProperty
+instance Prelude.Show WorkloadIdentityDetailsProperty
+instance JSON.ToJSON WorkloadIdentityDetailsProperty

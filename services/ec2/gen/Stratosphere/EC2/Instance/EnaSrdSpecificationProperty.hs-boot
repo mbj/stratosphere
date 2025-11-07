@@ -1,0 +1,9 @@
+module Stratosphere.EC2.Instance.EnaSrdSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnaSrdSpecificationProperty :: Prelude.Type
+instance ToResourceProperties EnaSrdSpecificationProperty
+instance Prelude.Eq EnaSrdSpecificationProperty
+instance Prelude.Show EnaSrdSpecificationProperty
+instance JSON.ToJSON EnaSrdSpecificationProperty

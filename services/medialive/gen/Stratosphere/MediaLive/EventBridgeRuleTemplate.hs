@@ -18,22 +18,19 @@ data EventBridgeRuleTemplate
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html#cfn-medialive-eventbridgeruletemplate-eventtype>
                              eventType :: (Value Prelude.Text),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html#cfn-medialive-eventbridgeruletemplate-groupidentifier>
-                             groupIdentifier :: (Value Prelude.Text),
+                             groupIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html#cfn-medialive-eventbridgeruletemplate-name>
                              name :: (Value Prelude.Text),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html#cfn-medialive-eventbridgeruletemplate-tags>
                              tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEventBridgeRuleTemplate ::
-  Value Prelude.Text
-  -> Value Prelude.Text
-     -> Value Prelude.Text -> EventBridgeRuleTemplate
-mkEventBridgeRuleTemplate eventType groupIdentifier name
+  Value Prelude.Text -> Value Prelude.Text -> EventBridgeRuleTemplate
+mkEventBridgeRuleTemplate eventType name
   = EventBridgeRuleTemplate
-      {haddock_workaround_ = (), eventType = eventType,
-       groupIdentifier = groupIdentifier, name = name,
+      {haddock_workaround_ = (), eventType = eventType, name = name,
        description = Prelude.Nothing, eventTargets = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       groupIdentifier = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties EventBridgeRuleTemplate where
   toResourceProperties EventBridgeRuleTemplate {..}
     = ResourceProperties
@@ -41,22 +38,22 @@ instance ToResourceProperties EventBridgeRuleTemplate where
          supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["EventType" JSON..= eventType,
-                            "GroupIdentifier" JSON..= groupIdentifier, "Name" JSON..= name]
+                           ["EventType" JSON..= eventType, "Name" JSON..= name]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EventTargets" Prelude.<$> eventTargets,
+                               (JSON..=) "GroupIdentifier" Prelude.<$> groupIdentifier,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON EventBridgeRuleTemplate where
   toJSON EventBridgeRuleTemplate {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["EventType" JSON..= eventType,
-               "GroupIdentifier" JSON..= groupIdentifier, "Name" JSON..= name]
+              ["EventType" JSON..= eventType, "Name" JSON..= name]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EventTargets" Prelude.<$> eventTargets,
+                  (JSON..=) "GroupIdentifier" Prelude.<$> groupIdentifier,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" EventBridgeRuleTemplate where
   type PropertyType "Description" EventBridgeRuleTemplate = Value Prelude.Text
@@ -74,7 +71,8 @@ instance Property "EventType" EventBridgeRuleTemplate where
 instance Property "GroupIdentifier" EventBridgeRuleTemplate where
   type PropertyType "GroupIdentifier" EventBridgeRuleTemplate = Value Prelude.Text
   set newValue EventBridgeRuleTemplate {..}
-    = EventBridgeRuleTemplate {groupIdentifier = newValue, ..}
+    = EventBridgeRuleTemplate
+        {groupIdentifier = Prelude.pure newValue, ..}
 instance Property "Name" EventBridgeRuleTemplate where
   type PropertyType "Name" EventBridgeRuleTemplate = Value Prelude.Text
   set newValue EventBridgeRuleTemplate {..}

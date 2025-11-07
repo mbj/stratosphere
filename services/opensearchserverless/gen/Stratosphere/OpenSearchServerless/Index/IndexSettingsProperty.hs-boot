@@ -1,0 +1,9 @@
+module Stratosphere.OpenSearchServerless.Index.IndexSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IndexSettingsProperty :: Prelude.Type
+instance ToResourceProperties IndexSettingsProperty
+instance Prelude.Eq IndexSettingsProperty
+instance Prelude.Show IndexSettingsProperty
+instance JSON.ToJSON IndexSettingsProperty

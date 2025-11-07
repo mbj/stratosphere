@@ -1,0 +1,9 @@
+module Stratosphere.IoT.AccountAuditConfiguration.CertAgeCheckCustomConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CertAgeCheckCustomConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CertAgeCheckCustomConfigurationProperty
+instance Prelude.Eq CertAgeCheckCustomConfigurationProperty
+instance Prelude.Show CertAgeCheckCustomConfigurationProperty
+instance JSON.ToJSON CertAgeCheckCustomConfigurationProperty

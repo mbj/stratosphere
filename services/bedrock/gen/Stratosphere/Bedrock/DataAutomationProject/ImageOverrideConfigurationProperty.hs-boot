@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.ImageOverrideConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageOverrideConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ImageOverrideConfigurationProperty
+instance Prelude.Eq ImageOverrideConfigurationProperty
+instance Prelude.Show ImageOverrideConfigurationProperty
+instance JSON.ToJSON ImageOverrideConfigurationProperty

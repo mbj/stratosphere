@@ -15,6 +15,8 @@ data NetworkInterfaceAttachment
                                 deleteOnTermination :: (Prelude.Maybe (Value Prelude.Bool)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-deviceindex>
                                 deviceIndex :: (Value Prelude.Text),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-enaqueuecount>
+                                enaQueueCount :: (Prelude.Maybe (Value Prelude.Integer)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-enasrdspecification>
                                 enaSrdSpecification :: (Prelude.Maybe EnaSrdSpecificationProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html#cfn-ec2-networkinterfaceattachment-instanceid>
@@ -34,6 +36,7 @@ mkNetworkInterfaceAttachment
       {haddock_workaround_ = (), deviceIndex = deviceIndex,
        instanceId = instanceId, networkInterfaceId = networkInterfaceId,
        deleteOnTermination = Prelude.Nothing,
+       enaQueueCount = Prelude.Nothing,
        enaSrdSpecification = Prelude.Nothing}
 instance ToResourceProperties NetworkInterfaceAttachment where
   toResourceProperties NetworkInterfaceAttachment {..}
@@ -47,6 +50,7 @@ instance ToResourceProperties NetworkInterfaceAttachment where
                             "NetworkInterfaceId" JSON..= networkInterfaceId]
                            (Prelude.catMaybes
                               [(JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
+                               (JSON..=) "EnaQueueCount" Prelude.<$> enaQueueCount,
                                (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification]))}
 instance JSON.ToJSON NetworkInterfaceAttachment where
   toJSON NetworkInterfaceAttachment {..}
@@ -58,6 +62,7 @@ instance JSON.ToJSON NetworkInterfaceAttachment where
                "NetworkInterfaceId" JSON..= networkInterfaceId]
               (Prelude.catMaybes
                  [(JSON..=) "DeleteOnTermination" Prelude.<$> deleteOnTermination,
+                  (JSON..=) "EnaQueueCount" Prelude.<$> enaQueueCount,
                   (JSON..=) "EnaSrdSpecification" Prelude.<$> enaSrdSpecification])))
 instance Property "DeleteOnTermination" NetworkInterfaceAttachment where
   type PropertyType "DeleteOnTermination" NetworkInterfaceAttachment = Value Prelude.Bool
@@ -68,6 +73,11 @@ instance Property "DeviceIndex" NetworkInterfaceAttachment where
   type PropertyType "DeviceIndex" NetworkInterfaceAttachment = Value Prelude.Text
   set newValue NetworkInterfaceAttachment {..}
     = NetworkInterfaceAttachment {deviceIndex = newValue, ..}
+instance Property "EnaQueueCount" NetworkInterfaceAttachment where
+  type PropertyType "EnaQueueCount" NetworkInterfaceAttachment = Value Prelude.Integer
+  set newValue NetworkInterfaceAttachment {..}
+    = NetworkInterfaceAttachment
+        {enaQueueCount = Prelude.pure newValue, ..}
 instance Property "EnaSrdSpecification" NetworkInterfaceAttachment where
   type PropertyType "EnaSrdSpecification" NetworkInterfaceAttachment = EnaSrdSpecificationProperty
   set newValue NetworkInterfaceAttachment {..}

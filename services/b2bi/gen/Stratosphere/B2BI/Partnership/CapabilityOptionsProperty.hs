@@ -5,18 +5,22 @@ module Stratosphere.B2BI.Partnership.CapabilityOptionsProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.B2BI.Partnership.InboundEdiOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.B2BI.Partnership.OutboundEdiOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 data CapabilityOptionsProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html>
     CapabilityOptionsProperty {haddock_workaround_ :: (),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-inboundedi>
+                               inboundEdi :: (Prelude.Maybe InboundEdiOptionsProperty),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-outboundedi>
                                outboundEdi :: (Prelude.Maybe OutboundEdiOptionsProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCapabilityOptionsProperty :: CapabilityOptionsProperty
 mkCapabilityOptionsProperty
   = CapabilityOptionsProperty
-      {haddock_workaround_ = (), outboundEdi = Prelude.Nothing}
+      {haddock_workaround_ = (), inboundEdi = Prelude.Nothing,
+       outboundEdi = Prelude.Nothing}
 instance ToResourceProperties CapabilityOptionsProperty where
   toResourceProperties CapabilityOptionsProperty {..}
     = ResourceProperties
@@ -24,13 +28,20 @@ instance ToResourceProperties CapabilityOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "OutboundEdi" Prelude.<$> outboundEdi])}
+                           [(JSON..=) "InboundEdi" Prelude.<$> inboundEdi,
+                            (JSON..=) "OutboundEdi" Prelude.<$> outboundEdi])}
 instance JSON.ToJSON CapabilityOptionsProperty where
   toJSON CapabilityOptionsProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "OutboundEdi" Prelude.<$> outboundEdi]))
+              [(JSON..=) "InboundEdi" Prelude.<$> inboundEdi,
+               (JSON..=) "OutboundEdi" Prelude.<$> outboundEdi]))
+instance Property "InboundEdi" CapabilityOptionsProperty where
+  type PropertyType "InboundEdi" CapabilityOptionsProperty = InboundEdiOptionsProperty
+  set newValue CapabilityOptionsProperty {..}
+    = CapabilityOptionsProperty
+        {inboundEdi = Prelude.pure newValue, ..}
 instance Property "OutboundEdi" CapabilityOptionsProperty where
   type PropertyType "OutboundEdi" CapabilityOptionsProperty = OutboundEdiOptionsProperty
   set newValue CapabilityOptionsProperty {..}

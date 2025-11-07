@@ -6,7 +6,6 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.ContainerDefinitionProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.EphemeralStorageProperty as Exports
-import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.InferenceAcceleratorProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.ProxyConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.RuntimePlatformProperty as Exports
 import {-# SOURCE #-} Stratosphere.ECS.TaskDefinition.TaskDefinitionPlacementConstraintProperty as Exports
@@ -21,14 +20,14 @@ data TaskDefinition
                     containerDefinitions :: (Prelude.Maybe [ContainerDefinitionProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu>
                     cpu :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-enablefaultinjection>
+                    enableFaultInjection :: (Prelude.Maybe (Value Prelude.Bool)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage>
                     ephemeralStorage :: (Prelude.Maybe EphemeralStorageProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn>
                     executionRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family>
                     family :: (Prelude.Maybe (Value Prelude.Text)),
-                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators>
-                    inferenceAccelerators :: (Prelude.Maybe [InferenceAcceleratorProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode>
                     ipcMode :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory>
@@ -56,11 +55,12 @@ mkTaskDefinition :: TaskDefinition
 mkTaskDefinition
   = TaskDefinition
       {haddock_workaround_ = (), containerDefinitions = Prelude.Nothing,
-       cpu = Prelude.Nothing, ephemeralStorage = Prelude.Nothing,
+       cpu = Prelude.Nothing, enableFaultInjection = Prelude.Nothing,
+       ephemeralStorage = Prelude.Nothing,
        executionRoleArn = Prelude.Nothing, family = Prelude.Nothing,
-       inferenceAccelerators = Prelude.Nothing, ipcMode = Prelude.Nothing,
-       memory = Prelude.Nothing, networkMode = Prelude.Nothing,
-       pidMode = Prelude.Nothing, placementConstraints = Prelude.Nothing,
+       ipcMode = Prelude.Nothing, memory = Prelude.Nothing,
+       networkMode = Prelude.Nothing, pidMode = Prelude.Nothing,
+       placementConstraints = Prelude.Nothing,
        proxyConfiguration = Prelude.Nothing,
        requiresCompatibilities = Prelude.Nothing,
        runtimePlatform = Prelude.Nothing, tags = Prelude.Nothing,
@@ -73,11 +73,10 @@ instance ToResourceProperties TaskDefinition where
                         (Prelude.catMaybes
                            [(JSON..=) "ContainerDefinitions" Prelude.<$> containerDefinitions,
                             (JSON..=) "Cpu" Prelude.<$> cpu,
+                            (JSON..=) "EnableFaultInjection" Prelude.<$> enableFaultInjection,
                             (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                             (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                             (JSON..=) "Family" Prelude.<$> family,
-                            (JSON..=) "InferenceAccelerators"
-                              Prelude.<$> inferenceAccelerators,
                             (JSON..=) "IpcMode" Prelude.<$> ipcMode,
                             (JSON..=) "Memory" Prelude.<$> memory,
                             (JSON..=) "NetworkMode" Prelude.<$> networkMode,
@@ -97,11 +96,10 @@ instance JSON.ToJSON TaskDefinition where
            (Prelude.catMaybes
               [(JSON..=) "ContainerDefinitions" Prelude.<$> containerDefinitions,
                (JSON..=) "Cpu" Prelude.<$> cpu,
+               (JSON..=) "EnableFaultInjection" Prelude.<$> enableFaultInjection,
                (JSON..=) "EphemeralStorage" Prelude.<$> ephemeralStorage,
                (JSON..=) "ExecutionRoleArn" Prelude.<$> executionRoleArn,
                (JSON..=) "Family" Prelude.<$> family,
-               (JSON..=) "InferenceAccelerators"
-                 Prelude.<$> inferenceAccelerators,
                (JSON..=) "IpcMode" Prelude.<$> ipcMode,
                (JSON..=) "Memory" Prelude.<$> memory,
                (JSON..=) "NetworkMode" Prelude.<$> networkMode,
@@ -122,6 +120,10 @@ instance Property "Cpu" TaskDefinition where
   type PropertyType "Cpu" TaskDefinition = Value Prelude.Text
   set newValue TaskDefinition {..}
     = TaskDefinition {cpu = Prelude.pure newValue, ..}
+instance Property "EnableFaultInjection" TaskDefinition where
+  type PropertyType "EnableFaultInjection" TaskDefinition = Value Prelude.Bool
+  set newValue TaskDefinition {..}
+    = TaskDefinition {enableFaultInjection = Prelude.pure newValue, ..}
 instance Property "EphemeralStorage" TaskDefinition where
   type PropertyType "EphemeralStorage" TaskDefinition = EphemeralStorageProperty
   set newValue TaskDefinition {..}
@@ -134,11 +136,6 @@ instance Property "Family" TaskDefinition where
   type PropertyType "Family" TaskDefinition = Value Prelude.Text
   set newValue TaskDefinition {..}
     = TaskDefinition {family = Prelude.pure newValue, ..}
-instance Property "InferenceAccelerators" TaskDefinition where
-  type PropertyType "InferenceAccelerators" TaskDefinition = [InferenceAcceleratorProperty]
-  set newValue TaskDefinition {..}
-    = TaskDefinition
-        {inferenceAccelerators = Prelude.pure newValue, ..}
 instance Property "IpcMode" TaskDefinition where
   type PropertyType "IpcMode" TaskDefinition = Value Prelude.Text
   set newValue TaskDefinition {..}

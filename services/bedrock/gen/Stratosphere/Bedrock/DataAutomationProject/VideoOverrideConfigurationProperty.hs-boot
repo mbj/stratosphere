@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.VideoOverrideConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoOverrideConfigurationProperty :: Prelude.Type
+instance ToResourceProperties VideoOverrideConfigurationProperty
+instance Prelude.Eq VideoOverrideConfigurationProperty
+instance Prelude.Show VideoOverrideConfigurationProperty
+instance JSON.ToJSON VideoOverrideConfigurationProperty

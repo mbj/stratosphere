@@ -17,7 +17,9 @@ data Filter
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-filtercriteria>
             filterCriteria :: FilterCriteriaProperty,
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-name>
-            name :: (Value Prelude.Text)}
+            name :: (Value Prelude.Text),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspectorv2-filter.html#cfn-inspectorv2-filter-tags>
+            tags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text)))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFilter ::
   Value Prelude.Text
@@ -26,18 +28,18 @@ mkFilter filterAction filterCriteria name
   = Filter
       {haddock_workaround_ = (), filterAction = filterAction,
        filterCriteria = filterCriteria, name = name,
-       description = Prelude.Nothing}
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Filter where
   toResourceProperties Filter {..}
     = ResourceProperties
-        {awsType = "AWS::InspectorV2::Filter",
-         supportsTags = Prelude.False,
+        {awsType = "AWS::InspectorV2::Filter", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["FilterAction" JSON..= filterAction,
                             "FilterCriteria" JSON..= filterCriteria, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description]))}
+                              [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Filter where
   toJSON Filter {..}
     = JSON.object
@@ -46,7 +48,8 @@ instance JSON.ToJSON Filter where
               ["FilterAction" JSON..= filterAction,
                "FilterCriteria" JSON..= filterCriteria, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description])))
+                 [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Description" Filter where
   type PropertyType "Description" Filter = Value Prelude.Text
   set newValue Filter {..}
@@ -60,3 +63,7 @@ instance Property "FilterCriteria" Filter where
 instance Property "Name" Filter where
   type PropertyType "Name" Filter = Value Prelude.Text
   set newValue Filter {..} = Filter {name = newValue, ..}
+instance Property "Tags" Filter where
+  type PropertyType "Tags" Filter = Prelude.Map Prelude.Text (Value Prelude.Text)
+  set newValue Filter {..}
+    = Filter {tags = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.CompositeFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CompositeFilterProperty :: Prelude.Type
+instance ToResourceProperties CompositeFilterProperty
+instance Prelude.Eq CompositeFilterProperty
+instance Prelude.Show CompositeFilterProperty
+instance JSON.ToJSON CompositeFilterProperty

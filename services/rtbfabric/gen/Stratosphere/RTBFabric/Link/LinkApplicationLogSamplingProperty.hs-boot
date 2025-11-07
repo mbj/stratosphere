@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.LinkApplicationLogSamplingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LinkApplicationLogSamplingProperty :: Prelude.Type
+instance ToResourceProperties LinkApplicationLogSamplingProperty
+instance Prelude.Eq LinkApplicationLogSamplingProperty
+instance Prelude.Show LinkApplicationLogSamplingProperty
+instance JSON.ToJSON LinkApplicationLogSamplingProperty

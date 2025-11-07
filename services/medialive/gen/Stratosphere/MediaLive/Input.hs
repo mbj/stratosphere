@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.MediaLive.Input.InputSourceRequestProperty as
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.InputVpcRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.MediaConnectFlowRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.MulticastSettingsCreateRequestProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Input.Smpte2110ReceiverGroupSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Input.SrtSettingsRequestProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -32,6 +33,10 @@ data Input
            name :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-rolearn>
            roleArn :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sdisources>
+           sdiSources :: (Prelude.Maybe (ValueList Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-smpte2110receivergroupsettings>
+           smpte2110ReceiverGroupSettings :: (Prelude.Maybe Smpte2110ReceiverGroupSettingsProperty),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources>
            sources :: (Prelude.Maybe [InputSourceRequestProperty]),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-srtsettings>
@@ -52,9 +57,11 @@ mkInput
        inputSecurityGroups = Prelude.Nothing,
        mediaConnectFlows = Prelude.Nothing,
        multicastSettings = Prelude.Nothing, name = Prelude.Nothing,
-       roleArn = Prelude.Nothing, sources = Prelude.Nothing,
-       srtSettings = Prelude.Nothing, tags = Prelude.Nothing,
-       type' = Prelude.Nothing, vpc = Prelude.Nothing}
+       roleArn = Prelude.Nothing, sdiSources = Prelude.Nothing,
+       smpte2110ReceiverGroupSettings = Prelude.Nothing,
+       sources = Prelude.Nothing, srtSettings = Prelude.Nothing,
+       tags = Prelude.Nothing, type' = Prelude.Nothing,
+       vpc = Prelude.Nothing}
 instance ToResourceProperties Input where
   toResourceProperties Input {..}
     = ResourceProperties
@@ -69,6 +76,9 @@ instance ToResourceProperties Input where
                             (JSON..=) "MulticastSettings" Prelude.<$> multicastSettings,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "RoleArn" Prelude.<$> roleArn,
+                            (JSON..=) "SdiSources" Prelude.<$> sdiSources,
+                            (JSON..=) "Smpte2110ReceiverGroupSettings"
+                              Prelude.<$> smpte2110ReceiverGroupSettings,
                             (JSON..=) "Sources" Prelude.<$> sources,
                             (JSON..=) "SrtSettings" Prelude.<$> srtSettings,
                             (JSON..=) "Tags" Prelude.<$> tags,
@@ -87,6 +97,9 @@ instance JSON.ToJSON Input where
                (JSON..=) "MulticastSettings" Prelude.<$> multicastSettings,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "RoleArn" Prelude.<$> roleArn,
+               (JSON..=) "SdiSources" Prelude.<$> sdiSources,
+               (JSON..=) "Smpte2110ReceiverGroupSettings"
+                 Prelude.<$> smpte2110ReceiverGroupSettings,
                (JSON..=) "Sources" Prelude.<$> sources,
                (JSON..=) "SrtSettings" Prelude.<$> srtSettings,
                (JSON..=) "Tags" Prelude.<$> tags,
@@ -123,6 +136,15 @@ instance Property "RoleArn" Input where
   type PropertyType "RoleArn" Input = Value Prelude.Text
   set newValue Input {..}
     = Input {roleArn = Prelude.pure newValue, ..}
+instance Property "SdiSources" Input where
+  type PropertyType "SdiSources" Input = ValueList Prelude.Text
+  set newValue Input {..}
+    = Input {sdiSources = Prelude.pure newValue, ..}
+instance Property "Smpte2110ReceiverGroupSettings" Input where
+  type PropertyType "Smpte2110ReceiverGroupSettings" Input = Smpte2110ReceiverGroupSettingsProperty
+  set newValue Input {..}
+    = Input
+        {smpte2110ReceiverGroupSettings = Prelude.pure newValue, ..}
 instance Property "Sources" Input where
   type PropertyType "Sources" Input = [InputSourceRequestProperty]
   set newValue Input {..}

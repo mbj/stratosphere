@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.AttributeDefinitionProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.GlobalSecondaryIndexProperty as Exports
+import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.GlobalTableWitnessProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.KeySchemaProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.LocalSecondaryIndexProperty as Exports
 import {-# SOURCE #-} Stratosphere.DynamoDB.GlobalTable.ReplicaSpecificationProperty as Exports
@@ -26,10 +27,14 @@ data GlobalTable
                  billingMode :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes>
                  globalSecondaryIndexes :: (Prelude.Maybe [GlobalSecondaryIndexProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablewitnesses>
+                 globalTableWitnesses :: (Prelude.Maybe [GlobalTableWitnessProperty]),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema>
                  keySchema :: [KeySchemaProperty],
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes>
                  localSecondaryIndexes :: (Prelude.Maybe [LocalSecondaryIndexProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-multiregionconsistency>
+                 multiRegionConsistency :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas>
                  replicas :: [ReplicaSpecificationProperty],
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification>
@@ -57,7 +62,9 @@ mkGlobalTable attributeDefinitions keySchema replicas
        attributeDefinitions = attributeDefinitions, keySchema = keySchema,
        replicas = replicas, billingMode = Prelude.Nothing,
        globalSecondaryIndexes = Prelude.Nothing,
+       globalTableWitnesses = Prelude.Nothing,
        localSecondaryIndexes = Prelude.Nothing,
+       multiRegionConsistency = Prelude.Nothing,
        sSESpecification = Prelude.Nothing,
        streamSpecification = Prelude.Nothing, tableName = Prelude.Nothing,
        timeToLiveSpecification = Prelude.Nothing,
@@ -77,8 +84,11 @@ instance ToResourceProperties GlobalTable where
                               [(JSON..=) "BillingMode" Prelude.<$> billingMode,
                                (JSON..=) "GlobalSecondaryIndexes"
                                  Prelude.<$> globalSecondaryIndexes,
+                               (JSON..=) "GlobalTableWitnesses" Prelude.<$> globalTableWitnesses,
                                (JSON..=) "LocalSecondaryIndexes"
                                  Prelude.<$> localSecondaryIndexes,
+                               (JSON..=) "MultiRegionConsistency"
+                                 Prelude.<$> multiRegionConsistency,
                                (JSON..=) "SSESpecification" Prelude.<$> sSESpecification,
                                (JSON..=) "StreamSpecification" Prelude.<$> streamSpecification,
                                (JSON..=) "TableName" Prelude.<$> tableName,
@@ -100,8 +110,11 @@ instance JSON.ToJSON GlobalTable where
                  [(JSON..=) "BillingMode" Prelude.<$> billingMode,
                   (JSON..=) "GlobalSecondaryIndexes"
                     Prelude.<$> globalSecondaryIndexes,
+                  (JSON..=) "GlobalTableWitnesses" Prelude.<$> globalTableWitnesses,
                   (JSON..=) "LocalSecondaryIndexes"
                     Prelude.<$> localSecondaryIndexes,
+                  (JSON..=) "MultiRegionConsistency"
+                    Prelude.<$> multiRegionConsistency,
                   (JSON..=) "SSESpecification" Prelude.<$> sSESpecification,
                   (JSON..=) "StreamSpecification" Prelude.<$> streamSpecification,
                   (JSON..=) "TableName" Prelude.<$> tableName,
@@ -124,6 +137,10 @@ instance Property "GlobalSecondaryIndexes" GlobalTable where
   type PropertyType "GlobalSecondaryIndexes" GlobalTable = [GlobalSecondaryIndexProperty]
   set newValue GlobalTable {..}
     = GlobalTable {globalSecondaryIndexes = Prelude.pure newValue, ..}
+instance Property "GlobalTableWitnesses" GlobalTable where
+  type PropertyType "GlobalTableWitnesses" GlobalTable = [GlobalTableWitnessProperty]
+  set newValue GlobalTable {..}
+    = GlobalTable {globalTableWitnesses = Prelude.pure newValue, ..}
 instance Property "KeySchema" GlobalTable where
   type PropertyType "KeySchema" GlobalTable = [KeySchemaProperty]
   set newValue GlobalTable {..}
@@ -132,6 +149,10 @@ instance Property "LocalSecondaryIndexes" GlobalTable where
   type PropertyType "LocalSecondaryIndexes" GlobalTable = [LocalSecondaryIndexProperty]
   set newValue GlobalTable {..}
     = GlobalTable {localSecondaryIndexes = Prelude.pure newValue, ..}
+instance Property "MultiRegionConsistency" GlobalTable where
+  type PropertyType "MultiRegionConsistency" GlobalTable = Value Prelude.Text
+  set newValue GlobalTable {..}
+    = GlobalTable {multiRegionConsistency = Prelude.pure newValue, ..}
 instance Property "Replicas" GlobalTable where
   type PropertyType "Replicas" GlobalTable = [ReplicaSpecificationProperty]
   set newValue GlobalTable {..}

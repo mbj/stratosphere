@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.ManifestServiceInteractionLogProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManifestServiceInteractionLogProperty :: Prelude.Type
+instance ToResourceProperties ManifestServiceInteractionLogProperty
+instance Prelude.Eq ManifestServiceInteractionLogProperty
+instance Prelude.Show ManifestServiceInteractionLogProperty
+instance JSON.ToJSON ManifestServiceInteractionLogProperty

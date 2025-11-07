@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.BufferOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.EncryptionAtRestOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.LogPublishingOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.ResourcePolicyProperty as Exports
 import {-# SOURCE #-} Stratosphere.OSIS.Pipeline.VpcOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -28,6 +29,10 @@ data Pipeline
               pipelineConfigurationBody :: (Value Prelude.Text),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinename>
               pipelineName :: (Value Prelude.Text),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-pipelinerolearn>
+              pipelineRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-resourcepolicy>
+              resourcePolicy :: (Prelude.Maybe ResourcePolicyProperty),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-tags>
               tags :: (Prelude.Maybe [Tag]),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-osis-pipeline.html#cfn-osis-pipeline-vpcoptions>
@@ -44,7 +49,9 @@ mkPipeline maxUnits minUnits pipelineConfigurationBody pipelineName
        pipelineConfigurationBody = pipelineConfigurationBody,
        pipelineName = pipelineName, bufferOptions = Prelude.Nothing,
        encryptionAtRestOptions = Prelude.Nothing,
-       logPublishingOptions = Prelude.Nothing, tags = Prelude.Nothing,
+       logPublishingOptions = Prelude.Nothing,
+       pipelineRoleArn = Prelude.Nothing,
+       resourcePolicy = Prelude.Nothing, tags = Prelude.Nothing,
        vpcOptions = Prelude.Nothing}
 instance ToResourceProperties Pipeline where
   toResourceProperties Pipeline {..}
@@ -60,6 +67,8 @@ instance ToResourceProperties Pipeline where
                                (JSON..=) "EncryptionAtRestOptions"
                                  Prelude.<$> encryptionAtRestOptions,
                                (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
+                               (JSON..=) "PipelineRoleArn" Prelude.<$> pipelineRoleArn,
+                               (JSON..=) "ResourcePolicy" Prelude.<$> resourcePolicy,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VpcOptions" Prelude.<$> vpcOptions]))}
 instance JSON.ToJSON Pipeline where
@@ -75,6 +84,8 @@ instance JSON.ToJSON Pipeline where
                   (JSON..=) "EncryptionAtRestOptions"
                     Prelude.<$> encryptionAtRestOptions,
                   (JSON..=) "LogPublishingOptions" Prelude.<$> logPublishingOptions,
+                  (JSON..=) "PipelineRoleArn" Prelude.<$> pipelineRoleArn,
+                  (JSON..=) "ResourcePolicy" Prelude.<$> resourcePolicy,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VpcOptions" Prelude.<$> vpcOptions])))
 instance Property "BufferOptions" Pipeline where
@@ -102,6 +113,14 @@ instance Property "PipelineConfigurationBody" Pipeline where
 instance Property "PipelineName" Pipeline where
   type PropertyType "PipelineName" Pipeline = Value Prelude.Text
   set newValue Pipeline {..} = Pipeline {pipelineName = newValue, ..}
+instance Property "PipelineRoleArn" Pipeline where
+  type PropertyType "PipelineRoleArn" Pipeline = Value Prelude.Text
+  set newValue Pipeline {..}
+    = Pipeline {pipelineRoleArn = Prelude.pure newValue, ..}
+instance Property "ResourcePolicy" Pipeline where
+  type PropertyType "ResourcePolicy" Pipeline = ResourcePolicyProperty
+  set newValue Pipeline {..}
+    = Pipeline {resourcePolicy = Prelude.pure newValue, ..}
 instance Property "Tags" Pipeline where
   type PropertyType "Tags" Pipeline = [Tag]
   set newValue Pipeline {..}

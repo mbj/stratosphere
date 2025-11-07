@@ -1,0 +1,9 @@
+module Stratosphere.Billing.BillingView.DataFilterExpressionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataFilterExpressionProperty :: Prelude.Type
+instance ToResourceProperties DataFilterExpressionProperty
+instance Prelude.Eq DataFilterExpressionProperty
+instance Prelude.Show DataFilterExpressionProperty
+instance JSON.ToJSON DataFilterExpressionProperty

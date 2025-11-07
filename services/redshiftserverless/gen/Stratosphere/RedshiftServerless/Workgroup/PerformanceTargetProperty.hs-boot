@@ -1,0 +1,9 @@
+module Stratosphere.RedshiftServerless.Workgroup.PerformanceTargetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PerformanceTargetProperty :: Prelude.Type
+instance ToResourceProperties PerformanceTargetProperty
+instance Prelude.Eq PerformanceTargetProperty
+instance Prelude.Show PerformanceTargetProperty
+instance JSON.ToJSON PerformanceTargetProperty

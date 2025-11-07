@@ -16,6 +16,8 @@ data LaunchTemplateSpecificationOverrideProperty
                                                  launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-targetinstancetypes>
                                                  targetInstanceTypes :: (Prelude.Maybe (ValueList Prelude.Text)),
+                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-userdatatype>
+                                                 userdataType :: (Prelude.Maybe (Value Prelude.Text)),
                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html#cfn-batch-computeenvironment-launchtemplatespecificationoverride-version>
                                                  version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -25,7 +27,8 @@ mkLaunchTemplateSpecificationOverrideProperty
   = LaunchTemplateSpecificationOverrideProperty
       {haddock_workaround_ = (), launchTemplateId = Prelude.Nothing,
        launchTemplateName = Prelude.Nothing,
-       targetInstanceTypes = Prelude.Nothing, version = Prelude.Nothing}
+       targetInstanceTypes = Prelude.Nothing,
+       userdataType = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties LaunchTemplateSpecificationOverrideProperty where
   toResourceProperties
     LaunchTemplateSpecificationOverrideProperty {..}
@@ -37,6 +40,7 @@ instance ToResourceProperties LaunchTemplateSpecificationOverrideProperty where
                            [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,
                             (JSON..=) "LaunchTemplateName" Prelude.<$> launchTemplateName,
                             (JSON..=) "TargetInstanceTypes" Prelude.<$> targetInstanceTypes,
+                            (JSON..=) "UserdataType" Prelude.<$> userdataType,
                             (JSON..=) "Version" Prelude.<$> version])}
 instance JSON.ToJSON LaunchTemplateSpecificationOverrideProperty where
   toJSON LaunchTemplateSpecificationOverrideProperty {..}
@@ -46,6 +50,7 @@ instance JSON.ToJSON LaunchTemplateSpecificationOverrideProperty where
               [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,
                (JSON..=) "LaunchTemplateName" Prelude.<$> launchTemplateName,
                (JSON..=) "TargetInstanceTypes" Prelude.<$> targetInstanceTypes,
+               (JSON..=) "UserdataType" Prelude.<$> userdataType,
                (JSON..=) "Version" Prelude.<$> version]))
 instance Property "LaunchTemplateId" LaunchTemplateSpecificationOverrideProperty where
   type PropertyType "LaunchTemplateId" LaunchTemplateSpecificationOverrideProperty = Value Prelude.Text
@@ -62,6 +67,11 @@ instance Property "TargetInstanceTypes" LaunchTemplateSpecificationOverridePrope
   set newValue LaunchTemplateSpecificationOverrideProperty {..}
     = LaunchTemplateSpecificationOverrideProperty
         {targetInstanceTypes = Prelude.pure newValue, ..}
+instance Property "UserdataType" LaunchTemplateSpecificationOverrideProperty where
+  type PropertyType "UserdataType" LaunchTemplateSpecificationOverrideProperty = Value Prelude.Text
+  set newValue LaunchTemplateSpecificationOverrideProperty {..}
+    = LaunchTemplateSpecificationOverrideProperty
+        {userdataType = Prelude.pure newValue, ..}
 instance Property "Version" LaunchTemplateSpecificationOverrideProperty where
   type PropertyType "Version" LaunchTemplateSpecificationOverrideProperty = Value Prelude.Text
   set newValue LaunchTemplateSpecificationOverrideProperty {..}

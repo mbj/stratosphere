@@ -10,6 +10,8 @@ import Stratosphere.Value
 data InsightRule
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html>
     InsightRule {haddock_workaround_ :: (),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-applyontransformedlogs>
+                 applyOnTransformedLogs :: (Prelude.Maybe (Value Prelude.Bool)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulebody>
                  ruleBody :: (Value Prelude.Text),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulename>
@@ -25,7 +27,8 @@ mkInsightRule ::
 mkInsightRule ruleBody ruleName ruleState
   = InsightRule
       {haddock_workaround_ = (), ruleBody = ruleBody,
-       ruleName = ruleName, ruleState = ruleState, tags = Prelude.Nothing}
+       ruleName = ruleName, ruleState = ruleState,
+       applyOnTransformedLogs = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties InsightRule where
   toResourceProperties InsightRule {..}
     = ResourceProperties
@@ -35,7 +38,10 @@ instance ToResourceProperties InsightRule where
                         ((Prelude.<>)
                            ["RuleBody" JSON..= ruleBody, "RuleName" JSON..= ruleName,
                             "RuleState" JSON..= ruleState]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "ApplyOnTransformedLogs"
+                                 Prelude.<$> applyOnTransformedLogs,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON InsightRule where
   toJSON InsightRule {..}
     = JSON.object
@@ -43,7 +49,14 @@ instance JSON.ToJSON InsightRule where
            ((Prelude.<>)
               ["RuleBody" JSON..= ruleBody, "RuleName" JSON..= ruleName,
                "RuleState" JSON..= ruleState]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              (Prelude.catMaybes
+                 [(JSON..=) "ApplyOnTransformedLogs"
+                    Prelude.<$> applyOnTransformedLogs,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "ApplyOnTransformedLogs" InsightRule where
+  type PropertyType "ApplyOnTransformedLogs" InsightRule = Value Prelude.Bool
+  set newValue InsightRule {..}
+    = InsightRule {applyOnTransformedLogs = Prelude.pure newValue, ..}
 instance Property "RuleBody" InsightRule where
   type PropertyType "RuleBody" InsightRule = Value Prelude.Text
   set newValue InsightRule {..}

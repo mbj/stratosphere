@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.DistributionTenant.WebAclCustomizationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WebAclCustomizationProperty :: Prelude.Type
+instance ToResourceProperties WebAclCustomizationProperty
+instance Prelude.Eq WebAclCustomizationProperty
+instance Prelude.Show WebAclCustomizationProperty
+instance JSON.ToJSON WebAclCustomizationProperty

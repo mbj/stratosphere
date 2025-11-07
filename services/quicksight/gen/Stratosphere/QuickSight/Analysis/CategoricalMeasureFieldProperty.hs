@@ -1,0 +1,69 @@
+module Stratosphere.QuickSight.Analysis.CategoricalMeasureFieldProperty (
+        module Exports, CategoricalMeasureFieldProperty(..),
+        mkCategoricalMeasureFieldProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.ColumnIdentifierProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.StringFormatConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data CategoricalMeasureFieldProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoricalmeasurefield.html>
+    CategoricalMeasureFieldProperty {haddock_workaround_ :: (),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoricalmeasurefield.html#cfn-quicksight-analysis-categoricalmeasurefield-aggregationfunction>
+                                     aggregationFunction :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoricalmeasurefield.html#cfn-quicksight-analysis-categoricalmeasurefield-column>
+                                     column :: ColumnIdentifierProperty,
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoricalmeasurefield.html#cfn-quicksight-analysis-categoricalmeasurefield-fieldid>
+                                     fieldId :: (Value Prelude.Text),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-categoricalmeasurefield.html#cfn-quicksight-analysis-categoricalmeasurefield-formatconfiguration>
+                                     formatConfiguration :: (Prelude.Maybe StringFormatConfigurationProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkCategoricalMeasureFieldProperty ::
+  ColumnIdentifierProperty
+  -> Value Prelude.Text -> CategoricalMeasureFieldProperty
+mkCategoricalMeasureFieldProperty column fieldId
+  = CategoricalMeasureFieldProperty
+      {haddock_workaround_ = (), column = column, fieldId = fieldId,
+       aggregationFunction = Prelude.Nothing,
+       formatConfiguration = Prelude.Nothing}
+instance ToResourceProperties CategoricalMeasureFieldProperty where
+  toResourceProperties CategoricalMeasureFieldProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.CategoricalMeasureField",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Column" JSON..= column, "FieldId" JSON..= fieldId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AggregationFunction" Prelude.<$> aggregationFunction,
+                               (JSON..=) "FormatConfiguration" Prelude.<$> formatConfiguration]))}
+instance JSON.ToJSON CategoricalMeasureFieldProperty where
+  toJSON CategoricalMeasureFieldProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Column" JSON..= column, "FieldId" JSON..= fieldId]
+              (Prelude.catMaybes
+                 [(JSON..=) "AggregationFunction" Prelude.<$> aggregationFunction,
+                  (JSON..=) "FormatConfiguration" Prelude.<$> formatConfiguration])))
+instance Property "AggregationFunction" CategoricalMeasureFieldProperty where
+  type PropertyType "AggregationFunction" CategoricalMeasureFieldProperty = Value Prelude.Text
+  set newValue CategoricalMeasureFieldProperty {..}
+    = CategoricalMeasureFieldProperty
+        {aggregationFunction = Prelude.pure newValue, ..}
+instance Property "Column" CategoricalMeasureFieldProperty where
+  type PropertyType "Column" CategoricalMeasureFieldProperty = ColumnIdentifierProperty
+  set newValue CategoricalMeasureFieldProperty {..}
+    = CategoricalMeasureFieldProperty {column = newValue, ..}
+instance Property "FieldId" CategoricalMeasureFieldProperty where
+  type PropertyType "FieldId" CategoricalMeasureFieldProperty = Value Prelude.Text
+  set newValue CategoricalMeasureFieldProperty {..}
+    = CategoricalMeasureFieldProperty {fieldId = newValue, ..}
+instance Property "FormatConfiguration" CategoricalMeasureFieldProperty where
+  type PropertyType "FormatConfiguration" CategoricalMeasureFieldProperty = StringFormatConfigurationProperty
+  set newValue CategoricalMeasureFieldProperty {..}
+    = CategoricalMeasureFieldProperty
+        {formatConfiguration = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.S3Tables.Table.SnapshotManagementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnapshotManagementProperty :: Prelude.Type
+instance ToResourceProperties SnapshotManagementProperty
+instance Prelude.Eq SnapshotManagementProperty
+instance Prelude.Show SnapshotManagementProperty
+instance JSON.ToJSON SnapshotManagementProperty

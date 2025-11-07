@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.AutomatedReasoningPolicy.PolicyDefinitionRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PolicyDefinitionRuleProperty :: Prelude.Type
+instance ToResourceProperties PolicyDefinitionRuleProperty
+instance Prelude.Eq PolicyDefinitionRuleProperty
+instance Prelude.Show PolicyDefinitionRuleProperty
+instance JSON.ToJSON PolicyDefinitionRuleProperty

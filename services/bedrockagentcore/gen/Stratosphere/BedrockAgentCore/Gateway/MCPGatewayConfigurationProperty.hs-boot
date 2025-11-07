@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Gateway.MCPGatewayConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MCPGatewayConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MCPGatewayConfigurationProperty
+instance Prelude.Eq MCPGatewayConfigurationProperty
+instance Prelude.Show MCPGatewayConfigurationProperty
+instance JSON.ToJSON MCPGatewayConfigurationProperty

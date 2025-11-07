@@ -14,6 +14,8 @@ data IPSet
            activate :: (Prelude.Maybe (Value Prelude.Bool)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-detectorid>
            detectorId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-expectedbucketowner>
+           expectedBucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-format>
            format :: (Value Prelude.Text),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html#cfn-guardduty-ipset-location>
@@ -28,7 +30,8 @@ mkIPSet format location
   = IPSet
       {haddock_workaround_ = (), format = format, location = location,
        activate = Prelude.Nothing, detectorId = Prelude.Nothing,
-       name = Prelude.Nothing, tags = Prelude.Nothing}
+       expectedBucketOwner = Prelude.Nothing, name = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties IPSet where
   toResourceProperties IPSet {..}
     = ResourceProperties
@@ -39,6 +42,7 @@ instance ToResourceProperties IPSet where
                            (Prelude.catMaybes
                               [(JSON..=) "Activate" Prelude.<$> activate,
                                (JSON..=) "DetectorId" Prelude.<$> detectorId,
+                               (JSON..=) "ExpectedBucketOwner" Prelude.<$> expectedBucketOwner,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON IPSet where
@@ -50,6 +54,7 @@ instance JSON.ToJSON IPSet where
               (Prelude.catMaybes
                  [(JSON..=) "Activate" Prelude.<$> activate,
                   (JSON..=) "DetectorId" Prelude.<$> detectorId,
+                  (JSON..=) "ExpectedBucketOwner" Prelude.<$> expectedBucketOwner,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Activate" IPSet where
@@ -60,6 +65,10 @@ instance Property "DetectorId" IPSet where
   type PropertyType "DetectorId" IPSet = Value Prelude.Text
   set newValue IPSet {..}
     = IPSet {detectorId = Prelude.pure newValue, ..}
+instance Property "ExpectedBucketOwner" IPSet where
+  type PropertyType "ExpectedBucketOwner" IPSet = Value Prelude.Text
+  set newValue IPSet {..}
+    = IPSet {expectedBucketOwner = Prelude.pure newValue, ..}
 instance Property "Format" IPSet where
   type PropertyType "Format" IPSet = Value Prelude.Text
   set newValue IPSet {..} = IPSet {format = newValue, ..}

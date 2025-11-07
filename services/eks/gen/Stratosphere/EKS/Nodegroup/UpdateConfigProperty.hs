@@ -12,13 +12,16 @@ data UpdateConfigProperty
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailable>
                           maxUnavailable :: (Prelude.Maybe (Value Prelude.Double)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailablepercentage>
-                          maxUnavailablePercentage :: (Prelude.Maybe (Value Prelude.Double))}
+                          maxUnavailablePercentage :: (Prelude.Maybe (Value Prelude.Double)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-updatestrategy>
+                          updateStrategy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkUpdateConfigProperty :: UpdateConfigProperty
 mkUpdateConfigProperty
   = UpdateConfigProperty
       {haddock_workaround_ = (), maxUnavailable = Prelude.Nothing,
-       maxUnavailablePercentage = Prelude.Nothing}
+       maxUnavailablePercentage = Prelude.Nothing,
+       updateStrategy = Prelude.Nothing}
 instance ToResourceProperties UpdateConfigProperty where
   toResourceProperties UpdateConfigProperty {..}
     = ResourceProperties
@@ -28,7 +31,8 @@ instance ToResourceProperties UpdateConfigProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "MaxUnavailable" Prelude.<$> maxUnavailable,
                             (JSON..=) "MaxUnavailablePercentage"
-                              Prelude.<$> maxUnavailablePercentage])}
+                              Prelude.<$> maxUnavailablePercentage,
+                            (JSON..=) "UpdateStrategy" Prelude.<$> updateStrategy])}
 instance JSON.ToJSON UpdateConfigProperty where
   toJSON UpdateConfigProperty {..}
     = JSON.object
@@ -36,7 +40,8 @@ instance JSON.ToJSON UpdateConfigProperty where
            (Prelude.catMaybes
               [(JSON..=) "MaxUnavailable" Prelude.<$> maxUnavailable,
                (JSON..=) "MaxUnavailablePercentage"
-                 Prelude.<$> maxUnavailablePercentage]))
+                 Prelude.<$> maxUnavailablePercentage,
+               (JSON..=) "UpdateStrategy" Prelude.<$> updateStrategy]))
 instance Property "MaxUnavailable" UpdateConfigProperty where
   type PropertyType "MaxUnavailable" UpdateConfigProperty = Value Prelude.Double
   set newValue UpdateConfigProperty {..}
@@ -46,3 +51,7 @@ instance Property "MaxUnavailablePercentage" UpdateConfigProperty where
   set newValue UpdateConfigProperty {..}
     = UpdateConfigProperty
         {maxUnavailablePercentage = Prelude.pure newValue, ..}
+instance Property "UpdateStrategy" UpdateConfigProperty where
+  type PropertyType "UpdateStrategy" UpdateConfigProperty = Value Prelude.Text
+  set newValue UpdateConfigProperty {..}
+    = UpdateConfigProperty {updateStrategy = Prelude.pure newValue, ..}

@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.PolicyGrant.CreateAssetTypePolicyGrantDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CreateAssetTypePolicyGrantDetailProperty :: Prelude.Type
+instance ToResourceProperties CreateAssetTypePolicyGrantDetailProperty
+instance Prelude.Eq CreateAssetTypePolicyGrantDetailProperty
+instance Prelude.Show CreateAssetTypePolicyGrantDetailProperty
+instance JSON.ToJSON CreateAssetTypePolicyGrantDetailProperty

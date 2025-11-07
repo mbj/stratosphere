@@ -1,0 +1,9 @@
+module Stratosphere.EC2.CapacityReservation.CapacityAllocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityAllocationProperty :: Prelude.Type
+instance ToResourceProperties CapacityAllocationProperty
+instance Prelude.Eq CapacityAllocationProperty
+instance Prelude.Show CapacityAllocationProperty
+instance JSON.ToJSON CapacityAllocationProperty

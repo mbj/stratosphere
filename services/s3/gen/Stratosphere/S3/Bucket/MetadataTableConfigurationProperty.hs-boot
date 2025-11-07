@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.MetadataTableConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetadataTableConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MetadataTableConfigurationProperty
+instance Prelude.Eq MetadataTableConfigurationProperty
+instance Prelude.Show MetadataTableConfigurationProperty
+instance JSON.ToJSON MetadataTableConfigurationProperty

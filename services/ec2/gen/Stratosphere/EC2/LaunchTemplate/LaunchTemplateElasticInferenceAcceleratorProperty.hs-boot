@@ -1,9 +1,0 @@
-module Stratosphere.EC2.LaunchTemplate.LaunchTemplateElasticInferenceAcceleratorProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data LaunchTemplateElasticInferenceAcceleratorProperty :: Prelude.Type
-instance ToResourceProperties LaunchTemplateElasticInferenceAcceleratorProperty
-instance Prelude.Eq LaunchTemplateElasticInferenceAcceleratorProperty
-instance Prelude.Show LaunchTemplateElasticInferenceAcceleratorProperty
-instance JSON.ToJSON LaunchTemplateElasticInferenceAcceleratorProperty

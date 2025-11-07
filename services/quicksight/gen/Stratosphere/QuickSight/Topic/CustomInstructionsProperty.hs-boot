@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Topic.CustomInstructionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomInstructionsProperty :: Prelude.Type
+instance ToResourceProperties CustomInstructionsProperty
+instance Prelude.Eq CustomInstructionsProperty
+instance Prelude.Show CustomInstructionsProperty
+instance JSON.ToJSON CustomInstructionsProperty

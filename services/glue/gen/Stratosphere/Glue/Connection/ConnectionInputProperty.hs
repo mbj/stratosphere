@@ -5,12 +5,17 @@ module Stratosphere.Glue.Connection.ConnectionInputProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Glue.Connection.AuthenticationConfigurationInputProperty as Exports
 import {-# SOURCE #-} Stratosphere.Glue.Connection.PhysicalConnectionRequirementsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data ConnectionInputProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html>
     ConnectionInputProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-athenaproperties>
+                             athenaProperties :: (Prelude.Maybe JSON.Object),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-authenticationconfiguration>
+                             authenticationConfiguration :: (Prelude.Maybe AuthenticationConfigurationInputProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties>
                              connectionProperties :: (Prelude.Maybe JSON.Object),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype>
@@ -22,17 +27,31 @@ data ConnectionInputProperty
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name>
                              name :: (Prelude.Maybe (Value Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements>
-                             physicalConnectionRequirements :: (Prelude.Maybe PhysicalConnectionRequirementsProperty)}
+                             physicalConnectionRequirements :: (Prelude.Maybe PhysicalConnectionRequirementsProperty),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-pythonproperties>
+                             pythonProperties :: (Prelude.Maybe JSON.Object),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-sparkproperties>
+                             sparkProperties :: (Prelude.Maybe JSON.Object),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-validatecredentials>
+                             validateCredentials :: (Prelude.Maybe (Value Prelude.Bool)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-validateforcomputeenvironments>
+                             validateForComputeEnvironments :: (Prelude.Maybe (ValueList Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkConnectionInputProperty ::
   Value Prelude.Text -> ConnectionInputProperty
 mkConnectionInputProperty connectionType
   = ConnectionInputProperty
       {haddock_workaround_ = (), connectionType = connectionType,
+       athenaProperties = Prelude.Nothing,
+       authenticationConfiguration = Prelude.Nothing,
        connectionProperties = Prelude.Nothing,
        description = Prelude.Nothing, matchCriteria = Prelude.Nothing,
        name = Prelude.Nothing,
-       physicalConnectionRequirements = Prelude.Nothing}
+       physicalConnectionRequirements = Prelude.Nothing,
+       pythonProperties = Prelude.Nothing,
+       sparkProperties = Prelude.Nothing,
+       validateCredentials = Prelude.Nothing,
+       validateForComputeEnvironments = Prelude.Nothing}
 instance ToResourceProperties ConnectionInputProperty where
   toResourceProperties ConnectionInputProperty {..}
     = ResourceProperties
@@ -42,12 +61,20 @@ instance ToResourceProperties ConnectionInputProperty where
                         ((Prelude.<>)
                            ["ConnectionType" JSON..= connectionType]
                            (Prelude.catMaybes
-                              [(JSON..=) "ConnectionProperties" Prelude.<$> connectionProperties,
+                              [(JSON..=) "AthenaProperties" Prelude.<$> athenaProperties,
+                               (JSON..=) "AuthenticationConfiguration"
+                                 Prelude.<$> authenticationConfiguration,
+                               (JSON..=) "ConnectionProperties" Prelude.<$> connectionProperties,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "MatchCriteria" Prelude.<$> matchCriteria,
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "PhysicalConnectionRequirements"
-                                 Prelude.<$> physicalConnectionRequirements]))}
+                                 Prelude.<$> physicalConnectionRequirements,
+                               (JSON..=) "PythonProperties" Prelude.<$> pythonProperties,
+                               (JSON..=) "SparkProperties" Prelude.<$> sparkProperties,
+                               (JSON..=) "ValidateCredentials" Prelude.<$> validateCredentials,
+                               (JSON..=) "ValidateForComputeEnvironments"
+                                 Prelude.<$> validateForComputeEnvironments]))}
 instance JSON.ToJSON ConnectionInputProperty where
   toJSON ConnectionInputProperty {..}
     = JSON.object
@@ -55,12 +82,30 @@ instance JSON.ToJSON ConnectionInputProperty where
            ((Prelude.<>)
               ["ConnectionType" JSON..= connectionType]
               (Prelude.catMaybes
-                 [(JSON..=) "ConnectionProperties" Prelude.<$> connectionProperties,
+                 [(JSON..=) "AthenaProperties" Prelude.<$> athenaProperties,
+                  (JSON..=) "AuthenticationConfiguration"
+                    Prelude.<$> authenticationConfiguration,
+                  (JSON..=) "ConnectionProperties" Prelude.<$> connectionProperties,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "MatchCriteria" Prelude.<$> matchCriteria,
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "PhysicalConnectionRequirements"
-                    Prelude.<$> physicalConnectionRequirements])))
+                    Prelude.<$> physicalConnectionRequirements,
+                  (JSON..=) "PythonProperties" Prelude.<$> pythonProperties,
+                  (JSON..=) "SparkProperties" Prelude.<$> sparkProperties,
+                  (JSON..=) "ValidateCredentials" Prelude.<$> validateCredentials,
+                  (JSON..=) "ValidateForComputeEnvironments"
+                    Prelude.<$> validateForComputeEnvironments])))
+instance Property "AthenaProperties" ConnectionInputProperty where
+  type PropertyType "AthenaProperties" ConnectionInputProperty = JSON.Object
+  set newValue ConnectionInputProperty {..}
+    = ConnectionInputProperty
+        {athenaProperties = Prelude.pure newValue, ..}
+instance Property "AuthenticationConfiguration" ConnectionInputProperty where
+  type PropertyType "AuthenticationConfiguration" ConnectionInputProperty = AuthenticationConfigurationInputProperty
+  set newValue ConnectionInputProperty {..}
+    = ConnectionInputProperty
+        {authenticationConfiguration = Prelude.pure newValue, ..}
 instance Property "ConnectionProperties" ConnectionInputProperty where
   type PropertyType "ConnectionProperties" ConnectionInputProperty = JSON.Object
   set newValue ConnectionInputProperty {..}
@@ -88,3 +133,23 @@ instance Property "PhysicalConnectionRequirements" ConnectionInputProperty where
   set newValue ConnectionInputProperty {..}
     = ConnectionInputProperty
         {physicalConnectionRequirements = Prelude.pure newValue, ..}
+instance Property "PythonProperties" ConnectionInputProperty where
+  type PropertyType "PythonProperties" ConnectionInputProperty = JSON.Object
+  set newValue ConnectionInputProperty {..}
+    = ConnectionInputProperty
+        {pythonProperties = Prelude.pure newValue, ..}
+instance Property "SparkProperties" ConnectionInputProperty where
+  type PropertyType "SparkProperties" ConnectionInputProperty = JSON.Object
+  set newValue ConnectionInputProperty {..}
+    = ConnectionInputProperty
+        {sparkProperties = Prelude.pure newValue, ..}
+instance Property "ValidateCredentials" ConnectionInputProperty where
+  type PropertyType "ValidateCredentials" ConnectionInputProperty = Value Prelude.Bool
+  set newValue ConnectionInputProperty {..}
+    = ConnectionInputProperty
+        {validateCredentials = Prelude.pure newValue, ..}
+instance Property "ValidateForComputeEnvironments" ConnectionInputProperty where
+  type PropertyType "ValidateForComputeEnvironments" ConnectionInputProperty = ValueList Prelude.Text
+  set newValue ConnectionInputProperty {..}
+    = ConnectionInputProperty
+        {validateForComputeEnvironments = Prelude.pure newValue, ..}

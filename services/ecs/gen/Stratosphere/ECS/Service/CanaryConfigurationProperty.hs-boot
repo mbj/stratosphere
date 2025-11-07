@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.CanaryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CanaryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CanaryConfigurationProperty
+instance Prelude.Eq CanaryConfigurationProperty
+instance Prelude.Show CanaryConfigurationProperty
+instance JSON.ToJSON CanaryConfigurationProperty

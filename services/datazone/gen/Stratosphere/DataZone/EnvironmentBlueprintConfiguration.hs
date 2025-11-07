@@ -5,6 +5,7 @@ module Stratosphere.DataZone.EnvironmentBlueprintConfiguration (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.DataZone.EnvironmentBlueprintConfiguration.ProvisioningConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.DataZone.EnvironmentBlueprintConfiguration.RegionalParameterProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -17,8 +18,12 @@ data EnvironmentBlueprintConfiguration
                                        enabledRegions :: (ValueList Prelude.Text),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-environmentblueprintidentifier>
                                        environmentBlueprintIdentifier :: (Value Prelude.Text),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-environmentrolepermissionboundary>
+                                       environmentRolePermissionBoundary :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-manageaccessrolearn>
                                        manageAccessRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
+                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-provisioningconfigurations>
+                                       provisioningConfigurations :: (Prelude.Maybe [ProvisioningConfigurationProperty]),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-provisioningrolearn>
                                        provisioningRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
                                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentblueprintconfiguration.html#cfn-datazone-environmentblueprintconfiguration-regionalparameters>
@@ -36,7 +41,9 @@ mkEnvironmentBlueprintConfiguration
       {haddock_workaround_ = (), domainIdentifier = domainIdentifier,
        enabledRegions = enabledRegions,
        environmentBlueprintIdentifier = environmentBlueprintIdentifier,
+       environmentRolePermissionBoundary = Prelude.Nothing,
        manageAccessRoleArn = Prelude.Nothing,
+       provisioningConfigurations = Prelude.Nothing,
        provisioningRoleArn = Prelude.Nothing,
        regionalParameters = Prelude.Nothing}
 instance ToResourceProperties EnvironmentBlueprintConfiguration where
@@ -51,7 +58,11 @@ instance ToResourceProperties EnvironmentBlueprintConfiguration where
                             "EnvironmentBlueprintIdentifier"
                               JSON..= environmentBlueprintIdentifier]
                            (Prelude.catMaybes
-                              [(JSON..=) "ManageAccessRoleArn" Prelude.<$> manageAccessRoleArn,
+                              [(JSON..=) "EnvironmentRolePermissionBoundary"
+                                 Prelude.<$> environmentRolePermissionBoundary,
+                               (JSON..=) "ManageAccessRoleArn" Prelude.<$> manageAccessRoleArn,
+                               (JSON..=) "ProvisioningConfigurations"
+                                 Prelude.<$> provisioningConfigurations,
                                (JSON..=) "ProvisioningRoleArn" Prelude.<$> provisioningRoleArn,
                                (JSON..=) "RegionalParameters" Prelude.<$> regionalParameters]))}
 instance JSON.ToJSON EnvironmentBlueprintConfiguration where
@@ -64,7 +75,11 @@ instance JSON.ToJSON EnvironmentBlueprintConfiguration where
                "EnvironmentBlueprintIdentifier"
                  JSON..= environmentBlueprintIdentifier]
               (Prelude.catMaybes
-                 [(JSON..=) "ManageAccessRoleArn" Prelude.<$> manageAccessRoleArn,
+                 [(JSON..=) "EnvironmentRolePermissionBoundary"
+                    Prelude.<$> environmentRolePermissionBoundary,
+                  (JSON..=) "ManageAccessRoleArn" Prelude.<$> manageAccessRoleArn,
+                  (JSON..=) "ProvisioningConfigurations"
+                    Prelude.<$> provisioningConfigurations,
                   (JSON..=) "ProvisioningRoleArn" Prelude.<$> provisioningRoleArn,
                   (JSON..=) "RegionalParameters" Prelude.<$> regionalParameters])))
 instance Property "DomainIdentifier" EnvironmentBlueprintConfiguration where
@@ -81,11 +96,21 @@ instance Property "EnvironmentBlueprintIdentifier" EnvironmentBlueprintConfigura
   set newValue EnvironmentBlueprintConfiguration {..}
     = EnvironmentBlueprintConfiguration
         {environmentBlueprintIdentifier = newValue, ..}
+instance Property "EnvironmentRolePermissionBoundary" EnvironmentBlueprintConfiguration where
+  type PropertyType "EnvironmentRolePermissionBoundary" EnvironmentBlueprintConfiguration = Value Prelude.Text
+  set newValue EnvironmentBlueprintConfiguration {..}
+    = EnvironmentBlueprintConfiguration
+        {environmentRolePermissionBoundary = Prelude.pure newValue, ..}
 instance Property "ManageAccessRoleArn" EnvironmentBlueprintConfiguration where
   type PropertyType "ManageAccessRoleArn" EnvironmentBlueprintConfiguration = Value Prelude.Text
   set newValue EnvironmentBlueprintConfiguration {..}
     = EnvironmentBlueprintConfiguration
         {manageAccessRoleArn = Prelude.pure newValue, ..}
+instance Property "ProvisioningConfigurations" EnvironmentBlueprintConfiguration where
+  type PropertyType "ProvisioningConfigurations" EnvironmentBlueprintConfiguration = [ProvisioningConfigurationProperty]
+  set newValue EnvironmentBlueprintConfiguration {..}
+    = EnvironmentBlueprintConfiguration
+        {provisioningConfigurations = Prelude.pure newValue, ..}
 instance Property "ProvisioningRoleArn" EnvironmentBlueprintConfiguration where
   type PropertyType "ProvisioningRoleArn" EnvironmentBlueprintConfiguration = Value Prelude.Text
   set newValue EnvironmentBlueprintConfiguration {..}

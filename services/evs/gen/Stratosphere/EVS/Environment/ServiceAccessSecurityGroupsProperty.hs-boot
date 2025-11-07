@@ -1,0 +1,9 @@
+module Stratosphere.EVS.Environment.ServiceAccessSecurityGroupsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceAccessSecurityGroupsProperty :: Prelude.Type
+instance ToResourceProperties ServiceAccessSecurityGroupsProperty
+instance Prelude.Eq ServiceAccessSecurityGroupsProperty
+instance Prelude.Show ServiceAccessSecurityGroupsProperty
+instance JSON.ToJSON ServiceAccessSecurityGroupsProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.AIAgent.SelfServiceAIAgentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SelfServiceAIAgentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SelfServiceAIAgentConfigurationProperty
+instance Prelude.Eq SelfServiceAIAgentConfigurationProperty
+instance Prelude.Show SelfServiceAIAgentConfigurationProperty
+instance JSON.ToJSON SelfServiceAIAgentConfigurationProperty

@@ -7,10 +7,12 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.AddHeaderActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.ArchiveActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.DeliverToMailboxActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.DeliverToQBusinessActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.RelayActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.ReplaceRecipientActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.S3ActionProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.SendActionProperty as Exports
+import {-# SOURCE #-} Stratosphere.SES.MailManagerRuleSet.SnsActionProperty as Exports
 import Stratosphere.ResourceProperties
 data RuleActionProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html>
@@ -21,8 +23,12 @@ data RuleActionProperty
                         archive :: (Prelude.Maybe ArchiveActionProperty),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertomailbox>
                         deliverToMailbox :: (Prelude.Maybe DeliverToMailboxActionProperty),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertoqbusiness>
+                        deliverToQBusiness :: (Prelude.Maybe DeliverToQBusinessActionProperty),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-drop>
                         drop :: (Prelude.Maybe JSON.Object),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-publishtosns>
+                        publishToSns :: (Prelude.Maybe SnsActionProperty),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-relay>
                         relay :: (Prelude.Maybe RelayActionProperty),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-replacerecipient>
@@ -37,7 +43,8 @@ mkRuleActionProperty
   = RuleActionProperty
       {haddock_workaround_ = (), addHeader = Prelude.Nothing,
        archive = Prelude.Nothing, deliverToMailbox = Prelude.Nothing,
-       drop = Prelude.Nothing, relay = Prelude.Nothing,
+       deliverToQBusiness = Prelude.Nothing, drop = Prelude.Nothing,
+       publishToSns = Prelude.Nothing, relay = Prelude.Nothing,
        replaceRecipient = Prelude.Nothing, send = Prelude.Nothing,
        writeToS3 = Prelude.Nothing}
 instance ToResourceProperties RuleActionProperty where
@@ -50,7 +57,9 @@ instance ToResourceProperties RuleActionProperty where
                            [(JSON..=) "AddHeader" Prelude.<$> addHeader,
                             (JSON..=) "Archive" Prelude.<$> archive,
                             (JSON..=) "DeliverToMailbox" Prelude.<$> deliverToMailbox,
+                            (JSON..=) "DeliverToQBusiness" Prelude.<$> deliverToQBusiness,
                             (JSON..=) "Drop" Prelude.<$> drop,
+                            (JSON..=) "PublishToSns" Prelude.<$> publishToSns,
                             (JSON..=) "Relay" Prelude.<$> relay,
                             (JSON..=) "ReplaceRecipient" Prelude.<$> replaceRecipient,
                             (JSON..=) "Send" Prelude.<$> send,
@@ -63,7 +72,9 @@ instance JSON.ToJSON RuleActionProperty where
               [(JSON..=) "AddHeader" Prelude.<$> addHeader,
                (JSON..=) "Archive" Prelude.<$> archive,
                (JSON..=) "DeliverToMailbox" Prelude.<$> deliverToMailbox,
+               (JSON..=) "DeliverToQBusiness" Prelude.<$> deliverToQBusiness,
                (JSON..=) "Drop" Prelude.<$> drop,
+               (JSON..=) "PublishToSns" Prelude.<$> publishToSns,
                (JSON..=) "Relay" Prelude.<$> relay,
                (JSON..=) "ReplaceRecipient" Prelude.<$> replaceRecipient,
                (JSON..=) "Send" Prelude.<$> send,
@@ -80,10 +91,19 @@ instance Property "DeliverToMailbox" RuleActionProperty where
   type PropertyType "DeliverToMailbox" RuleActionProperty = DeliverToMailboxActionProperty
   set newValue RuleActionProperty {..}
     = RuleActionProperty {deliverToMailbox = Prelude.pure newValue, ..}
+instance Property "DeliverToQBusiness" RuleActionProperty where
+  type PropertyType "DeliverToQBusiness" RuleActionProperty = DeliverToQBusinessActionProperty
+  set newValue RuleActionProperty {..}
+    = RuleActionProperty
+        {deliverToQBusiness = Prelude.pure newValue, ..}
 instance Property "Drop" RuleActionProperty where
   type PropertyType "Drop" RuleActionProperty = JSON.Object
   set newValue RuleActionProperty {..}
     = RuleActionProperty {drop = Prelude.pure newValue, ..}
+instance Property "PublishToSns" RuleActionProperty where
+  type PropertyType "PublishToSns" RuleActionProperty = SnsActionProperty
+  set newValue RuleActionProperty {..}
+    = RuleActionProperty {publishToSns = Prelude.pure newValue, ..}
 instance Property "Relay" RuleActionProperty where
   type PropertyType "Relay" RuleActionProperty = RelayActionProperty
   set newValue RuleActionProperty {..}

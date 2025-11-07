@@ -1,0 +1,9 @@
+module Stratosphere.DSQL.Cluster.EncryptionDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EncryptionDetailsProperty :: Prelude.Type
+instance ToResourceProperties EncryptionDetailsProperty
+instance Prelude.Eq EncryptionDetailsProperty
+instance Prelude.Show EncryptionDetailsProperty
+instance JSON.ToJSON EncryptionDetailsProperty

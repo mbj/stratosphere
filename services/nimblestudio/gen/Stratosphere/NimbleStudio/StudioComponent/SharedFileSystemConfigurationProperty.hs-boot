@@ -1,9 +1,0 @@
-module Stratosphere.NimbleStudio.StudioComponent.SharedFileSystemConfigurationProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data SharedFileSystemConfigurationProperty :: Prelude.Type
-instance ToResourceProperties SharedFileSystemConfigurationProperty
-instance Prelude.Eq SharedFileSystemConfigurationProperty
-instance Prelude.Show SharedFileSystemConfigurationProperty
-instance JSON.ToJSON SharedFileSystemConfigurationProperty

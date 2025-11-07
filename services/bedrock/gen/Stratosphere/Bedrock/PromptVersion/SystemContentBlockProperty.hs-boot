@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.PromptVersion.SystemContentBlockProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SystemContentBlockProperty :: Prelude.Type
+instance ToResourceProperties SystemContentBlockProperty
+instance Prelude.Eq SystemContentBlockProperty
+instance Prelude.Show SystemContentBlockProperty
+instance JSON.ToJSON SystemContentBlockProperty

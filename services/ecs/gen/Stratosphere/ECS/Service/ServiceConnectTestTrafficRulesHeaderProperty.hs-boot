@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.ServiceConnectTestTrafficRulesHeaderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceConnectTestTrafficRulesHeaderProperty :: Prelude.Type
+instance ToResourceProperties ServiceConnectTestTrafficRulesHeaderProperty
+instance Prelude.Eq ServiceConnectTestTrafficRulesHeaderProperty
+instance Prelude.Show ServiceConnectTestTrafficRulesHeaderProperty
+instance JSON.ToJSON ServiceConnectTestTrafficRulesHeaderProperty

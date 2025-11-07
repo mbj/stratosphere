@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.ExternalIntegrationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExternalIntegrationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ExternalIntegrationConfigurationProperty
+instance Prelude.Eq ExternalIntegrationConfigurationProperty
+instance Prelude.Show ExternalIntegrationConfigurationProperty
+instance JSON.ToJSON ExternalIntegrationConfigurationProperty

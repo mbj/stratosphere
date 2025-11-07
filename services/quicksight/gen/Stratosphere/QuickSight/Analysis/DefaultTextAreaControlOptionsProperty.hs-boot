@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.DefaultTextAreaControlOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultTextAreaControlOptionsProperty :: Prelude.Type
+instance ToResourceProperties DefaultTextAreaControlOptionsProperty
+instance Prelude.Eq DefaultTextAreaControlOptionsProperty
+instance Prelude.Show DefaultTextAreaControlOptionsProperty
+instance JSON.ToJSON DefaultTextAreaControlOptionsProperty

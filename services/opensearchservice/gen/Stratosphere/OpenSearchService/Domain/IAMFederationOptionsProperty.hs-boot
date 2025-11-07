@@ -1,0 +1,9 @@
+module Stratosphere.OpenSearchService.Domain.IAMFederationOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IAMFederationOptionsProperty :: Prelude.Type
+instance ToResourceProperties IAMFederationOptionsProperty
+instance Prelude.Eq IAMFederationOptionsProperty
+instance Prelude.Show IAMFederationOptionsProperty
+instance JSON.ToJSON IAMFederationOptionsProperty

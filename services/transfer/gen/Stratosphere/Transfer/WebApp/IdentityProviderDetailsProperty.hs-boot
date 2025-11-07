@@ -1,0 +1,9 @@
+module Stratosphere.Transfer.WebApp.IdentityProviderDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdentityProviderDetailsProperty :: Prelude.Type
+instance ToResourceProperties IdentityProviderDetailsProperty
+instance Prelude.Eq IdentityProviderDetailsProperty
+instance Prelude.Show IdentityProviderDetailsProperty
+instance JSON.ToJSON IdentityProviderDetailsProperty

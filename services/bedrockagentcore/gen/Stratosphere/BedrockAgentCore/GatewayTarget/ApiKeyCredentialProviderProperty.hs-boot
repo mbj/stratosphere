@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.GatewayTarget.ApiKeyCredentialProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApiKeyCredentialProviderProperty :: Prelude.Type
+instance ToResourceProperties ApiKeyCredentialProviderProperty
+instance Prelude.Eq ApiKeyCredentialProviderProperty
+instance Prelude.Show ApiKeyCredentialProviderProperty
+instance JSON.ToJSON ApiKeyCredentialProviderProperty

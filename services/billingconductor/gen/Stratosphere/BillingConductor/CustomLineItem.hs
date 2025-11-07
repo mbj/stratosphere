@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.BillingConductor.CustomLineItem.BillingPeriodRangeProperty as Exports
 import {-# SOURCE #-} Stratosphere.BillingConductor.CustomLineItem.CustomLineItemChargeDetailsProperty as Exports
+import {-# SOURCE #-} Stratosphere.BillingConductor.CustomLineItem.PresentationDetailsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -18,12 +19,16 @@ data CustomLineItem
                     billingGroupArn :: (Value Prelude.Text),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-billingperiodrange>
                     billingPeriodRange :: (Prelude.Maybe BillingPeriodRangeProperty),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-computationrule>
+                    computationRule :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-customlineitemchargedetails>
                     customLineItemChargeDetails :: (Prelude.Maybe CustomLineItemChargeDetailsProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-presentationdetails>
+                    presentationDetails :: (Prelude.Maybe PresentationDetailsProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-customlineitem.html#cfn-billingconductor-customlineitem-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -34,8 +39,10 @@ mkCustomLineItem billingGroupArn name
       {haddock_workaround_ = (), billingGroupArn = billingGroupArn,
        name = name, accountId = Prelude.Nothing,
        billingPeriodRange = Prelude.Nothing,
+       computationRule = Prelude.Nothing,
        customLineItemChargeDetails = Prelude.Nothing,
-       description = Prelude.Nothing, tags = Prelude.Nothing}
+       description = Prelude.Nothing,
+       presentationDetails = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CustomLineItem where
   toResourceProperties CustomLineItem {..}
     = ResourceProperties
@@ -47,9 +54,11 @@ instance ToResourceProperties CustomLineItem where
                            (Prelude.catMaybes
                               [(JSON..=) "AccountId" Prelude.<$> accountId,
                                (JSON..=) "BillingPeriodRange" Prelude.<$> billingPeriodRange,
+                               (JSON..=) "ComputationRule" Prelude.<$> computationRule,
                                (JSON..=) "CustomLineItemChargeDetails"
                                  Prelude.<$> customLineItemChargeDetails,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "PresentationDetails" Prelude.<$> presentationDetails,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON CustomLineItem where
   toJSON CustomLineItem {..}
@@ -60,9 +69,11 @@ instance JSON.ToJSON CustomLineItem where
               (Prelude.catMaybes
                  [(JSON..=) "AccountId" Prelude.<$> accountId,
                   (JSON..=) "BillingPeriodRange" Prelude.<$> billingPeriodRange,
+                  (JSON..=) "ComputationRule" Prelude.<$> computationRule,
                   (JSON..=) "CustomLineItemChargeDetails"
                     Prelude.<$> customLineItemChargeDetails,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "PresentationDetails" Prelude.<$> presentationDetails,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AccountId" CustomLineItem where
   type PropertyType "AccountId" CustomLineItem = Value Prelude.Text
@@ -76,6 +87,10 @@ instance Property "BillingPeriodRange" CustomLineItem where
   type PropertyType "BillingPeriodRange" CustomLineItem = BillingPeriodRangeProperty
   set newValue CustomLineItem {..}
     = CustomLineItem {billingPeriodRange = Prelude.pure newValue, ..}
+instance Property "ComputationRule" CustomLineItem where
+  type PropertyType "ComputationRule" CustomLineItem = Value Prelude.Text
+  set newValue CustomLineItem {..}
+    = CustomLineItem {computationRule = Prelude.pure newValue, ..}
 instance Property "CustomLineItemChargeDetails" CustomLineItem where
   type PropertyType "CustomLineItemChargeDetails" CustomLineItem = CustomLineItemChargeDetailsProperty
   set newValue CustomLineItem {..}
@@ -89,6 +104,10 @@ instance Property "Name" CustomLineItem where
   type PropertyType "Name" CustomLineItem = Value Prelude.Text
   set newValue CustomLineItem {..}
     = CustomLineItem {name = newValue, ..}
+instance Property "PresentationDetails" CustomLineItem where
+  type PropertyType "PresentationDetails" CustomLineItem = PresentationDetailsProperty
+  set newValue CustomLineItem {..}
+    = CustomLineItem {presentationDetails = Prelude.pure newValue, ..}
 instance Property "Tags" CustomLineItem where
   type PropertyType "Tags" CustomLineItem = [Tag]
   set newValue CustomLineItem {..}

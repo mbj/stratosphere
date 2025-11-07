@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.AcceleratorCountRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AcceleratorCountRequestProperty :: Prelude.Type
+instance ToResourceProperties AcceleratorCountRequestProperty
+instance Prelude.Eq AcceleratorCountRequestProperty
+instance Prelude.Show AcceleratorCountRequestProperty
+instance JSON.ToJSON AcceleratorCountRequestProperty

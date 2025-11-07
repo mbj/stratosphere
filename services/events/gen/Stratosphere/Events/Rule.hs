@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.Rule.TargetProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Rule
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html>
@@ -24,6 +25,8 @@ data Rule
           scheduleExpression :: (Prelude.Maybe (Value Prelude.Text)),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state>
           state :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-tags>
+          tags :: (Prelude.Maybe [Tag]),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets>
           targets :: (Prelude.Maybe [TargetProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -34,11 +37,11 @@ mkRule
        eventBusName = Prelude.Nothing, eventPattern = Prelude.Nothing,
        name = Prelude.Nothing, roleArn = Prelude.Nothing,
        scheduleExpression = Prelude.Nothing, state = Prelude.Nothing,
-       targets = Prelude.Nothing}
+       tags = Prelude.Nothing, targets = Prelude.Nothing}
 instance ToResourceProperties Rule where
   toResourceProperties Rule {..}
     = ResourceProperties
-        {awsType = "AWS::Events::Rule", supportsTags = Prelude.False,
+        {awsType = "AWS::Events::Rule", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,
@@ -48,6 +51,7 @@ instance ToResourceProperties Rule where
                             (JSON..=) "RoleArn" Prelude.<$> roleArn,
                             (JSON..=) "ScheduleExpression" Prelude.<$> scheduleExpression,
                             (JSON..=) "State" Prelude.<$> state,
+                            (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "Targets" Prelude.<$> targets])}
 instance JSON.ToJSON Rule where
   toJSON Rule {..}
@@ -61,6 +65,7 @@ instance JSON.ToJSON Rule where
                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                (JSON..=) "ScheduleExpression" Prelude.<$> scheduleExpression,
                (JSON..=) "State" Prelude.<$> state,
+               (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Targets" Prelude.<$> targets]))
 instance Property "Description" Rule where
   type PropertyType "Description" Rule = Value Prelude.Text
@@ -87,6 +92,9 @@ instance Property "ScheduleExpression" Rule where
 instance Property "State" Rule where
   type PropertyType "State" Rule = Value Prelude.Text
   set newValue Rule {..} = Rule {state = Prelude.pure newValue, ..}
+instance Property "Tags" Rule where
+  type PropertyType "Tags" Rule = [Tag]
+  set newValue Rule {..} = Rule {tags = Prelude.pure newValue, ..}
 instance Property "Targets" Rule where
   type PropertyType "Targets" Rule = [TargetProperty]
   set newValue Rule {..} = Rule {targets = Prelude.pure newValue, ..}

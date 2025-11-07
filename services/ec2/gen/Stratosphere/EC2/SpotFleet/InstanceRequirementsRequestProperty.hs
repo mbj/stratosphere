@@ -8,6 +8,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.AcceleratorCountRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.AcceleratorTotalMemoryMiBRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.BaselineEbsBandwidthMbpsRequestProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.BaselinePerformanceFactorsRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.MemoryGiBPerVCpuRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.MemoryMiBRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.SpotFleet.NetworkBandwidthGbpsRequestProperty as Exports
@@ -35,6 +36,8 @@ data InstanceRequirementsRequestProperty
                                          bareMetal :: (Prelude.Maybe (Value Prelude.Text)),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-baselineebsbandwidthmbps>
                                          baselineEbsBandwidthMbps :: (Prelude.Maybe BaselineEbsBandwidthMbpsRequestProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-baselineperformancefactors>
+                                         baselinePerformanceFactors :: (Prelude.Maybe BaselinePerformanceFactorsRequestProperty),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-burstableperformance>
                                          burstablePerformance :: (Prelude.Maybe (Value Prelude.Text)),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-cpumanufacturers>
@@ -80,6 +83,7 @@ mkInstanceRequirementsRequestProperty
        allowedInstanceTypes = Prelude.Nothing,
        bareMetal = Prelude.Nothing,
        baselineEbsBandwidthMbps = Prelude.Nothing,
+       baselinePerformanceFactors = Prelude.Nothing,
        burstablePerformance = Prelude.Nothing,
        cpuManufacturers = Prelude.Nothing,
        excludedInstanceTypes = Prelude.Nothing,
@@ -112,6 +116,8 @@ instance ToResourceProperties InstanceRequirementsRequestProperty where
                             (JSON..=) "BareMetal" Prelude.<$> bareMetal,
                             (JSON..=) "BaselineEbsBandwidthMbps"
                               Prelude.<$> baselineEbsBandwidthMbps,
+                            (JSON..=) "BaselinePerformanceFactors"
+                              Prelude.<$> baselinePerformanceFactors,
                             (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
                             (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
                             (JSON..=) "ExcludedInstanceTypes"
@@ -150,6 +156,8 @@ instance JSON.ToJSON InstanceRequirementsRequestProperty where
                (JSON..=) "BareMetal" Prelude.<$> bareMetal,
                (JSON..=) "BaselineEbsBandwidthMbps"
                  Prelude.<$> baselineEbsBandwidthMbps,
+               (JSON..=) "BaselinePerformanceFactors"
+                 Prelude.<$> baselinePerformanceFactors,
                (JSON..=) "BurstablePerformance" Prelude.<$> burstablePerformance,
                (JSON..=) "CpuManufacturers" Prelude.<$> cpuManufacturers,
                (JSON..=) "ExcludedInstanceTypes"
@@ -212,6 +220,11 @@ instance Property "BaselineEbsBandwidthMbps" InstanceRequirementsRequestProperty
   set newValue InstanceRequirementsRequestProperty {..}
     = InstanceRequirementsRequestProperty
         {baselineEbsBandwidthMbps = Prelude.pure newValue, ..}
+instance Property "BaselinePerformanceFactors" InstanceRequirementsRequestProperty where
+  type PropertyType "BaselinePerformanceFactors" InstanceRequirementsRequestProperty = BaselinePerformanceFactorsRequestProperty
+  set newValue InstanceRequirementsRequestProperty {..}
+    = InstanceRequirementsRequestProperty
+        {baselinePerformanceFactors = Prelude.pure newValue, ..}
 instance Property "BurstablePerformance" InstanceRequirementsRequestProperty where
   type PropertyType "BurstablePerformance" InstanceRequirementsRequestProperty = Value Prelude.Text
   set newValue InstanceRequirementsRequestProperty {..}

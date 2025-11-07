@@ -30,6 +30,8 @@ data Portal
             maxConcurrentSessions :: (Prelude.Maybe (Value Prelude.Double)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-networksettingsarn>
             networkSettingsArn :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-sessionloggerarn>
+            sessionLoggerArn :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-tags>
             tags :: (Prelude.Maybe [Tag]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html#cfn-workspacesweb-portal-truststorearn>
@@ -51,7 +53,8 @@ mkPortal
        displayName = Prelude.Nothing, instanceType = Prelude.Nothing,
        ipAccessSettingsArn = Prelude.Nothing,
        maxConcurrentSessions = Prelude.Nothing,
-       networkSettingsArn = Prelude.Nothing, tags = Prelude.Nothing,
+       networkSettingsArn = Prelude.Nothing,
+       sessionLoggerArn = Prelude.Nothing, tags = Prelude.Nothing,
        trustStoreArn = Prelude.Nothing,
        userAccessLoggingSettingsArn = Prelude.Nothing,
        userSettingsArn = Prelude.Nothing}
@@ -75,6 +78,7 @@ instance ToResourceProperties Portal where
                             (JSON..=) "MaxConcurrentSessions"
                               Prelude.<$> maxConcurrentSessions,
                             (JSON..=) "NetworkSettingsArn" Prelude.<$> networkSettingsArn,
+                            (JSON..=) "SessionLoggerArn" Prelude.<$> sessionLoggerArn,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn,
                             (JSON..=) "UserAccessLoggingSettingsArn"
@@ -98,6 +102,7 @@ instance JSON.ToJSON Portal where
                (JSON..=) "MaxConcurrentSessions"
                  Prelude.<$> maxConcurrentSessions,
                (JSON..=) "NetworkSettingsArn" Prelude.<$> networkSettingsArn,
+               (JSON..=) "SessionLoggerArn" Prelude.<$> sessionLoggerArn,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "TrustStoreArn" Prelude.<$> trustStoreArn,
                (JSON..=) "UserAccessLoggingSettingsArn"
@@ -143,6 +148,10 @@ instance Property "NetworkSettingsArn" Portal where
   type PropertyType "NetworkSettingsArn" Portal = Value Prelude.Text
   set newValue Portal {..}
     = Portal {networkSettingsArn = Prelude.pure newValue, ..}
+instance Property "SessionLoggerArn" Portal where
+  type PropertyType "SessionLoggerArn" Portal = Value Prelude.Text
+  set newValue Portal {..}
+    = Portal {sessionLoggerArn = Prelude.pure newValue, ..}
 instance Property "Tags" Portal where
   type PropertyType "Tags" Portal = [Tag]
   set newValue Portal {..}

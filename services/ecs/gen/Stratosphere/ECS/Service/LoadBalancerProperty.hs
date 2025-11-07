@@ -1,14 +1,17 @@
 module Stratosphere.ECS.Service.LoadBalancerProperty (
-        LoadBalancerProperty(..), mkLoadBalancerProperty
+        module Exports, LoadBalancerProperty(..), mkLoadBalancerProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ECS.Service.AdvancedConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data LoadBalancerProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html>
     LoadBalancerProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-advancedconfiguration>
+                          advancedConfiguration :: (Prelude.Maybe AdvancedConfigurationProperty),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername>
                           containerName :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport>
@@ -21,8 +24,8 @@ data LoadBalancerProperty
 mkLoadBalancerProperty :: LoadBalancerProperty
 mkLoadBalancerProperty
   = LoadBalancerProperty
-      {haddock_workaround_ = (), containerName = Prelude.Nothing,
-       containerPort = Prelude.Nothing,
+      {haddock_workaround_ = (), advancedConfiguration = Prelude.Nothing,
+       containerName = Prelude.Nothing, containerPort = Prelude.Nothing,
        loadBalancerName = Prelude.Nothing,
        targetGroupArn = Prelude.Nothing}
 instance ToResourceProperties LoadBalancerProperty where
@@ -32,7 +35,9 @@ instance ToResourceProperties LoadBalancerProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "ContainerName" Prelude.<$> containerName,
+                           [(JSON..=) "AdvancedConfiguration"
+                              Prelude.<$> advancedConfiguration,
+                            (JSON..=) "ContainerName" Prelude.<$> containerName,
                             (JSON..=) "ContainerPort" Prelude.<$> containerPort,
                             (JSON..=) "LoadBalancerName" Prelude.<$> loadBalancerName,
                             (JSON..=) "TargetGroupArn" Prelude.<$> targetGroupArn])}
@@ -41,10 +46,17 @@ instance JSON.ToJSON LoadBalancerProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "ContainerName" Prelude.<$> containerName,
+              [(JSON..=) "AdvancedConfiguration"
+                 Prelude.<$> advancedConfiguration,
+               (JSON..=) "ContainerName" Prelude.<$> containerName,
                (JSON..=) "ContainerPort" Prelude.<$> containerPort,
                (JSON..=) "LoadBalancerName" Prelude.<$> loadBalancerName,
                (JSON..=) "TargetGroupArn" Prelude.<$> targetGroupArn]))
+instance Property "AdvancedConfiguration" LoadBalancerProperty where
+  type PropertyType "AdvancedConfiguration" LoadBalancerProperty = AdvancedConfigurationProperty
+  set newValue LoadBalancerProperty {..}
+    = LoadBalancerProperty
+        {advancedConfiguration = Prelude.pure newValue, ..}
 instance Property "ContainerName" LoadBalancerProperty where
   type PropertyType "ContainerName" LoadBalancerProperty = Value Prelude.Text
   set newValue LoadBalancerProperty {..}

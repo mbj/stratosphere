@@ -12,6 +12,8 @@ import {-# SOURCE #-} Stratosphere.S3.Bucket.IntelligentTieringConfigurationProp
 import {-# SOURCE #-} Stratosphere.S3.Bucket.InventoryConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.Bucket.LifecycleConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.Bucket.LoggingConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.S3.Bucket.MetadataConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.S3.Bucket.MetadataTableConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.Bucket.MetricsConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.Bucket.NotificationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.Bucket.ObjectLockConfigurationProperty as Exports
@@ -46,6 +48,10 @@ data Bucket
             lifecycleConfiguration :: (Prelude.Maybe LifecycleConfigurationProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-loggingconfiguration>
             loggingConfiguration :: (Prelude.Maybe LoggingConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-metadataconfiguration>
+            metadataConfiguration :: (Prelude.Maybe MetadataConfigurationProperty),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-metadatatableconfiguration>
+            metadataTableConfiguration :: (Prelude.Maybe MetadataTableConfigurationProperty),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-metricsconfigurations>
             metricsConfigurations :: (Prelude.Maybe [MetricsConfigurationProperty]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html#cfn-s3-bucket-notificationconfiguration>
@@ -80,6 +86,8 @@ mkBucket
        inventoryConfigurations = Prelude.Nothing,
        lifecycleConfiguration = Prelude.Nothing,
        loggingConfiguration = Prelude.Nothing,
+       metadataConfiguration = Prelude.Nothing,
+       metadataTableConfiguration = Prelude.Nothing,
        metricsConfigurations = Prelude.Nothing,
        notificationConfiguration = Prelude.Nothing,
        objectLockConfiguration = Prelude.Nothing,
@@ -110,6 +118,10 @@ instance ToResourceProperties Bucket where
                             (JSON..=) "LifecycleConfiguration"
                               Prelude.<$> lifecycleConfiguration,
                             (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
+                            (JSON..=) "MetadataConfiguration"
+                              Prelude.<$> metadataConfiguration,
+                            (JSON..=) "MetadataTableConfiguration"
+                              Prelude.<$> metadataTableConfiguration,
                             (JSON..=) "MetricsConfigurations"
                               Prelude.<$> metricsConfigurations,
                             (JSON..=) "NotificationConfiguration"
@@ -147,6 +159,10 @@ instance JSON.ToJSON Bucket where
                (JSON..=) "LifecycleConfiguration"
                  Prelude.<$> lifecycleConfiguration,
                (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
+               (JSON..=) "MetadataConfiguration"
+                 Prelude.<$> metadataConfiguration,
+               (JSON..=) "MetadataTableConfiguration"
+                 Prelude.<$> metadataTableConfiguration,
                (JSON..=) "MetricsConfigurations"
                  Prelude.<$> metricsConfigurations,
                (JSON..=) "NotificationConfiguration"
@@ -205,6 +221,14 @@ instance Property "LoggingConfiguration" Bucket where
   type PropertyType "LoggingConfiguration" Bucket = LoggingConfigurationProperty
   set newValue Bucket {..}
     = Bucket {loggingConfiguration = Prelude.pure newValue, ..}
+instance Property "MetadataConfiguration" Bucket where
+  type PropertyType "MetadataConfiguration" Bucket = MetadataConfigurationProperty
+  set newValue Bucket {..}
+    = Bucket {metadataConfiguration = Prelude.pure newValue, ..}
+instance Property "MetadataTableConfiguration" Bucket where
+  type PropertyType "MetadataTableConfiguration" Bucket = MetadataTableConfigurationProperty
+  set newValue Bucket {..}
+    = Bucket {metadataTableConfiguration = Prelude.pure newValue, ..}
 instance Property "MetricsConfigurations" Bucket where
   type PropertyType "MetricsConfigurations" Bucket = [MetricsConfigurationProperty]
   set newValue Bucket {..}

@@ -19,6 +19,8 @@ data VPCCidrBlock
                   ipv4NetmaskLength :: (Prelude.Maybe (Value Prelude.Integer)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6cidrblock>
                   ipv6CidrBlock :: (Prelude.Maybe (Value Prelude.Text)),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6cidrblocknetworkbordergroup>
+                  ipv6CidrBlockNetworkBorderGroup :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6ipampoolid>
                   ipv6IpamPoolId :: (Prelude.Maybe (Value Prelude.Text)),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-ipv6netmasklength>
@@ -35,7 +37,9 @@ mkVPCCidrBlock vpcId
        amazonProvidedIpv6CidrBlock = Prelude.Nothing,
        cidrBlock = Prelude.Nothing, ipv4IpamPoolId = Prelude.Nothing,
        ipv4NetmaskLength = Prelude.Nothing,
-       ipv6CidrBlock = Prelude.Nothing, ipv6IpamPoolId = Prelude.Nothing,
+       ipv6CidrBlock = Prelude.Nothing,
+       ipv6CidrBlockNetworkBorderGroup = Prelude.Nothing,
+       ipv6IpamPoolId = Prelude.Nothing,
        ipv6NetmaskLength = Prelude.Nothing, ipv6Pool = Prelude.Nothing}
 instance ToResourceProperties VPCCidrBlock where
   toResourceProperties VPCCidrBlock {..}
@@ -51,6 +55,8 @@ instance ToResourceProperties VPCCidrBlock where
                                (JSON..=) "Ipv4IpamPoolId" Prelude.<$> ipv4IpamPoolId,
                                (JSON..=) "Ipv4NetmaskLength" Prelude.<$> ipv4NetmaskLength,
                                (JSON..=) "Ipv6CidrBlock" Prelude.<$> ipv6CidrBlock,
+                               (JSON..=) "Ipv6CidrBlockNetworkBorderGroup"
+                                 Prelude.<$> ipv6CidrBlockNetworkBorderGroup,
                                (JSON..=) "Ipv6IpamPoolId" Prelude.<$> ipv6IpamPoolId,
                                (JSON..=) "Ipv6NetmaskLength" Prelude.<$> ipv6NetmaskLength,
                                (JSON..=) "Ipv6Pool" Prelude.<$> ipv6Pool]))}
@@ -67,6 +73,8 @@ instance JSON.ToJSON VPCCidrBlock where
                   (JSON..=) "Ipv4IpamPoolId" Prelude.<$> ipv4IpamPoolId,
                   (JSON..=) "Ipv4NetmaskLength" Prelude.<$> ipv4NetmaskLength,
                   (JSON..=) "Ipv6CidrBlock" Prelude.<$> ipv6CidrBlock,
+                  (JSON..=) "Ipv6CidrBlockNetworkBorderGroup"
+                    Prelude.<$> ipv6CidrBlockNetworkBorderGroup,
                   (JSON..=) "Ipv6IpamPoolId" Prelude.<$> ipv6IpamPoolId,
                   (JSON..=) "Ipv6NetmaskLength" Prelude.<$> ipv6NetmaskLength,
                   (JSON..=) "Ipv6Pool" Prelude.<$> ipv6Pool])))
@@ -91,6 +99,11 @@ instance Property "Ipv6CidrBlock" VPCCidrBlock where
   type PropertyType "Ipv6CidrBlock" VPCCidrBlock = Value Prelude.Text
   set newValue VPCCidrBlock {..}
     = VPCCidrBlock {ipv6CidrBlock = Prelude.pure newValue, ..}
+instance Property "Ipv6CidrBlockNetworkBorderGroup" VPCCidrBlock where
+  type PropertyType "Ipv6CidrBlockNetworkBorderGroup" VPCCidrBlock = Value Prelude.Text
+  set newValue VPCCidrBlock {..}
+    = VPCCidrBlock
+        {ipv6CidrBlockNetworkBorderGroup = Prelude.pure newValue, ..}
 instance Property "Ipv6IpamPoolId" VPCCidrBlock where
   type PropertyType "Ipv6IpamPoolId" VPCCidrBlock = Value Prelude.Text
   set newValue VPCCidrBlock {..}

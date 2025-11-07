@@ -21,6 +21,8 @@ data PatchBaseline
                    approvedPatchesComplianceLevel :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity>
                    approvedPatchesEnableNonSecurity :: (Prelude.Maybe (Value Prelude.Bool)),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-availablesecurityupdatescompliancestatus>
+                   availableSecurityUpdatesComplianceStatus :: (Prelude.Maybe (Value Prelude.Text)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-defaultbaseline>
                    defaultBaseline :: (Prelude.Maybe (Value Prelude.Bool)),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-description>
@@ -49,6 +51,7 @@ mkPatchBaseline name
        approvalRules = Prelude.Nothing, approvedPatches = Prelude.Nothing,
        approvedPatchesComplianceLevel = Prelude.Nothing,
        approvedPatchesEnableNonSecurity = Prelude.Nothing,
+       availableSecurityUpdatesComplianceStatus = Prelude.Nothing,
        defaultBaseline = Prelude.Nothing, description = Prelude.Nothing,
        globalFilters = Prelude.Nothing, operatingSystem = Prelude.Nothing,
        patchGroups = Prelude.Nothing, rejectedPatches = Prelude.Nothing,
@@ -68,6 +71,8 @@ instance ToResourceProperties PatchBaseline where
                                  Prelude.<$> approvedPatchesComplianceLevel,
                                (JSON..=) "ApprovedPatchesEnableNonSecurity"
                                  Prelude.<$> approvedPatchesEnableNonSecurity,
+                               (JSON..=) "AvailableSecurityUpdatesComplianceStatus"
+                                 Prelude.<$> availableSecurityUpdatesComplianceStatus,
                                (JSON..=) "DefaultBaseline" Prelude.<$> defaultBaseline,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "GlobalFilters" Prelude.<$> globalFilters,
@@ -91,6 +96,8 @@ instance JSON.ToJSON PatchBaseline where
                     Prelude.<$> approvedPatchesComplianceLevel,
                   (JSON..=) "ApprovedPatchesEnableNonSecurity"
                     Prelude.<$> approvedPatchesEnableNonSecurity,
+                  (JSON..=) "AvailableSecurityUpdatesComplianceStatus"
+                    Prelude.<$> availableSecurityUpdatesComplianceStatus,
                   (JSON..=) "DefaultBaseline" Prelude.<$> defaultBaseline,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "GlobalFilters" Prelude.<$> globalFilters,
@@ -119,6 +126,12 @@ instance Property "ApprovedPatchesEnableNonSecurity" PatchBaseline where
   set newValue PatchBaseline {..}
     = PatchBaseline
         {approvedPatchesEnableNonSecurity = Prelude.pure newValue, ..}
+instance Property "AvailableSecurityUpdatesComplianceStatus" PatchBaseline where
+  type PropertyType "AvailableSecurityUpdatesComplianceStatus" PatchBaseline = Value Prelude.Text
+  set newValue PatchBaseline {..}
+    = PatchBaseline
+        {availableSecurityUpdatesComplianceStatus = Prelude.pure newValue,
+         ..}
 instance Property "DefaultBaseline" PatchBaseline where
   type PropertyType "DefaultBaseline" PatchBaseline = Value Prelude.Bool
   set newValue PatchBaseline {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobDefinition.ConsumableResourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConsumableResourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties ConsumableResourcePropertiesProperty
+instance Prelude.Eq ConsumableResourcePropertiesProperty
+instance Prelude.Show ConsumableResourcePropertiesProperty
+instance JSON.ToJSON ConsumableResourcePropertiesProperty

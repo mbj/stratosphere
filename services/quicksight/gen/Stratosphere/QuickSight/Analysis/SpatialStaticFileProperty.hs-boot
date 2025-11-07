@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.SpatialStaticFileProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpatialStaticFileProperty :: Prelude.Type
+instance ToResourceProperties SpatialStaticFileProperty
+instance Prelude.Eq SpatialStaticFileProperty
+instance Prelude.Show SpatialStaticFileProperty
+instance JSON.ToJSON SpatialStaticFileProperty

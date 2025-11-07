@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.ResponderGateway.ManagedEndpointConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedEndpointConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedEndpointConfigurationProperty
+instance Prelude.Eq ManagedEndpointConfigurationProperty
+instance Prelude.Show ManagedEndpointConfigurationProperty
+instance JSON.ToJSON ManagedEndpointConfigurationProperty

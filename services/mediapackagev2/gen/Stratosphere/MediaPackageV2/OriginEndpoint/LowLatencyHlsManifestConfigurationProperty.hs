@@ -28,7 +28,9 @@ data LowLatencyHlsManifestConfigurationProperty
                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-starttag>
                                                 startTag :: (Prelude.Maybe StartTagProperty),
                                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-url>
-                                                url :: (Prelude.Maybe (Value Prelude.Text))}
+                                                url :: (Prelude.Maybe (Value Prelude.Text)),
+                                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration-urlencodechildmanifest>
+                                                urlEncodeChildManifest :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkLowLatencyHlsManifestConfigurationProperty ::
   Value Prelude.Text -> LowLatencyHlsManifestConfigurationProperty
@@ -40,7 +42,7 @@ mkLowLatencyHlsManifestConfigurationProperty manifestName
        manifestWindowSeconds = Prelude.Nothing,
        programDateTimeIntervalSeconds = Prelude.Nothing,
        scteHls = Prelude.Nothing, startTag = Prelude.Nothing,
-       url = Prelude.Nothing}
+       url = Prelude.Nothing, urlEncodeChildManifest = Prelude.Nothing}
 instance ToResourceProperties LowLatencyHlsManifestConfigurationProperty where
   toResourceProperties
     LowLatencyHlsManifestConfigurationProperty {..}
@@ -59,7 +61,9 @@ instance ToResourceProperties LowLatencyHlsManifestConfigurationProperty where
                                  Prelude.<$> programDateTimeIntervalSeconds,
                                (JSON..=) "ScteHls" Prelude.<$> scteHls,
                                (JSON..=) "StartTag" Prelude.<$> startTag,
-                               (JSON..=) "Url" Prelude.<$> url]))}
+                               (JSON..=) "Url" Prelude.<$> url,
+                               (JSON..=) "UrlEncodeChildManifest"
+                                 Prelude.<$> urlEncodeChildManifest]))}
 instance JSON.ToJSON LowLatencyHlsManifestConfigurationProperty where
   toJSON LowLatencyHlsManifestConfigurationProperty {..}
     = JSON.object
@@ -75,7 +79,9 @@ instance JSON.ToJSON LowLatencyHlsManifestConfigurationProperty where
                     Prelude.<$> programDateTimeIntervalSeconds,
                   (JSON..=) "ScteHls" Prelude.<$> scteHls,
                   (JSON..=) "StartTag" Prelude.<$> startTag,
-                  (JSON..=) "Url" Prelude.<$> url])))
+                  (JSON..=) "Url" Prelude.<$> url,
+                  (JSON..=) "UrlEncodeChildManifest"
+                    Prelude.<$> urlEncodeChildManifest])))
 instance Property "ChildManifestName" LowLatencyHlsManifestConfigurationProperty where
   type PropertyType "ChildManifestName" LowLatencyHlsManifestConfigurationProperty = Value Prelude.Text
   set newValue LowLatencyHlsManifestConfigurationProperty {..}
@@ -116,3 +122,8 @@ instance Property "Url" LowLatencyHlsManifestConfigurationProperty where
   set newValue LowLatencyHlsManifestConfigurationProperty {..}
     = LowLatencyHlsManifestConfigurationProperty
         {url = Prelude.pure newValue, ..}
+instance Property "UrlEncodeChildManifest" LowLatencyHlsManifestConfigurationProperty where
+  type PropertyType "UrlEncodeChildManifest" LowLatencyHlsManifestConfigurationProperty = Value Prelude.Bool
+  set newValue LowLatencyHlsManifestConfigurationProperty {..}
+    = LowLatencyHlsManifestConfigurationProperty
+        {urlEncodeChildManifest = Prelude.pure newValue, ..}

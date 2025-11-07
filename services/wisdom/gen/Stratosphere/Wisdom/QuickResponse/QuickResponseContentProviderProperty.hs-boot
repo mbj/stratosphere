@@ -1,0 +1,9 @@
+module Stratosphere.Wisdom.QuickResponse.QuickResponseContentProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QuickResponseContentProviderProperty :: Prelude.Type
+instance ToResourceProperties QuickResponseContentProviderProperty
+instance Prelude.Eq QuickResponseContentProviderProperty
+instance Prelude.Show QuickResponseContentProviderProperty
+instance JSON.ToJSON QuickResponseContentProviderProperty

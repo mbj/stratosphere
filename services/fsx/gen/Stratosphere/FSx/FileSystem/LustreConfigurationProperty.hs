@@ -5,6 +5,7 @@ module Stratosphere.FSx.FileSystem.LustreConfigurationProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.FSx.FileSystem.DataReadCacheConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.FSx.FileSystem.MetadataConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -21,6 +22,8 @@ data LustreConfigurationProperty
                                  dailyAutomaticBackupStartTime :: (Prelude.Maybe (Value Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-datacompressiontype>
                                  dataCompressionType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-datareadcacheconfiguration>
+                                 dataReadCacheConfiguration :: (Prelude.Maybe DataReadCacheConfigurationProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype>
                                  deploymentType :: (Prelude.Maybe (Value Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype>
@@ -37,6 +40,8 @@ data LustreConfigurationProperty
                                  metadataConfiguration :: (Prelude.Maybe MetadataConfigurationProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-perunitstoragethroughput>
                                  perUnitStorageThroughput :: (Prelude.Maybe (Value Prelude.Integer)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-throughputcapacity>
+                                 throughputCapacity :: (Prelude.Maybe (Value Prelude.Integer)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-weeklymaintenancestarttime>
                                  weeklyMaintenanceStartTime :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -48,12 +53,14 @@ mkLustreConfigurationProperty
        copyTagsToBackups = Prelude.Nothing,
        dailyAutomaticBackupStartTime = Prelude.Nothing,
        dataCompressionType = Prelude.Nothing,
+       dataReadCacheConfiguration = Prelude.Nothing,
        deploymentType = Prelude.Nothing, driveCacheType = Prelude.Nothing,
        efaEnabled = Prelude.Nothing, exportPath = Prelude.Nothing,
        importPath = Prelude.Nothing,
        importedFileChunkSize = Prelude.Nothing,
        metadataConfiguration = Prelude.Nothing,
        perUnitStorageThroughput = Prelude.Nothing,
+       throughputCapacity = Prelude.Nothing,
        weeklyMaintenanceStartTime = Prelude.Nothing}
 instance ToResourceProperties LustreConfigurationProperty where
   toResourceProperties LustreConfigurationProperty {..}
@@ -69,6 +76,8 @@ instance ToResourceProperties LustreConfigurationProperty where
                             (JSON..=) "DailyAutomaticBackupStartTime"
                               Prelude.<$> dailyAutomaticBackupStartTime,
                             (JSON..=) "DataCompressionType" Prelude.<$> dataCompressionType,
+                            (JSON..=) "DataReadCacheConfiguration"
+                              Prelude.<$> dataReadCacheConfiguration,
                             (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
                             (JSON..=) "DriveCacheType" Prelude.<$> driveCacheType,
                             (JSON..=) "EfaEnabled" Prelude.<$> efaEnabled,
@@ -80,6 +89,7 @@ instance ToResourceProperties LustreConfigurationProperty where
                               Prelude.<$> metadataConfiguration,
                             (JSON..=) "PerUnitStorageThroughput"
                               Prelude.<$> perUnitStorageThroughput,
+                            (JSON..=) "ThroughputCapacity" Prelude.<$> throughputCapacity,
                             (JSON..=) "WeeklyMaintenanceStartTime"
                               Prelude.<$> weeklyMaintenanceStartTime])}
 instance JSON.ToJSON LustreConfigurationProperty where
@@ -94,6 +104,8 @@ instance JSON.ToJSON LustreConfigurationProperty where
                (JSON..=) "DailyAutomaticBackupStartTime"
                  Prelude.<$> dailyAutomaticBackupStartTime,
                (JSON..=) "DataCompressionType" Prelude.<$> dataCompressionType,
+               (JSON..=) "DataReadCacheConfiguration"
+                 Prelude.<$> dataReadCacheConfiguration,
                (JSON..=) "DeploymentType" Prelude.<$> deploymentType,
                (JSON..=) "DriveCacheType" Prelude.<$> driveCacheType,
                (JSON..=) "EfaEnabled" Prelude.<$> efaEnabled,
@@ -105,6 +117,7 @@ instance JSON.ToJSON LustreConfigurationProperty where
                  Prelude.<$> metadataConfiguration,
                (JSON..=) "PerUnitStorageThroughput"
                  Prelude.<$> perUnitStorageThroughput,
+               (JSON..=) "ThroughputCapacity" Prelude.<$> throughputCapacity,
                (JSON..=) "WeeklyMaintenanceStartTime"
                  Prelude.<$> weeklyMaintenanceStartTime]))
 instance Property "AutoImportPolicy" LustreConfigurationProperty where
@@ -132,6 +145,11 @@ instance Property "DataCompressionType" LustreConfigurationProperty where
   set newValue LustreConfigurationProperty {..}
     = LustreConfigurationProperty
         {dataCompressionType = Prelude.pure newValue, ..}
+instance Property "DataReadCacheConfiguration" LustreConfigurationProperty where
+  type PropertyType "DataReadCacheConfiguration" LustreConfigurationProperty = DataReadCacheConfigurationProperty
+  set newValue LustreConfigurationProperty {..}
+    = LustreConfigurationProperty
+        {dataReadCacheConfiguration = Prelude.pure newValue, ..}
 instance Property "DeploymentType" LustreConfigurationProperty where
   type PropertyType "DeploymentType" LustreConfigurationProperty = Value Prelude.Text
   set newValue LustreConfigurationProperty {..}
@@ -172,6 +190,11 @@ instance Property "PerUnitStorageThroughput" LustreConfigurationProperty where
   set newValue LustreConfigurationProperty {..}
     = LustreConfigurationProperty
         {perUnitStorageThroughput = Prelude.pure newValue, ..}
+instance Property "ThroughputCapacity" LustreConfigurationProperty where
+  type PropertyType "ThroughputCapacity" LustreConfigurationProperty = Value Prelude.Integer
+  set newValue LustreConfigurationProperty {..}
+    = LustreConfigurationProperty
+        {throughputCapacity = Prelude.pure newValue, ..}
 instance Property "WeeklyMaintenanceStartTime" LustreConfigurationProperty where
   type PropertyType "WeeklyMaintenanceStartTime" LustreConfigurationProperty = Value Prelude.Text
   set newValue LustreConfigurationProperty {..}

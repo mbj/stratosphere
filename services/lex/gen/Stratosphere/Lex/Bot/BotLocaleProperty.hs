@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.CustomVocabularyProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lex.Bot.GenerativeAISettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.IntentProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotTypeProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.VoiceSettingsProperty as Exports
@@ -17,6 +18,8 @@ data BotLocaleProperty
                        customVocabulary :: (Prelude.Maybe CustomVocabularyProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-description>
                        description :: (Prelude.Maybe (Value Prelude.Text)),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-generativeaisettings>
+                       generativeAISettings :: (Prelude.Maybe GenerativeAISettingsProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-intents>
                        intents :: (Prelude.Maybe [IntentProperty]),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-localeid>
@@ -35,8 +38,8 @@ mkBotLocaleProperty localeId nluConfidenceThreshold
       {haddock_workaround_ = (), localeId = localeId,
        nluConfidenceThreshold = nluConfidenceThreshold,
        customVocabulary = Prelude.Nothing, description = Prelude.Nothing,
-       intents = Prelude.Nothing, slotTypes = Prelude.Nothing,
-       voiceSettings = Prelude.Nothing}
+       generativeAISettings = Prelude.Nothing, intents = Prelude.Nothing,
+       slotTypes = Prelude.Nothing, voiceSettings = Prelude.Nothing}
 instance ToResourceProperties BotLocaleProperty where
   toResourceProperties BotLocaleProperty {..}
     = ResourceProperties
@@ -48,6 +51,7 @@ instance ToResourceProperties BotLocaleProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "CustomVocabulary" Prelude.<$> customVocabulary,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "GenerativeAISettings" Prelude.<$> generativeAISettings,
                                (JSON..=) "Intents" Prelude.<$> intents,
                                (JSON..=) "SlotTypes" Prelude.<$> slotTypes,
                                (JSON..=) "VoiceSettings" Prelude.<$> voiceSettings]))}
@@ -61,6 +65,7 @@ instance JSON.ToJSON BotLocaleProperty where
               (Prelude.catMaybes
                  [(JSON..=) "CustomVocabulary" Prelude.<$> customVocabulary,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "GenerativeAISettings" Prelude.<$> generativeAISettings,
                   (JSON..=) "Intents" Prelude.<$> intents,
                   (JSON..=) "SlotTypes" Prelude.<$> slotTypes,
                   (JSON..=) "VoiceSettings" Prelude.<$> voiceSettings])))
@@ -72,6 +77,11 @@ instance Property "Description" BotLocaleProperty where
   type PropertyType "Description" BotLocaleProperty = Value Prelude.Text
   set newValue BotLocaleProperty {..}
     = BotLocaleProperty {description = Prelude.pure newValue, ..}
+instance Property "GenerativeAISettings" BotLocaleProperty where
+  type PropertyType "GenerativeAISettings" BotLocaleProperty = GenerativeAISettingsProperty
+  set newValue BotLocaleProperty {..}
+    = BotLocaleProperty
+        {generativeAISettings = Prelude.pure newValue, ..}
 instance Property "Intents" BotLocaleProperty where
   type PropertyType "Intents" BotLocaleProperty = [IntentProperty]
   set newValue BotLocaleProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataAccessor.ActionFilterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ActionFilterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ActionFilterConfigurationProperty
+instance Prelude.Eq ActionFilterConfigurationProperty
+instance Prelude.Show ActionFilterConfigurationProperty
+instance JSON.ToJSON ActionFilterConfigurationProperty

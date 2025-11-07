@@ -27,6 +27,8 @@ data OpenZFSConfigurationProperty
                                   diskIopsConfiguration :: (Prelude.Maybe DiskIopsConfigurationProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-endpointipaddressrange>
                                   endpointIpAddressRange :: (Prelude.Maybe (Value Prelude.Text)),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-endpointipv6addressrange>
+                                  endpointIpv6AddressRange :: (Prelude.Maybe (Value Prelude.Text)),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-options>
                                   options :: (Prelude.Maybe (ValueList Prelude.Text)),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html#cfn-fsx-filesystem-openzfsconfiguration-preferredsubnetid>
@@ -53,6 +55,7 @@ mkOpenZFSConfigurationProperty deploymentType
        dailyAutomaticBackupStartTime = Prelude.Nothing,
        diskIopsConfiguration = Prelude.Nothing,
        endpointIpAddressRange = Prelude.Nothing,
+       endpointIpv6AddressRange = Prelude.Nothing,
        options = Prelude.Nothing, preferredSubnetId = Prelude.Nothing,
        readCacheConfiguration = Prelude.Nothing,
        rootVolumeConfiguration = Prelude.Nothing,
@@ -78,6 +81,8 @@ instance ToResourceProperties OpenZFSConfigurationProperty where
                                  Prelude.<$> diskIopsConfiguration,
                                (JSON..=) "EndpointIpAddressRange"
                                  Prelude.<$> endpointIpAddressRange,
+                               (JSON..=) "EndpointIpv6AddressRange"
+                                 Prelude.<$> endpointIpv6AddressRange,
                                (JSON..=) "Options" Prelude.<$> options,
                                (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                                (JSON..=) "ReadCacheConfiguration"
@@ -105,6 +110,8 @@ instance JSON.ToJSON OpenZFSConfigurationProperty where
                     Prelude.<$> diskIopsConfiguration,
                   (JSON..=) "EndpointIpAddressRange"
                     Prelude.<$> endpointIpAddressRange,
+                  (JSON..=) "EndpointIpv6AddressRange"
+                    Prelude.<$> endpointIpv6AddressRange,
                   (JSON..=) "Options" Prelude.<$> options,
                   (JSON..=) "PreferredSubnetId" Prelude.<$> preferredSubnetId,
                   (JSON..=) "ReadCacheConfiguration"
@@ -149,6 +156,11 @@ instance Property "EndpointIpAddressRange" OpenZFSConfigurationProperty where
   set newValue OpenZFSConfigurationProperty {..}
     = OpenZFSConfigurationProperty
         {endpointIpAddressRange = Prelude.pure newValue, ..}
+instance Property "EndpointIpv6AddressRange" OpenZFSConfigurationProperty where
+  type PropertyType "EndpointIpv6AddressRange" OpenZFSConfigurationProperty = Value Prelude.Text
+  set newValue OpenZFSConfigurationProperty {..}
+    = OpenZFSConfigurationProperty
+        {endpointIpv6AddressRange = Prelude.pure newValue, ..}
 instance Property "Options" OpenZFSConfigurationProperty where
   type PropertyType "Options" OpenZFSConfigurationProperty = ValueList Prelude.Text
   set newValue OpenZFSConfigurationProperty {..}

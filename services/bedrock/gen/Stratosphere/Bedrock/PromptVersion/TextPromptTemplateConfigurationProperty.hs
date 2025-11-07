@@ -5,12 +5,15 @@ module Stratosphere.Bedrock.PromptVersion.TextPromptTemplateConfigurationPropert
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Bedrock.PromptVersion.CachePointBlockProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.PromptVersion.PromptInputVariableProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data TextPromptTemplateConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html>
     TextPromptTemplateConfigurationProperty {haddock_workaround_ :: (),
+                                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-cachepoint>
+                                             cachePoint :: (Prelude.Maybe CachePointBlockProperty),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-inputvariables>
                                              inputVariables :: (Prelude.Maybe [PromptInputVariableProperty]),
                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-text>
@@ -21,7 +24,7 @@ mkTextPromptTemplateConfigurationProperty ::
 mkTextPromptTemplateConfigurationProperty text
   = TextPromptTemplateConfigurationProperty
       {haddock_workaround_ = (), text = text,
-       inputVariables = Prelude.Nothing}
+       cachePoint = Prelude.Nothing, inputVariables = Prelude.Nothing}
 instance ToResourceProperties TextPromptTemplateConfigurationProperty where
   toResourceProperties TextPromptTemplateConfigurationProperty {..}
     = ResourceProperties
@@ -31,7 +34,8 @@ instance ToResourceProperties TextPromptTemplateConfigurationProperty where
                         ((Prelude.<>)
                            ["Text" JSON..= text]
                            (Prelude.catMaybes
-                              [(JSON..=) "InputVariables" Prelude.<$> inputVariables]))}
+                              [(JSON..=) "CachePoint" Prelude.<$> cachePoint,
+                               (JSON..=) "InputVariables" Prelude.<$> inputVariables]))}
 instance JSON.ToJSON TextPromptTemplateConfigurationProperty where
   toJSON TextPromptTemplateConfigurationProperty {..}
     = JSON.object
@@ -39,7 +43,13 @@ instance JSON.ToJSON TextPromptTemplateConfigurationProperty where
            ((Prelude.<>)
               ["Text" JSON..= text]
               (Prelude.catMaybes
-                 [(JSON..=) "InputVariables" Prelude.<$> inputVariables])))
+                 [(JSON..=) "CachePoint" Prelude.<$> cachePoint,
+                  (JSON..=) "InputVariables" Prelude.<$> inputVariables])))
+instance Property "CachePoint" TextPromptTemplateConfigurationProperty where
+  type PropertyType "CachePoint" TextPromptTemplateConfigurationProperty = CachePointBlockProperty
+  set newValue TextPromptTemplateConfigurationProperty {..}
+    = TextPromptTemplateConfigurationProperty
+        {cachePoint = Prelude.pure newValue, ..}
 instance Property "InputVariables" TextPromptTemplateConfigurationProperty where
   type PropertyType "InputVariables" TextPromptTemplateConfigurationProperty = [PromptInputVariableProperty]
   set newValue TextPromptTemplateConfigurationProperty {..}

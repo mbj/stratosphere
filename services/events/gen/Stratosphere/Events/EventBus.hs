@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Events.EventBus.DeadLetterConfigProperty as Exports
+import {-# SOURCE #-} Stratosphere.Events.EventBus.LogConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,6 +20,8 @@ data EventBus
               eventSourceName :: (Prelude.Maybe (Value Prelude.Text)),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-kmskeyidentifier>
               kmsKeyIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-logconfig>
+              logConfig :: (Prelude.Maybe LogConfigProperty),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-name>
               name :: (Value Prelude.Text),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html#cfn-events-eventbus-policy>
@@ -32,8 +35,8 @@ mkEventBus name
       {haddock_workaround_ = (), name = name,
        deadLetterConfig = Prelude.Nothing, description = Prelude.Nothing,
        eventSourceName = Prelude.Nothing,
-       kmsKeyIdentifier = Prelude.Nothing, policy = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       kmsKeyIdentifier = Prelude.Nothing, logConfig = Prelude.Nothing,
+       policy = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties EventBus where
   toResourceProperties EventBus {..}
     = ResourceProperties
@@ -46,6 +49,7 @@ instance ToResourceProperties EventBus where
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EventSourceName" Prelude.<$> eventSourceName,
                                (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
+                               (JSON..=) "LogConfig" Prelude.<$> logConfig,
                                (JSON..=) "Policy" Prelude.<$> policy,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON EventBus where
@@ -59,6 +63,7 @@ instance JSON.ToJSON EventBus where
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EventSourceName" Prelude.<$> eventSourceName,
                   (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
+                  (JSON..=) "LogConfig" Prelude.<$> logConfig,
                   (JSON..=) "Policy" Prelude.<$> policy,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DeadLetterConfig" EventBus where
@@ -77,6 +82,10 @@ instance Property "KmsKeyIdentifier" EventBus where
   type PropertyType "KmsKeyIdentifier" EventBus = Value Prelude.Text
   set newValue EventBus {..}
     = EventBus {kmsKeyIdentifier = Prelude.pure newValue, ..}
+instance Property "LogConfig" EventBus where
+  type PropertyType "LogConfig" EventBus = LogConfigProperty
+  set newValue EventBus {..}
+    = EventBus {logConfig = Prelude.pure newValue, ..}
 instance Property "Name" EventBus where
   type PropertyType "Name" EventBus = Value Prelude.Text
   set newValue EventBus {..} = EventBus {name = newValue, ..}

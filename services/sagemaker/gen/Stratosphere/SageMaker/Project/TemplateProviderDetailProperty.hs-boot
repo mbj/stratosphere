@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Project.TemplateProviderDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TemplateProviderDetailProperty :: Prelude.Type
+instance ToResourceProperties TemplateProviderDetailProperty
+instance Prelude.Eq TemplateProviderDetailProperty
+instance Prelude.Show TemplateProviderDetailProperty
+instance JSON.ToJSON TemplateProviderDetailProperty

@@ -1,0 +1,9 @@
+module Stratosphere.APS.Workspace.LoggingFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoggingFilterProperty :: Prelude.Type
+instance ToResourceProperties LoggingFilterProperty
+instance Prelude.Eq LoggingFilterProperty
+instance Prelude.Show LoggingFilterProperty
+instance JSON.ToJSON LoggingFilterProperty

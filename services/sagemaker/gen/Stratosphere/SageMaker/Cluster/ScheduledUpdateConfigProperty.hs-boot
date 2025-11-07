@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.ScheduledUpdateConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScheduledUpdateConfigProperty :: Prelude.Type
+instance ToResourceProperties ScheduledUpdateConfigProperty
+instance Prelude.Eq ScheduledUpdateConfigProperty
+instance Prelude.Show ScheduledUpdateConfigProperty
+instance JSON.ToJSON ScheduledUpdateConfigProperty

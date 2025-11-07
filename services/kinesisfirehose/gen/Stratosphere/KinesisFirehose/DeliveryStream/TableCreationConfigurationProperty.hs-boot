@@ -1,0 +1,9 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.TableCreationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TableCreationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TableCreationConfigurationProperty
+instance Prelude.Eq TableCreationConfigurationProperty
+instance Prelude.Show TableCreationConfigurationProperty
+instance JSON.ToJSON TableCreationConfigurationProperty

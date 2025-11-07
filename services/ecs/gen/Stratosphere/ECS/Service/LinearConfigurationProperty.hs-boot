@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.LinearConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LinearConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LinearConfigurationProperty
+instance Prelude.Eq LinearConfigurationProperty
+instance Prelude.Show LinearConfigurationProperty
+instance JSON.ToJSON LinearConfigurationProperty

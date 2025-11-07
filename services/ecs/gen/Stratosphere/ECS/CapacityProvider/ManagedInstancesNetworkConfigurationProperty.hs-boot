@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.ManagedInstancesNetworkConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedInstancesNetworkConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ManagedInstancesNetworkConfigurationProperty
+instance Prelude.Eq ManagedInstancesNetworkConfigurationProperty
+instance Prelude.Show ManagedInstancesNetworkConfigurationProperty
+instance JSON.ToJSON ManagedInstancesNetworkConfigurationProperty

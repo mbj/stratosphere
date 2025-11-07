@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.AnalysisDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalysisDefinitionProperty :: Prelude.Type
+instance ToResourceProperties AnalysisDefinitionProperty
+instance Prelude.Eq AnalysisDefinitionProperty
+instance Prelude.Show AnalysisDefinitionProperty
+instance JSON.ToJSON AnalysisDefinitionProperty

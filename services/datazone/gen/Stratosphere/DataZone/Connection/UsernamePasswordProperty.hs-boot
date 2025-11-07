@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.UsernamePasswordProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UsernamePasswordProperty :: Prelude.Type
+instance ToResourceProperties UsernamePasswordProperty
+instance Prelude.Eq UsernamePasswordProperty
+instance Prelude.Show UsernamePasswordProperty
+instance JSON.ToJSON UsernamePasswordProperty

@@ -1,9 +1,0 @@
-module Stratosphere.AppSync.DataSource.ElasticsearchConfigProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data ElasticsearchConfigProperty :: Prelude.Type
-instance ToResourceProperties ElasticsearchConfigProperty
-instance Prelude.Eq ElasticsearchConfigProperty
-instance Prelude.Show ElasticsearchConfigProperty
-instance JSON.ToJSON ElasticsearchConfigProperty

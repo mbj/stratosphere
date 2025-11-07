@@ -1,0 +1,9 @@
+module Stratosphere.AppIntegrations.Application.ContactHandlingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContactHandlingProperty :: Prelude.Type
+instance ToResourceProperties ContactHandlingProperty
+instance Prelude.Eq ContactHandlingProperty
+instance Prelude.Show ContactHandlingProperty
+instance JSON.ToJSON ContactHandlingProperty

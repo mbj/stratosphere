@@ -42,8 +42,12 @@ data DBCluster
                dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsystemid>
                dBSystemId :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databaseinsightsmode>
+               databaseInsightsMode :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename>
                databaseName :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deleteautomatedbackups>
+               deleteAutomatedBackups :: (Prelude.Maybe (Value Prelude.Bool)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection>
                deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-domain>
@@ -76,6 +80,8 @@ data DBCluster
                kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-managemasteruserpassword>
                manageMasterUserPassword :: (Prelude.Maybe (Value Prelude.Bool)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserauthenticationtype>
+               masterUserAuthenticationType :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword>
                masterUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusersecret>
@@ -116,6 +122,8 @@ data DBCluster
                snapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusteridentifier>
                sourceDBClusterIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
+               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusterresourceid>
+               sourceDbClusterResourceId :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion>
                sourceRegion :: (Prelude.Maybe (Value Prelude.Text)),
                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted>
@@ -145,7 +153,9 @@ mkDBCluster
        dBClusterParameterGroupName = Prelude.Nothing,
        dBInstanceParameterGroupName = Prelude.Nothing,
        dBSubnetGroupName = Prelude.Nothing, dBSystemId = Prelude.Nothing,
+       databaseInsightsMode = Prelude.Nothing,
        databaseName = Prelude.Nothing,
+       deleteAutomatedBackups = Prelude.Nothing,
        deletionProtection = Prelude.Nothing, domain = Prelude.Nothing,
        domainIAMRoleName = Prelude.Nothing,
        enableCloudwatchLogsExports = Prelude.Nothing,
@@ -158,6 +168,7 @@ mkDBCluster
        globalClusterIdentifier = Prelude.Nothing, iops = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing,
        manageMasterUserPassword = Prelude.Nothing,
+       masterUserAuthenticationType = Prelude.Nothing,
        masterUserPassword = Prelude.Nothing,
        masterUserSecret = Prelude.Nothing,
        masterUsername = Prelude.Nothing,
@@ -175,6 +186,7 @@ mkDBCluster
        serverlessV2ScalingConfiguration = Prelude.Nothing,
        snapshotIdentifier = Prelude.Nothing,
        sourceDBClusterIdentifier = Prelude.Nothing,
+       sourceDbClusterResourceId = Prelude.Nothing,
        sourceRegion = Prelude.Nothing, storageEncrypted = Prelude.Nothing,
        storageType = Prelude.Nothing, tags = Prelude.Nothing,
        useLatestRestorableTime = Prelude.Nothing,
@@ -205,7 +217,10 @@ instance ToResourceProperties DBCluster where
                               Prelude.<$> dBInstanceParameterGroupName,
                             (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
                             (JSON..=) "DBSystemId" Prelude.<$> dBSystemId,
+                            (JSON..=) "DatabaseInsightsMode" Prelude.<$> databaseInsightsMode,
                             (JSON..=) "DatabaseName" Prelude.<$> databaseName,
+                            (JSON..=) "DeleteAutomatedBackups"
+                              Prelude.<$> deleteAutomatedBackups,
                             (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                             (JSON..=) "Domain" Prelude.<$> domain,
                             (JSON..=) "DomainIAMRoleName" Prelude.<$> domainIAMRoleName,
@@ -229,6 +244,8 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                             (JSON..=) "ManageMasterUserPassword"
                               Prelude.<$> manageMasterUserPassword,
+                            (JSON..=) "MasterUserAuthenticationType"
+                              Prelude.<$> masterUserAuthenticationType,
                             (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
                             (JSON..=) "MasterUserSecret" Prelude.<$> masterUserSecret,
                             (JSON..=) "MasterUsername" Prelude.<$> masterUsername,
@@ -257,6 +274,8 @@ instance ToResourceProperties DBCluster where
                             (JSON..=) "SnapshotIdentifier" Prelude.<$> snapshotIdentifier,
                             (JSON..=) "SourceDBClusterIdentifier"
                               Prelude.<$> sourceDBClusterIdentifier,
+                            (JSON..=) "SourceDbClusterResourceId"
+                              Prelude.<$> sourceDbClusterResourceId,
                             (JSON..=) "SourceRegion" Prelude.<$> sourceRegion,
                             (JSON..=) "StorageEncrypted" Prelude.<$> storageEncrypted,
                             (JSON..=) "StorageType" Prelude.<$> storageType,
@@ -289,7 +308,10 @@ instance JSON.ToJSON DBCluster where
                  Prelude.<$> dBInstanceParameterGroupName,
                (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
                (JSON..=) "DBSystemId" Prelude.<$> dBSystemId,
+               (JSON..=) "DatabaseInsightsMode" Prelude.<$> databaseInsightsMode,
                (JSON..=) "DatabaseName" Prelude.<$> databaseName,
+               (JSON..=) "DeleteAutomatedBackups"
+                 Prelude.<$> deleteAutomatedBackups,
                (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                (JSON..=) "Domain" Prelude.<$> domain,
                (JSON..=) "DomainIAMRoleName" Prelude.<$> domainIAMRoleName,
@@ -313,6 +335,8 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                (JSON..=) "ManageMasterUserPassword"
                  Prelude.<$> manageMasterUserPassword,
+               (JSON..=) "MasterUserAuthenticationType"
+                 Prelude.<$> masterUserAuthenticationType,
                (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
                (JSON..=) "MasterUserSecret" Prelude.<$> masterUserSecret,
                (JSON..=) "MasterUsername" Prelude.<$> masterUsername,
@@ -341,6 +365,8 @@ instance JSON.ToJSON DBCluster where
                (JSON..=) "SnapshotIdentifier" Prelude.<$> snapshotIdentifier,
                (JSON..=) "SourceDBClusterIdentifier"
                  Prelude.<$> sourceDBClusterIdentifier,
+               (JSON..=) "SourceDbClusterResourceId"
+                 Prelude.<$> sourceDbClusterResourceId,
                (JSON..=) "SourceRegion" Prelude.<$> sourceRegion,
                (JSON..=) "StorageEncrypted" Prelude.<$> storageEncrypted,
                (JSON..=) "StorageType" Prelude.<$> storageType,
@@ -406,10 +432,18 @@ instance Property "DBSystemId" DBCluster where
   type PropertyType "DBSystemId" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {dBSystemId = Prelude.pure newValue, ..}
+instance Property "DatabaseInsightsMode" DBCluster where
+  type PropertyType "DatabaseInsightsMode" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {databaseInsightsMode = Prelude.pure newValue, ..}
 instance Property "DatabaseName" DBCluster where
   type PropertyType "DatabaseName" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {databaseName = Prelude.pure newValue, ..}
+instance Property "DeleteAutomatedBackups" DBCluster where
+  type PropertyType "DeleteAutomatedBackups" DBCluster = Value Prelude.Bool
+  set newValue DBCluster {..}
+    = DBCluster {deleteAutomatedBackups = Prelude.pure newValue, ..}
 instance Property "DeletionProtection" DBCluster where
   type PropertyType "DeletionProtection" DBCluster = Value Prelude.Bool
   set newValue DBCluster {..}
@@ -478,6 +512,11 @@ instance Property "ManageMasterUserPassword" DBCluster where
   type PropertyType "ManageMasterUserPassword" DBCluster = Value Prelude.Bool
   set newValue DBCluster {..}
     = DBCluster {manageMasterUserPassword = Prelude.pure newValue, ..}
+instance Property "MasterUserAuthenticationType" DBCluster where
+  type PropertyType "MasterUserAuthenticationType" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster
+        {masterUserAuthenticationType = Prelude.pure newValue, ..}
 instance Property "MasterUserPassword" DBCluster where
   type PropertyType "MasterUserPassword" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
@@ -564,6 +603,10 @@ instance Property "SourceDBClusterIdentifier" DBCluster where
   type PropertyType "SourceDBClusterIdentifier" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}
     = DBCluster {sourceDBClusterIdentifier = Prelude.pure newValue, ..}
+instance Property "SourceDbClusterResourceId" DBCluster where
+  type PropertyType "SourceDbClusterResourceId" DBCluster = Value Prelude.Text
+  set newValue DBCluster {..}
+    = DBCluster {sourceDbClusterResourceId = Prelude.pure newValue, ..}
 instance Property "SourceRegion" DBCluster where
   type PropertyType "SourceRegion" DBCluster = Value Prelude.Text
   set newValue DBCluster {..}

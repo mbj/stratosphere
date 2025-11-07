@@ -7,12 +7,14 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.AutoStartConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.AutoStopConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ConfigurationObjectProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMRServerless.Application.IdentityCenterConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.InitialCapacityConfigKeyValuePairProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.InteractiveConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.MaximumAllowedResourcesProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.MonitoringConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.NetworkConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.EMRServerless.Application.SchedulerConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EMRServerless.Application.WorkerTypeSpecificationInputProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -26,6 +28,8 @@ data Application
                  autoStartConfiguration :: (Prelude.Maybe AutoStartConfigurationProperty),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-autostopconfiguration>
                  autoStopConfiguration :: (Prelude.Maybe AutoStopConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-identitycenterconfiguration>
+                 identityCenterConfiguration :: (Prelude.Maybe IdentityCenterConfigurationProperty),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-imageconfiguration>
                  imageConfiguration :: (Prelude.Maybe ImageConfigurationInputProperty),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-initialcapacity>
@@ -44,6 +48,8 @@ data Application
                  releaseLabel :: (Value Prelude.Text),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-runtimeconfiguration>
                  runtimeConfiguration :: (Prelude.Maybe [ConfigurationObjectProperty]),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-schedulerconfiguration>
+                 schedulerConfiguration :: (Prelude.Maybe SchedulerConfigurationProperty),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-tags>
                  tags :: (Prelude.Maybe [Tag]),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html#cfn-emrserverless-application-type>
@@ -59,13 +65,15 @@ mkApplication releaseLabel type'
        type' = type', architecture = Prelude.Nothing,
        autoStartConfiguration = Prelude.Nothing,
        autoStopConfiguration = Prelude.Nothing,
+       identityCenterConfiguration = Prelude.Nothing,
        imageConfiguration = Prelude.Nothing,
        initialCapacity = Prelude.Nothing,
        interactiveConfiguration = Prelude.Nothing,
        maximumCapacity = Prelude.Nothing,
        monitoringConfiguration = Prelude.Nothing, name = Prelude.Nothing,
        networkConfiguration = Prelude.Nothing,
-       runtimeConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
+       runtimeConfiguration = Prelude.Nothing,
+       schedulerConfiguration = Prelude.Nothing, tags = Prelude.Nothing,
        workerTypeSpecifications = Prelude.Nothing}
 instance ToResourceProperties Application where
   toResourceProperties Application {..}
@@ -81,6 +89,8 @@ instance ToResourceProperties Application where
                                  Prelude.<$> autoStartConfiguration,
                                (JSON..=) "AutoStopConfiguration"
                                  Prelude.<$> autoStopConfiguration,
+                               (JSON..=) "IdentityCenterConfiguration"
+                                 Prelude.<$> identityCenterConfiguration,
                                (JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration,
                                (JSON..=) "InitialCapacity" Prelude.<$> initialCapacity,
                                (JSON..=) "InteractiveConfiguration"
@@ -91,6 +101,8 @@ instance ToResourceProperties Application where
                                (JSON..=) "Name" Prelude.<$> name,
                                (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                                (JSON..=) "RuntimeConfiguration" Prelude.<$> runtimeConfiguration,
+                               (JSON..=) "SchedulerConfiguration"
+                                 Prelude.<$> schedulerConfiguration,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "WorkerTypeSpecifications"
                                  Prelude.<$> workerTypeSpecifications]))}
@@ -106,6 +118,8 @@ instance JSON.ToJSON Application where
                     Prelude.<$> autoStartConfiguration,
                   (JSON..=) "AutoStopConfiguration"
                     Prelude.<$> autoStopConfiguration,
+                  (JSON..=) "IdentityCenterConfiguration"
+                    Prelude.<$> identityCenterConfiguration,
                   (JSON..=) "ImageConfiguration" Prelude.<$> imageConfiguration,
                   (JSON..=) "InitialCapacity" Prelude.<$> initialCapacity,
                   (JSON..=) "InteractiveConfiguration"
@@ -116,6 +130,8 @@ instance JSON.ToJSON Application where
                   (JSON..=) "Name" Prelude.<$> name,
                   (JSON..=) "NetworkConfiguration" Prelude.<$> networkConfiguration,
                   (JSON..=) "RuntimeConfiguration" Prelude.<$> runtimeConfiguration,
+                  (JSON..=) "SchedulerConfiguration"
+                    Prelude.<$> schedulerConfiguration,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "WorkerTypeSpecifications"
                     Prelude.<$> workerTypeSpecifications])))
@@ -131,6 +147,11 @@ instance Property "AutoStopConfiguration" Application where
   type PropertyType "AutoStopConfiguration" Application = AutoStopConfigurationProperty
   set newValue Application {..}
     = Application {autoStopConfiguration = Prelude.pure newValue, ..}
+instance Property "IdentityCenterConfiguration" Application where
+  type PropertyType "IdentityCenterConfiguration" Application = IdentityCenterConfigurationProperty
+  set newValue Application {..}
+    = Application
+        {identityCenterConfiguration = Prelude.pure newValue, ..}
 instance Property "ImageConfiguration" Application where
   type PropertyType "ImageConfiguration" Application = ImageConfigurationInputProperty
   set newValue Application {..}
@@ -168,6 +189,10 @@ instance Property "RuntimeConfiguration" Application where
   type PropertyType "RuntimeConfiguration" Application = [ConfigurationObjectProperty]
   set newValue Application {..}
     = Application {runtimeConfiguration = Prelude.pure newValue, ..}
+instance Property "SchedulerConfiguration" Application where
+  type PropertyType "SchedulerConfiguration" Application = SchedulerConfigurationProperty
+  set newValue Application {..}
+    = Application {schedulerConfiguration = Prelude.pure newValue, ..}
 instance Property "Tags" Application where
   type PropertyType "Tags" Application = [Tag]
   set newValue Application {..}

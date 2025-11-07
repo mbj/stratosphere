@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.FilterListControlProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterListControlProperty :: Prelude.Type
+instance ToResourceProperties FilterListControlProperty
+instance Prelude.Eq FilterListControlProperty
+instance Prelude.Show FilterListControlProperty
+instance JSON.ToJSON FilterListControlProperty

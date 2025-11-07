@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data DedicatedIpPool
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html>
@@ -12,29 +13,33 @@ data DedicatedIpPool
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-poolname>
                      poolName :: (Prelude.Maybe (Value Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-scalingmode>
-                     scalingMode :: (Prelude.Maybe (Value Prelude.Text))}
+                     scalingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html#cfn-ses-dedicatedippool-tags>
+                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDedicatedIpPool :: DedicatedIpPool
 mkDedicatedIpPool
   = DedicatedIpPool
       {haddock_workaround_ = (), poolName = Prelude.Nothing,
-       scalingMode = Prelude.Nothing}
+       scalingMode = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DedicatedIpPool where
   toResourceProperties DedicatedIpPool {..}
     = ResourceProperties
         {awsType = "AWS::SES::DedicatedIpPool",
-         supportsTags = Prelude.False,
+         supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "PoolName" Prelude.<$> poolName,
-                            (JSON..=) "ScalingMode" Prelude.<$> scalingMode])}
+                            (JSON..=) "ScalingMode" Prelude.<$> scalingMode,
+                            (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON DedicatedIpPool where
   toJSON DedicatedIpPool {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "PoolName" Prelude.<$> poolName,
-               (JSON..=) "ScalingMode" Prelude.<$> scalingMode]))
+               (JSON..=) "ScalingMode" Prelude.<$> scalingMode,
+               (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "PoolName" DedicatedIpPool where
   type PropertyType "PoolName" DedicatedIpPool = Value Prelude.Text
   set newValue DedicatedIpPool {..}
@@ -43,3 +48,7 @@ instance Property "ScalingMode" DedicatedIpPool where
   type PropertyType "ScalingMode" DedicatedIpPool = Value Prelude.Text
   set newValue DedicatedIpPool {..}
     = DedicatedIpPool {scalingMode = Prelude.pure newValue, ..}
+instance Property "Tags" DedicatedIpPool where
+  type PropertyType "Tags" DedicatedIpPool = [Tag]
+  set newValue DedicatedIpPool {..}
+    = DedicatedIpPool {tags = Prelude.pure newValue, ..}

@@ -10,24 +10,28 @@ data FilterOperationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html>
     FilterOperationProperty {haddock_workaround_ :: (),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression>
-                             conditionExpression :: (Value Prelude.Text)}
+                             conditionExpression :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkFilterOperationProperty ::
-  Value Prelude.Text -> FilterOperationProperty
-mkFilterOperationProperty conditionExpression
+mkFilterOperationProperty :: FilterOperationProperty
+mkFilterOperationProperty
   = FilterOperationProperty
-      {haddock_workaround_ = (),
-       conditionExpression = conditionExpression}
+      {haddock_workaround_ = (), conditionExpression = Prelude.Nothing}
 instance ToResourceProperties FilterOperationProperty where
   toResourceProperties FilterOperationProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSet.FilterOperation",
          supportsTags = Prelude.False,
-         properties = ["ConditionExpression" JSON..= conditionExpression]}
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "ConditionExpression" Prelude.<$> conditionExpression])}
 instance JSON.ToJSON FilterOperationProperty where
   toJSON FilterOperationProperty {..}
-    = JSON.object ["ConditionExpression" JSON..= conditionExpression]
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "ConditionExpression" Prelude.<$> conditionExpression]))
 instance Property "ConditionExpression" FilterOperationProperty where
   type PropertyType "ConditionExpression" FilterOperationProperty = Value Prelude.Text
   set newValue FilterOperationProperty {..}
-    = FilterOperationProperty {conditionExpression = newValue, ..}
+    = FilterOperationProperty
+        {conditionExpression = Prelude.pure newValue, ..}

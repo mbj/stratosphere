@@ -29,6 +29,8 @@ data ServiceManagedEBSVolumeConfigurationProperty
                                                   tagSpecifications :: (Prelude.Maybe [EBSTagSpecificationProperty]),
                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html#cfn-ecs-service-servicemanagedebsvolumeconfiguration-throughput>
                                                   throughput :: (Prelude.Maybe (Value Prelude.Integer)),
+                                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html#cfn-ecs-service-servicemanagedebsvolumeconfiguration-volumeinitializationrate>
+                                                  volumeInitializationRate :: (Prelude.Maybe (Value Prelude.Integer)),
                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html#cfn-ecs-service-servicemanagedebsvolumeconfiguration-volumetype>
                                                   volumeType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -41,6 +43,7 @@ mkServiceManagedEBSVolumeConfigurationProperty roleArn
        iops = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
        sizeInGiB = Prelude.Nothing, snapshotId = Prelude.Nothing,
        tagSpecifications = Prelude.Nothing, throughput = Prelude.Nothing,
+       volumeInitializationRate = Prelude.Nothing,
        volumeType = Prelude.Nothing}
 instance ToResourceProperties ServiceManagedEBSVolumeConfigurationProperty where
   toResourceProperties
@@ -60,6 +63,8 @@ instance ToResourceProperties ServiceManagedEBSVolumeConfigurationProperty where
                                (JSON..=) "SnapshotId" Prelude.<$> snapshotId,
                                (JSON..=) "TagSpecifications" Prelude.<$> tagSpecifications,
                                (JSON..=) "Throughput" Prelude.<$> throughput,
+                               (JSON..=) "VolumeInitializationRate"
+                                 Prelude.<$> volumeInitializationRate,
                                (JSON..=) "VolumeType" Prelude.<$> volumeType]))}
 instance JSON.ToJSON ServiceManagedEBSVolumeConfigurationProperty where
   toJSON ServiceManagedEBSVolumeConfigurationProperty {..}
@@ -76,6 +81,8 @@ instance JSON.ToJSON ServiceManagedEBSVolumeConfigurationProperty where
                   (JSON..=) "SnapshotId" Prelude.<$> snapshotId,
                   (JSON..=) "TagSpecifications" Prelude.<$> tagSpecifications,
                   (JSON..=) "Throughput" Prelude.<$> throughput,
+                  (JSON..=) "VolumeInitializationRate"
+                    Prelude.<$> volumeInitializationRate,
                   (JSON..=) "VolumeType" Prelude.<$> volumeType])))
 instance Property "Encrypted" ServiceManagedEBSVolumeConfigurationProperty where
   type PropertyType "Encrypted" ServiceManagedEBSVolumeConfigurationProperty = Value Prelude.Bool
@@ -122,6 +129,11 @@ instance Property "Throughput" ServiceManagedEBSVolumeConfigurationProperty wher
   set newValue ServiceManagedEBSVolumeConfigurationProperty {..}
     = ServiceManagedEBSVolumeConfigurationProperty
         {throughput = Prelude.pure newValue, ..}
+instance Property "VolumeInitializationRate" ServiceManagedEBSVolumeConfigurationProperty where
+  type PropertyType "VolumeInitializationRate" ServiceManagedEBSVolumeConfigurationProperty = Value Prelude.Integer
+  set newValue ServiceManagedEBSVolumeConfigurationProperty {..}
+    = ServiceManagedEBSVolumeConfigurationProperty
+        {volumeInitializationRate = Prelude.pure newValue, ..}
 instance Property "VolumeType" ServiceManagedEBSVolumeConfigurationProperty where
   type PropertyType "VolumeType" ServiceManagedEBSVolumeConfigurationProperty = Value Prelude.Text
   set newValue ServiceManagedEBSVolumeConfigurationProperty {..}

@@ -11,6 +11,8 @@ import Stratosphere.Value
 data Key
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html>
     Key {haddock_workaround_ :: (),
+         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-derivekeyusage>
+         deriveKeyUsage :: (Prelude.Maybe (Value Prelude.Text)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-enabled>
          enabled :: (Prelude.Maybe (Value Prelude.Bool)),
          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-paymentcryptography-key.html#cfn-paymentcryptography-key-exportable>
@@ -26,7 +28,8 @@ mkKey :: Value Prelude.Bool -> KeyAttributesProperty -> Key
 mkKey exportable keyAttributes
   = Key
       {haddock_workaround_ = (), exportable = exportable,
-       keyAttributes = keyAttributes, enabled = Prelude.Nothing,
+       keyAttributes = keyAttributes, deriveKeyUsage = Prelude.Nothing,
+       enabled = Prelude.Nothing,
        keyCheckValueAlgorithm = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Key where
   toResourceProperties Key {..}
@@ -38,7 +41,8 @@ instance ToResourceProperties Key where
                            ["Exportable" JSON..= exportable,
                             "KeyAttributes" JSON..= keyAttributes]
                            (Prelude.catMaybes
-                              [(JSON..=) "Enabled" Prelude.<$> enabled,
+                              [(JSON..=) "DeriveKeyUsage" Prelude.<$> deriveKeyUsage,
+                               (JSON..=) "Enabled" Prelude.<$> enabled,
                                (JSON..=) "KeyCheckValueAlgorithm"
                                  Prelude.<$> keyCheckValueAlgorithm,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -50,10 +54,15 @@ instance JSON.ToJSON Key where
               ["Exportable" JSON..= exportable,
                "KeyAttributes" JSON..= keyAttributes]
               (Prelude.catMaybes
-                 [(JSON..=) "Enabled" Prelude.<$> enabled,
+                 [(JSON..=) "DeriveKeyUsage" Prelude.<$> deriveKeyUsage,
+                  (JSON..=) "Enabled" Prelude.<$> enabled,
                   (JSON..=) "KeyCheckValueAlgorithm"
                     Prelude.<$> keyCheckValueAlgorithm,
                   (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "DeriveKeyUsage" Key where
+  type PropertyType "DeriveKeyUsage" Key = Value Prelude.Text
+  set newValue Key {..}
+    = Key {deriveKeyUsage = Prelude.pure newValue, ..}
 instance Property "Enabled" Key where
   type PropertyType "Enabled" Key = Value Prelude.Bool
   set newValue Key {..} = Key {enabled = Prelude.pure newValue, ..}

@@ -17,6 +17,8 @@ data Permission
                 functionName :: (Value Prelude.Text),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionurlauthtype>
                 functionUrlAuthType :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-invokedviafunctionurl>
+                invokedViaFunctionUrl :: (Prelude.Maybe (Value Prelude.Bool)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal>
                 principal :: (Value Prelude.Text),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principalorgid>
@@ -35,6 +37,7 @@ mkPermission action functionName principal
        functionName = functionName, principal = principal,
        eventSourceToken = Prelude.Nothing,
        functionUrlAuthType = Prelude.Nothing,
+       invokedViaFunctionUrl = Prelude.Nothing,
        principalOrgID = Prelude.Nothing, sourceAccount = Prelude.Nothing,
        sourceArn = Prelude.Nothing}
 instance ToResourceProperties Permission where
@@ -48,6 +51,8 @@ instance ToResourceProperties Permission where
                            (Prelude.catMaybes
                               [(JSON..=) "EventSourceToken" Prelude.<$> eventSourceToken,
                                (JSON..=) "FunctionUrlAuthType" Prelude.<$> functionUrlAuthType,
+                               (JSON..=) "InvokedViaFunctionUrl"
+                                 Prelude.<$> invokedViaFunctionUrl,
                                (JSON..=) "PrincipalOrgID" Prelude.<$> principalOrgID,
                                (JSON..=) "SourceAccount" Prelude.<$> sourceAccount,
                                (JSON..=) "SourceArn" Prelude.<$> sourceArn]))}
@@ -61,6 +66,8 @@ instance JSON.ToJSON Permission where
               (Prelude.catMaybes
                  [(JSON..=) "EventSourceToken" Prelude.<$> eventSourceToken,
                   (JSON..=) "FunctionUrlAuthType" Prelude.<$> functionUrlAuthType,
+                  (JSON..=) "InvokedViaFunctionUrl"
+                    Prelude.<$> invokedViaFunctionUrl,
                   (JSON..=) "PrincipalOrgID" Prelude.<$> principalOrgID,
                   (JSON..=) "SourceAccount" Prelude.<$> sourceAccount,
                   (JSON..=) "SourceArn" Prelude.<$> sourceArn])))
@@ -79,6 +86,10 @@ instance Property "FunctionUrlAuthType" Permission where
   type PropertyType "FunctionUrlAuthType" Permission = Value Prelude.Text
   set newValue Permission {..}
     = Permission {functionUrlAuthType = Prelude.pure newValue, ..}
+instance Property "InvokedViaFunctionUrl" Permission where
+  type PropertyType "InvokedViaFunctionUrl" Permission = Value Prelude.Bool
+  set newValue Permission {..}
+    = Permission {invokedViaFunctionUrl = Prelude.pure newValue, ..}
 instance Property "Principal" Permission where
   type PropertyType "Principal" Permission = Value Prelude.Text
   set newValue Permission {..}

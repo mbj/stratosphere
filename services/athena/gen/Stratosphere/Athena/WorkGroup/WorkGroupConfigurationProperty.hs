@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Athena.WorkGroup.CustomerContentEncryptionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Athena.WorkGroup.EngineVersionProperty as Exports
+import {-# SOURCE #-} Stratosphere.Athena.WorkGroup.ManagedQueryResultsConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Athena.WorkGroup.ResultConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -25,6 +26,8 @@ data WorkGroupConfigurationProperty
                                     engineVersion :: (Prelude.Maybe EngineVersionProperty),
                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-executionrole>
                                     executionRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-managedqueryresultsconfiguration>
+                                    managedQueryResultsConfiguration :: (Prelude.Maybe ManagedQueryResultsConfigurationProperty),
                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled>
                                     publishCloudWatchMetricsEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled>
@@ -41,6 +44,7 @@ mkWorkGroupConfigurationProperty
        customerContentEncryptionConfiguration = Prelude.Nothing,
        enforceWorkGroupConfiguration = Prelude.Nothing,
        engineVersion = Prelude.Nothing, executionRole = Prelude.Nothing,
+       managedQueryResultsConfiguration = Prelude.Nothing,
        publishCloudWatchMetricsEnabled = Prelude.Nothing,
        requesterPaysEnabled = Prelude.Nothing,
        resultConfiguration = Prelude.Nothing}
@@ -61,6 +65,8 @@ instance ToResourceProperties WorkGroupConfigurationProperty where
                               Prelude.<$> enforceWorkGroupConfiguration,
                             (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                             (JSON..=) "ExecutionRole" Prelude.<$> executionRole,
+                            (JSON..=) "ManagedQueryResultsConfiguration"
+                              Prelude.<$> managedQueryResultsConfiguration,
                             (JSON..=) "PublishCloudWatchMetricsEnabled"
                               Prelude.<$> publishCloudWatchMetricsEnabled,
                             (JSON..=) "RequesterPaysEnabled" Prelude.<$> requesterPaysEnabled,
@@ -80,6 +86,8 @@ instance JSON.ToJSON WorkGroupConfigurationProperty where
                  Prelude.<$> enforceWorkGroupConfiguration,
                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                (JSON..=) "ExecutionRole" Prelude.<$> executionRole,
+               (JSON..=) "ManagedQueryResultsConfiguration"
+                 Prelude.<$> managedQueryResultsConfiguration,
                (JSON..=) "PublishCloudWatchMetricsEnabled"
                  Prelude.<$> publishCloudWatchMetricsEnabled,
                (JSON..=) "RequesterPaysEnabled" Prelude.<$> requesterPaysEnabled,
@@ -115,6 +123,11 @@ instance Property "ExecutionRole" WorkGroupConfigurationProperty where
   set newValue WorkGroupConfigurationProperty {..}
     = WorkGroupConfigurationProperty
         {executionRole = Prelude.pure newValue, ..}
+instance Property "ManagedQueryResultsConfiguration" WorkGroupConfigurationProperty where
+  type PropertyType "ManagedQueryResultsConfiguration" WorkGroupConfigurationProperty = ManagedQueryResultsConfigurationProperty
+  set newValue WorkGroupConfigurationProperty {..}
+    = WorkGroupConfigurationProperty
+        {managedQueryResultsConfiguration = Prelude.pure newValue, ..}
 instance Property "PublishCloudWatchMetricsEnabled" WorkGroupConfigurationProperty where
   type PropertyType "PublishCloudWatchMetricsEnabled" WorkGroupConfigurationProperty = Value Prelude.Bool
   set newValue WorkGroupConfigurationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.TotalAggregationFunctionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TotalAggregationFunctionProperty :: Prelude.Type
+instance ToResourceProperties TotalAggregationFunctionProperty
+instance Prelude.Eq TotalAggregationFunctionProperty
+instance Prelude.Show TotalAggregationFunctionProperty
+instance JSON.ToJSON TotalAggregationFunctionProperty

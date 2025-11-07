@@ -5,15 +5,12 @@ module Stratosphere.IoTSiteWise.Gateway.GatewayPlatformProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.IoTSiteWise.Gateway.GreengrassProperty as Exports
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.Gateway.GreengrassV2Property as Exports
 import {-# SOURCE #-} Stratosphere.IoTSiteWise.Gateway.SiemensIEProperty as Exports
 import Stratosphere.ResourceProperties
 data GatewayPlatformProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html>
     GatewayPlatformProperty {haddock_workaround_ :: (),
-                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass>
-                             greengrass :: (Prelude.Maybe GreengrassProperty),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrassv2>
                              greengrassV2 :: (Prelude.Maybe GreengrassV2Property),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-siemensie>
@@ -22,8 +19,8 @@ data GatewayPlatformProperty
 mkGatewayPlatformProperty :: GatewayPlatformProperty
 mkGatewayPlatformProperty
   = GatewayPlatformProperty
-      {haddock_workaround_ = (), greengrass = Prelude.Nothing,
-       greengrassV2 = Prelude.Nothing, siemensIE = Prelude.Nothing}
+      {haddock_workaround_ = (), greengrassV2 = Prelude.Nothing,
+       siemensIE = Prelude.Nothing}
 instance ToResourceProperties GatewayPlatformProperty where
   toResourceProperties GatewayPlatformProperty {..}
     = ResourceProperties
@@ -31,21 +28,15 @@ instance ToResourceProperties GatewayPlatformProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Greengrass" Prelude.<$> greengrass,
-                            (JSON..=) "GreengrassV2" Prelude.<$> greengrassV2,
+                           [(JSON..=) "GreengrassV2" Prelude.<$> greengrassV2,
                             (JSON..=) "SiemensIE" Prelude.<$> siemensIE])}
 instance JSON.ToJSON GatewayPlatformProperty where
   toJSON GatewayPlatformProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Greengrass" Prelude.<$> greengrass,
-               (JSON..=) "GreengrassV2" Prelude.<$> greengrassV2,
+              [(JSON..=) "GreengrassV2" Prelude.<$> greengrassV2,
                (JSON..=) "SiemensIE" Prelude.<$> siemensIE]))
-instance Property "Greengrass" GatewayPlatformProperty where
-  type PropertyType "Greengrass" GatewayPlatformProperty = GreengrassProperty
-  set newValue GatewayPlatformProperty {..}
-    = GatewayPlatformProperty {greengrass = Prelude.pure newValue, ..}
 instance Property "GreengrassV2" GatewayPlatformProperty where
   type PropertyType "GreengrassV2" GatewayPlatformProperty = GreengrassV2Property
   set newValue GatewayPlatformProperty {..}

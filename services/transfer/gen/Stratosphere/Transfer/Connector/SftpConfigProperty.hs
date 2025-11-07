@@ -9,6 +9,8 @@ import Stratosphere.Value
 data SftpConfigProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html>
     SftpConfigProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-maxconcurrentconnections>
+                        maxConcurrentConnections :: (Prelude.Maybe (Value Prelude.Integer)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-trustedhostkeys>
                         trustedHostKeys :: (Prelude.Maybe (ValueList Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html#cfn-transfer-connector-sftpconfig-usersecretid>
@@ -17,8 +19,9 @@ data SftpConfigProperty
 mkSftpConfigProperty :: SftpConfigProperty
 mkSftpConfigProperty
   = SftpConfigProperty
-      {haddock_workaround_ = (), trustedHostKeys = Prelude.Nothing,
-       userSecretId = Prelude.Nothing}
+      {haddock_workaround_ = (),
+       maxConcurrentConnections = Prelude.Nothing,
+       trustedHostKeys = Prelude.Nothing, userSecretId = Prelude.Nothing}
 instance ToResourceProperties SftpConfigProperty where
   toResourceProperties SftpConfigProperty {..}
     = ResourceProperties
@@ -26,15 +29,24 @@ instance ToResourceProperties SftpConfigProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "TrustedHostKeys" Prelude.<$> trustedHostKeys,
+                           [(JSON..=) "MaxConcurrentConnections"
+                              Prelude.<$> maxConcurrentConnections,
+                            (JSON..=) "TrustedHostKeys" Prelude.<$> trustedHostKeys,
                             (JSON..=) "UserSecretId" Prelude.<$> userSecretId])}
 instance JSON.ToJSON SftpConfigProperty where
   toJSON SftpConfigProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "TrustedHostKeys" Prelude.<$> trustedHostKeys,
+              [(JSON..=) "MaxConcurrentConnections"
+                 Prelude.<$> maxConcurrentConnections,
+               (JSON..=) "TrustedHostKeys" Prelude.<$> trustedHostKeys,
                (JSON..=) "UserSecretId" Prelude.<$> userSecretId]))
+instance Property "MaxConcurrentConnections" SftpConfigProperty where
+  type PropertyType "MaxConcurrentConnections" SftpConfigProperty = Value Prelude.Integer
+  set newValue SftpConfigProperty {..}
+    = SftpConfigProperty
+        {maxConcurrentConnections = Prelude.pure newValue, ..}
 instance Property "TrustedHostKeys" SftpConfigProperty where
   type PropertyType "TrustedHostKeys" SftpConfigProperty = ValueList Prelude.Text
   set newValue SftpConfigProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.AnycastIpList.AnycastIpListProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnycastIpListProperty :: Prelude.Type
+instance ToResourceProperties AnycastIpListProperty
+instance Prelude.Eq AnycastIpListProperty
+instance Prelude.Show AnycastIpListProperty
+instance JSON.ToJSON AnycastIpListProperty

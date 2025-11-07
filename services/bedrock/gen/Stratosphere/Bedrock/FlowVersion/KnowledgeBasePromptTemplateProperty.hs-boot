@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowVersion.KnowledgeBasePromptTemplateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KnowledgeBasePromptTemplateProperty :: Prelude.Type
+instance ToResourceProperties KnowledgeBasePromptTemplateProperty
+instance Prelude.Eq KnowledgeBasePromptTemplateProperty
+instance Prelude.Show KnowledgeBasePromptTemplateProperty
+instance JSON.ToJSON KnowledgeBasePromptTemplateProperty

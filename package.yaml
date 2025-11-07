@@ -1,14 +1,13 @@
 _common/package: !include "common/package.yaml"
 
-name:         stratosphere
-version:      1.0.0
-synopsis:     EDSL for AWS CloudFormation
-description:  EDSL for AWS CloudFormation
 category:     AWS, Cloud
-maintainer:   Markus Schirp
-stability:    experimental
-license:      MIT
+description:  EDSL for AWS CloudFormation, base types to be used by sibling stratosphere-* packages.
 github:       mbj/stratosphere
+maintainer:   Markus Schirp
+name:         stratosphere
+stability:    experimental
+synopsis:     EDSL for AWS CloudFormation
+version:      1.0.0
 
 <<: *defaults
 
@@ -18,13 +17,13 @@ extra-source-files:
 - README.md
 
 dependencies:
-- aeson            >= 2
-- aeson-pretty     >= 0.8
-- base             >= 4.8
-- bytestring
-- containers
-- mono-traversable
-- text             >= 1.1
+- aeson            >= 2    && < 3
+- aeson-pretty     >= 0.8  && < 2.9
+- base             >= 4.8  && < 4.22
+- bytestring       >= 0.11 && < 0.13
+- containers       >= 0.6  && < 0.9
+- mono-traversable >= 1.0  && < 2.0
+- text             >= 1.1  && < 3.0
 
 library:
   source-dirs:

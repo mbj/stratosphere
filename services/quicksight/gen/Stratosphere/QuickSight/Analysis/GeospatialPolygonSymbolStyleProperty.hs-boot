@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialPolygonSymbolStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialPolygonSymbolStyleProperty :: Prelude.Type
+instance ToResourceProperties GeospatialPolygonSymbolStyleProperty
+instance Prelude.Eq GeospatialPolygonSymbolStyleProperty
+instance Prelude.Show GeospatialPolygonSymbolStyleProperty
+instance JSON.ToJSON GeospatialPolygonSymbolStyleProperty

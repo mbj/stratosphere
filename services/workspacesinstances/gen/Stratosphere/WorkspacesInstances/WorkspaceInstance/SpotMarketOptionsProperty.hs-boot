@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.SpotMarketOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpotMarketOptionsProperty :: Prelude.Type
+instance ToResourceProperties SpotMarketOptionsProperty
+instance Prelude.Eq SpotMarketOptionsProperty
+instance Prelude.Show SpotMarketOptionsProperty
+instance JSON.ToJSON SpotMarketOptionsProperty

@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.MetadataTableEncryptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetadataTableEncryptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MetadataTableEncryptionConfigurationProperty
+instance Prelude.Eq MetadataTableEncryptionConfigurationProperty
+instance Prelude.Show MetadataTableEncryptionConfigurationProperty
+instance JSON.ToJSON MetadataTableEncryptionConfigurationProperty

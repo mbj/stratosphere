@@ -7,6 +7,8 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitCookieProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitHeaderProperty as Exports
+import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitJA3FingerprintProperty as Exports
+import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitJA4FingerprintProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitLabelNamespaceProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitQueryArgumentProperty as Exports
 import {-# SOURCE #-} Stratosphere.WAFv2.WebACL.RateLimitQueryStringProperty as Exports
@@ -15,6 +17,8 @@ import Stratosphere.ResourceProperties
 data RateBasedStatementCustomKeyProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html>
     RateBasedStatementCustomKeyProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-asn>
+                                         aSN :: (Prelude.Maybe JSON.Object),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-cookie>
                                          cookie :: (Prelude.Maybe RateLimitCookieProperty),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-forwardedip>
@@ -25,6 +29,10 @@ data RateBasedStatementCustomKeyProperty
                                          header :: (Prelude.Maybe RateLimitHeaderProperty),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-ip>
                                          iP :: (Prelude.Maybe JSON.Object),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-ja3fingerprint>
+                                         jA3Fingerprint :: (Prelude.Maybe RateLimitJA3FingerprintProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-ja4fingerprint>
+                                         jA4Fingerprint :: (Prelude.Maybe RateLimitJA4FingerprintProperty),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-labelnamespace>
                                          labelNamespace :: (Prelude.Maybe RateLimitLabelNamespaceProperty),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-queryargument>
@@ -38,11 +46,13 @@ mkRateBasedStatementCustomKeyProperty ::
   RateBasedStatementCustomKeyProperty
 mkRateBasedStatementCustomKeyProperty
   = RateBasedStatementCustomKeyProperty
-      {haddock_workaround_ = (), cookie = Prelude.Nothing,
-       forwardedIP = Prelude.Nothing, hTTPMethod = Prelude.Nothing,
-       header = Prelude.Nothing, iP = Prelude.Nothing,
-       labelNamespace = Prelude.Nothing, queryArgument = Prelude.Nothing,
-       queryString = Prelude.Nothing, uriPath = Prelude.Nothing}
+      {haddock_workaround_ = (), aSN = Prelude.Nothing,
+       cookie = Prelude.Nothing, forwardedIP = Prelude.Nothing,
+       hTTPMethod = Prelude.Nothing, header = Prelude.Nothing,
+       iP = Prelude.Nothing, jA3Fingerprint = Prelude.Nothing,
+       jA4Fingerprint = Prelude.Nothing, labelNamespace = Prelude.Nothing,
+       queryArgument = Prelude.Nothing, queryString = Prelude.Nothing,
+       uriPath = Prelude.Nothing}
 instance ToResourceProperties RateBasedStatementCustomKeyProperty where
   toResourceProperties RateBasedStatementCustomKeyProperty {..}
     = ResourceProperties
@@ -50,11 +60,14 @@ instance ToResourceProperties RateBasedStatementCustomKeyProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Cookie" Prelude.<$> cookie,
+                           [(JSON..=) "ASN" Prelude.<$> aSN,
+                            (JSON..=) "Cookie" Prelude.<$> cookie,
                             (JSON..=) "ForwardedIP" Prelude.<$> forwardedIP,
                             (JSON..=) "HTTPMethod" Prelude.<$> hTTPMethod,
                             (JSON..=) "Header" Prelude.<$> header,
                             (JSON..=) "IP" Prelude.<$> iP,
+                            (JSON..=) "JA3Fingerprint" Prelude.<$> jA3Fingerprint,
+                            (JSON..=) "JA4Fingerprint" Prelude.<$> jA4Fingerprint,
                             (JSON..=) "LabelNamespace" Prelude.<$> labelNamespace,
                             (JSON..=) "QueryArgument" Prelude.<$> queryArgument,
                             (JSON..=) "QueryString" Prelude.<$> queryString,
@@ -64,15 +77,23 @@ instance JSON.ToJSON RateBasedStatementCustomKeyProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Cookie" Prelude.<$> cookie,
+              [(JSON..=) "ASN" Prelude.<$> aSN,
+               (JSON..=) "Cookie" Prelude.<$> cookie,
                (JSON..=) "ForwardedIP" Prelude.<$> forwardedIP,
                (JSON..=) "HTTPMethod" Prelude.<$> hTTPMethod,
                (JSON..=) "Header" Prelude.<$> header,
                (JSON..=) "IP" Prelude.<$> iP,
+               (JSON..=) "JA3Fingerprint" Prelude.<$> jA3Fingerprint,
+               (JSON..=) "JA4Fingerprint" Prelude.<$> jA4Fingerprint,
                (JSON..=) "LabelNamespace" Prelude.<$> labelNamespace,
                (JSON..=) "QueryArgument" Prelude.<$> queryArgument,
                (JSON..=) "QueryString" Prelude.<$> queryString,
                (JSON..=) "UriPath" Prelude.<$> uriPath]))
+instance Property "ASN" RateBasedStatementCustomKeyProperty where
+  type PropertyType "ASN" RateBasedStatementCustomKeyProperty = JSON.Object
+  set newValue RateBasedStatementCustomKeyProperty {..}
+    = RateBasedStatementCustomKeyProperty
+        {aSN = Prelude.pure newValue, ..}
 instance Property "Cookie" RateBasedStatementCustomKeyProperty where
   type PropertyType "Cookie" RateBasedStatementCustomKeyProperty = RateLimitCookieProperty
   set newValue RateBasedStatementCustomKeyProperty {..}
@@ -98,6 +119,16 @@ instance Property "IP" RateBasedStatementCustomKeyProperty where
   set newValue RateBasedStatementCustomKeyProperty {..}
     = RateBasedStatementCustomKeyProperty
         {iP = Prelude.pure newValue, ..}
+instance Property "JA3Fingerprint" RateBasedStatementCustomKeyProperty where
+  type PropertyType "JA3Fingerprint" RateBasedStatementCustomKeyProperty = RateLimitJA3FingerprintProperty
+  set newValue RateBasedStatementCustomKeyProperty {..}
+    = RateBasedStatementCustomKeyProperty
+        {jA3Fingerprint = Prelude.pure newValue, ..}
+instance Property "JA4Fingerprint" RateBasedStatementCustomKeyProperty where
+  type PropertyType "JA4Fingerprint" RateBasedStatementCustomKeyProperty = RateLimitJA4FingerprintProperty
+  set newValue RateBasedStatementCustomKeyProperty {..}
+    = RateBasedStatementCustomKeyProperty
+        {jA4Fingerprint = Prelude.pure newValue, ..}
 instance Property "LabelNamespace" RateBasedStatementCustomKeyProperty where
   type PropertyType "LabelNamespace" RateBasedStatementCustomKeyProperty = RateLimitLabelNamespaceProperty
   set newValue RateBasedStatementCustomKeyProperty {..}

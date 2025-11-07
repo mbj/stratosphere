@@ -1,0 +1,81 @@
+module Stratosphere.QuickSight.Analysis.MetricComparisonComputationProperty (
+        module Exports, MetricComparisonComputationProperty(..),
+        mkMetricComparisonComputationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.DimensionFieldProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.MeasureFieldProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data MetricComparisonComputationProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-metriccomparisoncomputation.html>
+    MetricComparisonComputationProperty {haddock_workaround_ :: (),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-metriccomparisoncomputation.html#cfn-quicksight-analysis-metriccomparisoncomputation-computationid>
+                                         computationId :: (Value Prelude.Text),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-metriccomparisoncomputation.html#cfn-quicksight-analysis-metriccomparisoncomputation-fromvalue>
+                                         fromValue :: (Prelude.Maybe MeasureFieldProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-metriccomparisoncomputation.html#cfn-quicksight-analysis-metriccomparisoncomputation-name>
+                                         name :: (Prelude.Maybe (Value Prelude.Text)),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-metriccomparisoncomputation.html#cfn-quicksight-analysis-metriccomparisoncomputation-targetvalue>
+                                         targetValue :: (Prelude.Maybe MeasureFieldProperty),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-metriccomparisoncomputation.html#cfn-quicksight-analysis-metriccomparisoncomputation-time>
+                                         time :: (Prelude.Maybe DimensionFieldProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkMetricComparisonComputationProperty ::
+  Value Prelude.Text -> MetricComparisonComputationProperty
+mkMetricComparisonComputationProperty computationId
+  = MetricComparisonComputationProperty
+      {haddock_workaround_ = (), computationId = computationId,
+       fromValue = Prelude.Nothing, name = Prelude.Nothing,
+       targetValue = Prelude.Nothing, time = Prelude.Nothing}
+instance ToResourceProperties MetricComparisonComputationProperty where
+  toResourceProperties MetricComparisonComputationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.MetricComparisonComputation",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["ComputationId" JSON..= computationId]
+                           (Prelude.catMaybes
+                              [(JSON..=) "FromValue" Prelude.<$> fromValue,
+                               (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "TargetValue" Prelude.<$> targetValue,
+                               (JSON..=) "Time" Prelude.<$> time]))}
+instance JSON.ToJSON MetricComparisonComputationProperty where
+  toJSON MetricComparisonComputationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["ComputationId" JSON..= computationId]
+              (Prelude.catMaybes
+                 [(JSON..=) "FromValue" Prelude.<$> fromValue,
+                  (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "TargetValue" Prelude.<$> targetValue,
+                  (JSON..=) "Time" Prelude.<$> time])))
+instance Property "ComputationId" MetricComparisonComputationProperty where
+  type PropertyType "ComputationId" MetricComparisonComputationProperty = Value Prelude.Text
+  set newValue MetricComparisonComputationProperty {..}
+    = MetricComparisonComputationProperty
+        {computationId = newValue, ..}
+instance Property "FromValue" MetricComparisonComputationProperty where
+  type PropertyType "FromValue" MetricComparisonComputationProperty = MeasureFieldProperty
+  set newValue MetricComparisonComputationProperty {..}
+    = MetricComparisonComputationProperty
+        {fromValue = Prelude.pure newValue, ..}
+instance Property "Name" MetricComparisonComputationProperty where
+  type PropertyType "Name" MetricComparisonComputationProperty = Value Prelude.Text
+  set newValue MetricComparisonComputationProperty {..}
+    = MetricComparisonComputationProperty
+        {name = Prelude.pure newValue, ..}
+instance Property "TargetValue" MetricComparisonComputationProperty where
+  type PropertyType "TargetValue" MetricComparisonComputationProperty = MeasureFieldProperty
+  set newValue MetricComparisonComputationProperty {..}
+    = MetricComparisonComputationProperty
+        {targetValue = Prelude.pure newValue, ..}
+instance Property "Time" MetricComparisonComputationProperty where
+  type PropertyType "Time" MetricComparisonComputationProperty = DimensionFieldProperty
+  set newValue MetricComparisonComputationProperty {..}
+    = MetricComparisonComputationProperty
+        {time = Prelude.pure newValue, ..}

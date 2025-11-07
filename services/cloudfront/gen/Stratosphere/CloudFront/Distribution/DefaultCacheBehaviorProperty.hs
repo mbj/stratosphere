@@ -7,6 +7,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.ForwardedValuesProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.FunctionAssociationProperty as Exports
+import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.GrpcConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.LambdaFunctionAssociationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -29,6 +30,8 @@ data DefaultCacheBehaviorProperty
                                   forwardedValues :: (Prelude.Maybe ForwardedValuesProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations>
                                   functionAssociations :: (Prelude.Maybe [FunctionAssociationProperty]),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-grpcconfig>
+                                  grpcConfig :: (Prelude.Maybe GrpcConfigProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations>
                                   lambdaFunctionAssociations :: (Prelude.Maybe [LambdaFunctionAssociationProperty]),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl>
@@ -65,6 +68,7 @@ mkDefaultCacheBehaviorProperty targetOriginId viewerProtocolPolicy
        fieldLevelEncryptionId = Prelude.Nothing,
        forwardedValues = Prelude.Nothing,
        functionAssociations = Prelude.Nothing,
+       grpcConfig = Prelude.Nothing,
        lambdaFunctionAssociations = Prelude.Nothing,
        maxTTL = Prelude.Nothing, minTTL = Prelude.Nothing,
        originRequestPolicyId = Prelude.Nothing,
@@ -92,6 +96,7 @@ instance ToResourceProperties DefaultCacheBehaviorProperty where
                                  Prelude.<$> fieldLevelEncryptionId,
                                (JSON..=) "ForwardedValues" Prelude.<$> forwardedValues,
                                (JSON..=) "FunctionAssociations" Prelude.<$> functionAssociations,
+                               (JSON..=) "GrpcConfig" Prelude.<$> grpcConfig,
                                (JSON..=) "LambdaFunctionAssociations"
                                  Prelude.<$> lambdaFunctionAssociations,
                                (JSON..=) "MaxTTL" Prelude.<$> maxTTL,
@@ -121,6 +126,7 @@ instance JSON.ToJSON DefaultCacheBehaviorProperty where
                     Prelude.<$> fieldLevelEncryptionId,
                   (JSON..=) "ForwardedValues" Prelude.<$> forwardedValues,
                   (JSON..=) "FunctionAssociations" Prelude.<$> functionAssociations,
+                  (JSON..=) "GrpcConfig" Prelude.<$> grpcConfig,
                   (JSON..=) "LambdaFunctionAssociations"
                     Prelude.<$> lambdaFunctionAssociations,
                   (JSON..=) "MaxTTL" Prelude.<$> maxTTL,
@@ -173,6 +179,11 @@ instance Property "FunctionAssociations" DefaultCacheBehaviorProperty where
   set newValue DefaultCacheBehaviorProperty {..}
     = DefaultCacheBehaviorProperty
         {functionAssociations = Prelude.pure newValue, ..}
+instance Property "GrpcConfig" DefaultCacheBehaviorProperty where
+  type PropertyType "GrpcConfig" DefaultCacheBehaviorProperty = GrpcConfigProperty
+  set newValue DefaultCacheBehaviorProperty {..}
+    = DefaultCacheBehaviorProperty
+        {grpcConfig = Prelude.pure newValue, ..}
 instance Property "LambdaFunctionAssociations" DefaultCacheBehaviorProperty where
   type PropertyType "LambdaFunctionAssociations" DefaultCacheBehaviorProperty = [LambdaFunctionAssociationProperty]
   set newValue DefaultCacheBehaviorProperty {..}

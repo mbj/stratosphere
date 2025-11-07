@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.SemanticOverrideExtractionConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SemanticOverrideExtractionConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties SemanticOverrideExtractionConfigurationInputProperty
+instance Prelude.Eq SemanticOverrideExtractionConfigurationInputProperty
+instance Prelude.Show SemanticOverrideExtractionConfigurationInputProperty
+instance JSON.ToJSON SemanticOverrideExtractionConfigurationInputProperty

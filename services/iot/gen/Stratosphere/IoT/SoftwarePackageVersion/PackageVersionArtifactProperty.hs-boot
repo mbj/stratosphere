@@ -1,0 +1,9 @@
+module Stratosphere.IoT.SoftwarePackageVersion.PackageVersionArtifactProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PackageVersionArtifactProperty :: Prelude.Type
+instance ToResourceProperties PackageVersionArtifactProperty
+instance Prelude.Eq PackageVersionArtifactProperty
+instance Prelude.Show PackageVersionArtifactProperty
+instance JSON.ToJSON PackageVersionArtifactProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.NeptuneAnalyticsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NeptuneAnalyticsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NeptuneAnalyticsConfigurationProperty
+instance Prelude.Eq NeptuneAnalyticsConfigurationProperty
+instance Prelude.Show NeptuneAnalyticsConfigurationProperty
+instance JSON.ToJSON NeptuneAnalyticsConfigurationProperty

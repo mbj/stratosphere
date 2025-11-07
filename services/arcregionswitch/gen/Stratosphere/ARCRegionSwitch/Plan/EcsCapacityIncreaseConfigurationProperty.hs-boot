@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.EcsCapacityIncreaseConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EcsCapacityIncreaseConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EcsCapacityIncreaseConfigurationProperty
+instance Prelude.Eq EcsCapacityIncreaseConfigurationProperty
+instance Prelude.Show EcsCapacityIncreaseConfigurationProperty
+instance JSON.ToJSON EcsCapacityIncreaseConfigurationProperty

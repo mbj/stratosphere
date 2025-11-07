@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.ClientSideActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClientSideActionProperty :: Prelude.Type
+instance ToResourceProperties ClientSideActionProperty
+instance Prelude.Eq ClientSideActionProperty
+instance Prelude.Show ClientSideActionProperty
+instance JSON.ToJSON ClientSideActionProperty

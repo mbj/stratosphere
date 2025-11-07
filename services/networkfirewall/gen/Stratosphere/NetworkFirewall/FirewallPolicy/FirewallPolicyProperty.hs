@@ -15,6 +15,8 @@ import Stratosphere.Value
 data FirewallPolicyProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html>
     FirewallPolicyProperty {haddock_workaround_ :: (),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-enabletlssessionholding>
+                            enableTLSSessionHolding :: (Prelude.Maybe (Value Prelude.Bool)),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-policyvariables>
                             policyVariables :: (Prelude.Maybe PolicyVariablesProperty),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefuldefaultactions>
@@ -44,6 +46,7 @@ mkFirewallPolicyProperty
       {haddock_workaround_ = (),
        statelessDefaultActions = statelessDefaultActions,
        statelessFragmentDefaultActions = statelessFragmentDefaultActions,
+       enableTLSSessionHolding = Prelude.Nothing,
        policyVariables = Prelude.Nothing,
        statefulDefaultActions = Prelude.Nothing,
        statefulEngineOptions = Prelude.Nothing,
@@ -62,7 +65,9 @@ instance ToResourceProperties FirewallPolicyProperty where
                             "StatelessFragmentDefaultActions"
                               JSON..= statelessFragmentDefaultActions]
                            (Prelude.catMaybes
-                              [(JSON..=) "PolicyVariables" Prelude.<$> policyVariables,
+                              [(JSON..=) "EnableTLSSessionHolding"
+                                 Prelude.<$> enableTLSSessionHolding,
+                               (JSON..=) "PolicyVariables" Prelude.<$> policyVariables,
                                (JSON..=) "StatefulDefaultActions"
                                  Prelude.<$> statefulDefaultActions,
                                (JSON..=) "StatefulEngineOptions"
@@ -84,7 +89,9 @@ instance JSON.ToJSON FirewallPolicyProperty where
                "StatelessFragmentDefaultActions"
                  JSON..= statelessFragmentDefaultActions]
               (Prelude.catMaybes
-                 [(JSON..=) "PolicyVariables" Prelude.<$> policyVariables,
+                 [(JSON..=) "EnableTLSSessionHolding"
+                    Prelude.<$> enableTLSSessionHolding,
+                  (JSON..=) "PolicyVariables" Prelude.<$> policyVariables,
                   (JSON..=) "StatefulDefaultActions"
                     Prelude.<$> statefulDefaultActions,
                   (JSON..=) "StatefulEngineOptions"
@@ -97,6 +104,11 @@ instance JSON.ToJSON FirewallPolicyProperty where
                     Prelude.<$> statelessRuleGroupReferences,
                   (JSON..=) "TLSInspectionConfigurationArn"
                     Prelude.<$> tLSInspectionConfigurationArn])))
+instance Property "EnableTLSSessionHolding" FirewallPolicyProperty where
+  type PropertyType "EnableTLSSessionHolding" FirewallPolicyProperty = Value Prelude.Bool
+  set newValue FirewallPolicyProperty {..}
+    = FirewallPolicyProperty
+        {enableTLSSessionHolding = Prelude.pure newValue, ..}
 instance Property "PolicyVariables" FirewallPolicyProperty where
   type PropertyType "PolicyVariables" FirewallPolicyProperty = PolicyVariablesProperty
   set newValue FirewallPolicyProperty {..}

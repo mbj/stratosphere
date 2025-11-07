@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudTrail.EventDataStore.AdvancedEventSelectorProperty as Exports
+import {-# SOURCE #-} Stratosphere.CloudTrail.EventDataStore.ContextKeySelectorProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudTrail.EventDataStore.InsightSelectorProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -16,6 +17,8 @@ data EventDataStore
                     advancedEventSelectors :: (Prelude.Maybe [AdvancedEventSelectorProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-billingmode>
                     billingMode :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-contextkeyselectors>
+                    contextKeySelectors :: (Prelude.Maybe [ContextKeySelectorProperty]),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationenabled>
                     federationEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-federationrolearn>
@@ -28,6 +31,8 @@ data EventDataStore
                     insightsDestination :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-kmskeyid>
                     kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-maxeventsize>
+                    maxEventSize :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-multiregionenabled>
                     multiRegionEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html#cfn-cloudtrail-eventdatastore-name>
@@ -46,11 +51,14 @@ mkEventDataStore
   = EventDataStore
       {haddock_workaround_ = (),
        advancedEventSelectors = Prelude.Nothing,
-       billingMode = Prelude.Nothing, federationEnabled = Prelude.Nothing,
+       billingMode = Prelude.Nothing,
+       contextKeySelectors = Prelude.Nothing,
+       federationEnabled = Prelude.Nothing,
        federationRoleArn = Prelude.Nothing,
        ingestionEnabled = Prelude.Nothing,
        insightSelectors = Prelude.Nothing,
        insightsDestination = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
+       maxEventSize = Prelude.Nothing,
        multiRegionEnabled = Prelude.Nothing, name = Prelude.Nothing,
        organizationEnabled = Prelude.Nothing,
        retentionPeriod = Prelude.Nothing, tags = Prelude.Nothing,
@@ -65,12 +73,14 @@ instance ToResourceProperties EventDataStore where
                            [(JSON..=) "AdvancedEventSelectors"
                               Prelude.<$> advancedEventSelectors,
                             (JSON..=) "BillingMode" Prelude.<$> billingMode,
+                            (JSON..=) "ContextKeySelectors" Prelude.<$> contextKeySelectors,
                             (JSON..=) "FederationEnabled" Prelude.<$> federationEnabled,
                             (JSON..=) "FederationRoleArn" Prelude.<$> federationRoleArn,
                             (JSON..=) "IngestionEnabled" Prelude.<$> ingestionEnabled,
                             (JSON..=) "InsightSelectors" Prelude.<$> insightSelectors,
                             (JSON..=) "InsightsDestination" Prelude.<$> insightsDestination,
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+                            (JSON..=) "MaxEventSize" Prelude.<$> maxEventSize,
                             (JSON..=) "MultiRegionEnabled" Prelude.<$> multiRegionEnabled,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "OrganizationEnabled" Prelude.<$> organizationEnabled,
@@ -86,12 +96,14 @@ instance JSON.ToJSON EventDataStore where
               [(JSON..=) "AdvancedEventSelectors"
                  Prelude.<$> advancedEventSelectors,
                (JSON..=) "BillingMode" Prelude.<$> billingMode,
+               (JSON..=) "ContextKeySelectors" Prelude.<$> contextKeySelectors,
                (JSON..=) "FederationEnabled" Prelude.<$> federationEnabled,
                (JSON..=) "FederationRoleArn" Prelude.<$> federationRoleArn,
                (JSON..=) "IngestionEnabled" Prelude.<$> ingestionEnabled,
                (JSON..=) "InsightSelectors" Prelude.<$> insightSelectors,
                (JSON..=) "InsightsDestination" Prelude.<$> insightsDestination,
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
+               (JSON..=) "MaxEventSize" Prelude.<$> maxEventSize,
                (JSON..=) "MultiRegionEnabled" Prelude.<$> multiRegionEnabled,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "OrganizationEnabled" Prelude.<$> organizationEnabled,
@@ -108,6 +120,10 @@ instance Property "BillingMode" EventDataStore where
   type PropertyType "BillingMode" EventDataStore = Value Prelude.Text
   set newValue EventDataStore {..}
     = EventDataStore {billingMode = Prelude.pure newValue, ..}
+instance Property "ContextKeySelectors" EventDataStore where
+  type PropertyType "ContextKeySelectors" EventDataStore = [ContextKeySelectorProperty]
+  set newValue EventDataStore {..}
+    = EventDataStore {contextKeySelectors = Prelude.pure newValue, ..}
 instance Property "FederationEnabled" EventDataStore where
   type PropertyType "FederationEnabled" EventDataStore = Value Prelude.Bool
   set newValue EventDataStore {..}
@@ -132,6 +148,10 @@ instance Property "KmsKeyId" EventDataStore where
   type PropertyType "KmsKeyId" EventDataStore = Value Prelude.Text
   set newValue EventDataStore {..}
     = EventDataStore {kmsKeyId = Prelude.pure newValue, ..}
+instance Property "MaxEventSize" EventDataStore where
+  type PropertyType "MaxEventSize" EventDataStore = Value Prelude.Text
+  set newValue EventDataStore {..}
+    = EventDataStore {maxEventSize = Prelude.pure newValue, ..}
 instance Property "MultiRegionEnabled" EventDataStore where
   type PropertyType "MultiRegionEnabled" EventDataStore = Value Prelude.Bool
   set newValue EventDataStore {..}

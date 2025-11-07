@@ -6,6 +6,8 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.MongoDbAtlasConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.NeptuneAnalyticsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.OpenSearchManagedClusterConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.OpenSearchServerlessConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.PineconeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Bedrock.KnowledgeBase.RdsConfigurationProperty as Exports
@@ -16,6 +18,10 @@ data StorageConfigurationProperty
     StorageConfigurationProperty {haddock_workaround_ :: (),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-mongodbatlasconfiguration>
                                   mongoDbAtlasConfiguration :: (Prelude.Maybe MongoDbAtlasConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-neptuneanalyticsconfiguration>
+                                  neptuneAnalyticsConfiguration :: (Prelude.Maybe NeptuneAnalyticsConfigurationProperty),
+                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-opensearchmanagedclusterconfiguration>
+                                  opensearchManagedClusterConfiguration :: (Prelude.Maybe OpenSearchManagedClusterConfigurationProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-opensearchserverlessconfiguration>
                                   opensearchServerlessConfiguration :: (Prelude.Maybe OpenSearchServerlessConfigurationProperty),
                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-pineconeconfiguration>
@@ -31,6 +37,8 @@ mkStorageConfigurationProperty type'
   = StorageConfigurationProperty
       {haddock_workaround_ = (), type' = type',
        mongoDbAtlasConfiguration = Prelude.Nothing,
+       neptuneAnalyticsConfiguration = Prelude.Nothing,
+       opensearchManagedClusterConfiguration = Prelude.Nothing,
        opensearchServerlessConfiguration = Prelude.Nothing,
        pineconeConfiguration = Prelude.Nothing,
        rdsConfiguration = Prelude.Nothing}
@@ -45,6 +53,10 @@ instance ToResourceProperties StorageConfigurationProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "MongoDbAtlasConfiguration"
                                  Prelude.<$> mongoDbAtlasConfiguration,
+                               (JSON..=) "NeptuneAnalyticsConfiguration"
+                                 Prelude.<$> neptuneAnalyticsConfiguration,
+                               (JSON..=) "OpensearchManagedClusterConfiguration"
+                                 Prelude.<$> opensearchManagedClusterConfiguration,
                                (JSON..=) "OpensearchServerlessConfiguration"
                                  Prelude.<$> opensearchServerlessConfiguration,
                                (JSON..=) "PineconeConfiguration"
@@ -59,6 +71,10 @@ instance JSON.ToJSON StorageConfigurationProperty where
               (Prelude.catMaybes
                  [(JSON..=) "MongoDbAtlasConfiguration"
                     Prelude.<$> mongoDbAtlasConfiguration,
+                  (JSON..=) "NeptuneAnalyticsConfiguration"
+                    Prelude.<$> neptuneAnalyticsConfiguration,
+                  (JSON..=) "OpensearchManagedClusterConfiguration"
+                    Prelude.<$> opensearchManagedClusterConfiguration,
                   (JSON..=) "OpensearchServerlessConfiguration"
                     Prelude.<$> opensearchServerlessConfiguration,
                   (JSON..=) "PineconeConfiguration"
@@ -69,6 +85,16 @@ instance Property "MongoDbAtlasConfiguration" StorageConfigurationProperty where
   set newValue StorageConfigurationProperty {..}
     = StorageConfigurationProperty
         {mongoDbAtlasConfiguration = Prelude.pure newValue, ..}
+instance Property "NeptuneAnalyticsConfiguration" StorageConfigurationProperty where
+  type PropertyType "NeptuneAnalyticsConfiguration" StorageConfigurationProperty = NeptuneAnalyticsConfigurationProperty
+  set newValue StorageConfigurationProperty {..}
+    = StorageConfigurationProperty
+        {neptuneAnalyticsConfiguration = Prelude.pure newValue, ..}
+instance Property "OpensearchManagedClusterConfiguration" StorageConfigurationProperty where
+  type PropertyType "OpensearchManagedClusterConfiguration" StorageConfigurationProperty = OpenSearchManagedClusterConfigurationProperty
+  set newValue StorageConfigurationProperty {..}
+    = StorageConfigurationProperty
+        {opensearchManagedClusterConfiguration = Prelude.pure newValue, ..}
 instance Property "OpensearchServerlessConfiguration" StorageConfigurationProperty where
   type PropertyType "OpensearchServerlessConfiguration" StorageConfigurationProperty = OpenSearchServerlessConfigurationProperty
   set newValue StorageConfigurationProperty {..}

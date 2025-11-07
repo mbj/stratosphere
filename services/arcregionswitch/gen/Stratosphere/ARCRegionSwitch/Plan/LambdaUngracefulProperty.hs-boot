@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.LambdaUngracefulProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaUngracefulProperty :: Prelude.Type
+instance ToResourceProperties LambdaUngracefulProperty
+instance Prelude.Eq LambdaUngracefulProperty
+instance Prelude.Show LambdaUngracefulProperty
+instance JSON.ToJSON LambdaUngracefulProperty

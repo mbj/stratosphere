@@ -1,0 +1,9 @@
+module Stratosphere.AIOps.InvestigationGroup.CrossAccountConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CrossAccountConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CrossAccountConfigurationProperty
+instance Prelude.Eq CrossAccountConfigurationProperty
+instance Prelude.Show CrossAccountConfigurationProperty
+instance JSON.ToJSON CrossAccountConfigurationProperty

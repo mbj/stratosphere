@@ -1,0 +1,9 @@
+module Stratosphere.APS.AnomalyDetector.MissingDataActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MissingDataActionProperty :: Prelude.Type
+instance ToResourceProperties MissingDataActionProperty
+instance Prelude.Eq MissingDataActionProperty
+instance Prelude.Show MissingDataActionProperty
+instance JSON.ToJSON MissingDataActionProperty

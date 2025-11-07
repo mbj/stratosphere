@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.RegionSwitchPlanConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RegionSwitchPlanConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RegionSwitchPlanConfigurationProperty
+instance Prelude.Eq RegionSwitchPlanConfigurationProperty
+instance Prelude.Show RegionSwitchPlanConfigurationProperty
+instance JSON.ToJSON RegionSwitchPlanConfigurationProperty

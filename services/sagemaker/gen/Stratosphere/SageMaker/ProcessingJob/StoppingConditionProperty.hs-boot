@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.StoppingConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StoppingConditionProperty :: Prelude.Type
+instance ToResourceProperties StoppingConditionProperty
+instance Prelude.Eq StoppingConditionProperty
+instance Prelude.Show StoppingConditionProperty
+instance JSON.ToJSON StoppingConditionProperty

@@ -58,6 +58,8 @@ data H264SettingsProperty
                           lookAheadRateControl :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-maxbitrate>
                           maxBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-minbitrate>
+                          minBitrate :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-miniinterval>
                           minIInterval :: (Prelude.Maybe (Value Prelude.Integer)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264settings.html#cfn-medialive-channel-h264settings-minqp>
@@ -118,11 +120,12 @@ mkH264SettingsProperty
        gopNumBFrames = Prelude.Nothing, gopSize = Prelude.Nothing,
        gopSizeUnits = Prelude.Nothing, level = Prelude.Nothing,
        lookAheadRateControl = Prelude.Nothing,
-       maxBitrate = Prelude.Nothing, minIInterval = Prelude.Nothing,
-       minQp = Prelude.Nothing, numRefFrames = Prelude.Nothing,
-       parControl = Prelude.Nothing, parDenominator = Prelude.Nothing,
-       parNumerator = Prelude.Nothing, profile = Prelude.Nothing,
-       qualityLevel = Prelude.Nothing, qvbrQualityLevel = Prelude.Nothing,
+       maxBitrate = Prelude.Nothing, minBitrate = Prelude.Nothing,
+       minIInterval = Prelude.Nothing, minQp = Prelude.Nothing,
+       numRefFrames = Prelude.Nothing, parControl = Prelude.Nothing,
+       parDenominator = Prelude.Nothing, parNumerator = Prelude.Nothing,
+       profile = Prelude.Nothing, qualityLevel = Prelude.Nothing,
+       qvbrQualityLevel = Prelude.Nothing,
        rateControlMode = Prelude.Nothing, scanType = Prelude.Nothing,
        sceneChangeDetect = Prelude.Nothing, slices = Prelude.Nothing,
        softness = Prelude.Nothing, spatialAq = Prelude.Nothing,
@@ -160,6 +163,7 @@ instance ToResourceProperties H264SettingsProperty where
                             (JSON..=) "Level" Prelude.<$> level,
                             (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                             (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
+                            (JSON..=) "MinBitrate" Prelude.<$> minBitrate,
                             (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
                             (JSON..=) "MinQp" Prelude.<$> minQp,
                             (JSON..=) "NumRefFrames" Prelude.<$> numRefFrames,
@@ -209,6 +213,7 @@ instance JSON.ToJSON H264SettingsProperty where
                (JSON..=) "Level" Prelude.<$> level,
                (JSON..=) "LookAheadRateControl" Prelude.<$> lookAheadRateControl,
                (JSON..=) "MaxBitrate" Prelude.<$> maxBitrate,
+               (JSON..=) "MinBitrate" Prelude.<$> minBitrate,
                (JSON..=) "MinIInterval" Prelude.<$> minIInterval,
                (JSON..=) "MinQp" Prelude.<$> minQp,
                (JSON..=) "NumRefFrames" Prelude.<$> numRefFrames,
@@ -331,6 +336,10 @@ instance Property "MaxBitrate" H264SettingsProperty where
   type PropertyType "MaxBitrate" H264SettingsProperty = Value Prelude.Integer
   set newValue H264SettingsProperty {..}
     = H264SettingsProperty {maxBitrate = Prelude.pure newValue, ..}
+instance Property "MinBitrate" H264SettingsProperty where
+  type PropertyType "MinBitrate" H264SettingsProperty = Value Prelude.Integer
+  set newValue H264SettingsProperty {..}
+    = H264SettingsProperty {minBitrate = Prelude.pure newValue, ..}
 instance Property "MinIInterval" H264SettingsProperty where
   type PropertyType "MinIInterval" H264SettingsProperty = Value Prelude.Integer
   set newValue H264SettingsProperty {..}

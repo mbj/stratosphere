@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.AppSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AppSpecificationProperty :: Prelude.Type
+instance ToResourceProperties AppSpecificationProperty
+instance Prelude.Eq AppSpecificationProperty
+instance Prelude.Show AppSpecificationProperty
+instance JSON.ToJSON AppSpecificationProperty

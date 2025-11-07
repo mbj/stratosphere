@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Cluster.EnvironmentConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EnvironmentConfigProperty :: Prelude.Type
+instance ToResourceProperties EnvironmentConfigProperty
+instance Prelude.Eq EnvironmentConfigProperty
+instance Prelude.Show EnvironmentConfigProperty
+instance JSON.ToJSON EnvironmentConfigProperty

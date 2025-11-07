@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.CustomActionLambdaConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomActionLambdaConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CustomActionLambdaConfigurationProperty
+instance Prelude.Eq CustomActionLambdaConfigurationProperty
+instance Prelude.Show CustomActionLambdaConfigurationProperty
+instance JSON.ToJSON CustomActionLambdaConfigurationProperty

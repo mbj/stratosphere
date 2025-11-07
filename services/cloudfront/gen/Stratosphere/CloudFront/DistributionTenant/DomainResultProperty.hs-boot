@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.DistributionTenant.DomainResultProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DomainResultProperty :: Prelude.Type
+instance ToResourceProperties DomainResultProperty
+instance Prelude.Eq DomainResultProperty
+instance Prelude.Show DomainResultProperty
+instance JSON.ToJSON DomainResultProperty

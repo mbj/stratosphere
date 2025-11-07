@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.CustomOrchestrationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomOrchestrationProperty :: Prelude.Type
+instance ToResourceProperties CustomOrchestrationProperty
+instance Prelude.Eq CustomOrchestrationProperty
+instance Prelude.Show CustomOrchestrationProperty
+instance JSON.ToJSON CustomOrchestrationProperty

@@ -8,6 +8,7 @@ import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.AmiDis
 import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.ContainerDistributionConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.FastLaunchConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.LaunchTemplateConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ImageBuilder.DistributionConfiguration.SsmParameterConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DistributionProperty
@@ -24,7 +25,9 @@ data DistributionProperty
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns>
                           licenseConfigurationArns :: (Prelude.Maybe (ValueList Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region>
-                          region :: (Value Prelude.Text)}
+                          region :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-ssmparameterconfigurations>
+                          ssmParameterConfigurations :: (Prelude.Maybe [SsmParameterConfigurationProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDistributionProperty ::
   Value Prelude.Text -> DistributionProperty
@@ -35,7 +38,8 @@ mkDistributionProperty region
        containerDistributionConfiguration = Prelude.Nothing,
        fastLaunchConfigurations = Prelude.Nothing,
        launchTemplateConfigurations = Prelude.Nothing,
-       licenseConfigurationArns = Prelude.Nothing}
+       licenseConfigurationArns = Prelude.Nothing,
+       ssmParameterConfigurations = Prelude.Nothing}
 instance ToResourceProperties DistributionProperty where
   toResourceProperties DistributionProperty {..}
     = ResourceProperties
@@ -54,7 +58,9 @@ instance ToResourceProperties DistributionProperty where
                                (JSON..=) "LaunchTemplateConfigurations"
                                  Prelude.<$> launchTemplateConfigurations,
                                (JSON..=) "LicenseConfigurationArns"
-                                 Prelude.<$> licenseConfigurationArns]))}
+                                 Prelude.<$> licenseConfigurationArns,
+                               (JSON..=) "SsmParameterConfigurations"
+                                 Prelude.<$> ssmParameterConfigurations]))}
 instance JSON.ToJSON DistributionProperty where
   toJSON DistributionProperty {..}
     = JSON.object
@@ -71,7 +77,9 @@ instance JSON.ToJSON DistributionProperty where
                   (JSON..=) "LaunchTemplateConfigurations"
                     Prelude.<$> launchTemplateConfigurations,
                   (JSON..=) "LicenseConfigurationArns"
-                    Prelude.<$> licenseConfigurationArns])))
+                    Prelude.<$> licenseConfigurationArns,
+                  (JSON..=) "SsmParameterConfigurations"
+                    Prelude.<$> ssmParameterConfigurations])))
 instance Property "AmiDistributionConfiguration" DistributionProperty where
   type PropertyType "AmiDistributionConfiguration" DistributionProperty = AmiDistributionConfigurationProperty
   set newValue DistributionProperty {..}
@@ -101,3 +109,8 @@ instance Property "Region" DistributionProperty where
   type PropertyType "Region" DistributionProperty = Value Prelude.Text
   set newValue DistributionProperty {..}
     = DistributionProperty {region = newValue, ..}
+instance Property "SsmParameterConfigurations" DistributionProperty where
+  type PropertyType "SsmParameterConfigurations" DistributionProperty = [SsmParameterConfigurationProperty]
+  set newValue DistributionProperty {..}
+    = DistributionProperty
+        {ssmParameterConfigurations = Prelude.pure newValue, ..}

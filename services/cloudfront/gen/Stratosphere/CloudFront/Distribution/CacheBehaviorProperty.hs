@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.ForwardedValuesProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.FunctionAssociationProperty as Exports
+import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.GrpcConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.CloudFront.Distribution.LambdaFunctionAssociationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -28,6 +29,8 @@ data CacheBehaviorProperty
                            forwardedValues :: (Prelude.Maybe ForwardedValuesProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-functionassociations>
                            functionAssociations :: (Prelude.Maybe [FunctionAssociationProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-grpcconfig>
+                           grpcConfig :: (Prelude.Maybe GrpcConfigProperty),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations>
                            lambdaFunctionAssociations :: (Prelude.Maybe [LambdaFunctionAssociationProperty]),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl>
@@ -71,6 +74,7 @@ mkCacheBehaviorProperty
        fieldLevelEncryptionId = Prelude.Nothing,
        forwardedValues = Prelude.Nothing,
        functionAssociations = Prelude.Nothing,
+       grpcConfig = Prelude.Nothing,
        lambdaFunctionAssociations = Prelude.Nothing,
        maxTTL = Prelude.Nothing, minTTL = Prelude.Nothing,
        originRequestPolicyId = Prelude.Nothing,
@@ -99,6 +103,7 @@ instance ToResourceProperties CacheBehaviorProperty where
                                  Prelude.<$> fieldLevelEncryptionId,
                                (JSON..=) "ForwardedValues" Prelude.<$> forwardedValues,
                                (JSON..=) "FunctionAssociations" Prelude.<$> functionAssociations,
+                               (JSON..=) "GrpcConfig" Prelude.<$> grpcConfig,
                                (JSON..=) "LambdaFunctionAssociations"
                                  Prelude.<$> lambdaFunctionAssociations,
                                (JSON..=) "MaxTTL" Prelude.<$> maxTTL,
@@ -129,6 +134,7 @@ instance JSON.ToJSON CacheBehaviorProperty where
                     Prelude.<$> fieldLevelEncryptionId,
                   (JSON..=) "ForwardedValues" Prelude.<$> forwardedValues,
                   (JSON..=) "FunctionAssociations" Prelude.<$> functionAssociations,
+                  (JSON..=) "GrpcConfig" Prelude.<$> grpcConfig,
                   (JSON..=) "LambdaFunctionAssociations"
                     Prelude.<$> lambdaFunctionAssociations,
                   (JSON..=) "MaxTTL" Prelude.<$> maxTTL,
@@ -177,6 +183,10 @@ instance Property "FunctionAssociations" CacheBehaviorProperty where
   set newValue CacheBehaviorProperty {..}
     = CacheBehaviorProperty
         {functionAssociations = Prelude.pure newValue, ..}
+instance Property "GrpcConfig" CacheBehaviorProperty where
+  type PropertyType "GrpcConfig" CacheBehaviorProperty = GrpcConfigProperty
+  set newValue CacheBehaviorProperty {..}
+    = CacheBehaviorProperty {grpcConfig = Prelude.pure newValue, ..}
 instance Property "LambdaFunctionAssociations" CacheBehaviorProperty where
   type PropertyType "LambdaFunctionAssociations" CacheBehaviorProperty = [LambdaFunctionAssociationProperty]
   set newValue CacheBehaviorProperty {..}

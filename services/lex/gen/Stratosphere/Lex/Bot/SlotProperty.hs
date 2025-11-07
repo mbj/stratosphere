@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Lex.Bot.MultipleValuesSettingProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.ObfuscationSettingProperty as Exports
 import {-# SOURCE #-} Stratosphere.Lex.Bot.SlotValueElicitationSettingProperty as Exports
+import {-# SOURCE #-} Stratosphere.Lex.Bot.SubSlotSettingProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SlotProperty
@@ -22,6 +23,8 @@ data SlotProperty
                   obfuscationSetting :: (Prelude.Maybe ObfuscationSettingProperty),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-slottypename>
                   slotTypeName :: (Value Prelude.Text),
+                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-subslotsetting>
+                  subSlotSetting :: (Prelude.Maybe SubSlotSettingProperty),
                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-valueelicitationsetting>
                   valueElicitationSetting :: SlotValueElicitationSettingProperty}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -36,7 +39,8 @@ mkSlotProperty name slotTypeName valueElicitationSetting
        valueElicitationSetting = valueElicitationSetting,
        description = Prelude.Nothing,
        multipleValuesSetting = Prelude.Nothing,
-       obfuscationSetting = Prelude.Nothing}
+       obfuscationSetting = Prelude.Nothing,
+       subSlotSetting = Prelude.Nothing}
 instance ToResourceProperties SlotProperty where
   toResourceProperties SlotProperty {..}
     = ResourceProperties
@@ -49,7 +53,8 @@ instance ToResourceProperties SlotProperty where
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "MultipleValuesSetting"
                                  Prelude.<$> multipleValuesSetting,
-                               (JSON..=) "ObfuscationSetting" Prelude.<$> obfuscationSetting]))}
+                               (JSON..=) "ObfuscationSetting" Prelude.<$> obfuscationSetting,
+                               (JSON..=) "SubSlotSetting" Prelude.<$> subSlotSetting]))}
 instance JSON.ToJSON SlotProperty where
   toJSON SlotProperty {..}
     = JSON.object
@@ -61,7 +66,8 @@ instance JSON.ToJSON SlotProperty where
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "MultipleValuesSetting"
                     Prelude.<$> multipleValuesSetting,
-                  (JSON..=) "ObfuscationSetting" Prelude.<$> obfuscationSetting])))
+                  (JSON..=) "ObfuscationSetting" Prelude.<$> obfuscationSetting,
+                  (JSON..=) "SubSlotSetting" Prelude.<$> subSlotSetting])))
 instance Property "Description" SlotProperty where
   type PropertyType "Description" SlotProperty = Value Prelude.Text
   set newValue SlotProperty {..}
@@ -81,6 +87,10 @@ instance Property "SlotTypeName" SlotProperty where
   type PropertyType "SlotTypeName" SlotProperty = Value Prelude.Text
   set newValue SlotProperty {..}
     = SlotProperty {slotTypeName = newValue, ..}
+instance Property "SubSlotSetting" SlotProperty where
+  type PropertyType "SubSlotSetting" SlotProperty = SubSlotSettingProperty
+  set newValue SlotProperty {..}
+    = SlotProperty {subSlotSetting = Prelude.pure newValue, ..}
 instance Property "ValueElicitationSetting" SlotProperty where
   type PropertyType "ValueElicitationSetting" SlotProperty = SlotValueElicitationSettingProperty
   set newValue SlotProperty {..}

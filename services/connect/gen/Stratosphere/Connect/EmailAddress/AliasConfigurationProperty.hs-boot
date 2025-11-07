@@ -1,0 +1,9 @@
+module Stratosphere.Connect.EmailAddress.AliasConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AliasConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AliasConfigurationProperty
+instance Prelude.Eq AliasConfigurationProperty
+instance Prelude.Show AliasConfigurationProperty
+instance JSON.ToJSON AliasConfigurationProperty

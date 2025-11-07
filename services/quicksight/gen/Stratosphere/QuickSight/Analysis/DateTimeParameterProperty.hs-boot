@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.DateTimeParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DateTimeParameterProperty :: Prelude.Type
+instance ToResourceProperties DateTimeParameterProperty
+instance Prelude.Eq DateTimeParameterProperty
+instance Prelude.Show DateTimeParameterProperty
+instance JSON.ToJSON DateTimeParameterProperty

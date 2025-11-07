@@ -1,10 +1,11 @@
 module Stratosphere.KinesisFirehose.DeliveryStream.DestinationTableConfigurationProperty (
-        DestinationTableConfigurationProperty(..),
+        module Exports, DestinationTableConfigurationProperty(..),
         mkDestinationTableConfigurationProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.KinesisFirehose.DeliveryStream.PartitionSpecProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data DestinationTableConfigurationProperty
@@ -14,6 +15,8 @@ data DestinationTableConfigurationProperty
                                            destinationDatabaseName :: (Value Prelude.Text),
                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-destinationtablename>
                                            destinationTableName :: (Value Prelude.Text),
+                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-partitionspec>
+                                           partitionSpec :: (Prelude.Maybe PartitionSpecProperty),
                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-s3erroroutputprefix>
                                            s3ErrorOutputPrefix :: (Prelude.Maybe (Value Prelude.Text)),
                                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html#cfn-kinesisfirehose-deliverystream-destinationtableconfiguration-uniquekeys>
@@ -29,6 +32,7 @@ mkDestinationTableConfigurationProperty
       {haddock_workaround_ = (),
        destinationDatabaseName = destinationDatabaseName,
        destinationTableName = destinationTableName,
+       partitionSpec = Prelude.Nothing,
        s3ErrorOutputPrefix = Prelude.Nothing,
        uniqueKeys = Prelude.Nothing}
 instance ToResourceProperties DestinationTableConfigurationProperty where
@@ -41,7 +45,8 @@ instance ToResourceProperties DestinationTableConfigurationProperty where
                            ["DestinationDatabaseName" JSON..= destinationDatabaseName,
                             "DestinationTableName" JSON..= destinationTableName]
                            (Prelude.catMaybes
-                              [(JSON..=) "S3ErrorOutputPrefix" Prelude.<$> s3ErrorOutputPrefix,
+                              [(JSON..=) "PartitionSpec" Prelude.<$> partitionSpec,
+                               (JSON..=) "S3ErrorOutputPrefix" Prelude.<$> s3ErrorOutputPrefix,
                                (JSON..=) "UniqueKeys" Prelude.<$> uniqueKeys]))}
 instance JSON.ToJSON DestinationTableConfigurationProperty where
   toJSON DestinationTableConfigurationProperty {..}
@@ -51,7 +56,8 @@ instance JSON.ToJSON DestinationTableConfigurationProperty where
               ["DestinationDatabaseName" JSON..= destinationDatabaseName,
                "DestinationTableName" JSON..= destinationTableName]
               (Prelude.catMaybes
-                 [(JSON..=) "S3ErrorOutputPrefix" Prelude.<$> s3ErrorOutputPrefix,
+                 [(JSON..=) "PartitionSpec" Prelude.<$> partitionSpec,
+                  (JSON..=) "S3ErrorOutputPrefix" Prelude.<$> s3ErrorOutputPrefix,
                   (JSON..=) "UniqueKeys" Prelude.<$> uniqueKeys])))
 instance Property "DestinationDatabaseName" DestinationTableConfigurationProperty where
   type PropertyType "DestinationDatabaseName" DestinationTableConfigurationProperty = Value Prelude.Text
@@ -63,6 +69,11 @@ instance Property "DestinationTableName" DestinationTableConfigurationProperty w
   set newValue DestinationTableConfigurationProperty {..}
     = DestinationTableConfigurationProperty
         {destinationTableName = newValue, ..}
+instance Property "PartitionSpec" DestinationTableConfigurationProperty where
+  type PropertyType "PartitionSpec" DestinationTableConfigurationProperty = PartitionSpecProperty
+  set newValue DestinationTableConfigurationProperty {..}
+    = DestinationTableConfigurationProperty
+        {partitionSpec = Prelude.pure newValue, ..}
 instance Property "S3ErrorOutputPrefix" DestinationTableConfigurationProperty where
   type PropertyType "S3ErrorOutputPrefix" DestinationTableConfigurationProperty = Value Prelude.Text
   set newValue DestinationTableConfigurationProperty {..}

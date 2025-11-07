@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.HistogramFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HistogramFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties HistogramFieldWellsProperty
+instance Prelude.Eq HistogramFieldWellsProperty
+instance Prelude.Show HistogramFieldWellsProperty
+instance JSON.ToJSON HistogramFieldWellsProperty

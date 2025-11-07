@@ -1,0 +1,9 @@
+module Stratosphere.Transfer.Connector.ConnectorVpcLatticeEgressConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectorVpcLatticeEgressConfigProperty :: Prelude.Type
+instance ToResourceProperties ConnectorVpcLatticeEgressConfigProperty
+instance Prelude.Eq ConnectorVpcLatticeEgressConfigProperty
+instance Prelude.Show ConnectorVpcLatticeEgressConfigProperty
+instance JSON.ToJSON ConnectorVpcLatticeEgressConfigProperty

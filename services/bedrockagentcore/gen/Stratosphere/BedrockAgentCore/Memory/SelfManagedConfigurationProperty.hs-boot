@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.SelfManagedConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SelfManagedConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SelfManagedConfigurationProperty
+instance Prelude.Eq SelfManagedConfigurationProperty
+instance Prelude.Show SelfManagedConfigurationProperty
+instance JSON.ToJSON SelfManagedConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.FeatureStoreOutputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FeatureStoreOutputProperty :: Prelude.Type
+instance ToResourceProperties FeatureStoreOutputProperty
+instance Prelude.Eq FeatureStoreOutputProperty
+instance Prelude.Show FeatureStoreOutputProperty
+instance JSON.ToJSON FeatureStoreOutputProperty

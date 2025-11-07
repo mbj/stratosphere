@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.SheetElementConfigurationOverridesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SheetElementConfigurationOverridesProperty :: Prelude.Type
+instance ToResourceProperties SheetElementConfigurationOverridesProperty
+instance Prelude.Eq SheetElementConfigurationOverridesProperty
+instance Prelude.Show SheetElementConfigurationOverridesProperty
+instance JSON.ToJSON SheetElementConfigurationOverridesProperty

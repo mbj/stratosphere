@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GaugeChartColorConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GaugeChartColorConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GaugeChartColorConfigurationProperty
+instance Prelude.Eq GaugeChartColorConfigurationProperty
+instance Prelude.Show GaugeChartColorConfigurationProperty
+instance JSON.ToJSON GaugeChartColorConfigurationProperty

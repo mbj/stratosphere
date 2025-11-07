@@ -29,12 +29,16 @@ data Cluster
              engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-finalsnapshotname>
              finalSnapshotName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-ipdiscovery>
+             ipDiscovery :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-kmskeyid>
              kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-maintenancewindow>
              maintenanceWindow :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-multiregionclustername>
              multiRegionClusterName :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-networktype>
+             networkType :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-nodetype>
              nodeType :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html#cfn-memorydb-cluster-numreplicaspershard>
@@ -77,9 +81,10 @@ mkCluster aCLName clusterName nodeType
        clusterEndpoint = Prelude.Nothing, dataTiering = Prelude.Nothing,
        description = Prelude.Nothing, engine = Prelude.Nothing,
        engineVersion = Prelude.Nothing,
-       finalSnapshotName = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       maintenanceWindow = Prelude.Nothing,
+       finalSnapshotName = Prelude.Nothing, ipDiscovery = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing, maintenanceWindow = Prelude.Nothing,
        multiRegionClusterName = Prelude.Nothing,
+       networkType = Prelude.Nothing,
        numReplicasPerShard = Prelude.Nothing, numShards = Prelude.Nothing,
        parameterGroupName = Prelude.Nothing, port = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing, snapshotArns = Prelude.Nothing,
@@ -106,10 +111,12 @@ instance ToResourceProperties Cluster where
                                (JSON..=) "Engine" Prelude.<$> engine,
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "FinalSnapshotName" Prelude.<$> finalSnapshotName,
+                               (JSON..=) "IpDiscovery" Prelude.<$> ipDiscovery,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
                                (JSON..=) "MultiRegionClusterName"
                                  Prelude.<$> multiRegionClusterName,
+                               (JSON..=) "NetworkType" Prelude.<$> networkType,
                                (JSON..=) "NumReplicasPerShard" Prelude.<$> numReplicasPerShard,
                                (JSON..=) "NumShards" Prelude.<$> numShards,
                                (JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
@@ -141,10 +148,12 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "Engine" Prelude.<$> engine,
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "FinalSnapshotName" Prelude.<$> finalSnapshotName,
+                  (JSON..=) "IpDiscovery" Prelude.<$> ipDiscovery,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "MaintenanceWindow" Prelude.<$> maintenanceWindow,
                   (JSON..=) "MultiRegionClusterName"
                     Prelude.<$> multiRegionClusterName,
+                  (JSON..=) "NetworkType" Prelude.<$> networkType,
                   (JSON..=) "NumReplicasPerShard" Prelude.<$> numReplicasPerShard,
                   (JSON..=) "NumShards" Prelude.<$> numShards,
                   (JSON..=) "ParameterGroupName" Prelude.<$> parameterGroupName,
@@ -194,6 +203,10 @@ instance Property "FinalSnapshotName" Cluster where
   type PropertyType "FinalSnapshotName" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {finalSnapshotName = Prelude.pure newValue, ..}
+instance Property "IpDiscovery" Cluster where
+  type PropertyType "IpDiscovery" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {ipDiscovery = Prelude.pure newValue, ..}
 instance Property "KmsKeyId" Cluster where
   type PropertyType "KmsKeyId" Cluster = Value Prelude.Text
   set newValue Cluster {..}
@@ -206,6 +219,10 @@ instance Property "MultiRegionClusterName" Cluster where
   type PropertyType "MultiRegionClusterName" Cluster = Value Prelude.Text
   set newValue Cluster {..}
     = Cluster {multiRegionClusterName = Prelude.pure newValue, ..}
+instance Property "NetworkType" Cluster where
+  type PropertyType "NetworkType" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {networkType = Prelude.pure newValue, ..}
 instance Property "NodeType" Cluster where
   type PropertyType "NodeType" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {nodeType = newValue, ..}

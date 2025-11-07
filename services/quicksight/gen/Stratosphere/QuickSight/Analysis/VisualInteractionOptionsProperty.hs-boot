@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.VisualInteractionOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VisualInteractionOptionsProperty :: Prelude.Type
+instance ToResourceProperties VisualInteractionOptionsProperty
+instance Prelude.Eq VisualInteractionOptionsProperty
+instance Prelude.Show VisualInteractionOptionsProperty
+instance JSON.ToJSON VisualInteractionOptionsProperty

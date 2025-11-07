@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.BuildtimeSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BuildtimeSettingsProperty :: Prelude.Type
+instance ToResourceProperties BuildtimeSettingsProperty
+instance Prelude.Eq BuildtimeSettingsProperty
+instance Prelude.Show BuildtimeSettingsProperty
+instance JSON.ToJSON BuildtimeSettingsProperty

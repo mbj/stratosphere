@@ -1,0 +1,9 @@
+module Stratosphere.ObservabilityAdmin.OrganizationCentralizationRule.CentralizationRuleSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CentralizationRuleSourceProperty :: Prelude.Type
+instance ToResourceProperties CentralizationRuleSourceProperty
+instance Prelude.Eq CentralizationRuleSourceProperty
+instance Prelude.Show CentralizationRuleSourceProperty
+instance JSON.ToJSON CentralizationRuleSourceProperty

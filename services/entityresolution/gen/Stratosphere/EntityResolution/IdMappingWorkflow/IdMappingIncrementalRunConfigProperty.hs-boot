@@ -1,0 +1,9 @@
+module Stratosphere.EntityResolution.IdMappingWorkflow.IdMappingIncrementalRunConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IdMappingIncrementalRunConfigProperty :: Prelude.Type
+instance ToResourceProperties IdMappingIncrementalRunConfigProperty
+instance Prelude.Eq IdMappingIncrementalRunConfigProperty
+instance Prelude.Show IdMappingIncrementalRunConfigProperty
+instance JSON.ToJSON IdMappingIncrementalRunConfigProperty

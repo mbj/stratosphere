@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.LayerCustomActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LayerCustomActionProperty :: Prelude.Type
+instance ToResourceProperties LayerCustomActionProperty
+instance Prelude.Eq LayerCustomActionProperty
+instance Prelude.Show LayerCustomActionProperty
+instance JSON.ToJSON LayerCustomActionProperty

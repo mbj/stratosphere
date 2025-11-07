@@ -17,6 +17,8 @@ data LaunchTemplateSpecificationProperty
                                          launchTemplateName :: (Prelude.Maybe (Value Prelude.Text)),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-overrides>
                                          overrides :: (Prelude.Maybe [LaunchTemplateSpecificationOverrideProperty]),
+                                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-userdatatype>
+                                         userdataType :: (Prelude.Maybe (Value Prelude.Text)),
                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-version>
                                          version :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -26,7 +28,7 @@ mkLaunchTemplateSpecificationProperty
   = LaunchTemplateSpecificationProperty
       {haddock_workaround_ = (), launchTemplateId = Prelude.Nothing,
        launchTemplateName = Prelude.Nothing, overrides = Prelude.Nothing,
-       version = Prelude.Nothing}
+       userdataType = Prelude.Nothing, version = Prelude.Nothing}
 instance ToResourceProperties LaunchTemplateSpecificationProperty where
   toResourceProperties LaunchTemplateSpecificationProperty {..}
     = ResourceProperties
@@ -37,6 +39,7 @@ instance ToResourceProperties LaunchTemplateSpecificationProperty where
                            [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,
                             (JSON..=) "LaunchTemplateName" Prelude.<$> launchTemplateName,
                             (JSON..=) "Overrides" Prelude.<$> overrides,
+                            (JSON..=) "UserdataType" Prelude.<$> userdataType,
                             (JSON..=) "Version" Prelude.<$> version])}
 instance JSON.ToJSON LaunchTemplateSpecificationProperty where
   toJSON LaunchTemplateSpecificationProperty {..}
@@ -46,6 +49,7 @@ instance JSON.ToJSON LaunchTemplateSpecificationProperty where
               [(JSON..=) "LaunchTemplateId" Prelude.<$> launchTemplateId,
                (JSON..=) "LaunchTemplateName" Prelude.<$> launchTemplateName,
                (JSON..=) "Overrides" Prelude.<$> overrides,
+               (JSON..=) "UserdataType" Prelude.<$> userdataType,
                (JSON..=) "Version" Prelude.<$> version]))
 instance Property "LaunchTemplateId" LaunchTemplateSpecificationProperty where
   type PropertyType "LaunchTemplateId" LaunchTemplateSpecificationProperty = Value Prelude.Text
@@ -62,6 +66,11 @@ instance Property "Overrides" LaunchTemplateSpecificationProperty where
   set newValue LaunchTemplateSpecificationProperty {..}
     = LaunchTemplateSpecificationProperty
         {overrides = Prelude.pure newValue, ..}
+instance Property "UserdataType" LaunchTemplateSpecificationProperty where
+  type PropertyType "UserdataType" LaunchTemplateSpecificationProperty = Value Prelude.Text
+  set newValue LaunchTemplateSpecificationProperty {..}
+    = LaunchTemplateSpecificationProperty
+        {userdataType = Prelude.pure newValue, ..}
 instance Property "Version" LaunchTemplateSpecificationProperty where
   type PropertyType "Version" LaunchTemplateSpecificationProperty = Value Prelude.Text
   set newValue LaunchTemplateSpecificationProperty {..}

@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.AutomationRulesActionV2Property where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutomationRulesActionV2Property :: Prelude.Type
+instance ToResourceProperties AutomationRulesActionV2Property
+instance Prelude.Eq AutomationRulesActionV2Property
+instance Prelude.Show AutomationRulesActionV2Property
+instance JSON.ToJSON AutomationRulesActionV2Property

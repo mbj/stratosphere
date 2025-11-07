@@ -1,0 +1,65 @@
+module Stratosphere.QuickSight.Analysis.ReferenceLineDynamicDataConfigurationProperty (
+        module Exports, ReferenceLineDynamicDataConfigurationProperty(..),
+        mkReferenceLineDynamicDataConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.AggregationFunctionProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.ColumnIdentifierProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.NumericalAggregationFunctionProperty as Exports
+import Stratosphere.ResourceProperties
+data ReferenceLineDynamicDataConfigurationProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html>
+    ReferenceLineDynamicDataConfigurationProperty {haddock_workaround_ :: (),
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-calculation>
+                                                   calculation :: NumericalAggregationFunctionProperty,
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-column>
+                                                   column :: ColumnIdentifierProperty,
+                                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-referencelinedynamicdataconfiguration.html#cfn-quicksight-analysis-referencelinedynamicdataconfiguration-measureaggregationfunction>
+                                                   measureAggregationFunction :: (Prelude.Maybe AggregationFunctionProperty)}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkReferenceLineDynamicDataConfigurationProperty ::
+  NumericalAggregationFunctionProperty
+  -> ColumnIdentifierProperty
+     -> ReferenceLineDynamicDataConfigurationProperty
+mkReferenceLineDynamicDataConfigurationProperty calculation column
+  = ReferenceLineDynamicDataConfigurationProperty
+      {haddock_workaround_ = (), calculation = calculation,
+       column = column, measureAggregationFunction = Prelude.Nothing}
+instance ToResourceProperties ReferenceLineDynamicDataConfigurationProperty where
+  toResourceProperties
+    ReferenceLineDynamicDataConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.ReferenceLineDynamicDataConfiguration",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Calculation" JSON..= calculation, "Column" JSON..= column]
+                           (Prelude.catMaybes
+                              [(JSON..=) "MeasureAggregationFunction"
+                                 Prelude.<$> measureAggregationFunction]))}
+instance JSON.ToJSON ReferenceLineDynamicDataConfigurationProperty where
+  toJSON ReferenceLineDynamicDataConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Calculation" JSON..= calculation, "Column" JSON..= column]
+              (Prelude.catMaybes
+                 [(JSON..=) "MeasureAggregationFunction"
+                    Prelude.<$> measureAggregationFunction])))
+instance Property "Calculation" ReferenceLineDynamicDataConfigurationProperty where
+  type PropertyType "Calculation" ReferenceLineDynamicDataConfigurationProperty = NumericalAggregationFunctionProperty
+  set newValue ReferenceLineDynamicDataConfigurationProperty {..}
+    = ReferenceLineDynamicDataConfigurationProperty
+        {calculation = newValue, ..}
+instance Property "Column" ReferenceLineDynamicDataConfigurationProperty where
+  type PropertyType "Column" ReferenceLineDynamicDataConfigurationProperty = ColumnIdentifierProperty
+  set newValue ReferenceLineDynamicDataConfigurationProperty {..}
+    = ReferenceLineDynamicDataConfigurationProperty
+        {column = newValue, ..}
+instance Property "MeasureAggregationFunction" ReferenceLineDynamicDataConfigurationProperty where
+  type PropertyType "MeasureAggregationFunction" ReferenceLineDynamicDataConfigurationProperty = AggregationFunctionProperty
+  set newValue ReferenceLineDynamicDataConfigurationProperty {..}
+    = ReferenceLineDynamicDataConfigurationProperty
+        {measureAggregationFunction = Prelude.pure newValue, ..}

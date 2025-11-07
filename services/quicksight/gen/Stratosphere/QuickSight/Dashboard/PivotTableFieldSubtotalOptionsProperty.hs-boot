@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.PivotTableFieldSubtotalOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PivotTableFieldSubtotalOptionsProperty :: Prelude.Type
+instance ToResourceProperties PivotTableFieldSubtotalOptionsProperty
+instance Prelude.Eq PivotTableFieldSubtotalOptionsProperty
+instance Prelude.Show PivotTableFieldSubtotalOptionsProperty
+instance JSON.ToJSON PivotTableFieldSubtotalOptionsProperty

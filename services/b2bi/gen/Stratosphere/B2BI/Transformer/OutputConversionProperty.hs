@@ -5,12 +5,15 @@ module Stratosphere.B2BI.Transformer.OutputConversionProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.B2BI.Transformer.AdvancedOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.B2BI.Transformer.FormatOptionsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data OutputConversionProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html>
     OutputConversionProperty {haddock_workaround_ :: (),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-advancedoptions>
+                              advancedOptions :: (Prelude.Maybe AdvancedOptionsProperty),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-formatoptions>
                               formatOptions :: (Prelude.Maybe FormatOptionsProperty),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-toformat>
@@ -21,7 +24,7 @@ mkOutputConversionProperty ::
 mkOutputConversionProperty toFormat
   = OutputConversionProperty
       {haddock_workaround_ = (), toFormat = toFormat,
-       formatOptions = Prelude.Nothing}
+       advancedOptions = Prelude.Nothing, formatOptions = Prelude.Nothing}
 instance ToResourceProperties OutputConversionProperty where
   toResourceProperties OutputConversionProperty {..}
     = ResourceProperties
@@ -31,7 +34,8 @@ instance ToResourceProperties OutputConversionProperty where
                         ((Prelude.<>)
                            ["ToFormat" JSON..= toFormat]
                            (Prelude.catMaybes
-                              [(JSON..=) "FormatOptions" Prelude.<$> formatOptions]))}
+                              [(JSON..=) "AdvancedOptions" Prelude.<$> advancedOptions,
+                               (JSON..=) "FormatOptions" Prelude.<$> formatOptions]))}
 instance JSON.ToJSON OutputConversionProperty where
   toJSON OutputConversionProperty {..}
     = JSON.object
@@ -39,7 +43,13 @@ instance JSON.ToJSON OutputConversionProperty where
            ((Prelude.<>)
               ["ToFormat" JSON..= toFormat]
               (Prelude.catMaybes
-                 [(JSON..=) "FormatOptions" Prelude.<$> formatOptions])))
+                 [(JSON..=) "AdvancedOptions" Prelude.<$> advancedOptions,
+                  (JSON..=) "FormatOptions" Prelude.<$> formatOptions])))
+instance Property "AdvancedOptions" OutputConversionProperty where
+  type PropertyType "AdvancedOptions" OutputConversionProperty = AdvancedOptionsProperty
+  set newValue OutputConversionProperty {..}
+    = OutputConversionProperty
+        {advancedOptions = Prelude.pure newValue, ..}
 instance Property "FormatOptions" OutputConversionProperty where
   type PropertyType "FormatOptions" OutputConversionProperty = FormatOptionsProperty
   set newValue OutputConversionProperty {..}

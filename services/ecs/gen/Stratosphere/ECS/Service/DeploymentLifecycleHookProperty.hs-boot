@@ -1,0 +1,9 @@
+module Stratosphere.ECS.Service.DeploymentLifecycleHookProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentLifecycleHookProperty :: Prelude.Type
+instance ToResourceProperties DeploymentLifecycleHookProperty
+instance Prelude.Eq DeploymentLifecycleHookProperty
+instance Prelude.Show DeploymentLifecycleHookProperty
+instance JSON.ToJSON DeploymentLifecycleHookProperty

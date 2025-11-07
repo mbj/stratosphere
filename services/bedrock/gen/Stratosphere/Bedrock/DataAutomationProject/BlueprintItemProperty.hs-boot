@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.BlueprintItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BlueprintItemProperty :: Prelude.Type
+instance ToResourceProperties BlueprintItemProperty
+instance Prelude.Eq BlueprintItemProperty
+instance Prelude.Show BlueprintItemProperty
+instance JSON.ToJSON BlueprintItemProperty

@@ -1,0 +1,9 @@
+module Stratosphere.APS.Workspace.QueryLoggingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QueryLoggingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties QueryLoggingConfigurationProperty
+instance Prelude.Eq QueryLoggingConfigurationProperty
+instance Prelude.Show QueryLoggingConfigurationProperty
+instance JSON.ToJSON QueryLoggingConfigurationProperty

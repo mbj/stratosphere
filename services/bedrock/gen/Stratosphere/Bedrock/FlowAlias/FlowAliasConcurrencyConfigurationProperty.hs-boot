@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.FlowAlias.FlowAliasConcurrencyConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FlowAliasConcurrencyConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FlowAliasConcurrencyConfigurationProperty
+instance Prelude.Eq FlowAliasConcurrencyConfigurationProperty
+instance Prelude.Show FlowAliasConcurrencyConfigurationProperty
+instance JSON.ToJSON FlowAliasConcurrencyConfigurationProperty

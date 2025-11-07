@@ -1,0 +1,9 @@
+module Stratosphere.Batch.JobDefinition.EksPersistentVolumeClaimProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksPersistentVolumeClaimProperty :: Prelude.Type
+instance ToResourceProperties EksPersistentVolumeClaimProperty
+instance Prelude.Eq EksPersistentVolumeClaimProperty
+instance Prelude.Show EksPersistentVolumeClaimProperty
+instance JSON.ToJSON EksPersistentVolumeClaimProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GeospatialCategoricalDataColorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialCategoricalDataColorProperty :: Prelude.Type
+instance ToResourceProperties GeospatialCategoricalDataColorProperty
+instance Prelude.Eq GeospatialCategoricalDataColorProperty
+instance Prelude.Show GeospatialCategoricalDataColorProperty
+instance JSON.ToJSON GeospatialCategoricalDataColorProperty

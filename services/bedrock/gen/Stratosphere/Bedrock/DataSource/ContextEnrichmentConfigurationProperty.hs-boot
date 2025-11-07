@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.ContextEnrichmentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContextEnrichmentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ContextEnrichmentConfigurationProperty
+instance Prelude.Eq ContextEnrichmentConfigurationProperty
+instance Prelude.Show ContextEnrichmentConfigurationProperty
+instance JSON.ToJSON ContextEnrichmentConfigurationProperty

@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-datasync
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS DataSync.
+description:    Integration into stratosphere to generate resources and properties for AWS DataSync
+category:       AWS, Cloud, DataSync
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -28,6 +31,9 @@ library
       Stratosphere.DataSync.Agent
       Stratosphere.DataSync.LocationAzureBlob
       Stratosphere.DataSync.LocationAzureBlob.AzureBlobSasConfigurationProperty
+      Stratosphere.DataSync.LocationAzureBlob.CmkSecretConfigProperty
+      Stratosphere.DataSync.LocationAzureBlob.CustomSecretConfigProperty
+      Stratosphere.DataSync.LocationAzureBlob.ManagedSecretConfigProperty
       Stratosphere.DataSync.LocationEFS
       Stratosphere.DataSync.LocationEFS.Ec2ConfigProperty
       Stratosphere.DataSync.LocationFSxLustre
@@ -49,13 +55,16 @@ library
       Stratosphere.DataSync.LocationNFS.MountOptionsProperty
       Stratosphere.DataSync.LocationNFS.OnPremConfigProperty
       Stratosphere.DataSync.LocationObjectStorage
+      Stratosphere.DataSync.LocationObjectStorage.CmkSecretConfigProperty
+      Stratosphere.DataSync.LocationObjectStorage.CustomSecretConfigProperty
+      Stratosphere.DataSync.LocationObjectStorage.ManagedSecretConfigProperty
       Stratosphere.DataSync.LocationS3
       Stratosphere.DataSync.LocationS3.S3ConfigProperty
       Stratosphere.DataSync.LocationSMB
+      Stratosphere.DataSync.LocationSMB.CmkSecretConfigProperty
+      Stratosphere.DataSync.LocationSMB.CustomSecretConfigProperty
+      Stratosphere.DataSync.LocationSMB.ManagedSecretConfigProperty
       Stratosphere.DataSync.LocationSMB.MountOptionsProperty
-      Stratosphere.DataSync.StorageSystem
-      Stratosphere.DataSync.StorageSystem.ServerConfigurationProperty
-      Stratosphere.DataSync.StorageSystem.ServerCredentialsProperty
       Stratosphere.DataSync.Task
       Stratosphere.DataSync.Task.DeletedProperty
       Stratosphere.DataSync.Task.DestinationProperty
@@ -105,8 +114,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

@@ -1,0 +1,9 @@
+module Stratosphere.IoTSiteWise.Dataset.KendraSourceDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KendraSourceDetailProperty :: Prelude.Type
+instance ToResourceProperties KendraSourceDetailProperty
+instance Prelude.Eq KendraSourceDetailProperty
+instance Prelude.Show KendraSourceDetailProperty
+instance JSON.ToJSON KendraSourceDetailProperty

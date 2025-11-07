@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.ReferenceLineStyleConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReferenceLineStyleConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ReferenceLineStyleConfigurationProperty
+instance Prelude.Eq ReferenceLineStyleConfigurationProperty
+instance Prelude.Show ReferenceLineStyleConfigurationProperty
+instance JSON.ToJSON ReferenceLineStyleConfigurationProperty

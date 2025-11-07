@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.Channel.InputSwitchConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputSwitchConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InputSwitchConfigurationProperty
+instance Prelude.Eq InputSwitchConfigurationProperty
+instance Prelude.Show InputSwitchConfigurationProperty
+instance JSON.ToJSON InputSwitchConfigurationProperty

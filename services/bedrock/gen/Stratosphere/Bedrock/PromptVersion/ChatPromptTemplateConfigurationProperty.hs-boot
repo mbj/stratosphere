@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.PromptVersion.ChatPromptTemplateConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChatPromptTemplateConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ChatPromptTemplateConfigurationProperty
+instance Prelude.Eq ChatPromptTemplateConfigurationProperty
+instance Prelude.Show ChatPromptTemplateConfigurationProperty
+instance JSON.ToJSON ChatPromptTemplateConfigurationProperty

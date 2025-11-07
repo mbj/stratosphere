@@ -9,6 +9,8 @@ import Stratosphere.Value
 data Queue
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html>
     Queue {haddock_workaround_ :: (),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-concurrentjobs>
+           concurrentJobs :: (Prelude.Maybe (Value Prelude.Integer)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-queue.html#cfn-mediaconvert-queue-name>
@@ -23,16 +25,18 @@ data Queue
 mkQueue :: Queue
 mkQueue
   = Queue
-      {haddock_workaround_ = (), description = Prelude.Nothing,
-       name = Prelude.Nothing, pricingPlan = Prelude.Nothing,
-       status = Prelude.Nothing, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), concurrentJobs = Prelude.Nothing,
+       description = Prelude.Nothing, name = Prelude.Nothing,
+       pricingPlan = Prelude.Nothing, status = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Queue where
   toResourceProperties Queue {..}
     = ResourceProperties
         {awsType = "AWS::MediaConvert::Queue", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Description" Prelude.<$> description,
+                           [(JSON..=) "ConcurrentJobs" Prelude.<$> concurrentJobs,
+                            (JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "PricingPlan" Prelude.<$> pricingPlan,
                             (JSON..=) "Status" Prelude.<$> status,
@@ -42,11 +46,16 @@ instance JSON.ToJSON Queue where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Description" Prelude.<$> description,
+              [(JSON..=) "ConcurrentJobs" Prelude.<$> concurrentJobs,
+               (JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "PricingPlan" Prelude.<$> pricingPlan,
                (JSON..=) "Status" Prelude.<$> status,
                (JSON..=) "Tags" Prelude.<$> tags]))
+instance Property "ConcurrentJobs" Queue where
+  type PropertyType "ConcurrentJobs" Queue = Value Prelude.Integer
+  set newValue Queue {..}
+    = Queue {concurrentJobs = Prelude.pure newValue, ..}
 instance Property "Description" Queue where
   type PropertyType "Description" Queue = Value Prelude.Text
   set newValue Queue {..}

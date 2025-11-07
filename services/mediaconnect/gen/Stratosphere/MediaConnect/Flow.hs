@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.FailoverConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.MaintenanceProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.MediaStreamProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.NdiConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.SourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.SourceMonitoringConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaConnect.Flow.VpcInterfaceProperty as Exports
@@ -17,12 +18,16 @@ data Flow
     Flow {haddock_workaround_ :: (),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone>
           availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-flowsize>
+          flowSize :: (Prelude.Maybe (Value Prelude.Text)),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-maintenance>
           maintenance :: (Prelude.Maybe MaintenanceProperty),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-mediastreams>
           mediaStreams :: (Prelude.Maybe [MediaStreamProperty]),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name>
           name :: (Value Prelude.Text),
+          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-ndiconfig>
+          ndiConfig :: (Prelude.Maybe NdiConfigProperty),
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source>
           source :: SourceProperty,
           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig>
@@ -36,8 +41,9 @@ mkFlow :: Value Prelude.Text -> SourceProperty -> Flow
 mkFlow name source
   = Flow
       {haddock_workaround_ = (), name = name, source = source,
-       availabilityZone = Prelude.Nothing, maintenance = Prelude.Nothing,
-       mediaStreams = Prelude.Nothing,
+       availabilityZone = Prelude.Nothing, flowSize = Prelude.Nothing,
+       maintenance = Prelude.Nothing, mediaStreams = Prelude.Nothing,
+       ndiConfig = Prelude.Nothing,
        sourceFailoverConfig = Prelude.Nothing,
        sourceMonitoringConfig = Prelude.Nothing,
        vpcInterfaces = Prelude.Nothing}
@@ -50,8 +56,10 @@ instance ToResourceProperties Flow where
                            ["Name" JSON..= name, "Source" JSON..= source]
                            (Prelude.catMaybes
                               [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                               (JSON..=) "FlowSize" Prelude.<$> flowSize,
                                (JSON..=) "Maintenance" Prelude.<$> maintenance,
                                (JSON..=) "MediaStreams" Prelude.<$> mediaStreams,
+                               (JSON..=) "NdiConfig" Prelude.<$> ndiConfig,
                                (JSON..=) "SourceFailoverConfig" Prelude.<$> sourceFailoverConfig,
                                (JSON..=) "SourceMonitoringConfig"
                                  Prelude.<$> sourceMonitoringConfig,
@@ -64,8 +72,10 @@ instance JSON.ToJSON Flow where
               ["Name" JSON..= name, "Source" JSON..= source]
               (Prelude.catMaybes
                  [(JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                  (JSON..=) "FlowSize" Prelude.<$> flowSize,
                   (JSON..=) "Maintenance" Prelude.<$> maintenance,
                   (JSON..=) "MediaStreams" Prelude.<$> mediaStreams,
+                  (JSON..=) "NdiConfig" Prelude.<$> ndiConfig,
                   (JSON..=) "SourceFailoverConfig" Prelude.<$> sourceFailoverConfig,
                   (JSON..=) "SourceMonitoringConfig"
                     Prelude.<$> sourceMonitoringConfig,
@@ -74,6 +84,10 @@ instance Property "AvailabilityZone" Flow where
   type PropertyType "AvailabilityZone" Flow = Value Prelude.Text
   set newValue Flow {..}
     = Flow {availabilityZone = Prelude.pure newValue, ..}
+instance Property "FlowSize" Flow where
+  type PropertyType "FlowSize" Flow = Value Prelude.Text
+  set newValue Flow {..}
+    = Flow {flowSize = Prelude.pure newValue, ..}
 instance Property "Maintenance" Flow where
   type PropertyType "Maintenance" Flow = MaintenanceProperty
   set newValue Flow {..}
@@ -85,6 +99,10 @@ instance Property "MediaStreams" Flow where
 instance Property "Name" Flow where
   type PropertyType "Name" Flow = Value Prelude.Text
   set newValue Flow {..} = Flow {name = newValue, ..}
+instance Property "NdiConfig" Flow where
+  type PropertyType "NdiConfig" Flow = NdiConfigProperty
+  set newValue Flow {..}
+    = Flow {ndiConfig = Prelude.pure newValue, ..}
 instance Property "Source" Flow where
   type PropertyType "Source" Flow = SourceProperty
   set newValue Flow {..} = Flow {source = newValue, ..}

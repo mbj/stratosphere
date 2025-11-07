@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.ExactResponseFieldsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExactResponseFieldsProperty :: Prelude.Type
+instance ToResourceProperties ExactResponseFieldsProperty
+instance Prelude.Eq ExactResponseFieldsProperty
+instance Prelude.Show ExactResponseFieldsProperty
+instance JSON.ToJSON ExactResponseFieldsProperty

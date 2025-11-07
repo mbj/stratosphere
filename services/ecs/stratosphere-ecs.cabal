@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-ecs
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS ECS.
+description:    Integration into stratosphere to generate resources and properties for AWS ECS
+category:       AWS, Cloud, ECS
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -26,8 +29,22 @@ flag development
 library
   exposed-modules:
       Stratosphere.ECS.CapacityProvider
+      Stratosphere.ECS.CapacityProvider.AcceleratorCountRequestProperty
+      Stratosphere.ECS.CapacityProvider.AcceleratorTotalMemoryMiBRequestProperty
       Stratosphere.ECS.CapacityProvider.AutoScalingGroupProviderProperty
+      Stratosphere.ECS.CapacityProvider.BaselineEbsBandwidthMbpsRequestProperty
+      Stratosphere.ECS.CapacityProvider.InstanceLaunchTemplateProperty
+      Stratosphere.ECS.CapacityProvider.InstanceRequirementsRequestProperty
+      Stratosphere.ECS.CapacityProvider.ManagedInstancesNetworkConfigurationProperty
+      Stratosphere.ECS.CapacityProvider.ManagedInstancesProviderProperty
+      Stratosphere.ECS.CapacityProvider.ManagedInstancesStorageConfigurationProperty
       Stratosphere.ECS.CapacityProvider.ManagedScalingProperty
+      Stratosphere.ECS.CapacityProvider.MemoryGiBPerVCpuRequestProperty
+      Stratosphere.ECS.CapacityProvider.MemoryMiBRequestProperty
+      Stratosphere.ECS.CapacityProvider.NetworkBandwidthGbpsRequestProperty
+      Stratosphere.ECS.CapacityProvider.NetworkInterfaceCountRequestProperty
+      Stratosphere.ECS.CapacityProvider.TotalLocalStorageGBRequestProperty
+      Stratosphere.ECS.CapacityProvider.VCpuCountRangeRequestProperty
       Stratosphere.ECS.Cluster
       Stratosphere.ECS.Cluster.CapacityProviderStrategyItemProperty
       Stratosphere.ECS.Cluster.ClusterConfigurationProperty
@@ -40,22 +57,31 @@ library
       Stratosphere.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategyProperty
       Stratosphere.ECS.PrimaryTaskSet
       Stratosphere.ECS.Service
+      Stratosphere.ECS.Service.AdvancedConfigurationProperty
       Stratosphere.ECS.Service.AwsVpcConfigurationProperty
+      Stratosphere.ECS.Service.CanaryConfigurationProperty
       Stratosphere.ECS.Service.CapacityProviderStrategyItemProperty
       Stratosphere.ECS.Service.DeploymentAlarmsProperty
       Stratosphere.ECS.Service.DeploymentCircuitBreakerProperty
       Stratosphere.ECS.Service.DeploymentConfigurationProperty
       Stratosphere.ECS.Service.DeploymentControllerProperty
+      Stratosphere.ECS.Service.DeploymentLifecycleHookProperty
       Stratosphere.ECS.Service.EBSTagSpecificationProperty
+      Stratosphere.ECS.Service.ForceNewDeploymentProperty
+      Stratosphere.ECS.Service.LinearConfigurationProperty
       Stratosphere.ECS.Service.LoadBalancerProperty
       Stratosphere.ECS.Service.LogConfigurationProperty
       Stratosphere.ECS.Service.NetworkConfigurationProperty
       Stratosphere.ECS.Service.PlacementConstraintProperty
       Stratosphere.ECS.Service.PlacementStrategyProperty
       Stratosphere.ECS.Service.SecretProperty
+      Stratosphere.ECS.Service.ServiceConnectAccessLogConfigurationProperty
       Stratosphere.ECS.Service.ServiceConnectClientAliasProperty
       Stratosphere.ECS.Service.ServiceConnectConfigurationProperty
       Stratosphere.ECS.Service.ServiceConnectServiceProperty
+      Stratosphere.ECS.Service.ServiceConnectTestTrafficRulesHeaderProperty
+      Stratosphere.ECS.Service.ServiceConnectTestTrafficRulesHeaderValueProperty
+      Stratosphere.ECS.Service.ServiceConnectTestTrafficRulesProperty
       Stratosphere.ECS.Service.ServiceConnectTlsCertificateAuthorityProperty
       Stratosphere.ECS.Service.ServiceConnectTlsConfigurationProperty
       Stratosphere.ECS.Service.ServiceManagedEBSVolumeConfigurationProperty
@@ -78,7 +104,6 @@ library
       Stratosphere.ECS.TaskDefinition.HealthCheckProperty
       Stratosphere.ECS.TaskDefinition.HostEntryProperty
       Stratosphere.ECS.TaskDefinition.HostVolumePropertiesProperty
-      Stratosphere.ECS.TaskDefinition.InferenceAcceleratorProperty
       Stratosphere.ECS.TaskDefinition.KernelCapabilitiesProperty
       Stratosphere.ECS.TaskDefinition.KeyValuePairProperty
       Stratosphere.ECS.TaskDefinition.LinuxParametersProperty
@@ -138,8 +163,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

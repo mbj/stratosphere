@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Transformer.X12ElementRequirementValidationRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12ElementRequirementValidationRuleProperty :: Prelude.Type
+instance ToResourceProperties X12ElementRequirementValidationRuleProperty
+instance Prelude.Eq X12ElementRequirementValidationRuleProperty
+instance Prelude.Show X12ElementRequirementValidationRuleProperty
+instance JSON.ToJSON X12ElementRequirementValidationRuleProperty

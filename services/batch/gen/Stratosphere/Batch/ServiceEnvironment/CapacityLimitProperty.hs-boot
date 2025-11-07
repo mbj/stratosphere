@@ -1,0 +1,9 @@
+module Stratosphere.Batch.ServiceEnvironment.CapacityLimitProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityLimitProperty :: Prelude.Type
+instance ToResourceProperties CapacityLimitProperty
+instance Prelude.Eq CapacityLimitProperty
+instance Prelude.Show CapacityLimitProperty
+instance JSON.ToJSON CapacityLimitProperty

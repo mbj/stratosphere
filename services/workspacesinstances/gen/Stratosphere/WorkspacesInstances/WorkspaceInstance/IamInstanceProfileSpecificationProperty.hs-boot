@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.IamInstanceProfileSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamInstanceProfileSpecificationProperty :: Prelude.Type
+instance ToResourceProperties IamInstanceProfileSpecificationProperty
+instance Prelude.Eq IamInstanceProfileSpecificationProperty
+instance Prelude.Show IamInstanceProfileSpecificationProperty
+instance JSON.ToJSON IamInstanceProfileSpecificationProperty

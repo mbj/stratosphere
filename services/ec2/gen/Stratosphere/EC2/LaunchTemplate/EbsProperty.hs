@@ -21,6 +21,8 @@ data EbsProperty
                  snapshotId :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-throughput>
                  throughput :: (Prelude.Maybe (Value Prelude.Integer)),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumeinitializationrate>
+                 volumeInitializationRate :: (Prelude.Maybe (Value Prelude.Integer)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumesize>
                  volumeSize :: (Prelude.Maybe (Value Prelude.Integer)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html#cfn-ec2-launchtemplate-ebs-volumetype>
@@ -32,8 +34,9 @@ mkEbsProperty
       {haddock_workaround_ = (), deleteOnTermination = Prelude.Nothing,
        encrypted = Prelude.Nothing, iops = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing, snapshotId = Prelude.Nothing,
-       throughput = Prelude.Nothing, volumeSize = Prelude.Nothing,
-       volumeType = Prelude.Nothing}
+       throughput = Prelude.Nothing,
+       volumeInitializationRate = Prelude.Nothing,
+       volumeSize = Prelude.Nothing, volumeType = Prelude.Nothing}
 instance ToResourceProperties EbsProperty where
   toResourceProperties EbsProperty {..}
     = ResourceProperties
@@ -47,6 +50,8 @@ instance ToResourceProperties EbsProperty where
                             (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                             (JSON..=) "SnapshotId" Prelude.<$> snapshotId,
                             (JSON..=) "Throughput" Prelude.<$> throughput,
+                            (JSON..=) "VolumeInitializationRate"
+                              Prelude.<$> volumeInitializationRate,
                             (JSON..=) "VolumeSize" Prelude.<$> volumeSize,
                             (JSON..=) "VolumeType" Prelude.<$> volumeType])}
 instance JSON.ToJSON EbsProperty where
@@ -60,6 +65,8 @@ instance JSON.ToJSON EbsProperty where
                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                (JSON..=) "SnapshotId" Prelude.<$> snapshotId,
                (JSON..=) "Throughput" Prelude.<$> throughput,
+               (JSON..=) "VolumeInitializationRate"
+                 Prelude.<$> volumeInitializationRate,
                (JSON..=) "VolumeSize" Prelude.<$> volumeSize,
                (JSON..=) "VolumeType" Prelude.<$> volumeType]))
 instance Property "DeleteOnTermination" EbsProperty where
@@ -86,6 +93,11 @@ instance Property "Throughput" EbsProperty where
   type PropertyType "Throughput" EbsProperty = Value Prelude.Integer
   set newValue EbsProperty {..}
     = EbsProperty {throughput = Prelude.pure newValue, ..}
+instance Property "VolumeInitializationRate" EbsProperty where
+  type PropertyType "VolumeInitializationRate" EbsProperty = Value Prelude.Integer
+  set newValue EbsProperty {..}
+    = EbsProperty
+        {volumeInitializationRate = Prelude.pure newValue, ..}
 instance Property "VolumeSize" EbsProperty where
   type PropertyType "VolumeSize" EbsProperty = Value Prelude.Integer
   set newValue EbsProperty {..}

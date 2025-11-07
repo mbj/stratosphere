@@ -1,0 +1,9 @@
+module Stratosphere.SSMGuiConnect.Preferences.RecordingDestinationsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecordingDestinationsProperty :: Prelude.Type
+instance ToResourceProperties RecordingDestinationsProperty
+instance Prelude.Eq RecordingDestinationsProperty
+instance Prelude.Show RecordingDestinationsProperty
+instance JSON.ToJSON RecordingDestinationsProperty

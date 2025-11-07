@@ -14,6 +14,7 @@ import {-# SOURCE #-} Stratosphere.EC2.Instance.HibernationOptionsProperty as Ex
 import {-# SOURCE #-} Stratosphere.EC2.Instance.InstanceIpv6AddressProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.LaunchTemplateSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.LicenseSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.Instance.MetadataOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.NetworkInterfaceProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.PrivateDnsNameOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.Instance.SsmAssociationProperty as Exports
@@ -72,6 +73,8 @@ data Instance
               launchTemplate :: (Prelude.Maybe LaunchTemplateSpecificationProperty),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-licensespecifications>
               licenseSpecifications :: (Prelude.Maybe [LicenseSpecificationProperty]),
+              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-metadataoptions>
+              metadataOptions :: (Prelude.Maybe MetadataOptionsProperty),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-monitoring>
               monitoring :: (Prelude.Maybe (Value Prelude.Bool)),
               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html#cfn-ec2-instance-networkinterfaces>
@@ -126,7 +129,8 @@ mkInstance
        ipv6Addresses = Prelude.Nothing, kernelId = Prelude.Nothing,
        keyName = Prelude.Nothing, launchTemplate = Prelude.Nothing,
        licenseSpecifications = Prelude.Nothing,
-       monitoring = Prelude.Nothing, networkInterfaces = Prelude.Nothing,
+       metadataOptions = Prelude.Nothing, monitoring = Prelude.Nothing,
+       networkInterfaces = Prelude.Nothing,
        placementGroupName = Prelude.Nothing,
        privateDnsNameOptions = Prelude.Nothing,
        privateIpAddress = Prelude.Nothing,
@@ -172,6 +176,7 @@ instance ToResourceProperties Instance where
                             (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
                             (JSON..=) "LicenseSpecifications"
                               Prelude.<$> licenseSpecifications,
+                            (JSON..=) "MetadataOptions" Prelude.<$> metadataOptions,
                             (JSON..=) "Monitoring" Prelude.<$> monitoring,
                             (JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,
                             (JSON..=) "PlacementGroupName" Prelude.<$> placementGroupName,
@@ -224,6 +229,7 @@ instance JSON.ToJSON Instance where
                (JSON..=) "LaunchTemplate" Prelude.<$> launchTemplate,
                (JSON..=) "LicenseSpecifications"
                  Prelude.<$> licenseSpecifications,
+               (JSON..=) "MetadataOptions" Prelude.<$> metadataOptions,
                (JSON..=) "Monitoring" Prelude.<$> monitoring,
                (JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,
                (JSON..=) "PlacementGroupName" Prelude.<$> placementGroupName,
@@ -340,6 +346,10 @@ instance Property "LicenseSpecifications" Instance where
   type PropertyType "LicenseSpecifications" Instance = [LicenseSpecificationProperty]
   set newValue Instance {..}
     = Instance {licenseSpecifications = Prelude.pure newValue, ..}
+instance Property "MetadataOptions" Instance where
+  type PropertyType "MetadataOptions" Instance = MetadataOptionsProperty
+  set newValue Instance {..}
+    = Instance {metadataOptions = Prelude.pure newValue, ..}
 instance Property "Monitoring" Instance where
   type PropertyType "Monitoring" Instance = Value Prelude.Bool
   set newValue Instance {..}

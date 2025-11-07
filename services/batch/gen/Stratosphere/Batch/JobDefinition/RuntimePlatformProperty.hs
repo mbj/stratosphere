@@ -7,11 +7,11 @@ import Stratosphere.Property
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data RuntimePlatformProperty
-  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html>
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-runtimeplatform.html>
     RuntimePlatformProperty {haddock_workaround_ :: (),
-                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html#cfn-batch-jobdefinition-ecstaskproperties-runtimeplatform-cpuarchitecture>
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-runtimeplatform.html#cfn-batch-jobdefinition-runtimeplatform-cpuarchitecture>
                              cpuArchitecture :: (Prelude.Maybe (Value Prelude.Text)),
-                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html#cfn-batch-jobdefinition-ecstaskproperties-runtimeplatform-operatingsystemfamily>
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-runtimeplatform.html#cfn-batch-jobdefinition-runtimeplatform-operatingsystemfamily>
                              operatingSystemFamily :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkRuntimePlatformProperty :: RuntimePlatformProperty

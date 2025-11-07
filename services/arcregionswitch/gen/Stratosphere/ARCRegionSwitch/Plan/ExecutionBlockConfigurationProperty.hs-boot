@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.ExecutionBlockConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExecutionBlockConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ExecutionBlockConfigurationProperty
+instance Prelude.Eq ExecutionBlockConfigurationProperty
+instance Prelude.Show ExecutionBlockConfigurationProperty
+instance JSON.ToJSON ExecutionBlockConfigurationProperty

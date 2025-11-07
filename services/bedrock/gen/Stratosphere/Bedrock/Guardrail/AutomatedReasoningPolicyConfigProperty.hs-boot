@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Guardrail.AutomatedReasoningPolicyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutomatedReasoningPolicyConfigProperty :: Prelude.Type
+instance ToResourceProperties AutomatedReasoningPolicyConfigProperty
+instance Prelude.Eq AutomatedReasoningPolicyConfigProperty
+instance Prelude.Show AutomatedReasoningPolicyConfigProperty
+instance JSON.ToJSON AutomatedReasoningPolicyConfigProperty

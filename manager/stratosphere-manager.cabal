@@ -14,6 +14,7 @@ homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head

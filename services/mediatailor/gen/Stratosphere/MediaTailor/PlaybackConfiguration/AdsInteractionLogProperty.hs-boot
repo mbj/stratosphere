@@ -1,0 +1,9 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.AdsInteractionLogProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdsInteractionLogProperty :: Prelude.Type
+instance ToResourceProperties AdsInteractionLogProperty
+instance Prelude.Eq AdsInteractionLogProperty
+instance Prelude.Show AdsInteractionLogProperty
+instance JSON.ToJSON AdsInteractionLogProperty

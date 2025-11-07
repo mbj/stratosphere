@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.WebACL.AsnMatchStatementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AsnMatchStatementProperty :: Prelude.Type
+instance ToResourceProperties AsnMatchStatementProperty
+instance Prelude.Eq AsnMatchStatementProperty
+instance Prelude.Show AsnMatchStatementProperty
+instance JSON.ToJSON AsnMatchStatementProperty

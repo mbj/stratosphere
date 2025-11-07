@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.DocumentStandardExtractionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentStandardExtractionProperty :: Prelude.Type
+instance ToResourceProperties DocumentStandardExtractionProperty
+instance Prelude.Eq DocumentStandardExtractionProperty
+instance Prelude.Show DocumentStandardExtractionProperty
+instance JSON.ToJSON DocumentStandardExtractionProperty

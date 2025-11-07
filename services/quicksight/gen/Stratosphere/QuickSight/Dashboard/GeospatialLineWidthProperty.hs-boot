@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.GeospatialLineWidthProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialLineWidthProperty :: Prelude.Type
+instance ToResourceProperties GeospatialLineWidthProperty
+instance Prelude.Eq GeospatialLineWidthProperty
+instance Prelude.Show GeospatialLineWidthProperty
+instance JSON.ToJSON GeospatialLineWidthProperty

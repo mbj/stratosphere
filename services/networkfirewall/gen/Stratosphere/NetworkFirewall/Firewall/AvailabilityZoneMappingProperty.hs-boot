@@ -1,0 +1,9 @@
+module Stratosphere.NetworkFirewall.Firewall.AvailabilityZoneMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AvailabilityZoneMappingProperty :: Prelude.Type
+instance ToResourceProperties AvailabilityZoneMappingProperty
+instance Prelude.Eq AvailabilityZoneMappingProperty
+instance Prelude.Show AvailabilityZoneMappingProperty
+instance JSON.ToJSON AvailabilityZoneMappingProperty

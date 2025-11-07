@@ -20,7 +20,7 @@ data LdapServerMetadataProperty
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-rolesearchsubtree>
                                 roleSearchSubtree :: (Prelude.Maybe (Value Prelude.Bool)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountpassword>
-                                serviceAccountPassword :: (Value Prelude.Text),
+                                serviceAccountPassword :: (Prelude.Maybe (Value Prelude.Text)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-serviceaccountusername>
                                 serviceAccountUsername :: (Value Prelude.Text),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-ldapservermetadata.html#cfn-amazonmq-broker-ldapservermetadata-userbase>
@@ -38,23 +38,21 @@ mkLdapServerMetadataProperty ::
      -> Value Prelude.Text
         -> Value Prelude.Text
            -> Value Prelude.Text
-              -> Value Prelude.Text
-                 -> Value Prelude.Text -> LdapServerMetadataProperty
+              -> Value Prelude.Text -> LdapServerMetadataProperty
 mkLdapServerMetadataProperty
   hosts
   roleBase
   roleSearchMatching
-  serviceAccountPassword
   serviceAccountUsername
   userBase
   userSearchMatching
   = LdapServerMetadataProperty
       {haddock_workaround_ = (), hosts = hosts, roleBase = roleBase,
        roleSearchMatching = roleSearchMatching,
-       serviceAccountPassword = serviceAccountPassword,
        serviceAccountUsername = serviceAccountUsername,
        userBase = userBase, userSearchMatching = userSearchMatching,
        roleName = Prelude.Nothing, roleSearchSubtree = Prelude.Nothing,
+       serviceAccountPassword = Prelude.Nothing,
        userRoleName = Prelude.Nothing,
        userSearchSubtree = Prelude.Nothing}
 instance ToResourceProperties LdapServerMetadataProperty where
@@ -66,13 +64,14 @@ instance ToResourceProperties LdapServerMetadataProperty where
                         ((Prelude.<>)
                            ["Hosts" JSON..= hosts, "RoleBase" JSON..= roleBase,
                             "RoleSearchMatching" JSON..= roleSearchMatching,
-                            "ServiceAccountPassword" JSON..= serviceAccountPassword,
                             "ServiceAccountUsername" JSON..= serviceAccountUsername,
                             "UserBase" JSON..= userBase,
                             "UserSearchMatching" JSON..= userSearchMatching]
                            (Prelude.catMaybes
                               [(JSON..=) "RoleName" Prelude.<$> roleName,
                                (JSON..=) "RoleSearchSubtree" Prelude.<$> roleSearchSubtree,
+                               (JSON..=) "ServiceAccountPassword"
+                                 Prelude.<$> serviceAccountPassword,
                                (JSON..=) "UserRoleName" Prelude.<$> userRoleName,
                                (JSON..=) "UserSearchSubtree" Prelude.<$> userSearchSubtree]))}
 instance JSON.ToJSON LdapServerMetadataProperty where
@@ -82,13 +81,14 @@ instance JSON.ToJSON LdapServerMetadataProperty where
            ((Prelude.<>)
               ["Hosts" JSON..= hosts, "RoleBase" JSON..= roleBase,
                "RoleSearchMatching" JSON..= roleSearchMatching,
-               "ServiceAccountPassword" JSON..= serviceAccountPassword,
                "ServiceAccountUsername" JSON..= serviceAccountUsername,
                "UserBase" JSON..= userBase,
                "UserSearchMatching" JSON..= userSearchMatching]
               (Prelude.catMaybes
                  [(JSON..=) "RoleName" Prelude.<$> roleName,
                   (JSON..=) "RoleSearchSubtree" Prelude.<$> roleSearchSubtree,
+                  (JSON..=) "ServiceAccountPassword"
+                    Prelude.<$> serviceAccountPassword,
                   (JSON..=) "UserRoleName" Prelude.<$> userRoleName,
                   (JSON..=) "UserSearchSubtree" Prelude.<$> userSearchSubtree])))
 instance Property "Hosts" LdapServerMetadataProperty where
@@ -116,7 +116,7 @@ instance Property "ServiceAccountPassword" LdapServerMetadataProperty where
   type PropertyType "ServiceAccountPassword" LdapServerMetadataProperty = Value Prelude.Text
   set newValue LdapServerMetadataProperty {..}
     = LdapServerMetadataProperty
-        {serviceAccountPassword = newValue, ..}
+        {serviceAccountPassword = Prelude.pure newValue, ..}
 instance Property "ServiceAccountUsername" LdapServerMetadataProperty where
   type PropertyType "ServiceAccountUsername" LdapServerMetadataProperty = Value Prelude.Text
   set newValue LdapServerMetadataProperty {..}

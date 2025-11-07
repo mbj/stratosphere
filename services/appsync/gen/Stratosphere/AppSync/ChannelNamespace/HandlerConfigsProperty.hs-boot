@@ -1,0 +1,9 @@
+module Stratosphere.AppSync.ChannelNamespace.HandlerConfigsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HandlerConfigsProperty :: Prelude.Type
+instance ToResourceProperties HandlerConfigsProperty
+instance Prelude.Eq HandlerConfigsProperty
+instance Prelude.Show HandlerConfigsProperty
+instance JSON.ToJSON HandlerConfigsProperty

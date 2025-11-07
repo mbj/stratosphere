@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.HibernationOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HibernationOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties HibernationOptionsRequestProperty
+instance Prelude.Eq HibernationOptionsRequestProperty
+instance Prelude.Show HibernationOptionsRequestProperty
+instance JSON.ToJSON HibernationOptionsRequestProperty

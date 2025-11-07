@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.EventTrigger.ObjectAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ObjectAttributeProperty :: Prelude.Type
+instance ToResourceProperties ObjectAttributeProperty
+instance Prelude.Eq ObjectAttributeProperty
+instance Prelude.Show ObjectAttributeProperty
+instance JSON.ToJSON ObjectAttributeProperty

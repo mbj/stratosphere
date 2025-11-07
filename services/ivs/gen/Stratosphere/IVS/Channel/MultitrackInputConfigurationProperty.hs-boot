@@ -1,0 +1,9 @@
+module Stratosphere.IVS.Channel.MultitrackInputConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultitrackInputConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MultitrackInputConfigurationProperty
+instance Prelude.Eq MultitrackInputConfigurationProperty
+instance Prelude.Show MultitrackInputConfigurationProperty
+instance JSON.ToJSON MultitrackInputConfigurationProperty

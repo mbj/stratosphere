@@ -1,0 +1,9 @@
+module Stratosphere.EC2.EC2Fleet.CpuPerformanceFactorRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CpuPerformanceFactorRequestProperty :: Prelude.Type
+instance ToResourceProperties CpuPerformanceFactorRequestProperty
+instance Prelude.Eq CpuPerformanceFactorRequestProperty
+instance Prelude.Show CpuPerformanceFactorRequestProperty
+instance JSON.ToJSON CpuPerformanceFactorRequestProperty

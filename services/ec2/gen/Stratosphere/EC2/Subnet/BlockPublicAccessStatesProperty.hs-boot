@@ -1,0 +1,9 @@
+module Stratosphere.EC2.Subnet.BlockPublicAccessStatesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BlockPublicAccessStatesProperty :: Prelude.Type
+instance ToResourceProperties BlockPublicAccessStatesProperty
+instance Prelude.Eq BlockPublicAccessStatesProperty
+instance Prelude.Show BlockPublicAccessStatesProperty
+instance JSON.ToJSON BlockPublicAccessStatesProperty

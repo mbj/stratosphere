@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.Application.QuickSightConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QuickSightConfigurationProperty :: Prelude.Type
+instance ToResourceProperties QuickSightConfigurationProperty
+instance Prelude.Eq QuickSightConfigurationProperty
+instance Prelude.Show QuickSightConfigurationProperty
+instance JSON.ToJSON QuickSightConfigurationProperty

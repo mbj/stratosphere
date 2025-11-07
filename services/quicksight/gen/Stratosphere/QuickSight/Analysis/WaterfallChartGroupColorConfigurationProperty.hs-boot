@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.WaterfallChartGroupColorConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WaterfallChartGroupColorConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WaterfallChartGroupColorConfigurationProperty
+instance Prelude.Eq WaterfallChartGroupColorConfigurationProperty
+instance Prelude.Show WaterfallChartGroupColorConfigurationProperty
+instance JSON.ToJSON WaterfallChartGroupColorConfigurationProperty

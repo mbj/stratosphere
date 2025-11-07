@@ -1,0 +1,9 @@
+module Stratosphere.PCS.ComputeNodeGroup.InstanceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceConfigProperty :: Prelude.Type
+instance ToResourceProperties InstanceConfigProperty
+instance Prelude.Eq InstanceConfigProperty
+instance Prelude.Show InstanceConfigProperty
+instance JSON.ToJSON InstanceConfigProperty

@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpointPolicy.CdnAuthConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CdnAuthConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CdnAuthConfigurationProperty
+instance Prelude.Eq CdnAuthConfigurationProperty
+instance Prelude.Show CdnAuthConfigurationProperty
+instance JSON.ToJSON CdnAuthConfigurationProperty

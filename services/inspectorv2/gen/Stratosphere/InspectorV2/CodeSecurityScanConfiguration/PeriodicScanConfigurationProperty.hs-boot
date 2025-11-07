@@ -1,0 +1,9 @@
+module Stratosphere.InspectorV2.CodeSecurityScanConfiguration.PeriodicScanConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PeriodicScanConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PeriodicScanConfigurationProperty
+instance Prelude.Eq PeriodicScanConfigurationProperty
+instance Prelude.Show PeriodicScanConfigurationProperty
+instance JSON.ToJSON PeriodicScanConfigurationProperty

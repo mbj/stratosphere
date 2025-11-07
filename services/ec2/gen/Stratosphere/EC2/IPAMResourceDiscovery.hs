@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.IPAMResourceDiscovery.IpamOperatingRegionProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.IPAMResourceDiscovery.IpamResourceDiscoveryOrganizationalUnitExclusionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -15,6 +16,8 @@ data IPAMResourceDiscovery
                            description :: (Prelude.Maybe (Value Prelude.Text)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html#cfn-ec2-ipamresourcediscovery-operatingregions>
                            operatingRegions :: (Prelude.Maybe [IpamOperatingRegionProperty]),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html#cfn-ec2-ipamresourcediscovery-organizationalunitexclusions>
+                           organizationalUnitExclusions :: (Prelude.Maybe [IpamResourceDiscoveryOrganizationalUnitExclusionProperty]),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html#cfn-ec2-ipamresourcediscovery-tags>
                            tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -22,7 +25,9 @@ mkIPAMResourceDiscovery :: IPAMResourceDiscovery
 mkIPAMResourceDiscovery
   = IPAMResourceDiscovery
       {haddock_workaround_ = (), description = Prelude.Nothing,
-       operatingRegions = Prelude.Nothing, tags = Prelude.Nothing}
+       operatingRegions = Prelude.Nothing,
+       organizationalUnitExclusions = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties IPAMResourceDiscovery where
   toResourceProperties IPAMResourceDiscovery {..}
     = ResourceProperties
@@ -32,6 +37,8 @@ instance ToResourceProperties IPAMResourceDiscovery where
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,
                             (JSON..=) "OperatingRegions" Prelude.<$> operatingRegions,
+                            (JSON..=) "OrganizationalUnitExclusions"
+                              Prelude.<$> organizationalUnitExclusions,
                             (JSON..=) "Tags" Prelude.<$> tags])}
 instance JSON.ToJSON IPAMResourceDiscovery where
   toJSON IPAMResourceDiscovery {..}
@@ -40,6 +47,8 @@ instance JSON.ToJSON IPAMResourceDiscovery where
            (Prelude.catMaybes
               [(JSON..=) "Description" Prelude.<$> description,
                (JSON..=) "OperatingRegions" Prelude.<$> operatingRegions,
+               (JSON..=) "OrganizationalUnitExclusions"
+                 Prelude.<$> organizationalUnitExclusions,
                (JSON..=) "Tags" Prelude.<$> tags]))
 instance Property "Description" IPAMResourceDiscovery where
   type PropertyType "Description" IPAMResourceDiscovery = Value Prelude.Text
@@ -50,6 +59,11 @@ instance Property "OperatingRegions" IPAMResourceDiscovery where
   set newValue IPAMResourceDiscovery {..}
     = IPAMResourceDiscovery
         {operatingRegions = Prelude.pure newValue, ..}
+instance Property "OrganizationalUnitExclusions" IPAMResourceDiscovery where
+  type PropertyType "OrganizationalUnitExclusions" IPAMResourceDiscovery = [IpamResourceDiscoveryOrganizationalUnitExclusionProperty]
+  set newValue IPAMResourceDiscovery {..}
+    = IPAMResourceDiscovery
+        {organizationalUnitExclusions = Prelude.pure newValue, ..}
 instance Property "Tags" IPAMResourceDiscovery where
   type PropertyType "Tags" IPAMResourceDiscovery = [Tag]
   set newValue IPAMResourceDiscovery {..}

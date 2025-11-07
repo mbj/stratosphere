@@ -1,0 +1,9 @@
+module Stratosphere.ECS.CapacityProvider.InstanceLaunchTemplateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceLaunchTemplateProperty :: Prelude.Type
+instance ToResourceProperties InstanceLaunchTemplateProperty
+instance Prelude.Eq InstanceLaunchTemplateProperty
+instance Prelude.Show InstanceLaunchTemplateProperty
+instance JSON.ToJSON InstanceLaunchTemplateProperty

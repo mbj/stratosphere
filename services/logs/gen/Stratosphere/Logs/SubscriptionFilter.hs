@@ -9,10 +9,16 @@ import Stratosphere.Value
 data SubscriptionFilter
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html>
     SubscriptionFilter {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-applyontransformedlogs>
+                        applyOnTransformedLogs :: (Prelude.Maybe (Value Prelude.Bool)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-destinationarn>
                         destinationArn :: (Value Prelude.Text),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-distribution>
                         distribution :: (Prelude.Maybe (Value Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-emitsystemfields>
+                        emitSystemFields :: (Prelude.Maybe (ValueList Prelude.Text)),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-fieldselectioncriteria>
+                        fieldSelectionCriteria :: (Prelude.Maybe (Value Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-filtername>
                         filterName :: (Prelude.Maybe (Value Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-logs-subscriptionfilter-filterpattern>
@@ -29,8 +35,10 @@ mkSubscriptionFilter destinationArn filterPattern logGroupName
   = SubscriptionFilter
       {haddock_workaround_ = (), destinationArn = destinationArn,
        filterPattern = filterPattern, logGroupName = logGroupName,
-       distribution = Prelude.Nothing, filterName = Prelude.Nothing,
-       roleArn = Prelude.Nothing}
+       applyOnTransformedLogs = Prelude.Nothing,
+       distribution = Prelude.Nothing, emitSystemFields = Prelude.Nothing,
+       fieldSelectionCriteria = Prelude.Nothing,
+       filterName = Prelude.Nothing, roleArn = Prelude.Nothing}
 instance ToResourceProperties SubscriptionFilter where
   toResourceProperties SubscriptionFilter {..}
     = ResourceProperties
@@ -42,7 +50,12 @@ instance ToResourceProperties SubscriptionFilter where
                             "FilterPattern" JSON..= filterPattern,
                             "LogGroupName" JSON..= logGroupName]
                            (Prelude.catMaybes
-                              [(JSON..=) "Distribution" Prelude.<$> distribution,
+                              [(JSON..=) "ApplyOnTransformedLogs"
+                                 Prelude.<$> applyOnTransformedLogs,
+                               (JSON..=) "Distribution" Prelude.<$> distribution,
+                               (JSON..=) "EmitSystemFields" Prelude.<$> emitSystemFields,
+                               (JSON..=) "FieldSelectionCriteria"
+                                 Prelude.<$> fieldSelectionCriteria,
                                (JSON..=) "FilterName" Prelude.<$> filterName,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn]))}
 instance JSON.ToJSON SubscriptionFilter where
@@ -54,9 +67,19 @@ instance JSON.ToJSON SubscriptionFilter where
                "FilterPattern" JSON..= filterPattern,
                "LogGroupName" JSON..= logGroupName]
               (Prelude.catMaybes
-                 [(JSON..=) "Distribution" Prelude.<$> distribution,
+                 [(JSON..=) "ApplyOnTransformedLogs"
+                    Prelude.<$> applyOnTransformedLogs,
+                  (JSON..=) "Distribution" Prelude.<$> distribution,
+                  (JSON..=) "EmitSystemFields" Prelude.<$> emitSystemFields,
+                  (JSON..=) "FieldSelectionCriteria"
+                    Prelude.<$> fieldSelectionCriteria,
                   (JSON..=) "FilterName" Prelude.<$> filterName,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn])))
+instance Property "ApplyOnTransformedLogs" SubscriptionFilter where
+  type PropertyType "ApplyOnTransformedLogs" SubscriptionFilter = Value Prelude.Bool
+  set newValue SubscriptionFilter {..}
+    = SubscriptionFilter
+        {applyOnTransformedLogs = Prelude.pure newValue, ..}
 instance Property "DestinationArn" SubscriptionFilter where
   type PropertyType "DestinationArn" SubscriptionFilter = Value Prelude.Text
   set newValue SubscriptionFilter {..}
@@ -65,6 +88,15 @@ instance Property "Distribution" SubscriptionFilter where
   type PropertyType "Distribution" SubscriptionFilter = Value Prelude.Text
   set newValue SubscriptionFilter {..}
     = SubscriptionFilter {distribution = Prelude.pure newValue, ..}
+instance Property "EmitSystemFields" SubscriptionFilter where
+  type PropertyType "EmitSystemFields" SubscriptionFilter = ValueList Prelude.Text
+  set newValue SubscriptionFilter {..}
+    = SubscriptionFilter {emitSystemFields = Prelude.pure newValue, ..}
+instance Property "FieldSelectionCriteria" SubscriptionFilter where
+  type PropertyType "FieldSelectionCriteria" SubscriptionFilter = Value Prelude.Text
+  set newValue SubscriptionFilter {..}
+    = SubscriptionFilter
+        {fieldSelectionCriteria = Prelude.pure newValue, ..}
 instance Property "FilterName" SubscriptionFilter where
   type PropertyType "FilterName" SubscriptionFilter = Value Prelude.Text
   set newValue SubscriptionFilter {..}

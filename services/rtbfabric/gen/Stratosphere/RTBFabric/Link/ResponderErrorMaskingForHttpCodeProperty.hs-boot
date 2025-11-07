@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.ResponderErrorMaskingForHttpCodeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResponderErrorMaskingForHttpCodeProperty :: Prelude.Type
+instance ToResourceProperties ResponderErrorMaskingForHttpCodeProperty
+instance Prelude.Eq ResponderErrorMaskingForHttpCodeProperty
+instance Prelude.Show ResponderErrorMaskingForHttpCodeProperty
+instance JSON.ToJSON ResponderErrorMaskingForHttpCodeProperty

@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-datazone
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS DataZone.
+description:    Integration into stratosphere to generate resources and properties for AWS DataZone
+category:       AWS, Cloud, DataZone
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -25,6 +28,31 @@ flag development
 
 library
   exposed-modules:
+      Stratosphere.DataZone.Connection
+      Stratosphere.DataZone.Connection.AthenaPropertiesInputProperty
+      Stratosphere.DataZone.Connection.AuthenticationConfigurationInputProperty
+      Stratosphere.DataZone.Connection.AuthorizationCodePropertiesProperty
+      Stratosphere.DataZone.Connection.AwsLocationProperty
+      Stratosphere.DataZone.Connection.BasicAuthenticationCredentialsProperty
+      Stratosphere.DataZone.Connection.ConnectionPropertiesInputProperty
+      Stratosphere.DataZone.Connection.GlueConnectionInputProperty
+      Stratosphere.DataZone.Connection.GlueOAuth2CredentialsProperty
+      Stratosphere.DataZone.Connection.GluePropertiesInputProperty
+      Stratosphere.DataZone.Connection.HyperPodPropertiesInputProperty
+      Stratosphere.DataZone.Connection.IamPropertiesInputProperty
+      Stratosphere.DataZone.Connection.LineageSyncScheduleProperty
+      Stratosphere.DataZone.Connection.OAuth2ClientApplicationProperty
+      Stratosphere.DataZone.Connection.OAuth2PropertiesProperty
+      Stratosphere.DataZone.Connection.PhysicalConnectionRequirementsProperty
+      Stratosphere.DataZone.Connection.RedshiftCredentialsProperty
+      Stratosphere.DataZone.Connection.RedshiftLineageSyncConfigurationInputProperty
+      Stratosphere.DataZone.Connection.RedshiftPropertiesInputProperty
+      Stratosphere.DataZone.Connection.RedshiftStoragePropertiesProperty
+      Stratosphere.DataZone.Connection.S3PropertiesInputProperty
+      Stratosphere.DataZone.Connection.SparkEmrPropertiesInputProperty
+      Stratosphere.DataZone.Connection.SparkGlueArgsProperty
+      Stratosphere.DataZone.Connection.SparkGluePropertiesInputProperty
+      Stratosphere.DataZone.Connection.UsernamePasswordProperty
       Stratosphere.DataZone.DataSource
       Stratosphere.DataZone.DataSource.DataSourceConfigurationInputProperty
       Stratosphere.DataZone.DataSource.FilterExpressionProperty
@@ -37,21 +65,59 @@ library
       Stratosphere.DataZone.DataSource.RedshiftServerlessStorageProperty
       Stratosphere.DataZone.DataSource.RedshiftStorageProperty
       Stratosphere.DataZone.DataSource.RelationalFilterConfigurationProperty
+      Stratosphere.DataZone.DataSource.SageMakerRunConfigurationInputProperty
       Stratosphere.DataZone.DataSource.ScheduleConfigurationProperty
       Stratosphere.DataZone.Domain
       Stratosphere.DataZone.Domain.SingleSignOnProperty
+      Stratosphere.DataZone.DomainUnit
       Stratosphere.DataZone.Environment
       Stratosphere.DataZone.Environment.EnvironmentParameterProperty
       Stratosphere.DataZone.EnvironmentActions
       Stratosphere.DataZone.EnvironmentActions.AwsConsoleLinkParametersProperty
       Stratosphere.DataZone.EnvironmentBlueprintConfiguration
+      Stratosphere.DataZone.EnvironmentBlueprintConfiguration.LakeFormationConfigurationProperty
+      Stratosphere.DataZone.EnvironmentBlueprintConfiguration.ProvisioningConfigurationProperty
       Stratosphere.DataZone.EnvironmentBlueprintConfiguration.RegionalParameterProperty
       Stratosphere.DataZone.EnvironmentProfile
       Stratosphere.DataZone.EnvironmentProfile.EnvironmentParameterProperty
+      Stratosphere.DataZone.FormType
+      Stratosphere.DataZone.FormType.ModelProperty
       Stratosphere.DataZone.GroupProfile
+      Stratosphere.DataZone.Owner
+      Stratosphere.DataZone.Owner.OwnerGroupPropertiesProperty
+      Stratosphere.DataZone.Owner.OwnerPropertiesProperty
+      Stratosphere.DataZone.Owner.OwnerUserPropertiesProperty
+      Stratosphere.DataZone.PolicyGrant
+      Stratosphere.DataZone.PolicyGrant.AddToProjectMemberPoolPolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateAssetTypePolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateDomainUnitPolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateEnvironmentProfilePolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateFormTypePolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateGlossaryPolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateProjectFromProjectProfilePolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.CreateProjectPolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.DomainUnitFilterForProjectProperty
+      Stratosphere.DataZone.PolicyGrant.DomainUnitGrantFilterProperty
+      Stratosphere.DataZone.PolicyGrant.DomainUnitPolicyGrantPrincipalProperty
+      Stratosphere.DataZone.PolicyGrant.GroupPolicyGrantPrincipalProperty
+      Stratosphere.DataZone.PolicyGrant.OverrideDomainUnitOwnersPolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.OverrideProjectOwnersPolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.PolicyGrantDetailProperty
+      Stratosphere.DataZone.PolicyGrant.PolicyGrantPrincipalProperty
+      Stratosphere.DataZone.PolicyGrant.ProjectGrantFilterProperty
+      Stratosphere.DataZone.PolicyGrant.ProjectPolicyGrantPrincipalProperty
+      Stratosphere.DataZone.PolicyGrant.UserPolicyGrantPrincipalProperty
       Stratosphere.DataZone.Project
+      Stratosphere.DataZone.Project.EnvironmentConfigurationUserParameterProperty
+      Stratosphere.DataZone.Project.EnvironmentParameterProperty
       Stratosphere.DataZone.ProjectMembership
       Stratosphere.DataZone.ProjectMembership.MemberProperty
+      Stratosphere.DataZone.ProjectProfile
+      Stratosphere.DataZone.ProjectProfile.AwsAccountProperty
+      Stratosphere.DataZone.ProjectProfile.EnvironmentConfigurationParameterProperty
+      Stratosphere.DataZone.ProjectProfile.EnvironmentConfigurationParametersDetailsProperty
+      Stratosphere.DataZone.ProjectProfile.EnvironmentConfigurationProperty
+      Stratosphere.DataZone.ProjectProfile.RegionProperty
       Stratosphere.DataZone.SubscriptionTarget
       Stratosphere.DataZone.SubscriptionTarget.SubscriptionTargetFormProperty
       Stratosphere.DataZone.UserProfile
@@ -92,8 +158,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

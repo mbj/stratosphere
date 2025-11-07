@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.Project.CfnStackParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CfnStackParameterProperty :: Prelude.Type
+instance ToResourceProperties CfnStackParameterProperty
+instance Prelude.Eq CfnStackParameterProperty
+instance Prelude.Show CfnStackParameterProperty
+instance JSON.ToJSON CfnStackParameterProperty

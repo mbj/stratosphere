@@ -16,6 +16,8 @@ data DomainNameConfigurationProperty
                                      certificateName :: (Prelude.Maybe (Value Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-endpointtype>
                                      endpointType :: (Prelude.Maybe (Value Prelude.Text)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-ipaddresstype>
+                                     ipAddressType :: (Prelude.Maybe (Value Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-ownershipverificationcertificatearn>
                                      ownershipVerificationCertificateArn :: (Prelude.Maybe (Value Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html#cfn-apigatewayv2-domainname-domainnameconfiguration-securitypolicy>
@@ -27,6 +29,7 @@ mkDomainNameConfigurationProperty
   = DomainNameConfigurationProperty
       {haddock_workaround_ = (), certificateArn = Prelude.Nothing,
        certificateName = Prelude.Nothing, endpointType = Prelude.Nothing,
+       ipAddressType = Prelude.Nothing,
        ownershipVerificationCertificateArn = Prelude.Nothing,
        securityPolicy = Prelude.Nothing}
 instance ToResourceProperties DomainNameConfigurationProperty where
@@ -39,6 +42,7 @@ instance ToResourceProperties DomainNameConfigurationProperty where
                            [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,
                             (JSON..=) "CertificateName" Prelude.<$> certificateName,
                             (JSON..=) "EndpointType" Prelude.<$> endpointType,
+                            (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                             (JSON..=) "OwnershipVerificationCertificateArn"
                               Prelude.<$> ownershipVerificationCertificateArn,
                             (JSON..=) "SecurityPolicy" Prelude.<$> securityPolicy])}
@@ -50,6 +54,7 @@ instance JSON.ToJSON DomainNameConfigurationProperty where
               [(JSON..=) "CertificateArn" Prelude.<$> certificateArn,
                (JSON..=) "CertificateName" Prelude.<$> certificateName,
                (JSON..=) "EndpointType" Prelude.<$> endpointType,
+               (JSON..=) "IpAddressType" Prelude.<$> ipAddressType,
                (JSON..=) "OwnershipVerificationCertificateArn"
                  Prelude.<$> ownershipVerificationCertificateArn,
                (JSON..=) "SecurityPolicy" Prelude.<$> securityPolicy]))
@@ -68,6 +73,11 @@ instance Property "EndpointType" DomainNameConfigurationProperty where
   set newValue DomainNameConfigurationProperty {..}
     = DomainNameConfigurationProperty
         {endpointType = Prelude.pure newValue, ..}
+instance Property "IpAddressType" DomainNameConfigurationProperty where
+  type PropertyType "IpAddressType" DomainNameConfigurationProperty = Value Prelude.Text
+  set newValue DomainNameConfigurationProperty {..}
+    = DomainNameConfigurationProperty
+        {ipAddressType = Prelude.pure newValue, ..}
 instance Property "OwnershipVerificationCertificateArn" DomainNameConfigurationProperty where
   type PropertyType "OwnershipVerificationCertificateArn" DomainNameConfigurationProperty = Value Prelude.Text
   set newValue DomainNameConfigurationProperty {..}

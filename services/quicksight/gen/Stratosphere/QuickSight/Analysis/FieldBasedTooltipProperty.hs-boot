@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.FieldBasedTooltipProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FieldBasedTooltipProperty :: Prelude.Type
+instance ToResourceProperties FieldBasedTooltipProperty
+instance Prelude.Eq FieldBasedTooltipProperty
+instance Prelude.Show FieldBasedTooltipProperty
+instance JSON.ToJSON FieldBasedTooltipProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialLineSymbolStyleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialLineSymbolStyleProperty :: Prelude.Type
+instance ToResourceProperties GeospatialLineSymbolStyleProperty
+instance Prelude.Eq GeospatialLineSymbolStyleProperty
+instance Prelude.Show GeospatialLineSymbolStyleProperty
+instance JSON.ToJSON GeospatialLineSymbolStyleProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ExportToCSVOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExportToCSVOptionProperty :: Prelude.Type
+instance ToResourceProperties ExportToCSVOptionProperty
+instance Prelude.Eq ExportToCSVOptionProperty
+instance Prelude.Show ExportToCSVOptionProperty
+instance JSON.ToJSON ExportToCSVOptionProperty

@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.DeviceOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.NativeApplicationOidcOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.OidcOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.VerifiedAccessTrustProvider.SseSpecificationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -20,6 +21,8 @@ data VerifiedAccessTrustProvider
                                  deviceOptions :: (Prelude.Maybe DeviceOptionsProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-devicetrustprovidertype>
                                  deviceTrustProviderType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions>
+                                 nativeApplicationOidcOptions :: (Prelude.Maybe NativeApplicationOidcOptionsProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-oidcoptions>
                                  oidcOptions :: (Prelude.Maybe OidcOptionsProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-policyreferencename>
@@ -43,6 +46,7 @@ mkVerifiedAccessTrustProvider policyReferenceName trustProviderType
        trustProviderType = trustProviderType,
        description = Prelude.Nothing, deviceOptions = Prelude.Nothing,
        deviceTrustProviderType = Prelude.Nothing,
+       nativeApplicationOidcOptions = Prelude.Nothing,
        oidcOptions = Prelude.Nothing, sseSpecification = Prelude.Nothing,
        tags = Prelude.Nothing, userTrustProviderType = Prelude.Nothing}
 instance ToResourceProperties VerifiedAccessTrustProvider where
@@ -59,6 +63,8 @@ instance ToResourceProperties VerifiedAccessTrustProvider where
                                (JSON..=) "DeviceOptions" Prelude.<$> deviceOptions,
                                (JSON..=) "DeviceTrustProviderType"
                                  Prelude.<$> deviceTrustProviderType,
+                               (JSON..=) "NativeApplicationOidcOptions"
+                                 Prelude.<$> nativeApplicationOidcOptions,
                                (JSON..=) "OidcOptions" Prelude.<$> oidcOptions,
                                (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -76,6 +82,8 @@ instance JSON.ToJSON VerifiedAccessTrustProvider where
                   (JSON..=) "DeviceOptions" Prelude.<$> deviceOptions,
                   (JSON..=) "DeviceTrustProviderType"
                     Prelude.<$> deviceTrustProviderType,
+                  (JSON..=) "NativeApplicationOidcOptions"
+                    Prelude.<$> nativeApplicationOidcOptions,
                   (JSON..=) "OidcOptions" Prelude.<$> oidcOptions,
                   (JSON..=) "SseSpecification" Prelude.<$> sseSpecification,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -96,6 +104,11 @@ instance Property "DeviceTrustProviderType" VerifiedAccessTrustProvider where
   set newValue VerifiedAccessTrustProvider {..}
     = VerifiedAccessTrustProvider
         {deviceTrustProviderType = Prelude.pure newValue, ..}
+instance Property "NativeApplicationOidcOptions" VerifiedAccessTrustProvider where
+  type PropertyType "NativeApplicationOidcOptions" VerifiedAccessTrustProvider = NativeApplicationOidcOptionsProperty
+  set newValue VerifiedAccessTrustProvider {..}
+    = VerifiedAccessTrustProvider
+        {nativeApplicationOidcOptions = Prelude.pure newValue, ..}
 instance Property "OidcOptions" VerifiedAccessTrustProvider where
   type PropertyType "OidcOptions" VerifiedAccessTrustProvider = OidcOptionsProperty
   set newValue VerifiedAccessTrustProvider {..}

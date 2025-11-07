@@ -17,6 +17,12 @@ data FilterCriteriaProperty
     FilterCriteriaProperty {haddock_workaround_ :: (),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-awsaccountid>
                             awsAccountId :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-codevulnerabilitydetectorname>
+                            codeVulnerabilityDetectorName :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-codevulnerabilitydetectortags>
+                            codeVulnerabilityDetectorTags :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-codevulnerabilityfilepath>
+                            codeVulnerabilityFilePath :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-componentid>
                             componentId :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-componenttype>
@@ -39,6 +45,10 @@ data FilterCriteriaProperty
                             ecrImageRepositoryName :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagetags>
                             ecrImageTags :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-epssscore>
+                            epssScore :: (Prelude.Maybe [NumberFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-exploitavailable>
+                            exploitAvailable :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-findingarn>
                             findingArn :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-findingstatus>
@@ -47,8 +57,20 @@ data FilterCriteriaProperty
                             findingType :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-firstobservedat>
                             firstObservedAt :: (Prelude.Maybe [DateFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-fixavailable>
+                            fixAvailable :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-inspectorscore>
                             inspectorScore :: (Prelude.Maybe [NumberFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionexecutionrolearn>
+                            lambdaFunctionExecutionRoleArn :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionlastmodifiedat>
+                            lambdaFunctionLastModifiedAt :: (Prelude.Maybe [DateFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionlayers>
+                            lambdaFunctionLayers :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionname>
+                            lambdaFunctionName :: (Prelude.Maybe [StringFilterProperty]),
+                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionruntime>
+                            lambdaFunctionRuntime :: (Prelude.Maybe [StringFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lastobservedat>
                             lastObservedAt :: (Prelude.Maybe [DateFilterProperty]),
                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-networkprotocol>
@@ -82,6 +104,9 @@ mkFilterCriteriaProperty :: FilterCriteriaProperty
 mkFilterCriteriaProperty
   = FilterCriteriaProperty
       {haddock_workaround_ = (), awsAccountId = Prelude.Nothing,
+       codeVulnerabilityDetectorName = Prelude.Nothing,
+       codeVulnerabilityDetectorTags = Prelude.Nothing,
+       codeVulnerabilityFilePath = Prelude.Nothing,
        componentId = Prelude.Nothing, componentType = Prelude.Nothing,
        ec2InstanceImageId = Prelude.Nothing,
        ec2InstanceSubnetId = Prelude.Nothing,
@@ -90,10 +115,17 @@ mkFilterCriteriaProperty
        ecrImageHash = Prelude.Nothing, ecrImagePushedAt = Prelude.Nothing,
        ecrImageRegistry = Prelude.Nothing,
        ecrImageRepositoryName = Prelude.Nothing,
-       ecrImageTags = Prelude.Nothing, findingArn = Prelude.Nothing,
+       ecrImageTags = Prelude.Nothing, epssScore = Prelude.Nothing,
+       exploitAvailable = Prelude.Nothing, findingArn = Prelude.Nothing,
        findingStatus = Prelude.Nothing, findingType = Prelude.Nothing,
-       firstObservedAt = Prelude.Nothing,
-       inspectorScore = Prelude.Nothing, lastObservedAt = Prelude.Nothing,
+       firstObservedAt = Prelude.Nothing, fixAvailable = Prelude.Nothing,
+       inspectorScore = Prelude.Nothing,
+       lambdaFunctionExecutionRoleArn = Prelude.Nothing,
+       lambdaFunctionLastModifiedAt = Prelude.Nothing,
+       lambdaFunctionLayers = Prelude.Nothing,
+       lambdaFunctionName = Prelude.Nothing,
+       lambdaFunctionRuntime = Prelude.Nothing,
+       lastObservedAt = Prelude.Nothing,
        networkProtocol = Prelude.Nothing, portRange = Prelude.Nothing,
        relatedVulnerabilities = Prelude.Nothing,
        resourceId = Prelude.Nothing, resourceTags = Prelude.Nothing,
@@ -111,6 +143,12 @@ instance ToResourceProperties FilterCriteriaProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,
+                            (JSON..=) "CodeVulnerabilityDetectorName"
+                              Prelude.<$> codeVulnerabilityDetectorName,
+                            (JSON..=) "CodeVulnerabilityDetectorTags"
+                              Prelude.<$> codeVulnerabilityDetectorTags,
+                            (JSON..=) "CodeVulnerabilityFilePath"
+                              Prelude.<$> codeVulnerabilityFilePath,
                             (JSON..=) "ComponentId" Prelude.<$> componentId,
                             (JSON..=) "ComponentType" Prelude.<$> componentType,
                             (JSON..=) "Ec2InstanceImageId" Prelude.<$> ec2InstanceImageId,
@@ -123,11 +161,22 @@ instance ToResourceProperties FilterCriteriaProperty where
                             (JSON..=) "EcrImageRepositoryName"
                               Prelude.<$> ecrImageRepositoryName,
                             (JSON..=) "EcrImageTags" Prelude.<$> ecrImageTags,
+                            (JSON..=) "EpssScore" Prelude.<$> epssScore,
+                            (JSON..=) "ExploitAvailable" Prelude.<$> exploitAvailable,
                             (JSON..=) "FindingArn" Prelude.<$> findingArn,
                             (JSON..=) "FindingStatus" Prelude.<$> findingStatus,
                             (JSON..=) "FindingType" Prelude.<$> findingType,
                             (JSON..=) "FirstObservedAt" Prelude.<$> firstObservedAt,
+                            (JSON..=) "FixAvailable" Prelude.<$> fixAvailable,
                             (JSON..=) "InspectorScore" Prelude.<$> inspectorScore,
+                            (JSON..=) "LambdaFunctionExecutionRoleArn"
+                              Prelude.<$> lambdaFunctionExecutionRoleArn,
+                            (JSON..=) "LambdaFunctionLastModifiedAt"
+                              Prelude.<$> lambdaFunctionLastModifiedAt,
+                            (JSON..=) "LambdaFunctionLayers" Prelude.<$> lambdaFunctionLayers,
+                            (JSON..=) "LambdaFunctionName" Prelude.<$> lambdaFunctionName,
+                            (JSON..=) "LambdaFunctionRuntime"
+                              Prelude.<$> lambdaFunctionRuntime,
                             (JSON..=) "LastObservedAt" Prelude.<$> lastObservedAt,
                             (JSON..=) "NetworkProtocol" Prelude.<$> networkProtocol,
                             (JSON..=) "PortRange" Prelude.<$> portRange,
@@ -149,6 +198,12 @@ instance JSON.ToJSON FilterCriteriaProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "AwsAccountId" Prelude.<$> awsAccountId,
+               (JSON..=) "CodeVulnerabilityDetectorName"
+                 Prelude.<$> codeVulnerabilityDetectorName,
+               (JSON..=) "CodeVulnerabilityDetectorTags"
+                 Prelude.<$> codeVulnerabilityDetectorTags,
+               (JSON..=) "CodeVulnerabilityFilePath"
+                 Prelude.<$> codeVulnerabilityFilePath,
                (JSON..=) "ComponentId" Prelude.<$> componentId,
                (JSON..=) "ComponentType" Prelude.<$> componentType,
                (JSON..=) "Ec2InstanceImageId" Prelude.<$> ec2InstanceImageId,
@@ -161,11 +216,22 @@ instance JSON.ToJSON FilterCriteriaProperty where
                (JSON..=) "EcrImageRepositoryName"
                  Prelude.<$> ecrImageRepositoryName,
                (JSON..=) "EcrImageTags" Prelude.<$> ecrImageTags,
+               (JSON..=) "EpssScore" Prelude.<$> epssScore,
+               (JSON..=) "ExploitAvailable" Prelude.<$> exploitAvailable,
                (JSON..=) "FindingArn" Prelude.<$> findingArn,
                (JSON..=) "FindingStatus" Prelude.<$> findingStatus,
                (JSON..=) "FindingType" Prelude.<$> findingType,
                (JSON..=) "FirstObservedAt" Prelude.<$> firstObservedAt,
+               (JSON..=) "FixAvailable" Prelude.<$> fixAvailable,
                (JSON..=) "InspectorScore" Prelude.<$> inspectorScore,
+               (JSON..=) "LambdaFunctionExecutionRoleArn"
+                 Prelude.<$> lambdaFunctionExecutionRoleArn,
+               (JSON..=) "LambdaFunctionLastModifiedAt"
+                 Prelude.<$> lambdaFunctionLastModifiedAt,
+               (JSON..=) "LambdaFunctionLayers" Prelude.<$> lambdaFunctionLayers,
+               (JSON..=) "LambdaFunctionName" Prelude.<$> lambdaFunctionName,
+               (JSON..=) "LambdaFunctionRuntime"
+                 Prelude.<$> lambdaFunctionRuntime,
                (JSON..=) "LastObservedAt" Prelude.<$> lastObservedAt,
                (JSON..=) "NetworkProtocol" Prelude.<$> networkProtocol,
                (JSON..=) "PortRange" Prelude.<$> portRange,
@@ -185,6 +251,21 @@ instance Property "AwsAccountId" FilterCriteriaProperty where
   type PropertyType "AwsAccountId" FilterCriteriaProperty = [StringFilterProperty]
   set newValue FilterCriteriaProperty {..}
     = FilterCriteriaProperty {awsAccountId = Prelude.pure newValue, ..}
+instance Property "CodeVulnerabilityDetectorName" FilterCriteriaProperty where
+  type PropertyType "CodeVulnerabilityDetectorName" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {codeVulnerabilityDetectorName = Prelude.pure newValue, ..}
+instance Property "CodeVulnerabilityDetectorTags" FilterCriteriaProperty where
+  type PropertyType "CodeVulnerabilityDetectorTags" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {codeVulnerabilityDetectorTags = Prelude.pure newValue, ..}
+instance Property "CodeVulnerabilityFilePath" FilterCriteriaProperty where
+  type PropertyType "CodeVulnerabilityFilePath" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {codeVulnerabilityFilePath = Prelude.pure newValue, ..}
 instance Property "ComponentId" FilterCriteriaProperty where
   type PropertyType "ComponentId" FilterCriteriaProperty = [StringFilterProperty]
   set newValue FilterCriteriaProperty {..}
@@ -237,6 +318,15 @@ instance Property "EcrImageTags" FilterCriteriaProperty where
   type PropertyType "EcrImageTags" FilterCriteriaProperty = [StringFilterProperty]
   set newValue FilterCriteriaProperty {..}
     = FilterCriteriaProperty {ecrImageTags = Prelude.pure newValue, ..}
+instance Property "EpssScore" FilterCriteriaProperty where
+  type PropertyType "EpssScore" FilterCriteriaProperty = [NumberFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty {epssScore = Prelude.pure newValue, ..}
+instance Property "ExploitAvailable" FilterCriteriaProperty where
+  type PropertyType "ExploitAvailable" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {exploitAvailable = Prelude.pure newValue, ..}
 instance Property "FindingArn" FilterCriteriaProperty where
   type PropertyType "FindingArn" FilterCriteriaProperty = [StringFilterProperty]
   set newValue FilterCriteriaProperty {..}
@@ -255,11 +345,40 @@ instance Property "FirstObservedAt" FilterCriteriaProperty where
   set newValue FilterCriteriaProperty {..}
     = FilterCriteriaProperty
         {firstObservedAt = Prelude.pure newValue, ..}
+instance Property "FixAvailable" FilterCriteriaProperty where
+  type PropertyType "FixAvailable" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty {fixAvailable = Prelude.pure newValue, ..}
 instance Property "InspectorScore" FilterCriteriaProperty where
   type PropertyType "InspectorScore" FilterCriteriaProperty = [NumberFilterProperty]
   set newValue FilterCriteriaProperty {..}
     = FilterCriteriaProperty
         {inspectorScore = Prelude.pure newValue, ..}
+instance Property "LambdaFunctionExecutionRoleArn" FilterCriteriaProperty where
+  type PropertyType "LambdaFunctionExecutionRoleArn" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {lambdaFunctionExecutionRoleArn = Prelude.pure newValue, ..}
+instance Property "LambdaFunctionLastModifiedAt" FilterCriteriaProperty where
+  type PropertyType "LambdaFunctionLastModifiedAt" FilterCriteriaProperty = [DateFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {lambdaFunctionLastModifiedAt = Prelude.pure newValue, ..}
+instance Property "LambdaFunctionLayers" FilterCriteriaProperty where
+  type PropertyType "LambdaFunctionLayers" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {lambdaFunctionLayers = Prelude.pure newValue, ..}
+instance Property "LambdaFunctionName" FilterCriteriaProperty where
+  type PropertyType "LambdaFunctionName" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {lambdaFunctionName = Prelude.pure newValue, ..}
+instance Property "LambdaFunctionRuntime" FilterCriteriaProperty where
+  type PropertyType "LambdaFunctionRuntime" FilterCriteriaProperty = [StringFilterProperty]
+  set newValue FilterCriteriaProperty {..}
+    = FilterCriteriaProperty
+        {lambdaFunctionRuntime = Prelude.pure newValue, ..}
 instance Property "LastObservedAt" FilterCriteriaProperty where
   type PropertyType "LastObservedAt" FilterCriteriaProperty = [DateFilterProperty]
   set newValue FilterCriteriaProperty {..}

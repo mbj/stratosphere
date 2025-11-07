@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-sagemaker
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS SageMaker.
+description:    Integration into stratosphere to generate resources and properties for AWS SageMaker
+category:       AWS, Cloud, SageMaker
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -36,12 +39,22 @@ library
       Stratosphere.SageMaker.AppImageConfig.KernelGatewayImageConfigProperty
       Stratosphere.SageMaker.AppImageConfig.KernelSpecProperty
       Stratosphere.SageMaker.Cluster
+      Stratosphere.SageMaker.Cluster.AlarmDetailsProperty
+      Stratosphere.SageMaker.Cluster.CapacitySizeConfigProperty
+      Stratosphere.SageMaker.Cluster.ClusterAutoScalingConfigProperty
       Stratosphere.SageMaker.Cluster.ClusterEbsVolumeConfigProperty
       Stratosphere.SageMaker.Cluster.ClusterInstanceGroupProperty
       Stratosphere.SageMaker.Cluster.ClusterInstanceStorageConfigProperty
       Stratosphere.SageMaker.Cluster.ClusterLifeCycleConfigProperty
       Stratosphere.SageMaker.Cluster.ClusterOrchestratorEksConfigProperty
+      Stratosphere.SageMaker.Cluster.ClusterRestrictedInstanceGroupProperty
+      Stratosphere.SageMaker.Cluster.DeploymentConfigProperty
+      Stratosphere.SageMaker.Cluster.EnvironmentConfigProperty
+      Stratosphere.SageMaker.Cluster.FSxLustreConfigProperty
       Stratosphere.SageMaker.Cluster.OrchestratorProperty
+      Stratosphere.SageMaker.Cluster.RollingUpdatePolicyProperty
+      Stratosphere.SageMaker.Cluster.ScheduledUpdateConfigProperty
+      Stratosphere.SageMaker.Cluster.TieredStorageConfigProperty
       Stratosphere.SageMaker.Cluster.VpcConfigProperty
       Stratosphere.SageMaker.CodeRepository
       Stratosphere.SageMaker.CodeRepository.GitConfigProperty
@@ -81,6 +94,8 @@ library
       Stratosphere.SageMaker.Domain.DockerSettingsProperty
       Stratosphere.SageMaker.Domain.DomainSettingsProperty
       Stratosphere.SageMaker.Domain.EFSFileSystemConfigProperty
+      Stratosphere.SageMaker.Domain.FSxLustreFileSystemConfigProperty
+      Stratosphere.SageMaker.Domain.HiddenSageMakerImageProperty
       Stratosphere.SageMaker.Domain.IdleSettingsProperty
       Stratosphere.SageMaker.Domain.JupyterLabAppSettingsProperty
       Stratosphere.SageMaker.Domain.JupyterServerAppSettingsProperty
@@ -89,8 +104,10 @@ library
       Stratosphere.SageMaker.Domain.RSessionAppSettingsProperty
       Stratosphere.SageMaker.Domain.RStudioServerProAppSettingsProperty
       Stratosphere.SageMaker.Domain.RStudioServerProDomainSettingsProperty
+      Stratosphere.SageMaker.Domain.S3FileSystemConfigProperty
       Stratosphere.SageMaker.Domain.SharingSettingsProperty
       Stratosphere.SageMaker.Domain.StudioWebPortalSettingsProperty
+      Stratosphere.SageMaker.Domain.UnifiedStudioSettingsProperty
       Stratosphere.SageMaker.Domain.UserSettingsProperty
       Stratosphere.SageMaker.Endpoint
       Stratosphere.SageMaker.Endpoint.AlarmProperty
@@ -106,6 +123,7 @@ library
       Stratosphere.SageMaker.EndpointConfig.AsyncInferenceConfigProperty
       Stratosphere.SageMaker.EndpointConfig.AsyncInferenceNotificationConfigProperty
       Stratosphere.SageMaker.EndpointConfig.AsyncInferenceOutputConfigProperty
+      Stratosphere.SageMaker.EndpointConfig.CapacityReservationConfigProperty
       Stratosphere.SageMaker.EndpointConfig.CaptureContentTypeHeaderProperty
       Stratosphere.SageMaker.EndpointConfig.CaptureOptionProperty
       Stratosphere.SageMaker.EndpointConfig.ClarifyExplainerConfigProperty
@@ -134,9 +152,14 @@ library
       Stratosphere.SageMaker.Image
       Stratosphere.SageMaker.ImageVersion
       Stratosphere.SageMaker.InferenceComponent
+      Stratosphere.SageMaker.InferenceComponent.AlarmProperty
+      Stratosphere.SageMaker.InferenceComponent.AutoRollbackConfigurationProperty
       Stratosphere.SageMaker.InferenceComponent.DeployedImageProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentCapacitySizeProperty
       Stratosphere.SageMaker.InferenceComponent.InferenceComponentComputeResourceRequirementsProperty
       Stratosphere.SageMaker.InferenceComponent.InferenceComponentContainerSpecificationProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentDeploymentConfigProperty
+      Stratosphere.SageMaker.InferenceComponent.InferenceComponentRollingUpdatePolicyProperty
       Stratosphere.SageMaker.InferenceComponent.InferenceComponentRuntimeConfigProperty
       Stratosphere.SageMaker.InferenceComponent.InferenceComponentSpecificationProperty
       Stratosphere.SageMaker.InferenceComponent.InferenceComponentStartupParametersProperty
@@ -306,24 +329,49 @@ library
       Stratosphere.SageMaker.NotebookInstance.InstanceMetadataServiceConfigurationProperty
       Stratosphere.SageMaker.NotebookInstanceLifecycleConfig
       Stratosphere.SageMaker.NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHookProperty
+      Stratosphere.SageMaker.PartnerApp
+      Stratosphere.SageMaker.PartnerApp.PartnerAppConfigProperty
+      Stratosphere.SageMaker.PartnerApp.PartnerAppMaintenanceConfigProperty
       Stratosphere.SageMaker.Pipeline
       Stratosphere.SageMaker.Pipeline.ParallelismConfigurationProperty
       Stratosphere.SageMaker.Pipeline.PipelineDefinitionProperty
       Stratosphere.SageMaker.Pipeline.S3LocationProperty
+      Stratosphere.SageMaker.ProcessingJob
+      Stratosphere.SageMaker.ProcessingJob.AppSpecificationProperty
+      Stratosphere.SageMaker.ProcessingJob.AthenaDatasetDefinitionProperty
+      Stratosphere.SageMaker.ProcessingJob.ClusterConfigProperty
+      Stratosphere.SageMaker.ProcessingJob.DatasetDefinitionProperty
+      Stratosphere.SageMaker.ProcessingJob.ExperimentConfigProperty
+      Stratosphere.SageMaker.ProcessingJob.FeatureStoreOutputProperty
+      Stratosphere.SageMaker.ProcessingJob.NetworkConfigProperty
+      Stratosphere.SageMaker.ProcessingJob.ProcessingInputsObjectProperty
+      Stratosphere.SageMaker.ProcessingJob.ProcessingOutputConfigProperty
+      Stratosphere.SageMaker.ProcessingJob.ProcessingOutputsObjectProperty
+      Stratosphere.SageMaker.ProcessingJob.ProcessingResourcesProperty
+      Stratosphere.SageMaker.ProcessingJob.RedshiftDatasetDefinitionProperty
+      Stratosphere.SageMaker.ProcessingJob.S3InputProperty
+      Stratosphere.SageMaker.ProcessingJob.S3OutputProperty
+      Stratosphere.SageMaker.ProcessingJob.StoppingConditionProperty
+      Stratosphere.SageMaker.ProcessingJob.VpcConfigProperty
       Stratosphere.SageMaker.Project
+      Stratosphere.SageMaker.Project.CfnStackParameterProperty
+      Stratosphere.SageMaker.Project.CfnTemplateProviderDetailProperty
       Stratosphere.SageMaker.Project.ProvisioningParameterProperty
       Stratosphere.SageMaker.Project.ServiceCatalogProvisionedProductDetailsProperty
       Stratosphere.SageMaker.Project.ServiceCatalogProvisioningDetailsProperty
+      Stratosphere.SageMaker.Project.TemplateProviderDetailProperty
       Stratosphere.SageMaker.Space
       Stratosphere.SageMaker.Space.CodeRepositoryProperty
       Stratosphere.SageMaker.Space.CustomFileSystemProperty
       Stratosphere.SageMaker.Space.CustomImageProperty
       Stratosphere.SageMaker.Space.EbsStorageSettingsProperty
       Stratosphere.SageMaker.Space.EFSFileSystemProperty
+      Stratosphere.SageMaker.Space.FSxLustreFileSystemProperty
       Stratosphere.SageMaker.Space.JupyterServerAppSettingsProperty
       Stratosphere.SageMaker.Space.KernelGatewayAppSettingsProperty
       Stratosphere.SageMaker.Space.OwnershipSettingsProperty
       Stratosphere.SageMaker.Space.ResourceSpecProperty
+      Stratosphere.SageMaker.Space.S3FileSystemProperty
       Stratosphere.SageMaker.Space.SpaceAppLifecycleManagementProperty
       Stratosphere.SageMaker.Space.SpaceCodeEditorAppSettingsProperty
       Stratosphere.SageMaker.Space.SpaceIdleSettingsProperty
@@ -342,12 +390,15 @@ library
       Stratosphere.SageMaker.UserProfile.DefaultEbsStorageSettingsProperty
       Stratosphere.SageMaker.UserProfile.DefaultSpaceStorageSettingsProperty
       Stratosphere.SageMaker.UserProfile.EFSFileSystemConfigProperty
+      Stratosphere.SageMaker.UserProfile.FSxLustreFileSystemConfigProperty
+      Stratosphere.SageMaker.UserProfile.HiddenSageMakerImageProperty
       Stratosphere.SageMaker.UserProfile.IdleSettingsProperty
       Stratosphere.SageMaker.UserProfile.JupyterLabAppSettingsProperty
       Stratosphere.SageMaker.UserProfile.JupyterServerAppSettingsProperty
       Stratosphere.SageMaker.UserProfile.KernelGatewayAppSettingsProperty
       Stratosphere.SageMaker.UserProfile.ResourceSpecProperty
       Stratosphere.SageMaker.UserProfile.RStudioServerProAppSettingsProperty
+      Stratosphere.SageMaker.UserProfile.S3FileSystemConfigProperty
       Stratosphere.SageMaker.UserProfile.SharingSettingsProperty
       Stratosphere.SageMaker.UserProfile.StudioWebPortalSettingsProperty
       Stratosphere.SageMaker.UserProfile.UserSettingsProperty
@@ -390,8 +441,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

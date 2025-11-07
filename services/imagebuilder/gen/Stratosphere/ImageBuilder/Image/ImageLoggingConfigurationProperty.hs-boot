@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.Image.ImageLoggingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageLoggingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ImageLoggingConfigurationProperty
+instance Prelude.Eq ImageLoggingConfigurationProperty
+instance Prelude.Show ImageLoggingConfigurationProperty
+instance JSON.ToJSON ImageLoggingConfigurationProperty

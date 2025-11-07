@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.ResponderGateway.EksEndpointsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EksEndpointsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EksEndpointsConfigurationProperty
+instance Prelude.Eq EksEndpointsConfigurationProperty
+instance Prelude.Show EksEndpointsConfigurationProperty
+instance JSON.ToJSON EksEndpointsConfigurationProperty

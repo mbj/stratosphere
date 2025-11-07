@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.VisualMenuOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VisualMenuOptionProperty :: Prelude.Type
+instance ToResourceProperties VisualMenuOptionProperty
+instance Prelude.Eq VisualMenuOptionProperty
+instance Prelude.Show VisualMenuOptionProperty
+instance JSON.ToJSON VisualMenuOptionProperty

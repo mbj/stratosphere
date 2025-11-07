@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.HeaderFooterSectionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HeaderFooterSectionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HeaderFooterSectionConfigurationProperty
+instance Prelude.Eq HeaderFooterSectionConfigurationProperty
+instance Prelude.Show HeaderFooterSectionConfigurationProperty
+instance JSON.ToJSON HeaderFooterSectionConfigurationProperty

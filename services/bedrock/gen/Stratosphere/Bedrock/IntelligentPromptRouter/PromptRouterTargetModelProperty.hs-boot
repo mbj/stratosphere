@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.IntelligentPromptRouter.PromptRouterTargetModelProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PromptRouterTargetModelProperty :: Prelude.Type
+instance ToResourceProperties PromptRouterTargetModelProperty
+instance Prelude.Eq PromptRouterTargetModelProperty
+instance Prelude.Show PromptRouterTargetModelProperty
+instance JSON.ToJSON PromptRouterTargetModelProperty

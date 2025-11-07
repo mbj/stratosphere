@@ -5,7 +5,6 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppSync.DataSource.DynamoDBConfigProperty as Exports
-import {-# SOURCE #-} Stratosphere.AppSync.DataSource.ElasticsearchConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.DataSource.EventBridgeConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.DataSource.HttpConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.AppSync.DataSource.LambdaConfigProperty as Exports
@@ -22,8 +21,6 @@ data DataSource
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-dynamodbconfig>
                 dynamoDBConfig :: (Prelude.Maybe DynamoDBConfigProperty),
-                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig>
-                elasticsearchConfig :: (Prelude.Maybe ElasticsearchConfigProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-eventbridgeconfig>
                 eventBridgeConfig :: (Prelude.Maybe EventBridgeConfigProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig>
@@ -51,7 +48,6 @@ mkDataSource apiId name type'
       {haddock_workaround_ = (), apiId = apiId, name = name,
        type' = type', description = Prelude.Nothing,
        dynamoDBConfig = Prelude.Nothing,
-       elasticsearchConfig = Prelude.Nothing,
        eventBridgeConfig = Prelude.Nothing, httpConfig = Prelude.Nothing,
        lambdaConfig = Prelude.Nothing, metricsConfig = Prelude.Nothing,
        openSearchServiceConfig = Prelude.Nothing,
@@ -68,7 +64,6 @@ instance ToResourceProperties DataSource where
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DynamoDBConfig" Prelude.<$> dynamoDBConfig,
-                               (JSON..=) "ElasticsearchConfig" Prelude.<$> elasticsearchConfig,
                                (JSON..=) "EventBridgeConfig" Prelude.<$> eventBridgeConfig,
                                (JSON..=) "HttpConfig" Prelude.<$> httpConfig,
                                (JSON..=) "LambdaConfig" Prelude.<$> lambdaConfig,
@@ -87,7 +82,6 @@ instance JSON.ToJSON DataSource where
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DynamoDBConfig" Prelude.<$> dynamoDBConfig,
-                  (JSON..=) "ElasticsearchConfig" Prelude.<$> elasticsearchConfig,
                   (JSON..=) "EventBridgeConfig" Prelude.<$> eventBridgeConfig,
                   (JSON..=) "HttpConfig" Prelude.<$> httpConfig,
                   (JSON..=) "LambdaConfig" Prelude.<$> lambdaConfig,
@@ -108,10 +102,6 @@ instance Property "DynamoDBConfig" DataSource where
   type PropertyType "DynamoDBConfig" DataSource = DynamoDBConfigProperty
   set newValue DataSource {..}
     = DataSource {dynamoDBConfig = Prelude.pure newValue, ..}
-instance Property "ElasticsearchConfig" DataSource where
-  type PropertyType "ElasticsearchConfig" DataSource = ElasticsearchConfigProperty
-  set newValue DataSource {..}
-    = DataSource {elasticsearchConfig = Prelude.pure newValue, ..}
 instance Property "EventBridgeConfig" DataSource where
   type PropertyType "EventBridgeConfig" DataSource = EventBridgeConfigProperty
   set newValue DataSource {..}

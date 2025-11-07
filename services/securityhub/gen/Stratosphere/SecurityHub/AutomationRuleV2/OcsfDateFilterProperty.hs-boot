@@ -1,0 +1,9 @@
+module Stratosphere.SecurityHub.AutomationRuleV2.OcsfDateFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OcsfDateFilterProperty :: Prelude.Type
+instance ToResourceProperties OcsfDateFilterProperty
+instance Prelude.Eq OcsfDateFilterProperty
+instance Prelude.Show OcsfDateFilterProperty
+instance JSON.ToJSON OcsfDateFilterProperty

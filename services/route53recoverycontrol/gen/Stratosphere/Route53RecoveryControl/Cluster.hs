@@ -12,13 +12,16 @@ data Cluster
     Cluster {haddock_workaround_ :: (),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name>
              name :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-networktype>
+             networkType :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCluster :: Value Prelude.Text -> Cluster
 mkCluster name
   = Cluster
-      {haddock_workaround_ = (), name = name, tags = Prelude.Nothing}
+      {haddock_workaround_ = (), name = name,
+       networkType = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Cluster where
   toResourceProperties Cluster {..}
     = ResourceProperties
@@ -27,17 +30,25 @@ instance ToResourceProperties Cluster where
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "NetworkType" Prelude.<$> networkType,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Cluster where
   toJSON Cluster {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
               ["Name" JSON..= name]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              (Prelude.catMaybes
+                 [(JSON..=) "NetworkType" Prelude.<$> networkType,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Name" Cluster where
   type PropertyType "Name" Cluster = Value Prelude.Text
   set newValue Cluster {..} = Cluster {name = newValue, ..}
+instance Property "NetworkType" Cluster where
+  type PropertyType "NetworkType" Cluster = Value Prelude.Text
+  set newValue Cluster {..}
+    = Cluster {networkType = Prelude.pure newValue, ..}
 instance Property "Tags" Cluster where
   type PropertyType "Tags" Cluster = [Tag]
   set newValue Cluster {..}

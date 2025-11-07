@@ -14,6 +14,8 @@ data ImageRecipe
     ImageRecipe {haddock_workaround_ :: (),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration>
                  additionalInstanceConfiguration :: (Prelude.Maybe AdditionalInstanceConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-amitags>
+                 amiTags :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings>
                  blockDeviceMappings :: (Prelude.Maybe [InstanceBlockDeviceMappingProperty]),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components>
@@ -40,7 +42,7 @@ mkImageRecipe components name parentImage version
       {haddock_workaround_ = (), components = components, name = name,
        parentImage = parentImage, version = version,
        additionalInstanceConfiguration = Prelude.Nothing,
-       blockDeviceMappings = Prelude.Nothing,
+       amiTags = Prelude.Nothing, blockDeviceMappings = Prelude.Nothing,
        description = Prelude.Nothing, tags = Prelude.Nothing,
        workingDirectory = Prelude.Nothing}
 instance ToResourceProperties ImageRecipe where
@@ -55,6 +57,7 @@ instance ToResourceProperties ImageRecipe where
                            (Prelude.catMaybes
                               [(JSON..=) "AdditionalInstanceConfiguration"
                                  Prelude.<$> additionalInstanceConfiguration,
+                               (JSON..=) "AmiTags" Prelude.<$> amiTags,
                                (JSON..=) "BlockDeviceMappings" Prelude.<$> blockDeviceMappings,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -69,6 +72,7 @@ instance JSON.ToJSON ImageRecipe where
               (Prelude.catMaybes
                  [(JSON..=) "AdditionalInstanceConfiguration"
                     Prelude.<$> additionalInstanceConfiguration,
+                  (JSON..=) "AmiTags" Prelude.<$> amiTags,
                   (JSON..=) "BlockDeviceMappings" Prelude.<$> blockDeviceMappings,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -78,6 +82,10 @@ instance Property "AdditionalInstanceConfiguration" ImageRecipe where
   set newValue ImageRecipe {..}
     = ImageRecipe
         {additionalInstanceConfiguration = Prelude.pure newValue, ..}
+instance Property "AmiTags" ImageRecipe where
+  type PropertyType "AmiTags" ImageRecipe = Prelude.Map Prelude.Text (Value Prelude.Text)
+  set newValue ImageRecipe {..}
+    = ImageRecipe {amiTags = Prelude.pure newValue, ..}
 instance Property "BlockDeviceMappings" ImageRecipe where
   type PropertyType "BlockDeviceMappings" ImageRecipe = [InstanceBlockDeviceMappingProperty]
   set newValue ImageRecipe {..}

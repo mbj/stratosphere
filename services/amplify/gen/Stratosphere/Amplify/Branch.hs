@@ -23,6 +23,8 @@ data Branch
             branchName :: (Value Prelude.Text),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec>
             buildSpec :: (Prelude.Maybe (Value Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-computerolearn>
+            computeRoleArn :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description>
             description :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild>
@@ -31,6 +33,8 @@ data Branch
             enablePerformanceMode :: (Prelude.Maybe (Value Prelude.Bool)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview>
             enablePullRequestPreview :: (Prelude.Maybe (Value Prelude.Bool)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableskewprotection>
+            enableSkewProtection :: (Prelude.Maybe (Value Prelude.Bool)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables>
             environmentVariables :: (Prelude.Maybe [EnvironmentVariableProperty]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-framework>
@@ -47,10 +51,11 @@ mkBranch appId branchName
   = Branch
       {haddock_workaround_ = (), appId = appId, branchName = branchName,
        backend = Prelude.Nothing, basicAuthConfig = Prelude.Nothing,
-       buildSpec = Prelude.Nothing, description = Prelude.Nothing,
-       enableAutoBuild = Prelude.Nothing,
+       buildSpec = Prelude.Nothing, computeRoleArn = Prelude.Nothing,
+       description = Prelude.Nothing, enableAutoBuild = Prelude.Nothing,
        enablePerformanceMode = Prelude.Nothing,
        enablePullRequestPreview = Prelude.Nothing,
+       enableSkewProtection = Prelude.Nothing,
        environmentVariables = Prelude.Nothing,
        framework = Prelude.Nothing,
        pullRequestEnvironmentName = Prelude.Nothing,
@@ -66,12 +71,14 @@ instance ToResourceProperties Branch where
                               [(JSON..=) "Backend" Prelude.<$> backend,
                                (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                                (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
+                               (JSON..=) "ComputeRoleArn" Prelude.<$> computeRoleArn,
                                (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "EnableAutoBuild" Prelude.<$> enableAutoBuild,
                                (JSON..=) "EnablePerformanceMode"
                                  Prelude.<$> enablePerformanceMode,
                                (JSON..=) "EnablePullRequestPreview"
                                  Prelude.<$> enablePullRequestPreview,
+                               (JSON..=) "EnableSkewProtection" Prelude.<$> enableSkewProtection,
                                (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                                (JSON..=) "Framework" Prelude.<$> framework,
                                (JSON..=) "PullRequestEnvironmentName"
@@ -88,12 +95,14 @@ instance JSON.ToJSON Branch where
                  [(JSON..=) "Backend" Prelude.<$> backend,
                   (JSON..=) "BasicAuthConfig" Prelude.<$> basicAuthConfig,
                   (JSON..=) "BuildSpec" Prelude.<$> buildSpec,
+                  (JSON..=) "ComputeRoleArn" Prelude.<$> computeRoleArn,
                   (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "EnableAutoBuild" Prelude.<$> enableAutoBuild,
                   (JSON..=) "EnablePerformanceMode"
                     Prelude.<$> enablePerformanceMode,
                   (JSON..=) "EnablePullRequestPreview"
                     Prelude.<$> enablePullRequestPreview,
+                  (JSON..=) "EnableSkewProtection" Prelude.<$> enableSkewProtection,
                   (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                   (JSON..=) "Framework" Prelude.<$> framework,
                   (JSON..=) "PullRequestEnvironmentName"
@@ -118,6 +127,10 @@ instance Property "BuildSpec" Branch where
   type PropertyType "BuildSpec" Branch = Value Prelude.Text
   set newValue Branch {..}
     = Branch {buildSpec = Prelude.pure newValue, ..}
+instance Property "ComputeRoleArn" Branch where
+  type PropertyType "ComputeRoleArn" Branch = Value Prelude.Text
+  set newValue Branch {..}
+    = Branch {computeRoleArn = Prelude.pure newValue, ..}
 instance Property "Description" Branch where
   type PropertyType "Description" Branch = Value Prelude.Text
   set newValue Branch {..}
@@ -134,6 +147,10 @@ instance Property "EnablePullRequestPreview" Branch where
   type PropertyType "EnablePullRequestPreview" Branch = Value Prelude.Bool
   set newValue Branch {..}
     = Branch {enablePullRequestPreview = Prelude.pure newValue, ..}
+instance Property "EnableSkewProtection" Branch where
+  type PropertyType "EnableSkewProtection" Branch = Value Prelude.Bool
+  set newValue Branch {..}
+    = Branch {enableSkewProtection = Prelude.pure newValue, ..}
 instance Property "EnvironmentVariables" Branch where
   type PropertyType "EnvironmentVariables" Branch = [EnvironmentVariableProperty]
   set newValue Branch {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Transfer.WebApp.WebAppCustomizationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WebAppCustomizationProperty :: Prelude.Type
+instance ToResourceProperties WebAppCustomizationProperty
+instance Prelude.Eq WebAppCustomizationProperty
+instance Prelude.Show WebAppCustomizationProperty
+instance JSON.ToJSON WebAppCustomizationProperty

@@ -1,0 +1,86 @@
+module Stratosphere.QuickSight.Analysis.DestinationParameterValueConfigurationProperty (
+        module Exports, DestinationParameterValueConfigurationProperty(..),
+        mkDestinationParameterValueConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.ColumnIdentifierProperty as Exports
+import {-# SOURCE #-} Stratosphere.QuickSight.Analysis.CustomValuesConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DestinationParameterValueConfigurationProperty
+  = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html>
+    DestinationParameterValueConfigurationProperty {haddock_workaround_ :: (),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-customvaluesconfiguration>
+                                                    customValuesConfiguration :: (Prelude.Maybe CustomValuesConfigurationProperty),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-selectallvalueoptions>
+                                                    selectAllValueOptions :: (Prelude.Maybe (Value Prelude.Text)),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-sourcecolumn>
+                                                    sourceColumn :: (Prelude.Maybe ColumnIdentifierProperty),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-sourcefield>
+                                                    sourceField :: (Prelude.Maybe (Value Prelude.Text)),
+                                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-destinationparametervalueconfiguration.html#cfn-quicksight-analysis-destinationparametervalueconfiguration-sourceparametername>
+                                                    sourceParameterName :: (Prelude.Maybe (Value Prelude.Text))}
+  deriving stock (Prelude.Eq, Prelude.Show)
+mkDestinationParameterValueConfigurationProperty ::
+  DestinationParameterValueConfigurationProperty
+mkDestinationParameterValueConfigurationProperty
+  = DestinationParameterValueConfigurationProperty
+      {haddock_workaround_ = (),
+       customValuesConfiguration = Prelude.Nothing,
+       selectAllValueOptions = Prelude.Nothing,
+       sourceColumn = Prelude.Nothing, sourceField = Prelude.Nothing,
+       sourceParameterName = Prelude.Nothing}
+instance ToResourceProperties DestinationParameterValueConfigurationProperty where
+  toResourceProperties
+    DestinationParameterValueConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::QuickSight::Analysis.DestinationParameterValueConfiguration",
+         supportsTags = Prelude.False,
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "CustomValuesConfiguration"
+                              Prelude.<$> customValuesConfiguration,
+                            (JSON..=) "SelectAllValueOptions"
+                              Prelude.<$> selectAllValueOptions,
+                            (JSON..=) "SourceColumn" Prelude.<$> sourceColumn,
+                            (JSON..=) "SourceField" Prelude.<$> sourceField,
+                            (JSON..=) "SourceParameterName" Prelude.<$> sourceParameterName])}
+instance JSON.ToJSON DestinationParameterValueConfigurationProperty where
+  toJSON DestinationParameterValueConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "CustomValuesConfiguration"
+                 Prelude.<$> customValuesConfiguration,
+               (JSON..=) "SelectAllValueOptions"
+                 Prelude.<$> selectAllValueOptions,
+               (JSON..=) "SourceColumn" Prelude.<$> sourceColumn,
+               (JSON..=) "SourceField" Prelude.<$> sourceField,
+               (JSON..=) "SourceParameterName" Prelude.<$> sourceParameterName]))
+instance Property "CustomValuesConfiguration" DestinationParameterValueConfigurationProperty where
+  type PropertyType "CustomValuesConfiguration" DestinationParameterValueConfigurationProperty = CustomValuesConfigurationProperty
+  set newValue DestinationParameterValueConfigurationProperty {..}
+    = DestinationParameterValueConfigurationProperty
+        {customValuesConfiguration = Prelude.pure newValue, ..}
+instance Property "SelectAllValueOptions" DestinationParameterValueConfigurationProperty where
+  type PropertyType "SelectAllValueOptions" DestinationParameterValueConfigurationProperty = Value Prelude.Text
+  set newValue DestinationParameterValueConfigurationProperty {..}
+    = DestinationParameterValueConfigurationProperty
+        {selectAllValueOptions = Prelude.pure newValue, ..}
+instance Property "SourceColumn" DestinationParameterValueConfigurationProperty where
+  type PropertyType "SourceColumn" DestinationParameterValueConfigurationProperty = ColumnIdentifierProperty
+  set newValue DestinationParameterValueConfigurationProperty {..}
+    = DestinationParameterValueConfigurationProperty
+        {sourceColumn = Prelude.pure newValue, ..}
+instance Property "SourceField" DestinationParameterValueConfigurationProperty where
+  type PropertyType "SourceField" DestinationParameterValueConfigurationProperty = Value Prelude.Text
+  set newValue DestinationParameterValueConfigurationProperty {..}
+    = DestinationParameterValueConfigurationProperty
+        {sourceField = Prelude.pure newValue, ..}
+instance Property "SourceParameterName" DestinationParameterValueConfigurationProperty where
+  type PropertyType "SourceParameterName" DestinationParameterValueConfigurationProperty = Value Prelude.Text
+  set newValue DestinationParameterValueConfigurationProperty {..}
+    = DestinationParameterValueConfigurationProperty
+        {sourceParameterName = Prelude.pure newValue, ..}

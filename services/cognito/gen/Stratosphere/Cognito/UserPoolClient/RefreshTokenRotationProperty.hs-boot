@@ -1,0 +1,9 @@
+module Stratosphere.Cognito.UserPoolClient.RefreshTokenRotationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RefreshTokenRotationProperty :: Prelude.Type
+instance ToResourceProperties RefreshTokenRotationProperty
+instance Prelude.Eq RefreshTokenRotationProperty
+instance Prelude.Show RefreshTokenRotationProperty
+instance JSON.ToJSON RefreshTokenRotationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.AudioStandardGenerativeFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioStandardGenerativeFieldProperty :: Prelude.Type
+instance ToResourceProperties AudioStandardGenerativeFieldProperty
+instance Prelude.Eq AudioStandardGenerativeFieldProperty
+instance Prelude.Show AudioStandardGenerativeFieldProperty
+instance JSON.ToJSON AudioStandardGenerativeFieldProperty

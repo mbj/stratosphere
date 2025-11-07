@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksEmptyDirProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksHostPathProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksPersistentVolumeClaimProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EksSecretProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -18,6 +19,8 @@ data EksVolumeProperty
                        hostPath :: (Prelude.Maybe EksHostPathProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-name>
                        name :: (Value Prelude.Text),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-persistentvolumeclaim>
+                       persistentVolumeClaim :: (Prelude.Maybe EksPersistentVolumeClaimProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-secret>
                        secret :: (Prelude.Maybe EksSecretProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -25,7 +28,8 @@ mkEksVolumeProperty :: Value Prelude.Text -> EksVolumeProperty
 mkEksVolumeProperty name
   = EksVolumeProperty
       {haddock_workaround_ = (), name = name, emptyDir = Prelude.Nothing,
-       hostPath = Prelude.Nothing, secret = Prelude.Nothing}
+       hostPath = Prelude.Nothing,
+       persistentVolumeClaim = Prelude.Nothing, secret = Prelude.Nothing}
 instance ToResourceProperties EksVolumeProperty where
   toResourceProperties EksVolumeProperty {..}
     = ResourceProperties
@@ -37,6 +41,8 @@ instance ToResourceProperties EksVolumeProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "EmptyDir" Prelude.<$> emptyDir,
                                (JSON..=) "HostPath" Prelude.<$> hostPath,
+                               (JSON..=) "PersistentVolumeClaim"
+                                 Prelude.<$> persistentVolumeClaim,
                                (JSON..=) "Secret" Prelude.<$> secret]))}
 instance JSON.ToJSON EksVolumeProperty where
   toJSON EksVolumeProperty {..}
@@ -47,6 +53,8 @@ instance JSON.ToJSON EksVolumeProperty where
               (Prelude.catMaybes
                  [(JSON..=) "EmptyDir" Prelude.<$> emptyDir,
                   (JSON..=) "HostPath" Prelude.<$> hostPath,
+                  (JSON..=) "PersistentVolumeClaim"
+                    Prelude.<$> persistentVolumeClaim,
                   (JSON..=) "Secret" Prelude.<$> secret])))
 instance Property "EmptyDir" EksVolumeProperty where
   type PropertyType "EmptyDir" EksVolumeProperty = EksEmptyDirProperty
@@ -60,6 +68,11 @@ instance Property "Name" EksVolumeProperty where
   type PropertyType "Name" EksVolumeProperty = Value Prelude.Text
   set newValue EksVolumeProperty {..}
     = EksVolumeProperty {name = newValue, ..}
+instance Property "PersistentVolumeClaim" EksVolumeProperty where
+  type PropertyType "PersistentVolumeClaim" EksVolumeProperty = EksPersistentVolumeClaimProperty
+  set newValue EksVolumeProperty {..}
+    = EksVolumeProperty
+        {persistentVolumeClaim = Prelude.pure newValue, ..}
 instance Property "Secret" EksVolumeProperty where
   type PropertyType "Secret" EksVolumeProperty = EksSecretProperty
   set newValue EksVolumeProperty {..}

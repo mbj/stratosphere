@@ -18,6 +18,8 @@ data ReplicationInstance
                          autoMinorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-availabilityzone>
                          availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-dnsnameservers>
+                         dnsNameServers :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-engineversion>
                          engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-kmskeyid>
@@ -52,8 +54,9 @@ mkReplicationInstance replicationInstanceClass
        allowMajorVersionUpgrade = Prelude.Nothing,
        autoMinorVersionUpgrade = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
-       engineVersion = Prelude.Nothing, kmsKeyId = Prelude.Nothing,
-       multiAZ = Prelude.Nothing, networkType = Prelude.Nothing,
+       dnsNameServers = Prelude.Nothing, engineVersion = Prelude.Nothing,
+       kmsKeyId = Prelude.Nothing, multiAZ = Prelude.Nothing,
+       networkType = Prelude.Nothing,
        preferredMaintenanceWindow = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing,
        replicationInstanceIdentifier = Prelude.Nothing,
@@ -75,6 +78,7 @@ instance ToResourceProperties ReplicationInstance where
                                (JSON..=) "AutoMinorVersionUpgrade"
                                  Prelude.<$> autoMinorVersionUpgrade,
                                (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                               (JSON..=) "DnsNameServers" Prelude.<$> dnsNameServers,
                                (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "MultiAZ" Prelude.<$> multiAZ,
@@ -102,6 +106,7 @@ instance JSON.ToJSON ReplicationInstance where
                   (JSON..=) "AutoMinorVersionUpgrade"
                     Prelude.<$> autoMinorVersionUpgrade,
                   (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
+                  (JSON..=) "DnsNameServers" Prelude.<$> dnsNameServers,
                   (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "MultiAZ" Prelude.<$> multiAZ,
@@ -136,6 +141,10 @@ instance Property "AvailabilityZone" ReplicationInstance where
   set newValue ReplicationInstance {..}
     = ReplicationInstance
         {availabilityZone = Prelude.pure newValue, ..}
+instance Property "DnsNameServers" ReplicationInstance where
+  type PropertyType "DnsNameServers" ReplicationInstance = Value Prelude.Text
+  set newValue ReplicationInstance {..}
+    = ReplicationInstance {dnsNameServers = Prelude.pure newValue, ..}
 instance Property "EngineVersion" ReplicationInstance where
   type PropertyType "EngineVersion" ReplicationInstance = Value Prelude.Text
   set newValue ReplicationInstance {..}

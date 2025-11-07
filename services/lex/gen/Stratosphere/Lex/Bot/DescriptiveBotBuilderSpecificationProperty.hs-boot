@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.DescriptiveBotBuilderSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DescriptiveBotBuilderSpecificationProperty :: Prelude.Type
+instance ToResourceProperties DescriptiveBotBuilderSpecificationProperty
+instance Prelude.Eq DescriptiveBotBuilderSpecificationProperty
+instance Prelude.Show DescriptiveBotBuilderSpecificationProperty
+instance JSON.ToJSON DescriptiveBotBuilderSpecificationProperty

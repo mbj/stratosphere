@@ -1,0 +1,9 @@
+module Stratosphere.WAFv2.RuleGroup.RateLimitJA3FingerprintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateLimitJA3FingerprintProperty :: Prelude.Type
+instance ToResourceProperties RateLimitJA3FingerprintProperty
+instance Prelude.Eq RateLimitJA3FingerprintProperty
+instance Prelude.Show RateLimitJA3FingerprintProperty
+instance JSON.ToJSON RateLimitJA3FingerprintProperty

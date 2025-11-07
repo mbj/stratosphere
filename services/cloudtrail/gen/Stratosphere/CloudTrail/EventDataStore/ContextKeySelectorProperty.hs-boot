@@ -1,0 +1,9 @@
+module Stratosphere.CloudTrail.EventDataStore.ContextKeySelectorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ContextKeySelectorProperty :: Prelude.Type
+instance ToResourceProperties ContextKeySelectorProperty
+instance Prelude.Eq ContextKeySelectorProperty
+instance Prelude.Show ContextKeySelectorProperty
+instance JSON.ToJSON ContextKeySelectorProperty

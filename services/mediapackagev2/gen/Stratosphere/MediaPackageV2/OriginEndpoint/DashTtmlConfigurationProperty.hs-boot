@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashTtmlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashTtmlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DashTtmlConfigurationProperty
+instance Prelude.Eq DashTtmlConfigurationProperty
+instance Prelude.Show DashTtmlConfigurationProperty
+instance JSON.ToJSON DashTtmlConfigurationProperty

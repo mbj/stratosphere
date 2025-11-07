@@ -1,0 +1,9 @@
+module Stratosphere.B2BI.Transformer.X12AdvancedOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data X12AdvancedOptionsProperty :: Prelude.Type
+instance ToResourceProperties X12AdvancedOptionsProperty
+instance Prelude.Eq X12AdvancedOptionsProperty
+instance Prelude.Show X12AdvancedOptionsProperty
+instance JSON.ToJSON X12AdvancedOptionsProperty

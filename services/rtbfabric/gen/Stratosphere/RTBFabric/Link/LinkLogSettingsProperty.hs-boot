@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.Link.LinkLogSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LinkLogSettingsProperty :: Prelude.Type
+instance ToResourceProperties LinkLogSettingsProperty
+instance Prelude.Eq LinkLogSettingsProperty
+instance Prelude.Show LinkLogSettingsProperty
+instance JSON.ToJSON LinkLogSettingsProperty

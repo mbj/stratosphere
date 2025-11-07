@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.VideoStandardGenerativeFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoStandardGenerativeFieldProperty :: Prelude.Type
+instance ToResourceProperties VideoStandardGenerativeFieldProperty
+instance Prelude.Eq VideoStandardGenerativeFieldProperty
+instance Prelude.Show VideoStandardGenerativeFieldProperty
+instance JSON.ToJSON VideoStandardGenerativeFieldProperty

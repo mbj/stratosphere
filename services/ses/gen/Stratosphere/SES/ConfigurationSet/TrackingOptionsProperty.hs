@@ -10,12 +10,15 @@ data TrackingOptionsProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html>
     TrackingOptionsProperty {haddock_workaround_ :: (),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html#cfn-ses-configurationset-trackingoptions-customredirectdomain>
-                             customRedirectDomain :: (Prelude.Maybe (Value Prelude.Text))}
+                             customRedirectDomain :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html#cfn-ses-configurationset-trackingoptions-httpspolicy>
+                             httpsPolicy :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkTrackingOptionsProperty :: TrackingOptionsProperty
 mkTrackingOptionsProperty
   = TrackingOptionsProperty
-      {haddock_workaround_ = (), customRedirectDomain = Prelude.Nothing}
+      {haddock_workaround_ = (), customRedirectDomain = Prelude.Nothing,
+       httpsPolicy = Prelude.Nothing}
 instance ToResourceProperties TrackingOptionsProperty where
   toResourceProperties TrackingOptionsProperty {..}
     = ResourceProperties
@@ -23,17 +26,21 @@ instance ToResourceProperties TrackingOptionsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CustomRedirectDomain"
-                              Prelude.<$> customRedirectDomain])}
+                           [(JSON..=) "CustomRedirectDomain" Prelude.<$> customRedirectDomain,
+                            (JSON..=) "HttpsPolicy" Prelude.<$> httpsPolicy])}
 instance JSON.ToJSON TrackingOptionsProperty where
   toJSON TrackingOptionsProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CustomRedirectDomain"
-                 Prelude.<$> customRedirectDomain]))
+              [(JSON..=) "CustomRedirectDomain" Prelude.<$> customRedirectDomain,
+               (JSON..=) "HttpsPolicy" Prelude.<$> httpsPolicy]))
 instance Property "CustomRedirectDomain" TrackingOptionsProperty where
   type PropertyType "CustomRedirectDomain" TrackingOptionsProperty = Value Prelude.Text
   set newValue TrackingOptionsProperty {..}
     = TrackingOptionsProperty
         {customRedirectDomain = Prelude.pure newValue, ..}
+instance Property "HttpsPolicy" TrackingOptionsProperty where
+  type PropertyType "HttpsPolicy" TrackingOptionsProperty = Value Prelude.Text
+  set newValue TrackingOptionsProperty {..}
+    = TrackingOptionsProperty {httpsPolicy = Prelude.pure newValue, ..}

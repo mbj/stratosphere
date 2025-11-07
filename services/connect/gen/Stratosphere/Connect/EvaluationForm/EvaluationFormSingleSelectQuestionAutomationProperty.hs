@@ -6,12 +6,15 @@ module Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAut
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionAutomationAnswerSourceProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomationOptionProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSingleSelectQuestionAutomationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html>
     EvaluationFormSingleSelectQuestionAutomationProperty {haddock_workaround_ :: (),
+                                                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-answersource>
+                                                          answerSource :: (Prelude.Maybe EvaluationFormQuestionAutomationAnswerSourceProperty),
                                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-defaultoptionrefid>
                                                           defaultOptionRefId :: (Prelude.Maybe (Value Prelude.Text)),
                                                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-options>
@@ -23,6 +26,7 @@ mkEvaluationFormSingleSelectQuestionAutomationProperty ::
 mkEvaluationFormSingleSelectQuestionAutomationProperty options
   = EvaluationFormSingleSelectQuestionAutomationProperty
       {haddock_workaround_ = (), options = options,
+       answerSource = Prelude.Nothing,
        defaultOptionRefId = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormSingleSelectQuestionAutomationProperty where
   toResourceProperties
@@ -34,7 +38,8 @@ instance ToResourceProperties EvaluationFormSingleSelectQuestionAutomationProper
                         ((Prelude.<>)
                            ["Options" JSON..= options]
                            (Prelude.catMaybes
-                              [(JSON..=) "DefaultOptionRefId" Prelude.<$> defaultOptionRefId]))}
+                              [(JSON..=) "AnswerSource" Prelude.<$> answerSource,
+                               (JSON..=) "DefaultOptionRefId" Prelude.<$> defaultOptionRefId]))}
 instance JSON.ToJSON EvaluationFormSingleSelectQuestionAutomationProperty where
   toJSON EvaluationFormSingleSelectQuestionAutomationProperty {..}
     = JSON.object
@@ -42,7 +47,15 @@ instance JSON.ToJSON EvaluationFormSingleSelectQuestionAutomationProperty where
            ((Prelude.<>)
               ["Options" JSON..= options]
               (Prelude.catMaybes
-                 [(JSON..=) "DefaultOptionRefId" Prelude.<$> defaultOptionRefId])))
+                 [(JSON..=) "AnswerSource" Prelude.<$> answerSource,
+                  (JSON..=) "DefaultOptionRefId" Prelude.<$> defaultOptionRefId])))
+instance Property "AnswerSource" EvaluationFormSingleSelectQuestionAutomationProperty where
+  type PropertyType "AnswerSource" EvaluationFormSingleSelectQuestionAutomationProperty = EvaluationFormQuestionAutomationAnswerSourceProperty
+  set
+    newValue
+    EvaluationFormSingleSelectQuestionAutomationProperty {..}
+    = EvaluationFormSingleSelectQuestionAutomationProperty
+        {answerSource = Prelude.pure newValue, ..}
 instance Property "DefaultOptionRefId" EvaluationFormSingleSelectQuestionAutomationProperty where
   type PropertyType "DefaultOptionRefId" EvaluationFormSingleSelectQuestionAutomationProperty = Value Prelude.Text
   set

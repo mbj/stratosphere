@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.DependencyConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DependencyConfigProperty :: Prelude.Type
+instance ToResourceProperties DependencyConfigProperty
+instance Prelude.Eq DependencyConfigProperty
+instance Prelude.Show DependencyConfigProperty
+instance JSON.ToJSON DependencyConfigProperty

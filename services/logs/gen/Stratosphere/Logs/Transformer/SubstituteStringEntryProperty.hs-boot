@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Transformer.SubstituteStringEntryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubstituteStringEntryProperty :: Prelude.Type
+instance ToResourceProperties SubstituteStringEntryProperty
+instance Prelude.Eq SubstituteStringEntryProperty
+instance Prelude.Show SubstituteStringEntryProperty
+instance JSON.ToJSON SubstituteStringEntryProperty

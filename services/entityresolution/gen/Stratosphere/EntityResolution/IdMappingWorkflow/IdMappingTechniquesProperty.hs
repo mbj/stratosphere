@@ -14,6 +14,8 @@ data IdMappingTechniquesProperty
     IdMappingTechniquesProperty {haddock_workaround_ :: (),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-idmappingtype>
                                  idMappingType :: (Prelude.Maybe (Value Prelude.Text)),
+                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-normalizationversion>
+                                 normalizationVersion :: (Prelude.Maybe (Value Prelude.Text)),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-providerproperties>
                                  providerProperties :: (Prelude.Maybe ProviderPropertiesProperty),
                                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html#cfn-entityresolution-idmappingworkflow-idmappingtechniques-rulebasedproperties>
@@ -23,6 +25,7 @@ mkIdMappingTechniquesProperty :: IdMappingTechniquesProperty
 mkIdMappingTechniquesProperty
   = IdMappingTechniquesProperty
       {haddock_workaround_ = (), idMappingType = Prelude.Nothing,
+       normalizationVersion = Prelude.Nothing,
        providerProperties = Prelude.Nothing,
        ruleBasedProperties = Prelude.Nothing}
 instance ToResourceProperties IdMappingTechniquesProperty where
@@ -33,6 +36,7 @@ instance ToResourceProperties IdMappingTechniquesProperty where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "IdMappingType" Prelude.<$> idMappingType,
+                            (JSON..=) "NormalizationVersion" Prelude.<$> normalizationVersion,
                             (JSON..=) "ProviderProperties" Prelude.<$> providerProperties,
                             (JSON..=) "RuleBasedProperties" Prelude.<$> ruleBasedProperties])}
 instance JSON.ToJSON IdMappingTechniquesProperty where
@@ -41,6 +45,7 @@ instance JSON.ToJSON IdMappingTechniquesProperty where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "IdMappingType" Prelude.<$> idMappingType,
+               (JSON..=) "NormalizationVersion" Prelude.<$> normalizationVersion,
                (JSON..=) "ProviderProperties" Prelude.<$> providerProperties,
                (JSON..=) "RuleBasedProperties" Prelude.<$> ruleBasedProperties]))
 instance Property "IdMappingType" IdMappingTechniquesProperty where
@@ -48,6 +53,11 @@ instance Property "IdMappingType" IdMappingTechniquesProperty where
   set newValue IdMappingTechniquesProperty {..}
     = IdMappingTechniquesProperty
         {idMappingType = Prelude.pure newValue, ..}
+instance Property "NormalizationVersion" IdMappingTechniquesProperty where
+  type PropertyType "NormalizationVersion" IdMappingTechniquesProperty = Value Prelude.Text
+  set newValue IdMappingTechniquesProperty {..}
+    = IdMappingTechniquesProperty
+        {normalizationVersion = Prelude.pure newValue, ..}
 instance Property "ProviderProperties" IdMappingTechniquesProperty where
   type PropertyType "ProviderProperties" IdMappingTechniquesProperty = ProviderPropertiesProperty
   set newValue IdMappingTechniquesProperty {..}

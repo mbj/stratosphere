@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Deadline.Fleet.FleetConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.Deadline.Fleet.HostConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,6 +20,8 @@ data Fleet
            displayName :: (Value Prelude.Text),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-farmid>
            farmId :: (Value Prelude.Text),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-hostconfiguration>
+           hostConfiguration :: (Prelude.Maybe HostConfigurationProperty),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-maxworkercount>
            maxWorkerCount :: (Value Prelude.Integer),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html#cfn-deadline-fleet-minworkercount>
@@ -38,8 +41,8 @@ mkFleet configuration displayName farmId maxWorkerCount roleArn
       {haddock_workaround_ = (), configuration = configuration,
        displayName = displayName, farmId = farmId,
        maxWorkerCount = maxWorkerCount, roleArn = roleArn,
-       description = Prelude.Nothing, minWorkerCount = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       description = Prelude.Nothing, hostConfiguration = Prelude.Nothing,
+       minWorkerCount = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties
@@ -51,6 +54,7 @@ instance ToResourceProperties Fleet where
                             "MaxWorkerCount" JSON..= maxWorkerCount, "RoleArn" JSON..= roleArn]
                            (Prelude.catMaybes
                               [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "HostConfiguration" Prelude.<$> hostConfiguration,
                                (JSON..=) "MinWorkerCount" Prelude.<$> minWorkerCount,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Fleet where
@@ -63,6 +67,7 @@ instance JSON.ToJSON Fleet where
                "MaxWorkerCount" JSON..= maxWorkerCount, "RoleArn" JSON..= roleArn]
               (Prelude.catMaybes
                  [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "HostConfiguration" Prelude.<$> hostConfiguration,
                   (JSON..=) "MinWorkerCount" Prelude.<$> minWorkerCount,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Configuration" Fleet where
@@ -78,6 +83,10 @@ instance Property "DisplayName" Fleet where
 instance Property "FarmId" Fleet where
   type PropertyType "FarmId" Fleet = Value Prelude.Text
   set newValue Fleet {..} = Fleet {farmId = newValue, ..}
+instance Property "HostConfiguration" Fleet where
+  type PropertyType "HostConfiguration" Fleet = HostConfigurationProperty
+  set newValue Fleet {..}
+    = Fleet {hostConfiguration = Prelude.pure newValue, ..}
 instance Property "MaxWorkerCount" Fleet where
   type PropertyType "MaxWorkerCount" Fleet = Value Prelude.Integer
   set newValue Fleet {..} = Fleet {maxWorkerCount = newValue, ..}

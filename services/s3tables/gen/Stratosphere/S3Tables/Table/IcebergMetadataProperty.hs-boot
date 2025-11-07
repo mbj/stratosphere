@@ -1,0 +1,9 @@
+module Stratosphere.S3Tables.Table.IcebergMetadataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IcebergMetadataProperty :: Prelude.Type
+instance ToResourceProperties IcebergMetadataProperty
+instance Prelude.Eq IcebergMetadataProperty
+instance Prelude.Show IcebergMetadataProperty
+instance JSON.ToJSON IcebergMetadataProperty

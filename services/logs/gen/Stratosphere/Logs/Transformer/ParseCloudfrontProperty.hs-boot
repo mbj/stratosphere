@@ -1,0 +1,9 @@
+module Stratosphere.Logs.Transformer.ParseCloudfrontProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParseCloudfrontProperty :: Prelude.Type
+instance ToResourceProperties ParseCloudfrontProperty
+instance Prelude.Eq ParseCloudfrontProperty
+instance Prelude.Show ParseCloudfrontProperty
+instance JSON.ToJSON ParseCloudfrontProperty

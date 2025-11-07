@@ -13,6 +13,8 @@ data Environment
     Environment {haddock_workaround_ :: (),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-applicationid>
                  applicationId :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-deletionprotectioncheck>
+                 deletionProtectionCheck :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-description>
                  description :: (Prelude.Maybe (Value Prelude.Text)),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html#cfn-appconfig-environment-monitors>
@@ -27,8 +29,9 @@ mkEnvironment ::
 mkEnvironment applicationId name
   = Environment
       {haddock_workaround_ = (), applicationId = applicationId,
-       name = name, description = Prelude.Nothing,
-       monitors = Prelude.Nothing, tags = Prelude.Nothing}
+       name = name, deletionProtectionCheck = Prelude.Nothing,
+       description = Prelude.Nothing, monitors = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Environment where
   toResourceProperties Environment {..}
     = ResourceProperties
@@ -38,7 +41,9 @@ instance ToResourceProperties Environment where
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "DeletionProtectionCheck"
+                                 Prelude.<$> deletionProtectionCheck,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Monitors" Prelude.<$> monitors,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Environment where
@@ -48,13 +53,19 @@ instance JSON.ToJSON Environment where
            ((Prelude.<>)
               ["ApplicationId" JSON..= applicationId, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "DeletionProtectionCheck"
+                    Prelude.<$> deletionProtectionCheck,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Monitors" Prelude.<$> monitors,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ApplicationId" Environment where
   type PropertyType "ApplicationId" Environment = Value Prelude.Text
   set newValue Environment {..}
     = Environment {applicationId = newValue, ..}
+instance Property "DeletionProtectionCheck" Environment where
+  type PropertyType "DeletionProtectionCheck" Environment = Value Prelude.Text
+  set newValue Environment {..}
+    = Environment {deletionProtectionCheck = Prelude.pure newValue, ..}
 instance Property "Description" Environment where
   type PropertyType "Description" Environment = Value Prelude.Text
   set newValue Environment {..}

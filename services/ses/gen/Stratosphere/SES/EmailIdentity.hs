@@ -10,6 +10,7 @@ import {-# SOURCE #-} Stratosphere.SES.EmailIdentity.DkimSigningAttributesProper
 import {-# SOURCE #-} Stratosphere.SES.EmailIdentity.FeedbackAttributesProperty as Exports
 import {-# SOURCE #-} Stratosphere.SES.EmailIdentity.MailFromAttributesProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data EmailIdentity
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html>
@@ -25,7 +26,9 @@ data EmailIdentity
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-feedbackattributes>
                    feedbackAttributes :: (Prelude.Maybe FeedbackAttributesProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-mailfromattributes>
-                   mailFromAttributes :: (Prelude.Maybe MailFromAttributesProperty)}
+                   mailFromAttributes :: (Prelude.Maybe MailFromAttributesProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html#cfn-ses-emailidentity-tags>
+                   tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkEmailIdentity :: Value Prelude.Text -> EmailIdentity
 mkEmailIdentity emailIdentity
@@ -35,11 +38,11 @@ mkEmailIdentity emailIdentity
        dkimAttributes = Prelude.Nothing,
        dkimSigningAttributes = Prelude.Nothing,
        feedbackAttributes = Prelude.Nothing,
-       mailFromAttributes = Prelude.Nothing}
+       mailFromAttributes = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties EmailIdentity where
   toResourceProperties EmailIdentity {..}
     = ResourceProperties
-        {awsType = "AWS::SES::EmailIdentity", supportsTags = Prelude.False,
+        {awsType = "AWS::SES::EmailIdentity", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["EmailIdentity" JSON..= emailIdentity]
@@ -50,7 +53,8 @@ instance ToResourceProperties EmailIdentity where
                                (JSON..=) "DkimSigningAttributes"
                                  Prelude.<$> dkimSigningAttributes,
                                (JSON..=) "FeedbackAttributes" Prelude.<$> feedbackAttributes,
-                               (JSON..=) "MailFromAttributes" Prelude.<$> mailFromAttributes]))}
+                               (JSON..=) "MailFromAttributes" Prelude.<$> mailFromAttributes,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON EmailIdentity where
   toJSON EmailIdentity {..}
     = JSON.object
@@ -64,7 +68,8 @@ instance JSON.ToJSON EmailIdentity where
                   (JSON..=) "DkimSigningAttributes"
                     Prelude.<$> dkimSigningAttributes,
                   (JSON..=) "FeedbackAttributes" Prelude.<$> feedbackAttributes,
-                  (JSON..=) "MailFromAttributes" Prelude.<$> mailFromAttributes])))
+                  (JSON..=) "MailFromAttributes" Prelude.<$> mailFromAttributes,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ConfigurationSetAttributes" EmailIdentity where
   type PropertyType "ConfigurationSetAttributes" EmailIdentity = ConfigurationSetAttributesProperty
   set newValue EmailIdentity {..}
@@ -90,3 +95,7 @@ instance Property "MailFromAttributes" EmailIdentity where
   type PropertyType "MailFromAttributes" EmailIdentity = MailFromAttributesProperty
   set newValue EmailIdentity {..}
     = EmailIdentity {mailFromAttributes = Prelude.pure newValue, ..}
+instance Property "Tags" EmailIdentity where
+  type PropertyType "Tags" EmailIdentity = [Tag]
+  set newValue EmailIdentity {..}
+    = EmailIdentity {tags = Prelude.pure newValue, ..}

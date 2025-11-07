@@ -1,0 +1,9 @@
+module Stratosphere.RTBFabric.ResponderGateway.TrustStoreConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrustStoreConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TrustStoreConfigurationProperty
+instance Prelude.Eq TrustStoreConfigurationProperty
+instance Prelude.Show TrustStoreConfigurationProperty
+instance JSON.ToJSON TrustStoreConfigurationProperty

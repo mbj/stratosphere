@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Input.Smpte2110ReceiverGroupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Smpte2110ReceiverGroupProperty :: Prelude.Type
+instance ToResourceProperties Smpte2110ReceiverGroupProperty
+instance Prelude.Eq Smpte2110ReceiverGroupProperty
+instance Prelude.Show Smpte2110ReceiverGroupProperty
+instance JSON.ToJSON Smpte2110ReceiverGroupProperty

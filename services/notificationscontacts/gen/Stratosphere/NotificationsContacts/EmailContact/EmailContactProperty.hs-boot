@@ -1,0 +1,9 @@
+module Stratosphere.NotificationsContacts.EmailContact.EmailContactProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EmailContactProperty :: Prelude.Type
+instance ToResourceProperties EmailContactProperty
+instance Prelude.Eq EmailContactProperty
+instance Prelude.Show EmailContactProperty
+instance JSON.ToJSON EmailContactProperty

@@ -1,0 +1,9 @@
+module Stratosphere.APS.Workspace.LimitsPerLabelSetEntryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LimitsPerLabelSetEntryProperty :: Prelude.Type
+instance ToResourceProperties LimitsPerLabelSetEntryProperty
+instance Prelude.Eq LimitsPerLabelSetEntryProperty
+instance Prelude.Show LimitsPerLabelSetEntryProperty
+instance JSON.ToJSON LimitsPerLabelSetEntryProperty

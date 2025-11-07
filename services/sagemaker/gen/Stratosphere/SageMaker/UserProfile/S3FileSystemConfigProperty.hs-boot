@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.UserProfile.S3FileSystemConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3FileSystemConfigProperty :: Prelude.Type
+instance ToResourceProperties S3FileSystemConfigProperty
+instance Prelude.Eq S3FileSystemConfigProperty
+instance Prelude.Show S3FileSystemConfigProperty
+instance JSON.ToJSON S3FileSystemConfigProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSet.PerformanceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PerformanceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PerformanceConfigurationProperty
+instance Prelude.Eq PerformanceConfigurationProperty
+instance Prelude.Show PerformanceConfigurationProperty
+instance JSON.ToJSON PerformanceConfigurationProperty

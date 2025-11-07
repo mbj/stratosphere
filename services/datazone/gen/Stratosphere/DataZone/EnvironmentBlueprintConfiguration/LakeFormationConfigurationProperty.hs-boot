@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.EnvironmentBlueprintConfiguration.LakeFormationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LakeFormationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LakeFormationConfigurationProperty
+instance Prelude.Eq LakeFormationConfigurationProperty
+instance Prelude.Show LakeFormationConfigurationProperty
+instance JSON.ToJSON LakeFormationConfigurationProperty

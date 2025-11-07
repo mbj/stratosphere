@@ -1,0 +1,9 @@
+module Stratosphere.S3.Bucket.MetadataDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetadataDestinationProperty :: Prelude.Type
+instance ToResourceProperties MetadataDestinationProperty
+instance Prelude.Eq MetadataDestinationProperty
+instance Prelude.Show MetadataDestinationProperty
+instance JSON.ToJSON MetadataDestinationProperty

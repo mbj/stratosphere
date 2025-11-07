@@ -1,9 +1,0 @@
-module Stratosphere.OpsWorksCM.Server.EngineAttributeProperty where
-import qualified Data.Aeson as JSON
-import qualified Stratosphere.Prelude as Prelude
-import Stratosphere.ResourceProperties
-data EngineAttributeProperty :: Prelude.Type
-instance ToResourceProperties EngineAttributeProperty
-instance Prelude.Eq EngineAttributeProperty
-instance Prelude.Show EngineAttributeProperty
-instance JSON.ToJSON EngineAttributeProperty

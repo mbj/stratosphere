@@ -6,6 +6,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.ActionTypeIdProperty as Exports
+import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.EnvironmentVariableProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.InputArtifactProperty as Exports
 import {-# SOURCE #-} Stratosphere.CodePipeline.Pipeline.OutputArtifactProperty as Exports
 import Stratosphere.ResourceProperties
@@ -19,6 +20,8 @@ data ActionDeclarationProperty
                                commands :: (Prelude.Maybe (ValueList Prelude.Text)),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-configuration>
                                configuration :: (Prelude.Maybe JSON.Object),
+                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-environmentvariables>
+                               environmentVariables :: (Prelude.Maybe [EnvironmentVariableProperty]),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-inputartifacts>
                                inputArtifacts :: (Prelude.Maybe [InputArtifactProperty]),
                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-name>
@@ -45,8 +48,10 @@ mkActionDeclarationProperty actionTypeId name
   = ActionDeclarationProperty
       {haddock_workaround_ = (), actionTypeId = actionTypeId,
        name = name, commands = Prelude.Nothing,
-       configuration = Prelude.Nothing, inputArtifacts = Prelude.Nothing,
-       namespace = Prelude.Nothing, outputArtifacts = Prelude.Nothing,
+       configuration = Prelude.Nothing,
+       environmentVariables = Prelude.Nothing,
+       inputArtifacts = Prelude.Nothing, namespace = Prelude.Nothing,
+       outputArtifacts = Prelude.Nothing,
        outputVariables = Prelude.Nothing, region = Prelude.Nothing,
        roleArn = Prelude.Nothing, runOrder = Prelude.Nothing,
        timeoutInMinutes = Prelude.Nothing}
@@ -61,6 +66,7 @@ instance ToResourceProperties ActionDeclarationProperty where
                            (Prelude.catMaybes
                               [(JSON..=) "Commands" Prelude.<$> commands,
                                (JSON..=) "Configuration" Prelude.<$> configuration,
+                               (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                                (JSON..=) "InputArtifacts" Prelude.<$> inputArtifacts,
                                (JSON..=) "Namespace" Prelude.<$> namespace,
                                (JSON..=) "OutputArtifacts" Prelude.<$> outputArtifacts,
@@ -78,6 +84,7 @@ instance JSON.ToJSON ActionDeclarationProperty where
               (Prelude.catMaybes
                  [(JSON..=) "Commands" Prelude.<$> commands,
                   (JSON..=) "Configuration" Prelude.<$> configuration,
+                  (JSON..=) "EnvironmentVariables" Prelude.<$> environmentVariables,
                   (JSON..=) "InputArtifacts" Prelude.<$> inputArtifacts,
                   (JSON..=) "Namespace" Prelude.<$> namespace,
                   (JSON..=) "OutputArtifacts" Prelude.<$> outputArtifacts,
@@ -99,6 +106,11 @@ instance Property "Configuration" ActionDeclarationProperty where
   set newValue ActionDeclarationProperty {..}
     = ActionDeclarationProperty
         {configuration = Prelude.pure newValue, ..}
+instance Property "EnvironmentVariables" ActionDeclarationProperty where
+  type PropertyType "EnvironmentVariables" ActionDeclarationProperty = [EnvironmentVariableProperty]
+  set newValue ActionDeclarationProperty {..}
+    = ActionDeclarationProperty
+        {environmentVariables = Prelude.pure newValue, ..}
 instance Property "InputArtifacts" ActionDeclarationProperty where
   type PropertyType "InputArtifacts" ActionDeclarationProperty = [InputArtifactProperty]
   set newValue ActionDeclarationProperty {..}

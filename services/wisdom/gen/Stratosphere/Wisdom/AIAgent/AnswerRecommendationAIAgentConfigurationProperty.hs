@@ -12,12 +12,16 @@ import Stratosphere.Value
 data AnswerRecommendationAIAgentConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html>
     AnswerRecommendationAIAgentConfigurationProperty {haddock_workaround_ :: (),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-answergenerationaiguardrailid>
+                                                      answerGenerationAIGuardrailId :: (Prelude.Maybe (Value Prelude.Text)),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-answergenerationaipromptid>
                                                       answerGenerationAIPromptId :: (Prelude.Maybe (Value Prelude.Text)),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-associationconfigurations>
                                                       associationConfigurations :: (Prelude.Maybe [AssociationConfigurationProperty]),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-intentlabelinggenerationaipromptid>
                                                       intentLabelingGenerationAIPromptId :: (Prelude.Maybe (Value Prelude.Text)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-locale>
+                                                      locale :: (Prelude.Maybe (Value Prelude.Text)),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html#cfn-wisdom-aiagent-answerrecommendationaiagentconfiguration-queryreformulationaipromptid>
                                                       queryReformulationAIPromptId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -26,9 +30,11 @@ mkAnswerRecommendationAIAgentConfigurationProperty ::
 mkAnswerRecommendationAIAgentConfigurationProperty
   = AnswerRecommendationAIAgentConfigurationProperty
       {haddock_workaround_ = (),
+       answerGenerationAIGuardrailId = Prelude.Nothing,
        answerGenerationAIPromptId = Prelude.Nothing,
        associationConfigurations = Prelude.Nothing,
        intentLabelingGenerationAIPromptId = Prelude.Nothing,
+       locale = Prelude.Nothing,
        queryReformulationAIPromptId = Prelude.Nothing}
 instance ToResourceProperties AnswerRecommendationAIAgentConfigurationProperty where
   toResourceProperties
@@ -38,12 +44,15 @@ instance ToResourceProperties AnswerRecommendationAIAgentConfigurationProperty w
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AnswerGenerationAIPromptId"
+                           [(JSON..=) "AnswerGenerationAIGuardrailId"
+                              Prelude.<$> answerGenerationAIGuardrailId,
+                            (JSON..=) "AnswerGenerationAIPromptId"
                               Prelude.<$> answerGenerationAIPromptId,
                             (JSON..=) "AssociationConfigurations"
                               Prelude.<$> associationConfigurations,
                             (JSON..=) "IntentLabelingGenerationAIPromptId"
                               Prelude.<$> intentLabelingGenerationAIPromptId,
+                            (JSON..=) "Locale" Prelude.<$> locale,
                             (JSON..=) "QueryReformulationAIPromptId"
                               Prelude.<$> queryReformulationAIPromptId])}
 instance JSON.ToJSON AnswerRecommendationAIAgentConfigurationProperty where
@@ -51,14 +60,22 @@ instance JSON.ToJSON AnswerRecommendationAIAgentConfigurationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AnswerGenerationAIPromptId"
+              [(JSON..=) "AnswerGenerationAIGuardrailId"
+                 Prelude.<$> answerGenerationAIGuardrailId,
+               (JSON..=) "AnswerGenerationAIPromptId"
                  Prelude.<$> answerGenerationAIPromptId,
                (JSON..=) "AssociationConfigurations"
                  Prelude.<$> associationConfigurations,
                (JSON..=) "IntentLabelingGenerationAIPromptId"
                  Prelude.<$> intentLabelingGenerationAIPromptId,
+               (JSON..=) "Locale" Prelude.<$> locale,
                (JSON..=) "QueryReformulationAIPromptId"
                  Prelude.<$> queryReformulationAIPromptId]))
+instance Property "AnswerGenerationAIGuardrailId" AnswerRecommendationAIAgentConfigurationProperty where
+  type PropertyType "AnswerGenerationAIGuardrailId" AnswerRecommendationAIAgentConfigurationProperty = Value Prelude.Text
+  set newValue AnswerRecommendationAIAgentConfigurationProperty {..}
+    = AnswerRecommendationAIAgentConfigurationProperty
+        {answerGenerationAIGuardrailId = Prelude.pure newValue, ..}
 instance Property "AnswerGenerationAIPromptId" AnswerRecommendationAIAgentConfigurationProperty where
   type PropertyType "AnswerGenerationAIPromptId" AnswerRecommendationAIAgentConfigurationProperty = Value Prelude.Text
   set newValue AnswerRecommendationAIAgentConfigurationProperty {..}
@@ -74,6 +91,11 @@ instance Property "IntentLabelingGenerationAIPromptId" AnswerRecommendationAIAge
   set newValue AnswerRecommendationAIAgentConfigurationProperty {..}
     = AnswerRecommendationAIAgentConfigurationProperty
         {intentLabelingGenerationAIPromptId = Prelude.pure newValue, ..}
+instance Property "Locale" AnswerRecommendationAIAgentConfigurationProperty where
+  type PropertyType "Locale" AnswerRecommendationAIAgentConfigurationProperty = Value Prelude.Text
+  set newValue AnswerRecommendationAIAgentConfigurationProperty {..}
+    = AnswerRecommendationAIAgentConfigurationProperty
+        {locale = Prelude.pure newValue, ..}
 instance Property "QueryReformulationAIPromptId" AnswerRecommendationAIAgentConfigurationProperty where
   type PropertyType "QueryReformulationAIPromptId" AnswerRecommendationAIAgentConfigurationProperty = Value Prelude.Text
   set newValue AnswerRecommendationAIAgentConfigurationProperty {..}

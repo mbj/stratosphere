@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.DataSet.RefreshFailureEmailAlertProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RefreshFailureEmailAlertProperty :: Prelude.Type
+instance ToResourceProperties RefreshFailureEmailAlertProperty
+instance Prelude.Eq RefreshFailureEmailAlertProperty
+instance Prelude.Show RefreshFailureEmailAlertProperty
+instance JSON.ToJSON RefreshFailureEmailAlertProperty

@@ -1,0 +1,9 @@
+module Stratosphere.SMSVOICE.ConfigurationSet.CloudWatchLogsDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchLogsDestinationProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchLogsDestinationProperty
+instance Prelude.Eq CloudWatchLogsDestinationProperty
+instance Prelude.Show CloudWatchLogsDestinationProperty
+instance JSON.ToJSON CloudWatchLogsDestinationProperty

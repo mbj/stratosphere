@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.QInConnectIntentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QInConnectIntentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties QInConnectIntentConfigurationProperty
+instance Prelude.Eq QInConnectIntentConfigurationProperty
+instance Prelude.Show QInConnectIntentConfigurationProperty
+instance JSON.ToJSON QInConnectIntentConfigurationProperty

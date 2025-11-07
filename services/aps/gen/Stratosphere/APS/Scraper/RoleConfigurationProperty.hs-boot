@@ -1,0 +1,9 @@
+module Stratosphere.APS.Scraper.RoleConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RoleConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RoleConfigurationProperty
+instance Prelude.Eq RoleConfigurationProperty
+instance Prelude.Show RoleConfigurationProperty
+instance JSON.ToJSON RoleConfigurationProperty

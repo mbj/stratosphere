@@ -11,7 +11,7 @@ data CastColumnTypeOperationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html>
     CastColumnTypeOperationProperty {haddock_workaround_ :: (),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname>
-                                     columnName :: (Value Prelude.Text),
+                                     columnName :: (Prelude.Maybe (Value Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format>
                                      format :: (Prelude.Maybe (Value Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype>
@@ -20,12 +20,11 @@ data CastColumnTypeOperationProperty
                                      subType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkCastColumnTypeOperationProperty ::
-  Value Prelude.Text
-  -> Value Prelude.Text -> CastColumnTypeOperationProperty
-mkCastColumnTypeOperationProperty columnName newColumnType
+  Value Prelude.Text -> CastColumnTypeOperationProperty
+mkCastColumnTypeOperationProperty newColumnType
   = CastColumnTypeOperationProperty
-      {haddock_workaround_ = (), columnName = columnName,
-       newColumnType = newColumnType, format = Prelude.Nothing,
+      {haddock_workaround_ = (), newColumnType = newColumnType,
+       columnName = Prelude.Nothing, format = Prelude.Nothing,
        subType = Prelude.Nothing}
 instance ToResourceProperties CastColumnTypeOperationProperty where
   toResourceProperties CastColumnTypeOperationProperty {..}
@@ -34,25 +33,26 @@ instance ToResourceProperties CastColumnTypeOperationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ColumnName" JSON..= columnName,
-                            "NewColumnType" JSON..= newColumnType]
+                           ["NewColumnType" JSON..= newColumnType]
                            (Prelude.catMaybes
-                              [(JSON..=) "Format" Prelude.<$> format,
+                              [(JSON..=) "ColumnName" Prelude.<$> columnName,
+                               (JSON..=) "Format" Prelude.<$> format,
                                (JSON..=) "SubType" Prelude.<$> subType]))}
 instance JSON.ToJSON CastColumnTypeOperationProperty where
   toJSON CastColumnTypeOperationProperty {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ColumnName" JSON..= columnName,
-               "NewColumnType" JSON..= newColumnType]
+              ["NewColumnType" JSON..= newColumnType]
               (Prelude.catMaybes
-                 [(JSON..=) "Format" Prelude.<$> format,
+                 [(JSON..=) "ColumnName" Prelude.<$> columnName,
+                  (JSON..=) "Format" Prelude.<$> format,
                   (JSON..=) "SubType" Prelude.<$> subType])))
 instance Property "ColumnName" CastColumnTypeOperationProperty where
   type PropertyType "ColumnName" CastColumnTypeOperationProperty = Value Prelude.Text
   set newValue CastColumnTypeOperationProperty {..}
-    = CastColumnTypeOperationProperty {columnName = newValue, ..}
+    = CastColumnTypeOperationProperty
+        {columnName = Prelude.pure newValue, ..}
 instance Property "Format" CastColumnTypeOperationProperty where
   type PropertyType "Format" CastColumnTypeOperationProperty = Value Prelude.Text
   set newValue CastColumnTypeOperationProperty {..}

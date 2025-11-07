@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Monitor
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html>
@@ -16,7 +17,9 @@ data Monitor
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-rolearn>
              roleArn :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-subdomain>
-             subdomain :: (Value Prelude.Text)}
+             subdomain :: (Value Prelude.Text),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html#cfn-deadline-monitor-tags>
+             tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkMonitor ::
   Value Prelude.Text
@@ -26,20 +29,26 @@ mkMonitor displayName identityCenterInstanceArn roleArn subdomain
   = Monitor
       {haddock_workaround_ = (), displayName = displayName,
        identityCenterInstanceArn = identityCenterInstanceArn,
-       roleArn = roleArn, subdomain = subdomain}
+       roleArn = roleArn, subdomain = subdomain, tags = Prelude.Nothing}
 instance ToResourceProperties Monitor where
   toResourceProperties Monitor {..}
     = ResourceProperties
-        {awsType = "AWS::Deadline::Monitor", supportsTags = Prelude.False,
-         properties = ["DisplayName" JSON..= displayName,
-                       "IdentityCenterInstanceArn" JSON..= identityCenterInstanceArn,
-                       "RoleArn" JSON..= roleArn, "Subdomain" JSON..= subdomain]}
+        {awsType = "AWS::Deadline::Monitor", supportsTags = Prelude.True,
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["DisplayName" JSON..= displayName,
+                            "IdentityCenterInstanceArn" JSON..= identityCenterInstanceArn,
+                            "RoleArn" JSON..= roleArn, "Subdomain" JSON..= subdomain]
+                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Monitor where
   toJSON Monitor {..}
     = JSON.object
-        ["DisplayName" JSON..= displayName,
-         "IdentityCenterInstanceArn" JSON..= identityCenterInstanceArn,
-         "RoleArn" JSON..= roleArn, "Subdomain" JSON..= subdomain]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["DisplayName" JSON..= displayName,
+               "IdentityCenterInstanceArn" JSON..= identityCenterInstanceArn,
+               "RoleArn" JSON..= roleArn, "Subdomain" JSON..= subdomain]
+              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DisplayName" Monitor where
   type PropertyType "DisplayName" Monitor = Value Prelude.Text
   set newValue Monitor {..} = Monitor {displayName = newValue, ..}
@@ -53,3 +62,7 @@ instance Property "RoleArn" Monitor where
 instance Property "Subdomain" Monitor where
   type PropertyType "Subdomain" Monitor = Value Prelude.Text
   set newValue Monitor {..} = Monitor {subdomain = newValue, ..}
+instance Property "Tags" Monitor where
+  type PropertyType "Tags" Monitor = [Tag]
+  set newValue Monitor {..}
+    = Monitor {tags = Prelude.pure newValue, ..}

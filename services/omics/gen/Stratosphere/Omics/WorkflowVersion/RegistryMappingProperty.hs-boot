@@ -1,0 +1,9 @@
+module Stratosphere.Omics.WorkflowVersion.RegistryMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RegistryMappingProperty :: Prelude.Type
+instance ToResourceProperties RegistryMappingProperty
+instance Prelude.Eq RegistryMappingProperty
+instance Prelude.Show RegistryMappingProperty
+instance JSON.ToJSON RegistryMappingProperty

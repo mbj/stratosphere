@@ -1,0 +1,9 @@
+module Stratosphere.IoT.Command.CommandParameterValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CommandParameterValueProperty :: Prelude.Type
+instance ToResourceProperties CommandParameterValueProperty
+instance Prelude.Eq CommandParameterValueProperty
+instance Prelude.Show CommandParameterValueProperty
+instance JSON.ToJSON CommandParameterValueProperty

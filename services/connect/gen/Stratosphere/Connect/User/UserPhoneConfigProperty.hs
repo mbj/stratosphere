@@ -15,6 +15,8 @@ data UserPhoneConfigProperty
                              autoAccept :: (Prelude.Maybe (Value Prelude.Bool)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-deskphonenumber>
                              deskPhoneNumber :: (Prelude.Maybe (Value Prelude.Text)),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-persistentconnection>
+                             persistentConnection :: (Prelude.Maybe (Value Prelude.Bool)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-phonetype>
                              phoneType :: (Value Prelude.Text)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -24,7 +26,8 @@ mkUserPhoneConfigProperty phoneType
   = UserPhoneConfigProperty
       {haddock_workaround_ = (), phoneType = phoneType,
        afterContactWorkTimeLimit = Prelude.Nothing,
-       autoAccept = Prelude.Nothing, deskPhoneNumber = Prelude.Nothing}
+       autoAccept = Prelude.Nothing, deskPhoneNumber = Prelude.Nothing,
+       persistentConnection = Prelude.Nothing}
 instance ToResourceProperties UserPhoneConfigProperty where
   toResourceProperties UserPhoneConfigProperty {..}
     = ResourceProperties
@@ -37,7 +40,9 @@ instance ToResourceProperties UserPhoneConfigProperty where
                               [(JSON..=) "AfterContactWorkTimeLimit"
                                  Prelude.<$> afterContactWorkTimeLimit,
                                (JSON..=) "AutoAccept" Prelude.<$> autoAccept,
-                               (JSON..=) "DeskPhoneNumber" Prelude.<$> deskPhoneNumber]))}
+                               (JSON..=) "DeskPhoneNumber" Prelude.<$> deskPhoneNumber,
+                               (JSON..=) "PersistentConnection"
+                                 Prelude.<$> persistentConnection]))}
 instance JSON.ToJSON UserPhoneConfigProperty where
   toJSON UserPhoneConfigProperty {..}
     = JSON.object
@@ -48,7 +53,9 @@ instance JSON.ToJSON UserPhoneConfigProperty where
                  [(JSON..=) "AfterContactWorkTimeLimit"
                     Prelude.<$> afterContactWorkTimeLimit,
                   (JSON..=) "AutoAccept" Prelude.<$> autoAccept,
-                  (JSON..=) "DeskPhoneNumber" Prelude.<$> deskPhoneNumber])))
+                  (JSON..=) "DeskPhoneNumber" Prelude.<$> deskPhoneNumber,
+                  (JSON..=) "PersistentConnection"
+                    Prelude.<$> persistentConnection])))
 instance Property "AfterContactWorkTimeLimit" UserPhoneConfigProperty where
   type PropertyType "AfterContactWorkTimeLimit" UserPhoneConfigProperty = Value Prelude.Integer
   set newValue UserPhoneConfigProperty {..}
@@ -63,6 +70,11 @@ instance Property "DeskPhoneNumber" UserPhoneConfigProperty where
   set newValue UserPhoneConfigProperty {..}
     = UserPhoneConfigProperty
         {deskPhoneNumber = Prelude.pure newValue, ..}
+instance Property "PersistentConnection" UserPhoneConfigProperty where
+  type PropertyType "PersistentConnection" UserPhoneConfigProperty = Value Prelude.Bool
+  set newValue UserPhoneConfigProperty {..}
+    = UserPhoneConfigProperty
+        {persistentConnection = Prelude.pure newValue, ..}
 instance Property "PhoneType" UserPhoneConfigProperty where
   type PropertyType "PhoneType" UserPhoneConfigProperty = Value Prelude.Text
   set newValue UserPhoneConfigProperty {..}

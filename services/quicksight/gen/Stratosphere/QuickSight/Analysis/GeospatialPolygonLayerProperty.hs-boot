@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialPolygonLayerProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialPolygonLayerProperty :: Prelude.Type
+instance ToResourceProperties GeospatialPolygonLayerProperty
+instance Prelude.Eq GeospatialPolygonLayerProperty
+instance Prelude.Show GeospatialPolygonLayerProperty
+instance JSON.ToJSON GeospatialPolygonLayerProperty

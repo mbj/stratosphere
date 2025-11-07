@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.PercentileAggregationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PercentileAggregationProperty :: Prelude.Type
+instance ToResourceProperties PercentileAggregationProperty
+instance Prelude.Eq PercentileAggregationProperty
+instance Prelude.Show PercentileAggregationProperty
+instance JSON.ToJSON PercentileAggregationProperty

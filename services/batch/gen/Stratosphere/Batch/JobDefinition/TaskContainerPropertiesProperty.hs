@@ -6,9 +6,10 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.EnvironmentProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.FirelensConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LinuxParametersProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.LogConfigurationProperty as Exports
-import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MountPointsProperty as Exports
+import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.MountPointProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.RepositoryCredentialsProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.ResourceRequirementProperty as Exports
 import {-# SOURCE #-} Stratosphere.Batch.JobDefinition.SecretProperty as Exports
@@ -27,6 +28,8 @@ data TaskContainerPropertiesProperty
                                      environment :: (Prelude.Maybe [EnvironmentProperty]),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-essential>
                                      essential :: (Prelude.Maybe (Value Prelude.Bool)),
+                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-firelensconfiguration>
+                                     firelensConfiguration :: (Prelude.Maybe FirelensConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-image>
                                      image :: (Value Prelude.Text),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-linuxparameters>
@@ -34,7 +37,7 @@ data TaskContainerPropertiesProperty
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-logconfiguration>
                                      logConfiguration :: (Prelude.Maybe LogConfigurationProperty),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-mountpoints>
-                                     mountPoints :: (Prelude.Maybe [MountPointsProperty]),
+                                     mountPoints :: (Prelude.Maybe [MountPointProperty]),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-name>
                                      name :: (Prelude.Maybe (Value Prelude.Text)),
                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-privileged>
@@ -59,6 +62,7 @@ mkTaskContainerPropertiesProperty image
       {haddock_workaround_ = (), image = image,
        command = Prelude.Nothing, dependsOn = Prelude.Nothing,
        environment = Prelude.Nothing, essential = Prelude.Nothing,
+       firelensConfiguration = Prelude.Nothing,
        linuxParameters = Prelude.Nothing,
        logConfiguration = Prelude.Nothing, mountPoints = Prelude.Nothing,
        name = Prelude.Nothing, privileged = Prelude.Nothing,
@@ -79,6 +83,8 @@ instance ToResourceProperties TaskContainerPropertiesProperty where
                                (JSON..=) "DependsOn" Prelude.<$> dependsOn,
                                (JSON..=) "Environment" Prelude.<$> environment,
                                (JSON..=) "Essential" Prelude.<$> essential,
+                               (JSON..=) "FirelensConfiguration"
+                                 Prelude.<$> firelensConfiguration,
                                (JSON..=) "LinuxParameters" Prelude.<$> linuxParameters,
                                (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                                (JSON..=) "MountPoints" Prelude.<$> mountPoints,
@@ -103,6 +109,8 @@ instance JSON.ToJSON TaskContainerPropertiesProperty where
                   (JSON..=) "DependsOn" Prelude.<$> dependsOn,
                   (JSON..=) "Environment" Prelude.<$> environment,
                   (JSON..=) "Essential" Prelude.<$> essential,
+                  (JSON..=) "FirelensConfiguration"
+                    Prelude.<$> firelensConfiguration,
                   (JSON..=) "LinuxParameters" Prelude.<$> linuxParameters,
                   (JSON..=) "LogConfiguration" Prelude.<$> logConfiguration,
                   (JSON..=) "MountPoints" Prelude.<$> mountPoints,
@@ -136,6 +144,11 @@ instance Property "Essential" TaskContainerPropertiesProperty where
   set newValue TaskContainerPropertiesProperty {..}
     = TaskContainerPropertiesProperty
         {essential = Prelude.pure newValue, ..}
+instance Property "FirelensConfiguration" TaskContainerPropertiesProperty where
+  type PropertyType "FirelensConfiguration" TaskContainerPropertiesProperty = FirelensConfigurationProperty
+  set newValue TaskContainerPropertiesProperty {..}
+    = TaskContainerPropertiesProperty
+        {firelensConfiguration = Prelude.pure newValue, ..}
 instance Property "Image" TaskContainerPropertiesProperty where
   type PropertyType "Image" TaskContainerPropertiesProperty = Value Prelude.Text
   set newValue TaskContainerPropertiesProperty {..}
@@ -151,7 +164,7 @@ instance Property "LogConfiguration" TaskContainerPropertiesProperty where
     = TaskContainerPropertiesProperty
         {logConfiguration = Prelude.pure newValue, ..}
 instance Property "MountPoints" TaskContainerPropertiesProperty where
-  type PropertyType "MountPoints" TaskContainerPropertiesProperty = [MountPointsProperty]
+  type PropertyType "MountPoints" TaskContainerPropertiesProperty = [MountPointProperty]
   set newValue TaskContainerPropertiesProperty {..}
     = TaskContainerPropertiesProperty
         {mountPoints = Prelude.pure newValue, ..}

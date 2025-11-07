@@ -18,7 +18,7 @@ data CloudWatchAlarmTemplate
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html#cfn-medialive-cloudwatchalarmtemplate-evaluationperiods>
                              evaluationPeriods :: (Value Prelude.Double),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html#cfn-medialive-cloudwatchalarmtemplate-groupidentifier>
-                             groupIdentifier :: (Value Prelude.Text),
+                             groupIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html#cfn-medialive-cloudwatchalarmtemplate-metricname>
                              metricName :: (Value Prelude.Text),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html#cfn-medialive-cloudwatchalarmtemplate-name>
@@ -41,16 +41,14 @@ mkCloudWatchAlarmTemplate ::
   -> Value Prelude.Double
      -> Value Prelude.Text
         -> Value Prelude.Text
-           -> Value Prelude.Text
-              -> Value Prelude.Double
+           -> Value Prelude.Double
+              -> Value Prelude.Text
                  -> Value Prelude.Text
-                    -> Value Prelude.Text
-                       -> Value Prelude.Double
-                          -> Value Prelude.Text -> CloudWatchAlarmTemplate
+                    -> Value Prelude.Double
+                       -> Value Prelude.Text -> CloudWatchAlarmTemplate
 mkCloudWatchAlarmTemplate
   comparisonOperator
   evaluationPeriods
-  groupIdentifier
   metricName
   name
   period
@@ -60,13 +58,12 @@ mkCloudWatchAlarmTemplate
   treatMissingData
   = CloudWatchAlarmTemplate
       {haddock_workaround_ = (), comparisonOperator = comparisonOperator,
-       evaluationPeriods = evaluationPeriods,
-       groupIdentifier = groupIdentifier, metricName = metricName,
+       evaluationPeriods = evaluationPeriods, metricName = metricName,
        name = name, period = period, statistic = statistic,
        targetResourceType = targetResourceType, threshold = threshold,
        treatMissingData = treatMissingData,
        datapointsToAlarm = Prelude.Nothing, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       groupIdentifier = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties CloudWatchAlarmTemplate where
   toResourceProperties CloudWatchAlarmTemplate {..}
     = ResourceProperties
@@ -76,7 +73,6 @@ instance ToResourceProperties CloudWatchAlarmTemplate where
                         ((Prelude.<>)
                            ["ComparisonOperator" JSON..= comparisonOperator,
                             "EvaluationPeriods" JSON..= evaluationPeriods,
-                            "GroupIdentifier" JSON..= groupIdentifier,
                             "MetricName" JSON..= metricName, "Name" JSON..= name,
                             "Period" JSON..= period, "Statistic" JSON..= statistic,
                             "TargetResourceType" JSON..= targetResourceType,
@@ -85,6 +81,7 @@ instance ToResourceProperties CloudWatchAlarmTemplate where
                            (Prelude.catMaybes
                               [(JSON..=) "DatapointsToAlarm" Prelude.<$> datapointsToAlarm,
                                (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "GroupIdentifier" Prelude.<$> groupIdentifier,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON CloudWatchAlarmTemplate where
   toJSON CloudWatchAlarmTemplate {..}
@@ -93,7 +90,6 @@ instance JSON.ToJSON CloudWatchAlarmTemplate where
            ((Prelude.<>)
               ["ComparisonOperator" JSON..= comparisonOperator,
                "EvaluationPeriods" JSON..= evaluationPeriods,
-               "GroupIdentifier" JSON..= groupIdentifier,
                "MetricName" JSON..= metricName, "Name" JSON..= name,
                "Period" JSON..= period, "Statistic" JSON..= statistic,
                "TargetResourceType" JSON..= targetResourceType,
@@ -102,6 +98,7 @@ instance JSON.ToJSON CloudWatchAlarmTemplate where
               (Prelude.catMaybes
                  [(JSON..=) "DatapointsToAlarm" Prelude.<$> datapointsToAlarm,
                   (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "GroupIdentifier" Prelude.<$> groupIdentifier,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ComparisonOperator" CloudWatchAlarmTemplate where
   type PropertyType "ComparisonOperator" CloudWatchAlarmTemplate = Value Prelude.Text
@@ -123,7 +120,8 @@ instance Property "EvaluationPeriods" CloudWatchAlarmTemplate where
 instance Property "GroupIdentifier" CloudWatchAlarmTemplate where
   type PropertyType "GroupIdentifier" CloudWatchAlarmTemplate = Value Prelude.Text
   set newValue CloudWatchAlarmTemplate {..}
-    = CloudWatchAlarmTemplate {groupIdentifier = newValue, ..}
+    = CloudWatchAlarmTemplate
+        {groupIdentifier = Prelude.pure newValue, ..}
 instance Property "MetricName" CloudWatchAlarmTemplate where
   type PropertyType "MetricName" CloudWatchAlarmTemplate = Value Prelude.Text
   set newValue CloudWatchAlarmTemplate {..}

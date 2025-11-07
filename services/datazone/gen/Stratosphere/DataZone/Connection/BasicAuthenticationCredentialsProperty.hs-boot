@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.BasicAuthenticationCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BasicAuthenticationCredentialsProperty :: Prelude.Type
+instance ToResourceProperties BasicAuthenticationCredentialsProperty
+instance Prelude.Eq BasicAuthenticationCredentialsProperty
+instance Prelude.Show BasicAuthenticationCredentialsProperty
+instance JSON.ToJSON BasicAuthenticationCredentialsProperty

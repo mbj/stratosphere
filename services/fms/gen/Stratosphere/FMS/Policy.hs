@@ -29,6 +29,8 @@ data Policy
             remediationEnabled :: (Value Prelude.Bool),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcesetids>
             resourceSetIds :: (Prelude.Maybe (ValueList Prelude.Text)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetaglogicaloperator>
+            resourceTagLogicalOperator :: (Prelude.Maybe (Value Prelude.Text)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags>
             resourceTags :: (Prelude.Maybe [ResourceTagProperty]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype>
@@ -60,8 +62,10 @@ mkPolicy
        deleteAllPolicyResources = Prelude.Nothing,
        excludeMap = Prelude.Nothing, includeMap = Prelude.Nothing,
        policyDescription = Prelude.Nothing,
-       resourceSetIds = Prelude.Nothing, resourceTags = Prelude.Nothing,
-       resourceType = Prelude.Nothing, resourceTypeList = Prelude.Nothing,
+       resourceSetIds = Prelude.Nothing,
+       resourceTagLogicalOperator = Prelude.Nothing,
+       resourceTags = Prelude.Nothing, resourceType = Prelude.Nothing,
+       resourceTypeList = Prelude.Nothing,
        resourcesCleanUp = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Policy where
   toResourceProperties Policy {..}
@@ -80,6 +84,8 @@ instance ToResourceProperties Policy where
                                (JSON..=) "IncludeMap" Prelude.<$> includeMap,
                                (JSON..=) "PolicyDescription" Prelude.<$> policyDescription,
                                (JSON..=) "ResourceSetIds" Prelude.<$> resourceSetIds,
+                               (JSON..=) "ResourceTagLogicalOperator"
+                                 Prelude.<$> resourceTagLogicalOperator,
                                (JSON..=) "ResourceTags" Prelude.<$> resourceTags,
                                (JSON..=) "ResourceType" Prelude.<$> resourceType,
                                (JSON..=) "ResourceTypeList" Prelude.<$> resourceTypeList,
@@ -101,6 +107,8 @@ instance JSON.ToJSON Policy where
                   (JSON..=) "IncludeMap" Prelude.<$> includeMap,
                   (JSON..=) "PolicyDescription" Prelude.<$> policyDescription,
                   (JSON..=) "ResourceSetIds" Prelude.<$> resourceSetIds,
+                  (JSON..=) "ResourceTagLogicalOperator"
+                    Prelude.<$> resourceTagLogicalOperator,
                   (JSON..=) "ResourceTags" Prelude.<$> resourceTags,
                   (JSON..=) "ResourceType" Prelude.<$> resourceType,
                   (JSON..=) "ResourceTypeList" Prelude.<$> resourceTypeList,
@@ -137,6 +145,10 @@ instance Property "ResourceSetIds" Policy where
   type PropertyType "ResourceSetIds" Policy = ValueList Prelude.Text
   set newValue Policy {..}
     = Policy {resourceSetIds = Prelude.pure newValue, ..}
+instance Property "ResourceTagLogicalOperator" Policy where
+  type PropertyType "ResourceTagLogicalOperator" Policy = Value Prelude.Text
+  set newValue Policy {..}
+    = Policy {resourceTagLogicalOperator = Prelude.pure newValue, ..}
 instance Property "ResourceTags" Policy where
   type PropertyType "ResourceTags" Policy = [ResourceTagProperty]
   set newValue Policy {..}

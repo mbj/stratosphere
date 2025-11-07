@@ -1,0 +1,9 @@
+module Stratosphere.Glue.Connection.OAuth2PropertiesInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OAuth2PropertiesInputProperty :: Prelude.Type
+instance ToResourceProperties OAuth2PropertiesInputProperty
+instance Prelude.Eq OAuth2PropertiesInputProperty
+instance Prelude.Show OAuth2PropertiesInputProperty
+instance JSON.ToJSON OAuth2PropertiesInputProperty

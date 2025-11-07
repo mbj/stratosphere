@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.GeospatialLayerColorFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GeospatialLayerColorFieldProperty :: Prelude.Type
+instance ToResourceProperties GeospatialLayerColorFieldProperty
+instance Prelude.Eq GeospatialLayerColorFieldProperty
+instance Prelude.Show GeospatialLayerColorFieldProperty
+instance JSON.ToJSON GeospatialLayerColorFieldProperty

@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashSubtitleConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashSubtitleConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DashSubtitleConfigurationProperty
+instance Prelude.Eq DashSubtitleConfigurationProperty
+instance Prelude.Show DashSubtitleConfigurationProperty
+instance JSON.ToJSON DashSubtitleConfigurationProperty

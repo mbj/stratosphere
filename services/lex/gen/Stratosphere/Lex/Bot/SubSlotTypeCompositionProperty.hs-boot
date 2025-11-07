@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.SubSlotTypeCompositionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubSlotTypeCompositionProperty :: Prelude.Type
+instance ToResourceProperties SubSlotTypeCompositionProperty
+instance Prelude.Eq SubSlotTypeCompositionProperty
+instance Prelude.Show SubSlotTypeCompositionProperty
+instance JSON.ToJSON SubSlotTypeCompositionProperty

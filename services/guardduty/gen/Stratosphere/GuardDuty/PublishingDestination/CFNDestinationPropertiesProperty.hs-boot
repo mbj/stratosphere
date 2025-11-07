@@ -1,0 +1,9 @@
+module Stratosphere.GuardDuty.PublishingDestination.CFNDestinationPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CFNDestinationPropertiesProperty :: Prelude.Type
+instance ToResourceProperties CFNDestinationPropertiesProperty
+instance Prelude.Eq CFNDestinationPropertiesProperty
+instance Prelude.Show CFNDestinationPropertiesProperty
+instance JSON.ToJSON CFNDestinationPropertiesProperty

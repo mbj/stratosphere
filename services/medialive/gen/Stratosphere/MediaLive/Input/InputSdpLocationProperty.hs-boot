@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Input.InputSdpLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputSdpLocationProperty :: Prelude.Type
+instance ToResourceProperties InputSdpLocationProperty
+instance Prelude.Eq InputSdpLocationProperty
+instance Prelude.Show InputSdpLocationProperty
+instance JSON.ToJSON InputSdpLocationProperty

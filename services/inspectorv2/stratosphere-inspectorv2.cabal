@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-inspectorv2
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS InspectorV2.
+description:    Integration into stratosphere to generate resources and properties for AWS InspectorV2
+category:       AWS, Cloud, InspectorV2
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -32,6 +35,17 @@ library
       Stratosphere.InspectorV2.CisScanConfiguration.ScheduleProperty
       Stratosphere.InspectorV2.CisScanConfiguration.TimeProperty
       Stratosphere.InspectorV2.CisScanConfiguration.WeeklyScheduleProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration
+      Stratosphere.InspectorV2.CodeSecurityIntegration.CreateDetailsProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.CreateGitLabSelfManagedIntegrationDetailProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateDetailsProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateGitHubIntegrationDetailProperty
+      Stratosphere.InspectorV2.CodeSecurityIntegration.UpdateGitLabSelfManagedIntegrationDetailProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.CodeSecurityScanConfigurationProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.ContinuousIntegrationScanConfigurationProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.PeriodicScanConfigurationProperty
+      Stratosphere.InspectorV2.CodeSecurityScanConfiguration.ScopeSettingsProperty
       Stratosphere.InspectorV2.Filter
       Stratosphere.InspectorV2.Filter.DateFilterProperty
       Stratosphere.InspectorV2.Filter.FilterCriteriaProperty
@@ -74,8 +88,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

@@ -4,6 +4,7 @@ module Stratosphere.OpenSearchServerless.SecurityConfig (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.OpenSearchServerless.SecurityConfig.IamFederationConfigOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchServerless.SecurityConfig.IamIdentityCenterConfigOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchServerless.SecurityConfig.SamlConfigOptionsProperty as Exports
 import Stratosphere.ResourceProperties
@@ -13,6 +14,8 @@ data SecurityConfig
     SecurityConfig {haddock_workaround_ :: (),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-description>
                     description :: (Prelude.Maybe (Value Prelude.Text)),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamfederationoptions>
+                    iamFederationOptions :: (Prelude.Maybe IamFederationConfigOptionsProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamidentitycenteroptions>
                     iamIdentityCenterOptions :: (Prelude.Maybe IamIdentityCenterConfigOptionsProperty),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-name>
@@ -26,6 +29,7 @@ mkSecurityConfig :: SecurityConfig
 mkSecurityConfig
   = SecurityConfig
       {haddock_workaround_ = (), description = Prelude.Nothing,
+       iamFederationOptions = Prelude.Nothing,
        iamIdentityCenterOptions = Prelude.Nothing, name = Prelude.Nothing,
        samlOptions = Prelude.Nothing, type' = Prelude.Nothing}
 instance ToResourceProperties SecurityConfig where
@@ -36,6 +40,7 @@ instance ToResourceProperties SecurityConfig where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Description" Prelude.<$> description,
+                            (JSON..=) "IamFederationOptions" Prelude.<$> iamFederationOptions,
                             (JSON..=) "IamIdentityCenterOptions"
                               Prelude.<$> iamIdentityCenterOptions,
                             (JSON..=) "Name" Prelude.<$> name,
@@ -47,6 +52,7 @@ instance JSON.ToJSON SecurityConfig where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Description" Prelude.<$> description,
+               (JSON..=) "IamFederationOptions" Prelude.<$> iamFederationOptions,
                (JSON..=) "IamIdentityCenterOptions"
                  Prelude.<$> iamIdentityCenterOptions,
                (JSON..=) "Name" Prelude.<$> name,
@@ -56,6 +62,10 @@ instance Property "Description" SecurityConfig where
   type PropertyType "Description" SecurityConfig = Value Prelude.Text
   set newValue SecurityConfig {..}
     = SecurityConfig {description = Prelude.pure newValue, ..}
+instance Property "IamFederationOptions" SecurityConfig where
+  type PropertyType "IamFederationOptions" SecurityConfig = IamFederationConfigOptionsProperty
+  set newValue SecurityConfig {..}
+    = SecurityConfig {iamFederationOptions = Prelude.pure newValue, ..}
 instance Property "IamIdentityCenterOptions" SecurityConfig where
   type PropertyType "IamIdentityCenterOptions" SecurityConfig = IamIdentityCenterConfigOptionsProperty
   set newValue SecurityConfig {..}

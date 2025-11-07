@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.Route53HealthCheckConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Route53HealthCheckConfigurationProperty :: Prelude.Type
+instance ToResourceProperties Route53HealthCheckConfigurationProperty
+instance Prelude.Eq Route53HealthCheckConfigurationProperty
+instance Prelude.Show Route53HealthCheckConfigurationProperty
+instance JSON.ToJSON Route53HealthCheckConfigurationProperty

@@ -1,0 +1,9 @@
+module Stratosphere.FSx.S3AccessPointAttachment.S3AccessPointOpenZFSConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3AccessPointOpenZFSConfigurationProperty :: Prelude.Type
+instance ToResourceProperties S3AccessPointOpenZFSConfigurationProperty
+instance Prelude.Eq S3AccessPointOpenZFSConfigurationProperty
+instance Prelude.Show S3AccessPointOpenZFSConfigurationProperty
+instance JSON.ToJSON S3AccessPointOpenZFSConfigurationProperty

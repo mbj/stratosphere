@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.Collaboration.MLMemberAbilitiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MLMemberAbilitiesProperty :: Prelude.Type
+instance ToResourceProperties MLMemberAbilitiesProperty
+instance Prelude.Eq MLMemberAbilitiesProperty
+instance Prelude.Show MLMemberAbilitiesProperty
+instance JSON.ToJSON MLMemberAbilitiesProperty

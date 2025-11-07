@@ -1,0 +1,9 @@
+module Stratosphere.Lambda.EventSourceMapping.SchemaRegistryConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SchemaRegistryConfigProperty :: Prelude.Type
+instance ToResourceProperties SchemaRegistryConfigProperty
+instance Prelude.Eq SchemaRegistryConfigProperty
+instance Prelude.Show SchemaRegistryConfigProperty
+instance JSON.ToJSON SchemaRegistryConfigProperty

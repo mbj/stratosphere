@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-connect
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS Connect.
+description:    Integration into stratosphere to generate resources and properties for AWS Connect
+category:       AWS, Cloud, Connect
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -29,13 +32,24 @@ library
       Stratosphere.Connect.ApprovedOrigin
       Stratosphere.Connect.ContactFlow
       Stratosphere.Connect.ContactFlowModule
+      Stratosphere.Connect.ContactFlowVersion
       Stratosphere.Connect.EmailAddress
+      Stratosphere.Connect.EmailAddress.AliasConfigurationProperty
       Stratosphere.Connect.EvaluationForm
+      Stratosphere.Connect.EvaluationForm.AutoEvaluationConfigurationProperty
+      Stratosphere.Connect.EvaluationForm.AutomaticFailConfigurationProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormBaseItemProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConditionOperandProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConditionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConfigurationProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementExpressionProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementSourceProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementSourceValueProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormItemProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionAutomationProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionOptionProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormNumericQuestionPropertiesProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionAutomationAnswerSourceProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionTypePropertiesProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormSectionProperty
@@ -43,6 +57,8 @@ library
       Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomationProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionOptionProperty
       Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionPropertiesProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormTextQuestionAutomationProperty
+      Stratosphere.Connect.EvaluationForm.EvaluationFormTextQuestionPropertiesProperty
       Stratosphere.Connect.EvaluationForm.NumericQuestionPropertyValueAutomationProperty
       Stratosphere.Connect.EvaluationForm.ScoringStrategyProperty
       Stratosphere.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomationProperty
@@ -63,10 +79,12 @@ library
       Stratosphere.Connect.IntegrationAssociation
       Stratosphere.Connect.PhoneNumber
       Stratosphere.Connect.PredefinedAttribute
+      Stratosphere.Connect.PredefinedAttribute.AttributeConfigurationProperty
       Stratosphere.Connect.PredefinedAttribute.ValuesProperty
       Stratosphere.Connect.Prompt
       Stratosphere.Connect.Queue
       Stratosphere.Connect.Queue.OutboundCallerConfigProperty
+      Stratosphere.Connect.Queue.OutboundEmailConfigProperty
       Stratosphere.Connect.QuickConnect
       Stratosphere.Connect.QuickConnect.PhoneNumberQuickConnectConfigProperty
       Stratosphere.Connect.QuickConnect.QueueQuickConnectConfigProperty
@@ -75,6 +93,7 @@ library
       Stratosphere.Connect.RoutingProfile
       Stratosphere.Connect.RoutingProfile.CrossChannelBehaviorProperty
       Stratosphere.Connect.RoutingProfile.MediaConcurrencyProperty
+      Stratosphere.Connect.RoutingProfile.RoutingProfileManualAssignmentQueueConfigProperty
       Stratosphere.Connect.RoutingProfile.RoutingProfileQueueConfigProperty
       Stratosphere.Connect.RoutingProfile.RoutingProfileQueueReferenceProperty
       Stratosphere.Connect.Rule
@@ -150,8 +169,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

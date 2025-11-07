@@ -26,6 +26,8 @@ data ObjectType
                 fields :: (Prelude.Maybe [FieldMapProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys>
                 keys :: (Prelude.Maybe [KeyMapProperty]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-maxprofileobjectcount>
+                maxProfileObjectCount :: (Prelude.Maybe (Value Prelude.Integer)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename>
                 objectTypeName :: (Value Prelude.Text),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat>
@@ -45,6 +47,7 @@ mkObjectType description domainName objectTypeName
        allowProfileCreation = Prelude.Nothing,
        encryptionKey = Prelude.Nothing, expirationDays = Prelude.Nothing,
        fields = Prelude.Nothing, keys = Prelude.Nothing,
+       maxProfileObjectCount = Prelude.Nothing,
        sourceLastUpdatedTimestampFormat = Prelude.Nothing,
        tags = Prelude.Nothing, templateId = Prelude.Nothing}
 instance ToResourceProperties ObjectType where
@@ -63,6 +66,8 @@ instance ToResourceProperties ObjectType where
                                (JSON..=) "ExpirationDays" Prelude.<$> expirationDays,
                                (JSON..=) "Fields" Prelude.<$> fields,
                                (JSON..=) "Keys" Prelude.<$> keys,
+                               (JSON..=) "MaxProfileObjectCount"
+                                 Prelude.<$> maxProfileObjectCount,
                                (JSON..=) "SourceLastUpdatedTimestampFormat"
                                  Prelude.<$> sourceLastUpdatedTimestampFormat,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -81,6 +86,8 @@ instance JSON.ToJSON ObjectType where
                   (JSON..=) "ExpirationDays" Prelude.<$> expirationDays,
                   (JSON..=) "Fields" Prelude.<$> fields,
                   (JSON..=) "Keys" Prelude.<$> keys,
+                  (JSON..=) "MaxProfileObjectCount"
+                    Prelude.<$> maxProfileObjectCount,
                   (JSON..=) "SourceLastUpdatedTimestampFormat"
                     Prelude.<$> sourceLastUpdatedTimestampFormat,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -113,6 +120,10 @@ instance Property "Keys" ObjectType where
   type PropertyType "Keys" ObjectType = [KeyMapProperty]
   set newValue ObjectType {..}
     = ObjectType {keys = Prelude.pure newValue, ..}
+instance Property "MaxProfileObjectCount" ObjectType where
+  type PropertyType "MaxProfileObjectCount" ObjectType = Value Prelude.Integer
+  set newValue ObjectType {..}
+    = ObjectType {maxProfileObjectCount = Prelude.pure newValue, ..}
 instance Property "ObjectTypeName" ObjectType where
   type PropertyType "ObjectTypeName" ObjectType = Value Prelude.Text
   set newValue ObjectType {..}

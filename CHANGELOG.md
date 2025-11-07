@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.0 [unreleased]
+## 1.0 2025-11-07
 
 TLDR: Loads of breaking changes, with good reasons.
 
@@ -37,10 +37,6 @@ future, and improve maintainability and thus release frequency dramatically.
 
 * Update resource specification document to version 112.0.0 and re-generate all services.
   Fixes: [#140](https://github.com/mbj/stratosphere/issues/140)
-
-TODO:
-
-* [ ] Render in-line haddocks or accept they are gone for the moment.
 
 ## 0.60.0
 

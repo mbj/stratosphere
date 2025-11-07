@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.WebExperience.BrowserExtensionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BrowserExtensionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BrowserExtensionConfigurationProperty
+instance Prelude.Eq BrowserExtensionConfigurationProperty
+instance Prelude.Show BrowserExtensionConfigurationProperty
+instance JSON.ToJSON BrowserExtensionConfigurationProperty

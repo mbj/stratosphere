@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.GatewayTarget.McpLambdaTargetConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data McpLambdaTargetConfigurationProperty :: Prelude.Type
+instance ToResourceProperties McpLambdaTargetConfigurationProperty
+instance Prelude.Eq McpLambdaTargetConfigurationProperty
+instance Prelude.Show McpLambdaTargetConfigurationProperty
+instance JSON.ToJSON McpLambdaTargetConfigurationProperty

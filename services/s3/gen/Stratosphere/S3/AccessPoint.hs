@@ -7,6 +7,7 @@ import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.S3.AccessPoint.PublicAccessBlockConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.S3.AccessPoint.VpcConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data AccessPoint
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html>
@@ -21,6 +22,8 @@ data AccessPoint
                  policy :: (Prelude.Maybe JSON.Object),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration>
                  publicAccessBlockConfiguration :: (Prelude.Maybe PublicAccessBlockConfigurationProperty),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-tags>
+                 tags :: (Prelude.Maybe [Tag]),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration>
                  vpcConfiguration :: (Prelude.Maybe VpcConfigurationProperty)}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -31,11 +34,11 @@ mkAccessPoint bucket
        bucketAccountId = Prelude.Nothing, name = Prelude.Nothing,
        policy = Prelude.Nothing,
        publicAccessBlockConfiguration = Prelude.Nothing,
-       vpcConfiguration = Prelude.Nothing}
+       tags = Prelude.Nothing, vpcConfiguration = Prelude.Nothing}
 instance ToResourceProperties AccessPoint where
   toResourceProperties AccessPoint {..}
     = ResourceProperties
-        {awsType = "AWS::S3::AccessPoint", supportsTags = Prelude.False,
+        {awsType = "AWS::S3::AccessPoint", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Bucket" JSON..= bucket]
@@ -45,6 +48,7 @@ instance ToResourceProperties AccessPoint where
                                (JSON..=) "Policy" Prelude.<$> policy,
                                (JSON..=) "PublicAccessBlockConfiguration"
                                  Prelude.<$> publicAccessBlockConfiguration,
+                               (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "VpcConfiguration" Prelude.<$> vpcConfiguration]))}
 instance JSON.ToJSON AccessPoint where
   toJSON AccessPoint {..}
@@ -58,6 +62,7 @@ instance JSON.ToJSON AccessPoint where
                   (JSON..=) "Policy" Prelude.<$> policy,
                   (JSON..=) "PublicAccessBlockConfiguration"
                     Prelude.<$> publicAccessBlockConfiguration,
+                  (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "VpcConfiguration" Prelude.<$> vpcConfiguration])))
 instance Property "Bucket" AccessPoint where
   type PropertyType "Bucket" AccessPoint = Value Prelude.Text
@@ -79,6 +84,10 @@ instance Property "PublicAccessBlockConfiguration" AccessPoint where
   set newValue AccessPoint {..}
     = AccessPoint
         {publicAccessBlockConfiguration = Prelude.pure newValue, ..}
+instance Property "Tags" AccessPoint where
+  type PropertyType "Tags" AccessPoint = [Tag]
+  set newValue AccessPoint {..}
+    = AccessPoint {tags = Prelude.pure newValue, ..}
 instance Property "VpcConfiguration" AccessPoint where
   type PropertyType "VpcConfiguration" AccessPoint = VpcConfigurationProperty
   set newValue AccessPoint {..}

@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.DataSourceVpcConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.DocumentEnrichmentConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QBusiness.DataSource.MediaExtractionConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -24,6 +25,8 @@ data DataSource
                 documentEnrichmentConfiguration :: (Prelude.Maybe DocumentEnrichmentConfigurationProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-indexid>
                 indexId :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-mediaextractionconfiguration>
+                mediaExtractionConfiguration :: (Prelude.Maybe MediaExtractionConfigurationProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-rolearn>
                 roleArn :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-syncschedule>
@@ -43,6 +46,7 @@ mkDataSource applicationId configuration displayName indexId
        configuration = configuration, displayName = displayName,
        indexId = indexId, description = Prelude.Nothing,
        documentEnrichmentConfiguration = Prelude.Nothing,
+       mediaExtractionConfiguration = Prelude.Nothing,
        roleArn = Prelude.Nothing, syncSchedule = Prelude.Nothing,
        tags = Prelude.Nothing, vpcConfiguration = Prelude.Nothing}
 instance ToResourceProperties DataSource where
@@ -59,6 +63,8 @@ instance ToResourceProperties DataSource where
                               [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "DocumentEnrichmentConfiguration"
                                  Prelude.<$> documentEnrichmentConfiguration,
+                               (JSON..=) "MediaExtractionConfiguration"
+                                 Prelude.<$> mediaExtractionConfiguration,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                                (JSON..=) "SyncSchedule" Prelude.<$> syncSchedule,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -75,6 +81,8 @@ instance JSON.ToJSON DataSource where
                  [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "DocumentEnrichmentConfiguration"
                     Prelude.<$> documentEnrichmentConfiguration,
+                  (JSON..=) "MediaExtractionConfiguration"
+                    Prelude.<$> mediaExtractionConfiguration,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
                   (JSON..=) "SyncSchedule" Prelude.<$> syncSchedule,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -103,6 +111,11 @@ instance Property "DocumentEnrichmentConfiguration" DataSource where
 instance Property "IndexId" DataSource where
   type PropertyType "IndexId" DataSource = Value Prelude.Text
   set newValue DataSource {..} = DataSource {indexId = newValue, ..}
+instance Property "MediaExtractionConfiguration" DataSource where
+  type PropertyType "MediaExtractionConfiguration" DataSource = MediaExtractionConfigurationProperty
+  set newValue DataSource {..}
+    = DataSource
+        {mediaExtractionConfiguration = Prelude.pure newValue, ..}
 instance Property "RoleArn" DataSource where
   type PropertyType "RoleArn" DataSource = Value Prelude.Text
   set newValue DataSource {..}

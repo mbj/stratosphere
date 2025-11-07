@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-customerprofiles
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS CustomerProfiles.
+description:    Integration into stratosphere to generate resources and properties for AWS CustomerProfiles
+category:       AWS, Cloud, CustomerProfiles
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -30,7 +33,9 @@ library
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.AttributeItemProperty
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ConditionsProperty
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.RangeProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ReadinessProperty
       Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ThresholdProperty
+      Stratosphere.CustomerProfiles.CalculatedAttributeDefinition.ValueRangeProperty
       Stratosphere.CustomerProfiles.Domain
       Stratosphere.CustomerProfiles.Domain.AttributeTypesSelectorProperty
       Stratosphere.CustomerProfiles.Domain.AutoMergingProperty
@@ -45,6 +50,12 @@ library
       Stratosphere.CustomerProfiles.Domain.S3ExportingConfigProperty
       Stratosphere.CustomerProfiles.EventStream
       Stratosphere.CustomerProfiles.EventStream.DestinationDetailsProperty
+      Stratosphere.CustomerProfiles.EventTrigger
+      Stratosphere.CustomerProfiles.EventTrigger.EventTriggerConditionProperty
+      Stratosphere.CustomerProfiles.EventTrigger.EventTriggerDimensionProperty
+      Stratosphere.CustomerProfiles.EventTrigger.EventTriggerLimitsProperty
+      Stratosphere.CustomerProfiles.EventTrigger.ObjectAttributeProperty
+      Stratosphere.CustomerProfiles.EventTrigger.PeriodProperty
       Stratosphere.CustomerProfiles.Integration
       Stratosphere.CustomerProfiles.Integration.ConnectorOperatorProperty
       Stratosphere.CustomerProfiles.Integration.FlowDefinitionProperty
@@ -78,6 +89,7 @@ library
       Stratosphere.CustomerProfiles.SegmentDefinition.GroupProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.ProfileAttributesProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.ProfileDimensionProperty
+      Stratosphere.CustomerProfiles.SegmentDefinition.ProfileTypeDimensionProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.RangeOverrideProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.SegmentGroupProperty
       Stratosphere.CustomerProfiles.SegmentDefinition.SourceSegmentProperty
@@ -115,8 +127,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

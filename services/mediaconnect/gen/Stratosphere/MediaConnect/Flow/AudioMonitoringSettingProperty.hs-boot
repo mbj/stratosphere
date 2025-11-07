@@ -1,0 +1,9 @@
+module Stratosphere.MediaConnect.Flow.AudioMonitoringSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioMonitoringSettingProperty :: Prelude.Type
+instance ToResourceProperties AudioMonitoringSettingProperty
+instance Prelude.Eq AudioMonitoringSettingProperty
+instance Prelude.Show AudioMonitoringSettingProperty
+instance JSON.ToJSON AudioMonitoringSettingProperty

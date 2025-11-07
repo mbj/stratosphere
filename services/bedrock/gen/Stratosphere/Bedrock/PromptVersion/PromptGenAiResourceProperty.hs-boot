@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.PromptVersion.PromptGenAiResourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PromptGenAiResourceProperty :: Prelude.Type
+instance ToResourceProperties PromptGenAiResourceProperty
+instance Prelude.Eq PromptGenAiResourceProperty
+instance Prelude.Show PromptGenAiResourceProperty
+instance JSON.ToJSON PromptGenAiResourceProperty

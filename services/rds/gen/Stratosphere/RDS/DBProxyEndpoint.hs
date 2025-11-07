@@ -14,6 +14,8 @@ data DBProxyEndpoint
                      dBProxyEndpointName :: (Value Prelude.Text),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname>
                      dBProxyName :: (Value Prelude.Text),
+                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-endpointnetworktype>
+                     endpointNetworkType :: (Prelude.Maybe (Value Prelude.Text)),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags>
                      tags :: (Prelude.Maybe [TagFormatProperty]),
                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole>
@@ -31,7 +33,8 @@ mkDBProxyEndpoint dBProxyEndpointName dBProxyName vpcSubnetIds
       {haddock_workaround_ = (),
        dBProxyEndpointName = dBProxyEndpointName,
        dBProxyName = dBProxyName, vpcSubnetIds = vpcSubnetIds,
-       tags = Prelude.Nothing, targetRole = Prelude.Nothing,
+       endpointNetworkType = Prelude.Nothing, tags = Prelude.Nothing,
+       targetRole = Prelude.Nothing,
        vpcSecurityGroupIds = Prelude.Nothing}
 instance ToResourceProperties DBProxyEndpoint where
   toResourceProperties DBProxyEndpoint {..}
@@ -44,7 +47,8 @@ instance ToResourceProperties DBProxyEndpoint where
                             "DBProxyName" JSON..= dBProxyName,
                             "VpcSubnetIds" JSON..= vpcSubnetIds]
                            (Prelude.catMaybes
-                              [(JSON..=) "Tags" Prelude.<$> tags,
+                              [(JSON..=) "EndpointNetworkType" Prelude.<$> endpointNetworkType,
+                               (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "TargetRole" Prelude.<$> targetRole,
                                (JSON..=) "VpcSecurityGroupIds" Prelude.<$> vpcSecurityGroupIds]))}
 instance JSON.ToJSON DBProxyEndpoint where
@@ -56,7 +60,8 @@ instance JSON.ToJSON DBProxyEndpoint where
                "DBProxyName" JSON..= dBProxyName,
                "VpcSubnetIds" JSON..= vpcSubnetIds]
               (Prelude.catMaybes
-                 [(JSON..=) "Tags" Prelude.<$> tags,
+                 [(JSON..=) "EndpointNetworkType" Prelude.<$> endpointNetworkType,
+                  (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "TargetRole" Prelude.<$> targetRole,
                   (JSON..=) "VpcSecurityGroupIds" Prelude.<$> vpcSecurityGroupIds])))
 instance Property "DBProxyEndpointName" DBProxyEndpoint where
@@ -67,6 +72,10 @@ instance Property "DBProxyName" DBProxyEndpoint where
   type PropertyType "DBProxyName" DBProxyEndpoint = Value Prelude.Text
   set newValue DBProxyEndpoint {..}
     = DBProxyEndpoint {dBProxyName = newValue, ..}
+instance Property "EndpointNetworkType" DBProxyEndpoint where
+  type PropertyType "EndpointNetworkType" DBProxyEndpoint = Value Prelude.Text
+  set newValue DBProxyEndpoint {..}
+    = DBProxyEndpoint {endpointNetworkType = Prelude.pure newValue, ..}
 instance Property "Tags" DBProxyEndpoint where
   type PropertyType "Tags" DBProxyEndpoint = [TagFormatProperty]
   set newValue DBProxyEndpoint {..}

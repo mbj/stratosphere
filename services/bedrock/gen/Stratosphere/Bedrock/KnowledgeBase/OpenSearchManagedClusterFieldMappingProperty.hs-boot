@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.OpenSearchManagedClusterFieldMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenSearchManagedClusterFieldMappingProperty :: Prelude.Type
+instance ToResourceProperties OpenSearchManagedClusterFieldMappingProperty
+instance Prelude.Eq OpenSearchManagedClusterFieldMappingProperty
+instance Prelude.Show OpenSearchManagedClusterFieldMappingProperty
+instance JSON.ToJSON OpenSearchManagedClusterFieldMappingProperty

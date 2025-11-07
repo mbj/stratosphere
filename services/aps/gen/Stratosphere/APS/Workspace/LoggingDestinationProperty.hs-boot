@@ -1,0 +1,9 @@
+module Stratosphere.APS.Workspace.LoggingDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoggingDestinationProperty :: Prelude.Type
+instance ToResourceProperties LoggingDestinationProperty
+instance Prelude.Eq LoggingDestinationProperty
+instance Prelude.Show LoggingDestinationProperty
+instance JSON.ToJSON LoggingDestinationProperty

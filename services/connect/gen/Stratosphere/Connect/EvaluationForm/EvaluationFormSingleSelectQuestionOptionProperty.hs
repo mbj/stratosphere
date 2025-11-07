@@ -1,10 +1,12 @@
 module Stratosphere.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionOptionProperty (
+        module Exports,
         EvaluationFormSingleSelectQuestionOptionProperty(..),
         mkEvaluationFormSingleSelectQuestionOptionProperty
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.AutomaticFailConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormSingleSelectQuestionOptionProperty
@@ -12,6 +14,8 @@ data EvaluationFormSingleSelectQuestionOptionProperty
     EvaluationFormSingleSelectQuestionOptionProperty {haddock_workaround_ :: (),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfail>
                                                       automaticFail :: (Prelude.Maybe (Value Prelude.Bool)),
+                                                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfailconfiguration>
+                                                      automaticFailConfiguration :: (Prelude.Maybe AutomaticFailConfigurationProperty),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-refid>
                                                       refId :: (Value Prelude.Text),
                                                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-score>
@@ -26,7 +30,9 @@ mkEvaluationFormSingleSelectQuestionOptionProperty ::
 mkEvaluationFormSingleSelectQuestionOptionProperty refId text
   = EvaluationFormSingleSelectQuestionOptionProperty
       {haddock_workaround_ = (), refId = refId, text = text,
-       automaticFail = Prelude.Nothing, score = Prelude.Nothing}
+       automaticFail = Prelude.Nothing,
+       automaticFailConfiguration = Prelude.Nothing,
+       score = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormSingleSelectQuestionOptionProperty where
   toResourceProperties
     EvaluationFormSingleSelectQuestionOptionProperty {..}
@@ -38,6 +44,8 @@ instance ToResourceProperties EvaluationFormSingleSelectQuestionOptionProperty w
                            ["RefId" JSON..= refId, "Text" JSON..= text]
                            (Prelude.catMaybes
                               [(JSON..=) "AutomaticFail" Prelude.<$> automaticFail,
+                               (JSON..=) "AutomaticFailConfiguration"
+                                 Prelude.<$> automaticFailConfiguration,
                                (JSON..=) "Score" Prelude.<$> score]))}
 instance JSON.ToJSON EvaluationFormSingleSelectQuestionOptionProperty where
   toJSON EvaluationFormSingleSelectQuestionOptionProperty {..}
@@ -47,12 +55,19 @@ instance JSON.ToJSON EvaluationFormSingleSelectQuestionOptionProperty where
               ["RefId" JSON..= refId, "Text" JSON..= text]
               (Prelude.catMaybes
                  [(JSON..=) "AutomaticFail" Prelude.<$> automaticFail,
+                  (JSON..=) "AutomaticFailConfiguration"
+                    Prelude.<$> automaticFailConfiguration,
                   (JSON..=) "Score" Prelude.<$> score])))
 instance Property "AutomaticFail" EvaluationFormSingleSelectQuestionOptionProperty where
   type PropertyType "AutomaticFail" EvaluationFormSingleSelectQuestionOptionProperty = Value Prelude.Bool
   set newValue EvaluationFormSingleSelectQuestionOptionProperty {..}
     = EvaluationFormSingleSelectQuestionOptionProperty
         {automaticFail = Prelude.pure newValue, ..}
+instance Property "AutomaticFailConfiguration" EvaluationFormSingleSelectQuestionOptionProperty where
+  type PropertyType "AutomaticFailConfiguration" EvaluationFormSingleSelectQuestionOptionProperty = AutomaticFailConfigurationProperty
+  set newValue EvaluationFormSingleSelectQuestionOptionProperty {..}
+    = EvaluationFormSingleSelectQuestionOptionProperty
+        {automaticFailConfiguration = Prelude.pure newValue, ..}
 instance Property "RefId" EvaluationFormSingleSelectQuestionOptionProperty where
   type PropertyType "RefId" EvaluationFormSingleSelectQuestionOptionProperty = Value Prelude.Text
   set newValue EvaluationFormSingleSelectQuestionOptionProperty {..}

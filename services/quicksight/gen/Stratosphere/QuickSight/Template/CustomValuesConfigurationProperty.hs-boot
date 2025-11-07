@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.CustomValuesConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomValuesConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CustomValuesConfigurationProperty
+instance Prelude.Eq CustomValuesConfigurationProperty
+instance Prelude.Show CustomValuesConfigurationProperty
+instance JSON.ToJSON CustomValuesConfigurationProperty

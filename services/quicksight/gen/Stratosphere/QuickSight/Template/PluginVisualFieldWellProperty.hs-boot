@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.PluginVisualFieldWellProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PluginVisualFieldWellProperty :: Prelude.Type
+instance ToResourceProperties PluginVisualFieldWellProperty
+instance Prelude.Eq PluginVisualFieldWellProperty
+instance Prelude.Show PluginVisualFieldWellProperty
+instance JSON.ToJSON PluginVisualFieldWellProperty

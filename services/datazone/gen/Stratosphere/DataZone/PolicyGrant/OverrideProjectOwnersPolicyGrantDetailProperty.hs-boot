@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.PolicyGrant.OverrideProjectOwnersPolicyGrantDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OverrideProjectOwnersPolicyGrantDetailProperty :: Prelude.Type
+instance ToResourceProperties OverrideProjectOwnersPolicyGrantDetailProperty
+instance Prelude.Eq OverrideProjectOwnersPolicyGrantDetailProperty
+instance Prelude.Show OverrideProjectOwnersPolicyGrantDetailProperty
+instance JSON.ToJSON OverrideProjectOwnersPolicyGrantDetailProperty

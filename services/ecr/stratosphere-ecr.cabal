@@ -6,12 +6,15 @@ cabal-version: 1.12
 
 name:           stratosphere-ecr
 version:        1.0.0
-category:       AWS, Cloud
+synopsis:       Stratosphere integration for AWS ECR.
+description:    Integration into stratosphere to generate resources and properties for AWS ECR
+category:       AWS, Cloud, ECR
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 
 source-repository head
@@ -29,6 +32,9 @@ library
       Stratosphere.ECR.PublicRepository.RepositoryCatalogDataProperty
       Stratosphere.ECR.PullThroughCacheRule
       Stratosphere.ECR.RegistryPolicy
+      Stratosphere.ECR.RegistryScanningConfiguration
+      Stratosphere.ECR.RegistryScanningConfiguration.RepositoryFilterProperty
+      Stratosphere.ECR.RegistryScanningConfiguration.ScanningRuleProperty
       Stratosphere.ECR.ReplicationConfiguration
       Stratosphere.ECR.ReplicationConfiguration.ReplicationConfigurationProperty
       Stratosphere.ECR.ReplicationConfiguration.ReplicationDestinationProperty
@@ -37,9 +43,11 @@ library
       Stratosphere.ECR.Repository
       Stratosphere.ECR.Repository.EncryptionConfigurationProperty
       Stratosphere.ECR.Repository.ImageScanningConfigurationProperty
+      Stratosphere.ECR.Repository.ImageTagMutabilityExclusionFilterProperty
       Stratosphere.ECR.Repository.LifecyclePolicyProperty
       Stratosphere.ECR.RepositoryCreationTemplate
       Stratosphere.ECR.RepositoryCreationTemplate.EncryptionConfigurationProperty
+      Stratosphere.ECR.RepositoryCreationTemplate.ImageTagMutabilityExclusionFilterProperty
   other-modules:
       Paths_stratosphere_ecr
   hs-source-dirs:
@@ -74,8 +82,8 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
   build-depends:
-      aeson
-    , base
+      aeson ==2.*
+    , base >=4.8 && <4.22
     , stratosphere ==1.0.0
   default-language: Haskell2010
   if flag(development)

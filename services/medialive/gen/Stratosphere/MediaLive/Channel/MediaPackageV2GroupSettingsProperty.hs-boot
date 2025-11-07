@@ -1,0 +1,9 @@
+module Stratosphere.MediaLive.Channel.MediaPackageV2GroupSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MediaPackageV2GroupSettingsProperty :: Prelude.Type
+instance ToResourceProperties MediaPackageV2GroupSettingsProperty
+instance Prelude.Eq MediaPackageV2GroupSettingsProperty
+instance Prelude.Show MediaPackageV2GroupSettingsProperty
+instance JSON.ToJSON MediaPackageV2GroupSettingsProperty

@@ -4,12 +4,15 @@ module Stratosphere.ApplicationSignals.ServiceLevelObjective.SliMetricProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.DependencyConfigProperty as Exports
 import {-# SOURCE #-} Stratosphere.ApplicationSignals.ServiceLevelObjective.MetricDataQueryProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data SliMetricProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html>
     SliMetricProperty {haddock_workaround_ :: (),
+                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-dependencyconfig>
+                       dependencyConfig :: (Prelude.Maybe DependencyConfigProperty),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-keyattributes>
                        keyAttributes :: (Prelude.Maybe (Prelude.Map Prelude.Text (Value Prelude.Text))),
                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-metricdataqueries>
@@ -26,7 +29,8 @@ data SliMetricProperty
 mkSliMetricProperty :: SliMetricProperty
 mkSliMetricProperty
   = SliMetricProperty
-      {haddock_workaround_ = (), keyAttributes = Prelude.Nothing,
+      {haddock_workaround_ = (), dependencyConfig = Prelude.Nothing,
+       keyAttributes = Prelude.Nothing,
        metricDataQueries = Prelude.Nothing, metricType = Prelude.Nothing,
        operationName = Prelude.Nothing, periodSeconds = Prelude.Nothing,
        statistic = Prelude.Nothing}
@@ -37,7 +41,8 @@ instance ToResourceProperties SliMetricProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "KeyAttributes" Prelude.<$> keyAttributes,
+                           [(JSON..=) "DependencyConfig" Prelude.<$> dependencyConfig,
+                            (JSON..=) "KeyAttributes" Prelude.<$> keyAttributes,
                             (JSON..=) "MetricDataQueries" Prelude.<$> metricDataQueries,
                             (JSON..=) "MetricType" Prelude.<$> metricType,
                             (JSON..=) "OperationName" Prelude.<$> operationName,
@@ -48,12 +53,17 @@ instance JSON.ToJSON SliMetricProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "KeyAttributes" Prelude.<$> keyAttributes,
+              [(JSON..=) "DependencyConfig" Prelude.<$> dependencyConfig,
+               (JSON..=) "KeyAttributes" Prelude.<$> keyAttributes,
                (JSON..=) "MetricDataQueries" Prelude.<$> metricDataQueries,
                (JSON..=) "MetricType" Prelude.<$> metricType,
                (JSON..=) "OperationName" Prelude.<$> operationName,
                (JSON..=) "PeriodSeconds" Prelude.<$> periodSeconds,
                (JSON..=) "Statistic" Prelude.<$> statistic]))
+instance Property "DependencyConfig" SliMetricProperty where
+  type PropertyType "DependencyConfig" SliMetricProperty = DependencyConfigProperty
+  set newValue SliMetricProperty {..}
+    = SliMetricProperty {dependencyConfig = Prelude.pure newValue, ..}
 instance Property "KeyAttributes" SliMetricProperty where
   type PropertyType "KeyAttributes" SliMetricProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
   set newValue SliMetricProperty {..}

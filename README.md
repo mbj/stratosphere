@@ -141,6 +141,12 @@ Feel free to raise any issues, or even just make suggestions, by filing a Github
 ## Development Build
 
 ```
-# warning takes a while ;)
-STACK_YAML=stack-9.2.yaml stack build --copy-bins --test stratosphere-generator
+# Warning this takes a while ;)
+
+# Compile all packages
+STACK_YAML=stack-9.12.yaml stack test
+
+# Run the generator
+STACK_YAML=stack-9.12.yaml stack build stratosphere-manager
+STACK_YAML=stack-9.12.yaml stack exec stratosphere-manager -- generate
 ```

@@ -4,9 +4,7 @@ module Stratosphere.RDS.DBInstance (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
-import {-# SOURCE #-} Stratosphere.RDS.DBInstance.CertificateDetailsProperty as Exports
 import {-# SOURCE #-} Stratosphere.RDS.DBInstance.DBInstanceRoleProperty as Exports
-import {-# SOURCE #-} Stratosphere.RDS.DBInstance.EndpointProperty as Exports
 import {-# SOURCE #-} Stratosphere.RDS.DBInstance.MasterUserSecretProperty as Exports
 import {-# SOURCE #-} Stratosphere.RDS.DBInstance.ProcessorFeatureProperty as Exports
 import Stratosphere.ResourceProperties
@@ -19,6 +17,8 @@ data DBInstance
                 allocatedStorage :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-allowmajorversionupgrade>
                 allowMajorVersionUpgrade :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-applyimmediately>
+                applyImmediately :: (Prelude.Maybe (Value Prelude.Bool)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-associatedroles>
                 associatedRoles :: (Prelude.Maybe [DBInstanceRoleProperty]),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-autominorversionupgrade>
@@ -27,14 +27,16 @@ data DBInstance
                 automaticBackupReplicationKmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationregion>
                 automaticBackupReplicationRegion :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-automaticbackupreplicationretentionperiod>
+                automaticBackupReplicationRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-availabilityzone>
                 availabilityZone :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backupretentionperiod>
                 backupRetentionPeriod :: (Prelude.Maybe (Value Prelude.Integer)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-backuptarget>
+                backupTarget :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-cacertificateidentifier>
                 cACertificateIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
-                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificatedetails>
-                certificateDetails :: (Prelude.Maybe CertificateDetailsProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificaterotationrestart>
                 certificateRotationRestart :: (Prelude.Maybe (Value Prelude.Bool)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-charactersetname>
@@ -61,6 +63,10 @@ data DBInstance
                 dBSnapshotIdentifier :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsubnetgroupname>
                 dBSubnetGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsystemid>
+                dBSystemId :: (Prelude.Maybe (Value Prelude.Text)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-databaseinsightsmode>
+                databaseInsightsMode :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dedicatedlogvolume>
                 dedicatedLogVolume :: (Prelude.Maybe (Value Prelude.Bool)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-deleteautomatedbackups>
@@ -85,8 +91,6 @@ data DBInstance
                 enableIAMDatabaseAuthentication :: (Prelude.Maybe (Value Prelude.Bool)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enableperformanceinsights>
                 enablePerformanceInsights :: (Prelude.Maybe (Value Prelude.Bool)),
-                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-endpoint>
-                endpoint :: (Prelude.Maybe EndpointProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-engine>
                 engine :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-enginelifecyclesupport>
@@ -101,6 +105,8 @@ data DBInstance
                 licenseModel :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-managemasteruserpassword>
                 manageMasterUserPassword :: (Prelude.Maybe (Value Prelude.Bool)),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserauthenticationtype>
+                masterUserAuthenticationType :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masteruserpassword>
                 masterUserPassword :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-masterusersecret>
@@ -173,14 +179,16 @@ mkDBInstance
   = DBInstance
       {haddock_workaround_ = (), allocatedStorage = Prelude.Nothing,
        allowMajorVersionUpgrade = Prelude.Nothing,
+       applyImmediately = Prelude.Nothing,
        associatedRoles = Prelude.Nothing,
        autoMinorVersionUpgrade = Prelude.Nothing,
        automaticBackupReplicationKmsKeyId = Prelude.Nothing,
        automaticBackupReplicationRegion = Prelude.Nothing,
+       automaticBackupReplicationRetentionPeriod = Prelude.Nothing,
        availabilityZone = Prelude.Nothing,
        backupRetentionPeriod = Prelude.Nothing,
+       backupTarget = Prelude.Nothing,
        cACertificateIdentifier = Prelude.Nothing,
-       certificateDetails = Prelude.Nothing,
        certificateRotationRestart = Prelude.Nothing,
        characterSetName = Prelude.Nothing,
        copyTagsToSnapshot = Prelude.Nothing,
@@ -192,7 +200,8 @@ mkDBInstance
        dBParameterGroupName = Prelude.Nothing,
        dBSecurityGroups = Prelude.Nothing,
        dBSnapshotIdentifier = Prelude.Nothing,
-       dBSubnetGroupName = Prelude.Nothing,
+       dBSubnetGroupName = Prelude.Nothing, dBSystemId = Prelude.Nothing,
+       databaseInsightsMode = Prelude.Nothing,
        dedicatedLogVolume = Prelude.Nothing,
        deleteAutomatedBackups = Prelude.Nothing,
        deletionProtection = Prelude.Nothing, domain = Prelude.Nothing,
@@ -202,11 +211,11 @@ mkDBInstance
        enableCloudwatchLogsExports = Prelude.Nothing,
        enableIAMDatabaseAuthentication = Prelude.Nothing,
        enablePerformanceInsights = Prelude.Nothing,
-       endpoint = Prelude.Nothing, engine = Prelude.Nothing,
-       engineLifecycleSupport = Prelude.Nothing,
+       engine = Prelude.Nothing, engineLifecycleSupport = Prelude.Nothing,
        engineVersion = Prelude.Nothing, iops = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing, licenseModel = Prelude.Nothing,
        manageMasterUserPassword = Prelude.Nothing,
+       masterUserAuthenticationType = Prelude.Nothing,
        masterUserPassword = Prelude.Nothing,
        masterUserSecret = Prelude.Nothing,
        masterUsername = Prelude.Nothing,
@@ -242,6 +251,7 @@ instance ToResourceProperties DBInstance where
                            [(JSON..=) "AllocatedStorage" Prelude.<$> allocatedStorage,
                             (JSON..=) "AllowMajorVersionUpgrade"
                               Prelude.<$> allowMajorVersionUpgrade,
+                            (JSON..=) "ApplyImmediately" Prelude.<$> applyImmediately,
                             (JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,
                             (JSON..=) "AutoMinorVersionUpgrade"
                               Prelude.<$> autoMinorVersionUpgrade,
@@ -249,12 +259,14 @@ instance ToResourceProperties DBInstance where
                               Prelude.<$> automaticBackupReplicationKmsKeyId,
                             (JSON..=) "AutomaticBackupReplicationRegion"
                               Prelude.<$> automaticBackupReplicationRegion,
+                            (JSON..=) "AutomaticBackupReplicationRetentionPeriod"
+                              Prelude.<$> automaticBackupReplicationRetentionPeriod,
                             (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
                             (JSON..=) "BackupRetentionPeriod"
                               Prelude.<$> backupRetentionPeriod,
+                            (JSON..=) "BackupTarget" Prelude.<$> backupTarget,
                             (JSON..=) "CACertificateIdentifier"
                               Prelude.<$> cACertificateIdentifier,
-                            (JSON..=) "CertificateDetails" Prelude.<$> certificateDetails,
                             (JSON..=) "CertificateRotationRestart"
                               Prelude.<$> certificateRotationRestart,
                             (JSON..=) "CharacterSetName" Prelude.<$> characterSetName,
@@ -271,6 +283,8 @@ instance ToResourceProperties DBInstance where
                             (JSON..=) "DBSecurityGroups" Prelude.<$> dBSecurityGroups,
                             (JSON..=) "DBSnapshotIdentifier" Prelude.<$> dBSnapshotIdentifier,
                             (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
+                            (JSON..=) "DBSystemId" Prelude.<$> dBSystemId,
+                            (JSON..=) "DatabaseInsightsMode" Prelude.<$> databaseInsightsMode,
                             (JSON..=) "DedicatedLogVolume" Prelude.<$> dedicatedLogVolume,
                             (JSON..=) "DeleteAutomatedBackups"
                               Prelude.<$> deleteAutomatedBackups,
@@ -287,7 +301,6 @@ instance ToResourceProperties DBInstance where
                               Prelude.<$> enableIAMDatabaseAuthentication,
                             (JSON..=) "EnablePerformanceInsights"
                               Prelude.<$> enablePerformanceInsights,
-                            (JSON..=) "Endpoint" Prelude.<$> endpoint,
                             (JSON..=) "Engine" Prelude.<$> engine,
                             (JSON..=) "EngineLifecycleSupport"
                               Prelude.<$> engineLifecycleSupport,
@@ -297,6 +310,8 @@ instance ToResourceProperties DBInstance where
                             (JSON..=) "LicenseModel" Prelude.<$> licenseModel,
                             (JSON..=) "ManageMasterUserPassword"
                               Prelude.<$> manageMasterUserPassword,
+                            (JSON..=) "MasterUserAuthenticationType"
+                              Prelude.<$> masterUserAuthenticationType,
                             (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
                             (JSON..=) "MasterUserSecret" Prelude.<$> masterUserSecret,
                             (JSON..=) "MasterUsername" Prelude.<$> masterUsername,
@@ -348,6 +363,7 @@ instance JSON.ToJSON DBInstance where
               [(JSON..=) "AllocatedStorage" Prelude.<$> allocatedStorage,
                (JSON..=) "AllowMajorVersionUpgrade"
                  Prelude.<$> allowMajorVersionUpgrade,
+               (JSON..=) "ApplyImmediately" Prelude.<$> applyImmediately,
                (JSON..=) "AssociatedRoles" Prelude.<$> associatedRoles,
                (JSON..=) "AutoMinorVersionUpgrade"
                  Prelude.<$> autoMinorVersionUpgrade,
@@ -355,12 +371,14 @@ instance JSON.ToJSON DBInstance where
                  Prelude.<$> automaticBackupReplicationKmsKeyId,
                (JSON..=) "AutomaticBackupReplicationRegion"
                  Prelude.<$> automaticBackupReplicationRegion,
+               (JSON..=) "AutomaticBackupReplicationRetentionPeriod"
+                 Prelude.<$> automaticBackupReplicationRetentionPeriod,
                (JSON..=) "AvailabilityZone" Prelude.<$> availabilityZone,
                (JSON..=) "BackupRetentionPeriod"
                  Prelude.<$> backupRetentionPeriod,
+               (JSON..=) "BackupTarget" Prelude.<$> backupTarget,
                (JSON..=) "CACertificateIdentifier"
                  Prelude.<$> cACertificateIdentifier,
-               (JSON..=) "CertificateDetails" Prelude.<$> certificateDetails,
                (JSON..=) "CertificateRotationRestart"
                  Prelude.<$> certificateRotationRestart,
                (JSON..=) "CharacterSetName" Prelude.<$> characterSetName,
@@ -377,6 +395,8 @@ instance JSON.ToJSON DBInstance where
                (JSON..=) "DBSecurityGroups" Prelude.<$> dBSecurityGroups,
                (JSON..=) "DBSnapshotIdentifier" Prelude.<$> dBSnapshotIdentifier,
                (JSON..=) "DBSubnetGroupName" Prelude.<$> dBSubnetGroupName,
+               (JSON..=) "DBSystemId" Prelude.<$> dBSystemId,
+               (JSON..=) "DatabaseInsightsMode" Prelude.<$> databaseInsightsMode,
                (JSON..=) "DedicatedLogVolume" Prelude.<$> dedicatedLogVolume,
                (JSON..=) "DeleteAutomatedBackups"
                  Prelude.<$> deleteAutomatedBackups,
@@ -393,7 +413,6 @@ instance JSON.ToJSON DBInstance where
                  Prelude.<$> enableIAMDatabaseAuthentication,
                (JSON..=) "EnablePerformanceInsights"
                  Prelude.<$> enablePerformanceInsights,
-               (JSON..=) "Endpoint" Prelude.<$> endpoint,
                (JSON..=) "Engine" Prelude.<$> engine,
                (JSON..=) "EngineLifecycleSupport"
                  Prelude.<$> engineLifecycleSupport,
@@ -403,6 +422,8 @@ instance JSON.ToJSON DBInstance where
                (JSON..=) "LicenseModel" Prelude.<$> licenseModel,
                (JSON..=) "ManageMasterUserPassword"
                  Prelude.<$> manageMasterUserPassword,
+               (JSON..=) "MasterUserAuthenticationType"
+                 Prelude.<$> masterUserAuthenticationType,
                (JSON..=) "MasterUserPassword" Prelude.<$> masterUserPassword,
                (JSON..=) "MasterUserSecret" Prelude.<$> masterUserSecret,
                (JSON..=) "MasterUsername" Prelude.<$> masterUsername,
@@ -454,6 +475,10 @@ instance Property "AllowMajorVersionUpgrade" DBInstance where
   type PropertyType "AllowMajorVersionUpgrade" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
     = DBInstance {allowMajorVersionUpgrade = Prelude.pure newValue, ..}
+instance Property "ApplyImmediately" DBInstance where
+  type PropertyType "ApplyImmediately" DBInstance = Value Prelude.Bool
+  set newValue DBInstance {..}
+    = DBInstance {applyImmediately = Prelude.pure newValue, ..}
 instance Property "AssociatedRoles" DBInstance where
   type PropertyType "AssociatedRoles" DBInstance = [DBInstanceRoleProperty]
   set newValue DBInstance {..}
@@ -472,6 +497,12 @@ instance Property "AutomaticBackupReplicationRegion" DBInstance where
   set newValue DBInstance {..}
     = DBInstance
         {automaticBackupReplicationRegion = Prelude.pure newValue, ..}
+instance Property "AutomaticBackupReplicationRetentionPeriod" DBInstance where
+  type PropertyType "AutomaticBackupReplicationRetentionPeriod" DBInstance = Value Prelude.Integer
+  set newValue DBInstance {..}
+    = DBInstance
+        {automaticBackupReplicationRetentionPeriod = Prelude.pure newValue,
+         ..}
 instance Property "AvailabilityZone" DBInstance where
   type PropertyType "AvailabilityZone" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
@@ -480,14 +511,14 @@ instance Property "BackupRetentionPeriod" DBInstance where
   type PropertyType "BackupRetentionPeriod" DBInstance = Value Prelude.Integer
   set newValue DBInstance {..}
     = DBInstance {backupRetentionPeriod = Prelude.pure newValue, ..}
+instance Property "BackupTarget" DBInstance where
+  type PropertyType "BackupTarget" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {backupTarget = Prelude.pure newValue, ..}
 instance Property "CACertificateIdentifier" DBInstance where
   type PropertyType "CACertificateIdentifier" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {cACertificateIdentifier = Prelude.pure newValue, ..}
-instance Property "CertificateDetails" DBInstance where
-  type PropertyType "CertificateDetails" DBInstance = CertificateDetailsProperty
-  set newValue DBInstance {..}
-    = DBInstance {certificateDetails = Prelude.pure newValue, ..}
 instance Property "CertificateRotationRestart" DBInstance where
   type PropertyType "CertificateRotationRestart" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
@@ -542,6 +573,14 @@ instance Property "DBSubnetGroupName" DBInstance where
   type PropertyType "DBSubnetGroupName" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
     = DBInstance {dBSubnetGroupName = Prelude.pure newValue, ..}
+instance Property "DBSystemId" DBInstance where
+  type PropertyType "DBSystemId" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {dBSystemId = Prelude.pure newValue, ..}
+instance Property "DatabaseInsightsMode" DBInstance where
+  type PropertyType "DatabaseInsightsMode" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance {databaseInsightsMode = Prelude.pure newValue, ..}
 instance Property "DedicatedLogVolume" DBInstance where
   type PropertyType "DedicatedLogVolume" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
@@ -593,10 +632,6 @@ instance Property "EnablePerformanceInsights" DBInstance where
   set newValue DBInstance {..}
     = DBInstance
         {enablePerformanceInsights = Prelude.pure newValue, ..}
-instance Property "Endpoint" DBInstance where
-  type PropertyType "Endpoint" DBInstance = EndpointProperty
-  set newValue DBInstance {..}
-    = DBInstance {endpoint = Prelude.pure newValue, ..}
 instance Property "Engine" DBInstance where
   type PropertyType "Engine" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}
@@ -625,6 +660,11 @@ instance Property "ManageMasterUserPassword" DBInstance where
   type PropertyType "ManageMasterUserPassword" DBInstance = Value Prelude.Bool
   set newValue DBInstance {..}
     = DBInstance {manageMasterUserPassword = Prelude.pure newValue, ..}
+instance Property "MasterUserAuthenticationType" DBInstance where
+  type PropertyType "MasterUserAuthenticationType" DBInstance = Value Prelude.Text
+  set newValue DBInstance {..}
+    = DBInstance
+        {masterUserAuthenticationType = Prelude.pure newValue, ..}
 instance Property "MasterUserPassword" DBInstance where
   type PropertyType "MasterUserPassword" DBInstance = Value Prelude.Text
   set newValue DBInstance {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.KnowledgeBase.RedshiftQueryEngineStorageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftQueryEngineStorageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RedshiftQueryEngineStorageConfigurationProperty
+instance Prelude.Eq RedshiftQueryEngineStorageConfigurationProperty
+instance Prelude.Show RedshiftQueryEngineStorageConfigurationProperty
+instance JSON.ToJSON RedshiftQueryEngineStorageConfigurationProperty

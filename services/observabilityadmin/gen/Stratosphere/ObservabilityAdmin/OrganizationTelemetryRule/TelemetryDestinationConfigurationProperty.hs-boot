@@ -1,0 +1,9 @@
+module Stratosphere.ObservabilityAdmin.OrganizationTelemetryRule.TelemetryDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TelemetryDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TelemetryDestinationConfigurationProperty
+instance Prelude.Eq TelemetryDestinationConfigurationProperty
+instance Prelude.Show TelemetryDestinationConfigurationProperty
+instance JSON.ToJSON TelemetryDestinationConfigurationProperty

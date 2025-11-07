@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.AxisDisplayRangeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AxisDisplayRangeProperty :: Prelude.Type
+instance ToResourceProperties AxisDisplayRangeProperty
+instance Prelude.Eq AxisDisplayRangeProperty
+instance Prelude.Show AxisDisplayRangeProperty
+instance JSON.ToJSON AxisDisplayRangeProperty

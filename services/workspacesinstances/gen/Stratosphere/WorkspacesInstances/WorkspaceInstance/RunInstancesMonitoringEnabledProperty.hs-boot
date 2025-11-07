@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.RunInstancesMonitoringEnabledProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RunInstancesMonitoringEnabledProperty :: Prelude.Type
+instance ToResourceProperties RunInstancesMonitoringEnabledProperty
+instance Prelude.Eq RunInstancesMonitoringEnabledProperty
+instance Prelude.Show RunInstancesMonitoringEnabledProperty
+instance JSON.ToJSON RunInstancesMonitoringEnabledProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.PluginVisualTableQuerySortProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PluginVisualTableQuerySortProperty :: Prelude.Type
+instance ToResourceProperties PluginVisualTableQuerySortProperty
+instance Prelude.Eq PluginVisualTableQuerySortProperty
+instance Prelude.Show PluginVisualTableQuerySortProperty
+instance JSON.ToJSON PluginVisualTableQuerySortProperty

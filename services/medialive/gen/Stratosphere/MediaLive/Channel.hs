@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.AnywhereSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty as Exports
+import {-# SOURCE #-} Stratosphere.MediaLive.Channel.ChannelEngineVersionRequestProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.EncoderSettingsProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputAttachmentProperty as Exports
 import {-# SOURCE #-} Stratosphere.MediaLive.Channel.InputSpecificationProperty as Exports
@@ -23,8 +24,12 @@ data Channel
              cdiInputSpecification :: (Prelude.Maybe CdiInputSpecificationProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelclass>
              channelClass :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelengineversion>
+             channelEngineVersion :: (Prelude.Maybe ChannelEngineVersionRequestProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations>
              destinations :: (Prelude.Maybe [OutputDestinationProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-dryrun>
+             dryRun :: (Prelude.Maybe (Value Prelude.Bool)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings>
              encoderSettings :: (Prelude.Maybe EncoderSettingsProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments>
@@ -49,7 +54,9 @@ mkChannel
   = Channel
       {haddock_workaround_ = (), anywhereSettings = Prelude.Nothing,
        cdiInputSpecification = Prelude.Nothing,
-       channelClass = Prelude.Nothing, destinations = Prelude.Nothing,
+       channelClass = Prelude.Nothing,
+       channelEngineVersion = Prelude.Nothing,
+       destinations = Prelude.Nothing, dryRun = Prelude.Nothing,
        encoderSettings = Prelude.Nothing,
        inputAttachments = Prelude.Nothing,
        inputSpecification = Prelude.Nothing, logLevel = Prelude.Nothing,
@@ -66,7 +73,9 @@ instance ToResourceProperties Channel where
                             (JSON..=) "CdiInputSpecification"
                               Prelude.<$> cdiInputSpecification,
                             (JSON..=) "ChannelClass" Prelude.<$> channelClass,
+                            (JSON..=) "ChannelEngineVersion" Prelude.<$> channelEngineVersion,
                             (JSON..=) "Destinations" Prelude.<$> destinations,
+                            (JSON..=) "DryRun" Prelude.<$> dryRun,
                             (JSON..=) "EncoderSettings" Prelude.<$> encoderSettings,
                             (JSON..=) "InputAttachments" Prelude.<$> inputAttachments,
                             (JSON..=) "InputSpecification" Prelude.<$> inputSpecification,
@@ -85,7 +94,9 @@ instance JSON.ToJSON Channel where
                (JSON..=) "CdiInputSpecification"
                  Prelude.<$> cdiInputSpecification,
                (JSON..=) "ChannelClass" Prelude.<$> channelClass,
+               (JSON..=) "ChannelEngineVersion" Prelude.<$> channelEngineVersion,
                (JSON..=) "Destinations" Prelude.<$> destinations,
+               (JSON..=) "DryRun" Prelude.<$> dryRun,
                (JSON..=) "EncoderSettings" Prelude.<$> encoderSettings,
                (JSON..=) "InputAttachments" Prelude.<$> inputAttachments,
                (JSON..=) "InputSpecification" Prelude.<$> inputSpecification,
@@ -107,10 +118,18 @@ instance Property "ChannelClass" Channel where
   type PropertyType "ChannelClass" Channel = Value Prelude.Text
   set newValue Channel {..}
     = Channel {channelClass = Prelude.pure newValue, ..}
+instance Property "ChannelEngineVersion" Channel where
+  type PropertyType "ChannelEngineVersion" Channel = ChannelEngineVersionRequestProperty
+  set newValue Channel {..}
+    = Channel {channelEngineVersion = Prelude.pure newValue, ..}
 instance Property "Destinations" Channel where
   type PropertyType "Destinations" Channel = [OutputDestinationProperty]
   set newValue Channel {..}
     = Channel {destinations = Prelude.pure newValue, ..}
+instance Property "DryRun" Channel where
+  type PropertyType "DryRun" Channel = Value Prelude.Bool
+  set newValue Channel {..}
+    = Channel {dryRun = Prelude.pure newValue, ..}
 instance Property "EncoderSettings" Channel where
   type PropertyType "EncoderSettings" Channel = EncoderSettingsProperty
   set newValue Channel {..}

@@ -25,60 +25,63 @@ data NatGateway
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-secondaryprivateipaddresses>
                 secondaryPrivateIpAddresses :: (Prelude.Maybe (ValueList Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid>
-                subnetId :: (Value Prelude.Text),
+                subnetId :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags>
-                tags :: (Prelude.Maybe [Tag])}
+                tags :: (Prelude.Maybe [Tag]),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-vpcid>
+                vpcId :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkNatGateway :: Value Prelude.Text -> NatGateway
-mkNatGateway subnetId
+mkNatGateway :: NatGateway
+mkNatGateway
   = NatGateway
-      {haddock_workaround_ = (), subnetId = subnetId,
-       allocationId = Prelude.Nothing, connectivityType = Prelude.Nothing,
+      {haddock_workaround_ = (), allocationId = Prelude.Nothing,
+       connectivityType = Prelude.Nothing,
        maxDrainDurationSeconds = Prelude.Nothing,
        privateIpAddress = Prelude.Nothing,
        secondaryAllocationIds = Prelude.Nothing,
        secondaryPrivateIpAddressCount = Prelude.Nothing,
        secondaryPrivateIpAddresses = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       subnetId = Prelude.Nothing, tags = Prelude.Nothing,
+       vpcId = Prelude.Nothing}
 instance ToResourceProperties NatGateway where
   toResourceProperties NatGateway {..}
     = ResourceProperties
         {awsType = "AWS::EC2::NatGateway", supportsTags = Prelude.True,
          properties = Prelude.fromList
-                        ((Prelude.<>)
-                           ["SubnetId" JSON..= subnetId]
-                           (Prelude.catMaybes
-                              [(JSON..=) "AllocationId" Prelude.<$> allocationId,
-                               (JSON..=) "ConnectivityType" Prelude.<$> connectivityType,
-                               (JSON..=) "MaxDrainDurationSeconds"
-                                 Prelude.<$> maxDrainDurationSeconds,
-                               (JSON..=) "PrivateIpAddress" Prelude.<$> privateIpAddress,
-                               (JSON..=) "SecondaryAllocationIds"
-                                 Prelude.<$> secondaryAllocationIds,
-                               (JSON..=) "SecondaryPrivateIpAddressCount"
-                                 Prelude.<$> secondaryPrivateIpAddressCount,
-                               (JSON..=) "SecondaryPrivateIpAddresses"
-                                 Prelude.<$> secondaryPrivateIpAddresses,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                        (Prelude.catMaybes
+                           [(JSON..=) "AllocationId" Prelude.<$> allocationId,
+                            (JSON..=) "ConnectivityType" Prelude.<$> connectivityType,
+                            (JSON..=) "MaxDrainDurationSeconds"
+                              Prelude.<$> maxDrainDurationSeconds,
+                            (JSON..=) "PrivateIpAddress" Prelude.<$> privateIpAddress,
+                            (JSON..=) "SecondaryAllocationIds"
+                              Prelude.<$> secondaryAllocationIds,
+                            (JSON..=) "SecondaryPrivateIpAddressCount"
+                              Prelude.<$> secondaryPrivateIpAddressCount,
+                            (JSON..=) "SecondaryPrivateIpAddresses"
+                              Prelude.<$> secondaryPrivateIpAddresses,
+                            (JSON..=) "SubnetId" Prelude.<$> subnetId,
+                            (JSON..=) "Tags" Prelude.<$> tags,
+                            (JSON..=) "VpcId" Prelude.<$> vpcId])}
 instance JSON.ToJSON NatGateway where
   toJSON NatGateway {..}
     = JSON.object
         (Prelude.fromList
-           ((Prelude.<>)
-              ["SubnetId" JSON..= subnetId]
-              (Prelude.catMaybes
-                 [(JSON..=) "AllocationId" Prelude.<$> allocationId,
-                  (JSON..=) "ConnectivityType" Prelude.<$> connectivityType,
-                  (JSON..=) "MaxDrainDurationSeconds"
-                    Prelude.<$> maxDrainDurationSeconds,
-                  (JSON..=) "PrivateIpAddress" Prelude.<$> privateIpAddress,
-                  (JSON..=) "SecondaryAllocationIds"
-                    Prelude.<$> secondaryAllocationIds,
-                  (JSON..=) "SecondaryPrivateIpAddressCount"
-                    Prelude.<$> secondaryPrivateIpAddressCount,
-                  (JSON..=) "SecondaryPrivateIpAddresses"
-                    Prelude.<$> secondaryPrivateIpAddresses,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+           (Prelude.catMaybes
+              [(JSON..=) "AllocationId" Prelude.<$> allocationId,
+               (JSON..=) "ConnectivityType" Prelude.<$> connectivityType,
+               (JSON..=) "MaxDrainDurationSeconds"
+                 Prelude.<$> maxDrainDurationSeconds,
+               (JSON..=) "PrivateIpAddress" Prelude.<$> privateIpAddress,
+               (JSON..=) "SecondaryAllocationIds"
+                 Prelude.<$> secondaryAllocationIds,
+               (JSON..=) "SecondaryPrivateIpAddressCount"
+                 Prelude.<$> secondaryPrivateIpAddressCount,
+               (JSON..=) "SecondaryPrivateIpAddresses"
+                 Prelude.<$> secondaryPrivateIpAddresses,
+               (JSON..=) "SubnetId" Prelude.<$> subnetId,
+               (JSON..=) "Tags" Prelude.<$> tags,
+               (JSON..=) "VpcId" Prelude.<$> vpcId]))
 instance Property "AllocationId" NatGateway where
   type PropertyType "AllocationId" NatGateway = Value Prelude.Text
   set newValue NatGateway {..}
@@ -111,8 +114,13 @@ instance Property "SecondaryPrivateIpAddresses" NatGateway where
         {secondaryPrivateIpAddresses = Prelude.pure newValue, ..}
 instance Property "SubnetId" NatGateway where
   type PropertyType "SubnetId" NatGateway = Value Prelude.Text
-  set newValue NatGateway {..} = NatGateway {subnetId = newValue, ..}
+  set newValue NatGateway {..}
+    = NatGateway {subnetId = Prelude.pure newValue, ..}
 instance Property "Tags" NatGateway where
   type PropertyType "Tags" NatGateway = [Tag]
   set newValue NatGateway {..}
     = NatGateway {tags = Prelude.pure newValue, ..}
+instance Property "VpcId" NatGateway where
+  type PropertyType "VpcId" NatGateway = Value Prelude.Text
+  set newValue NatGateway {..}
+    = NatGateway {vpcId = Prelude.pure newValue, ..}

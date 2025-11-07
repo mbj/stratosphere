@@ -9,6 +9,8 @@ import Stratosphere.Value
 data FlowNodeInputProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html>
     FlowNodeInputProperty {haddock_workaround_ :: (),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-category>
+                           category :: (Prelude.Maybe (Value Prelude.Text)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-expression>
                            expression :: (Value Prelude.Text),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-name>
@@ -23,19 +25,29 @@ mkFlowNodeInputProperty ::
 mkFlowNodeInputProperty expression name type'
   = FlowNodeInputProperty
       {haddock_workaround_ = (), expression = expression, name = name,
-       type' = type'}
+       type' = type', category = Prelude.Nothing}
 instance ToResourceProperties FlowNodeInputProperty where
   toResourceProperties FlowNodeInputProperty {..}
     = ResourceProperties
         {awsType = "AWS::Bedrock::Flow.FlowNodeInput",
          supportsTags = Prelude.False,
-         properties = ["Expression" JSON..= expression, "Name" JSON..= name,
-                       "Type" JSON..= type']}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Expression" JSON..= expression, "Name" JSON..= name,
+                            "Type" JSON..= type']
+                           (Prelude.catMaybes [(JSON..=) "Category" Prelude.<$> category]))}
 instance JSON.ToJSON FlowNodeInputProperty where
   toJSON FlowNodeInputProperty {..}
     = JSON.object
-        ["Expression" JSON..= expression, "Name" JSON..= name,
-         "Type" JSON..= type']
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Expression" JSON..= expression, "Name" JSON..= name,
+               "Type" JSON..= type']
+              (Prelude.catMaybes [(JSON..=) "Category" Prelude.<$> category])))
+instance Property "Category" FlowNodeInputProperty where
+  type PropertyType "Category" FlowNodeInputProperty = Value Prelude.Text
+  set newValue FlowNodeInputProperty {..}
+    = FlowNodeInputProperty {category = Prelude.pure newValue, ..}
 instance Property "Expression" FlowNodeInputProperty where
   type PropertyType "Expression" FlowNodeInputProperty = Value Prelude.Text
   set newValue FlowNodeInputProperty {..}

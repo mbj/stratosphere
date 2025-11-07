@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.ModalityRoutingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModalityRoutingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ModalityRoutingConfigurationProperty
+instance Prelude.Eq ModalityRoutingConfigurationProperty
+instance Prelude.Show ModalityRoutingConfigurationProperty
+instance JSON.ToJSON ModalityRoutingConfigurationProperty

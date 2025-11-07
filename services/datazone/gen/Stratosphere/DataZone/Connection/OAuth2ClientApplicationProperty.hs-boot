@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.OAuth2ClientApplicationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OAuth2ClientApplicationProperty :: Prelude.Type
+instance ToResourceProperties OAuth2ClientApplicationProperty
+instance Prelude.Eq OAuth2ClientApplicationProperty
+instance Prelude.Show OAuth2ClientApplicationProperty
+instance JSON.ToJSON OAuth2ClientApplicationProperty

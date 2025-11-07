@@ -32,6 +32,8 @@ data Volume
             tags :: (Prelude.Maybe [Tag]),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-throughput>
             throughput :: (Prelude.Maybe (Value Prelude.Integer)),
+            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-volumeinitializationrate>
+            volumeInitializationRate :: (Prelude.Maybe (Value Prelude.Integer)),
             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html#cfn-ec2-volume-volumetype>
             volumeType :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -44,6 +46,7 @@ mkVolume availabilityZone
        multiAttachEnabled = Prelude.Nothing, outpostArn = Prelude.Nothing,
        size = Prelude.Nothing, snapshotId = Prelude.Nothing,
        tags = Prelude.Nothing, throughput = Prelude.Nothing,
+       volumeInitializationRate = Prelude.Nothing,
        volumeType = Prelude.Nothing}
 instance ToResourceProperties Volume where
   toResourceProperties Volume {..}
@@ -63,6 +66,8 @@ instance ToResourceProperties Volume where
                                (JSON..=) "SnapshotId" Prelude.<$> snapshotId,
                                (JSON..=) "Tags" Prelude.<$> tags,
                                (JSON..=) "Throughput" Prelude.<$> throughput,
+                               (JSON..=) "VolumeInitializationRate"
+                                 Prelude.<$> volumeInitializationRate,
                                (JSON..=) "VolumeType" Prelude.<$> volumeType]))}
 instance JSON.ToJSON Volume where
   toJSON Volume {..}
@@ -81,6 +86,8 @@ instance JSON.ToJSON Volume where
                   (JSON..=) "SnapshotId" Prelude.<$> snapshotId,
                   (JSON..=) "Tags" Prelude.<$> tags,
                   (JSON..=) "Throughput" Prelude.<$> throughput,
+                  (JSON..=) "VolumeInitializationRate"
+                    Prelude.<$> volumeInitializationRate,
                   (JSON..=) "VolumeType" Prelude.<$> volumeType])))
 instance Property "AutoEnableIO" Volume where
   type PropertyType "AutoEnableIO" Volume = Value Prelude.Bool
@@ -125,6 +132,10 @@ instance Property "Throughput" Volume where
   type PropertyType "Throughput" Volume = Value Prelude.Integer
   set newValue Volume {..}
     = Volume {throughput = Prelude.pure newValue, ..}
+instance Property "VolumeInitializationRate" Volume where
+  type PropertyType "VolumeInitializationRate" Volume = Value Prelude.Integer
+  set newValue Volume {..}
+    = Volume {volumeInitializationRate = Prelude.pure newValue, ..}
 instance Property "VolumeType" Volume where
   type PropertyType "VolumeType" Volume = Value Prelude.Text
   set newValue Volume {..}

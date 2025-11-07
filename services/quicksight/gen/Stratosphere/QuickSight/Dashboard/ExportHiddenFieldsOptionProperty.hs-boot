@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ExportHiddenFieldsOptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExportHiddenFieldsOptionProperty :: Prelude.Type
+instance ToResourceProperties ExportHiddenFieldsOptionProperty
+instance Prelude.Eq ExportHiddenFieldsOptionProperty
+instance Prelude.Show ExportHiddenFieldsOptionProperty
+instance JSON.ToJSON ExportHiddenFieldsOptionProperty

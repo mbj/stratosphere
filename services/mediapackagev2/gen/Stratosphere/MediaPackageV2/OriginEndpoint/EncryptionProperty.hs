@@ -11,6 +11,8 @@ import Stratosphere.Value
 data EncryptionProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html>
     EncryptionProperty {haddock_workaround_ :: (),
+                        -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-cmafexcludesegmentdrmmetadata>
+                        cmafExcludeSegmentDrmMetadata :: (Prelude.Maybe (Value Prelude.Bool)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-constantinitializationvector>
                         constantInitializationVector :: (Prelude.Maybe (Value Prelude.Text)),
                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-encryptionmethod>
@@ -27,6 +29,7 @@ mkEncryptionProperty encryptionMethod spekeKeyProvider
   = EncryptionProperty
       {haddock_workaround_ = (), encryptionMethod = encryptionMethod,
        spekeKeyProvider = spekeKeyProvider,
+       cmafExcludeSegmentDrmMetadata = Prelude.Nothing,
        constantInitializationVector = Prelude.Nothing,
        keyRotationIntervalSeconds = Prelude.Nothing}
 instance ToResourceProperties EncryptionProperty where
@@ -39,7 +42,9 @@ instance ToResourceProperties EncryptionProperty where
                            ["EncryptionMethod" JSON..= encryptionMethod,
                             "SpekeKeyProvider" JSON..= spekeKeyProvider]
                            (Prelude.catMaybes
-                              [(JSON..=) "ConstantInitializationVector"
+                              [(JSON..=) "CmafExcludeSegmentDrmMetadata"
+                                 Prelude.<$> cmafExcludeSegmentDrmMetadata,
+                               (JSON..=) "ConstantInitializationVector"
                                  Prelude.<$> constantInitializationVector,
                                (JSON..=) "KeyRotationIntervalSeconds"
                                  Prelude.<$> keyRotationIntervalSeconds]))}
@@ -51,10 +56,17 @@ instance JSON.ToJSON EncryptionProperty where
               ["EncryptionMethod" JSON..= encryptionMethod,
                "SpekeKeyProvider" JSON..= spekeKeyProvider]
               (Prelude.catMaybes
-                 [(JSON..=) "ConstantInitializationVector"
+                 [(JSON..=) "CmafExcludeSegmentDrmMetadata"
+                    Prelude.<$> cmafExcludeSegmentDrmMetadata,
+                  (JSON..=) "ConstantInitializationVector"
                     Prelude.<$> constantInitializationVector,
                   (JSON..=) "KeyRotationIntervalSeconds"
                     Prelude.<$> keyRotationIntervalSeconds])))
+instance Property "CmafExcludeSegmentDrmMetadata" EncryptionProperty where
+  type PropertyType "CmafExcludeSegmentDrmMetadata" EncryptionProperty = Value Prelude.Bool
+  set newValue EncryptionProperty {..}
+    = EncryptionProperty
+        {cmafExcludeSegmentDrmMetadata = Prelude.pure newValue, ..}
 instance Property "ConstantInitializationVector" EncryptionProperty where
   type PropertyType "ConstantInitializationVector" EncryptionProperty = Value Prelude.Text
   set newValue EncryptionProperty {..}

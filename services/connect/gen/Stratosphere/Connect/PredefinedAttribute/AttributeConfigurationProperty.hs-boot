@@ -1,0 +1,9 @@
+module Stratosphere.Connect.PredefinedAttribute.AttributeConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AttributeConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AttributeConfigurationProperty
+instance Prelude.Eq AttributeConfigurationProperty
+instance Prelude.Show AttributeConfigurationProperty
+instance JSON.ToJSON AttributeConfigurationProperty

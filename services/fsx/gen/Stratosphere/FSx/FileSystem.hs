@@ -24,6 +24,8 @@ data FileSystem
                 kmsKeyId :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration>
                 lustreConfiguration :: (Prelude.Maybe LustreConfigurationProperty),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-networktype>
+                networkType :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-ontapconfiguration>
                 ontapConfiguration :: (Prelude.Maybe OntapConfigurationProperty),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-openzfsconfiguration>
@@ -49,6 +51,7 @@ mkFileSystem fileSystemType subnetIds
        subnetIds = subnetIds, backupId = Prelude.Nothing,
        fileSystemTypeVersion = Prelude.Nothing,
        kmsKeyId = Prelude.Nothing, lustreConfiguration = Prelude.Nothing,
+       networkType = Prelude.Nothing,
        ontapConfiguration = Prelude.Nothing,
        openZFSConfiguration = Prelude.Nothing,
        securityGroupIds = Prelude.Nothing,
@@ -68,6 +71,7 @@ instance ToResourceProperties FileSystem where
                                  Prelude.<$> fileSystemTypeVersion,
                                (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                                (JSON..=) "LustreConfiguration" Prelude.<$> lustreConfiguration,
+                               (JSON..=) "NetworkType" Prelude.<$> networkType,
                                (JSON..=) "OntapConfiguration" Prelude.<$> ontapConfiguration,
                                (JSON..=) "OpenZFSConfiguration" Prelude.<$> openZFSConfiguration,
                                (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
@@ -89,6 +93,7 @@ instance JSON.ToJSON FileSystem where
                     Prelude.<$> fileSystemTypeVersion,
                   (JSON..=) "KmsKeyId" Prelude.<$> kmsKeyId,
                   (JSON..=) "LustreConfiguration" Prelude.<$> lustreConfiguration,
+                  (JSON..=) "NetworkType" Prelude.<$> networkType,
                   (JSON..=) "OntapConfiguration" Prelude.<$> ontapConfiguration,
                   (JSON..=) "OpenZFSConfiguration" Prelude.<$> openZFSConfiguration,
                   (JSON..=) "SecurityGroupIds" Prelude.<$> securityGroupIds,
@@ -117,6 +122,10 @@ instance Property "LustreConfiguration" FileSystem where
   type PropertyType "LustreConfiguration" FileSystem = LustreConfigurationProperty
   set newValue FileSystem {..}
     = FileSystem {lustreConfiguration = Prelude.pure newValue, ..}
+instance Property "NetworkType" FileSystem where
+  type PropertyType "NetworkType" FileSystem = Value Prelude.Text
+  set newValue FileSystem {..}
+    = FileSystem {networkType = Prelude.pure newValue, ..}
 instance Property "OntapConfiguration" FileSystem where
   type PropertyType "OntapConfiguration" FileSystem = OntapConfigurationProperty
   set newValue FileSystem {..}

@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataAutomationProject.DocumentStandardGenerativeFieldProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DocumentStandardGenerativeFieldProperty :: Prelude.Type
+instance ToResourceProperties DocumentStandardGenerativeFieldProperty
+instance Prelude.Eq DocumentStandardGenerativeFieldProperty
+instance Prelude.Show DocumentStandardGenerativeFieldProperty
+instance JSON.ToJSON DocumentStandardGenerativeFieldProperty

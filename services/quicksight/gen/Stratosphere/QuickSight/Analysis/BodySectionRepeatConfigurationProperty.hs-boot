@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.BodySectionRepeatConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BodySectionRepeatConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BodySectionRepeatConfigurationProperty
+instance Prelude.Eq BodySectionRepeatConfigurationProperty
+instance Prelude.Show BodySectionRepeatConfigurationProperty
+instance JSON.ToJSON BodySectionRepeatConfigurationProperty

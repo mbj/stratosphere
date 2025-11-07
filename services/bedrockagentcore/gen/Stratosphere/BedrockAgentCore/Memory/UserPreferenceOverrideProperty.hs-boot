@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.UserPreferenceOverrideProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UserPreferenceOverrideProperty :: Prelude.Type
+instance ToResourceProperties UserPreferenceOverrideProperty
+instance Prelude.Eq UserPreferenceOverrideProperty
+instance Prelude.Show UserPreferenceOverrideProperty
+instance JSON.ToJSON UserPreferenceOverrideProperty

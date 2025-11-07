@@ -4,6 +4,8 @@ module Stratosphere.QBusiness.WebExperience (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.QBusiness.WebExperience.BrowserExtensionConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.QBusiness.WebExperience.CustomizationConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.QBusiness.WebExperience.IdentityProviderConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -13,6 +15,10 @@ data WebExperience
     WebExperience {haddock_workaround_ :: (),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-applicationid>
                    applicationId :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-browserextensionconfiguration>
+                   browserExtensionConfiguration :: (Prelude.Maybe BrowserExtensionConfigurationProperty),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-customizationconfiguration>
+                   customizationConfiguration :: (Prelude.Maybe CustomizationConfigurationProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-identityproviderconfiguration>
                    identityProviderConfiguration :: (Prelude.Maybe IdentityProviderConfigurationProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-origins>
@@ -34,6 +40,8 @@ mkWebExperience :: Value Prelude.Text -> WebExperience
 mkWebExperience applicationId
   = WebExperience
       {haddock_workaround_ = (), applicationId = applicationId,
+       browserExtensionConfiguration = Prelude.Nothing,
+       customizationConfiguration = Prelude.Nothing,
        identityProviderConfiguration = Prelude.Nothing,
        origins = Prelude.Nothing, roleArn = Prelude.Nothing,
        samplePromptsControlMode = Prelude.Nothing,
@@ -48,7 +56,11 @@ instance ToResourceProperties WebExperience where
                         ((Prelude.<>)
                            ["ApplicationId" JSON..= applicationId]
                            (Prelude.catMaybes
-                              [(JSON..=) "IdentityProviderConfiguration"
+                              [(JSON..=) "BrowserExtensionConfiguration"
+                                 Prelude.<$> browserExtensionConfiguration,
+                               (JSON..=) "CustomizationConfiguration"
+                                 Prelude.<$> customizationConfiguration,
+                               (JSON..=) "IdentityProviderConfiguration"
                                  Prelude.<$> identityProviderConfiguration,
                                (JSON..=) "Origins" Prelude.<$> origins,
                                (JSON..=) "RoleArn" Prelude.<$> roleArn,
@@ -65,7 +77,11 @@ instance JSON.ToJSON WebExperience where
            ((Prelude.<>)
               ["ApplicationId" JSON..= applicationId]
               (Prelude.catMaybes
-                 [(JSON..=) "IdentityProviderConfiguration"
+                 [(JSON..=) "BrowserExtensionConfiguration"
+                    Prelude.<$> browserExtensionConfiguration,
+                  (JSON..=) "CustomizationConfiguration"
+                    Prelude.<$> customizationConfiguration,
+                  (JSON..=) "IdentityProviderConfiguration"
                     Prelude.<$> identityProviderConfiguration,
                   (JSON..=) "Origins" Prelude.<$> origins,
                   (JSON..=) "RoleArn" Prelude.<$> roleArn,
@@ -79,6 +95,16 @@ instance Property "ApplicationId" WebExperience where
   type PropertyType "ApplicationId" WebExperience = Value Prelude.Text
   set newValue WebExperience {..}
     = WebExperience {applicationId = newValue, ..}
+instance Property "BrowserExtensionConfiguration" WebExperience where
+  type PropertyType "BrowserExtensionConfiguration" WebExperience = BrowserExtensionConfigurationProperty
+  set newValue WebExperience {..}
+    = WebExperience
+        {browserExtensionConfiguration = Prelude.pure newValue, ..}
+instance Property "CustomizationConfiguration" WebExperience where
+  type PropertyType "CustomizationConfiguration" WebExperience = CustomizationConfigurationProperty
+  set newValue WebExperience {..}
+    = WebExperience
+        {customizationConfiguration = Prelude.pure newValue, ..}
 instance Property "IdentityProviderConfiguration" WebExperience where
   type PropertyType "IdentityProviderConfiguration" WebExperience = IdentityProviderConfigurationProperty
   set newValue WebExperience {..}

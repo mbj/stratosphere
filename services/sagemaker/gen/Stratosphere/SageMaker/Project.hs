@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.SageMaker.Project.ServiceCatalogProvisionedProductDetailsProperty as Exports
 import {-# SOURCE #-} Stratosphere.SageMaker.Project.ServiceCatalogProvisioningDetailsProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.Project.TemplateProviderDetailProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -19,47 +20,51 @@ data Project
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisionedproductdetails>
              serviceCatalogProvisionedProductDetails :: (Prelude.Maybe ServiceCatalogProvisionedProductDetailsProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails>
-             serviceCatalogProvisioningDetails :: ServiceCatalogProvisioningDetailsProperty,
+             serviceCatalogProvisioningDetails :: (Prelude.Maybe ServiceCatalogProvisioningDetailsProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags>
-             tags :: (Prelude.Maybe [Tag])}
+             tags :: (Prelude.Maybe [Tag]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-templateproviderdetails>
+             templateProviderDetails :: (Prelude.Maybe [TemplateProviderDetailProperty])}
   deriving stock (Prelude.Eq, Prelude.Show)
-mkProject ::
-  Value Prelude.Text
-  -> ServiceCatalogProvisioningDetailsProperty -> Project
-mkProject projectName serviceCatalogProvisioningDetails
+mkProject :: Value Prelude.Text -> Project
+mkProject projectName
   = Project
       {haddock_workaround_ = (), projectName = projectName,
-       serviceCatalogProvisioningDetails = serviceCatalogProvisioningDetails,
        projectDescription = Prelude.Nothing,
        serviceCatalogProvisionedProductDetails = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       serviceCatalogProvisioningDetails = Prelude.Nothing,
+       tags = Prelude.Nothing, templateProviderDetails = Prelude.Nothing}
 instance ToResourceProperties Project where
   toResourceProperties Project {..}
     = ResourceProperties
         {awsType = "AWS::SageMaker::Project", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["ProjectName" JSON..= projectName,
-                            "ServiceCatalogProvisioningDetails"
-                              JSON..= serviceCatalogProvisioningDetails]
+                           ["ProjectName" JSON..= projectName]
                            (Prelude.catMaybes
                               [(JSON..=) "ProjectDescription" Prelude.<$> projectDescription,
                                (JSON..=) "ServiceCatalogProvisionedProductDetails"
                                  Prelude.<$> serviceCatalogProvisionedProductDetails,
-                               (JSON..=) "Tags" Prelude.<$> tags]))}
+                               (JSON..=) "ServiceCatalogProvisioningDetails"
+                                 Prelude.<$> serviceCatalogProvisioningDetails,
+                               (JSON..=) "Tags" Prelude.<$> tags,
+                               (JSON..=) "TemplateProviderDetails"
+                                 Prelude.<$> templateProviderDetails]))}
 instance JSON.ToJSON Project where
   toJSON Project {..}
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["ProjectName" JSON..= projectName,
-               "ServiceCatalogProvisioningDetails"
-                 JSON..= serviceCatalogProvisioningDetails]
+              ["ProjectName" JSON..= projectName]
               (Prelude.catMaybes
                  [(JSON..=) "ProjectDescription" Prelude.<$> projectDescription,
                   (JSON..=) "ServiceCatalogProvisionedProductDetails"
                     Prelude.<$> serviceCatalogProvisionedProductDetails,
-                  (JSON..=) "Tags" Prelude.<$> tags])))
+                  (JSON..=) "ServiceCatalogProvisioningDetails"
+                    Prelude.<$> serviceCatalogProvisioningDetails,
+                  (JSON..=) "Tags" Prelude.<$> tags,
+                  (JSON..=) "TemplateProviderDetails"
+                    Prelude.<$> templateProviderDetails])))
 instance Property "ProjectDescription" Project where
   type PropertyType "ProjectDescription" Project = Value Prelude.Text
   set newValue Project {..}
@@ -76,8 +81,13 @@ instance Property "ServiceCatalogProvisionedProductDetails" Project where
 instance Property "ServiceCatalogProvisioningDetails" Project where
   type PropertyType "ServiceCatalogProvisioningDetails" Project = ServiceCatalogProvisioningDetailsProperty
   set newValue Project {..}
-    = Project {serviceCatalogProvisioningDetails = newValue, ..}
+    = Project
+        {serviceCatalogProvisioningDetails = Prelude.pure newValue, ..}
 instance Property "Tags" Project where
   type PropertyType "Tags" Project = [Tag]
   set newValue Project {..}
     = Project {tags = Prelude.pure newValue, ..}
+instance Property "TemplateProviderDetails" Project where
+  type PropertyType "TemplateProviderDetails" Project = [TemplateProviderDetailProperty]
+  set newValue Project {..}
+    = Project {templateProviderDetails = Prelude.pure newValue, ..}

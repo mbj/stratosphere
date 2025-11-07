@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.Distribution.ParameterDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParameterDefinitionProperty :: Prelude.Type
+instance ToResourceProperties ParameterDefinitionProperty
+instance Prelude.Eq ParameterDefinitionProperty
+instance Prelude.Show ParameterDefinitionProperty
+instance JSON.ToJSON ParameterDefinitionProperty

@@ -14,7 +14,9 @@ data OracleParametersProperty
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host>
                               host :: (Value Prelude.Text),
                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port>
-                              port :: (Value Prelude.Double)}
+                              port :: (Value Prelude.Double),
+                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-useservicename>
+                              useServiceName :: (Prelude.Maybe (Value Prelude.Bool))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkOracleParametersProperty ::
   Value Prelude.Text
@@ -23,19 +25,27 @@ mkOracleParametersProperty ::
 mkOracleParametersProperty database host port
   = OracleParametersProperty
       {haddock_workaround_ = (), database = database, host = host,
-       port = port}
+       port = port, useServiceName = Prelude.Nothing}
 instance ToResourceProperties OracleParametersProperty where
   toResourceProperties OracleParametersProperty {..}
     = ResourceProperties
         {awsType = "AWS::QuickSight::DataSource.OracleParameters",
          supportsTags = Prelude.False,
-         properties = ["Database" JSON..= database, "Host" JSON..= host,
-                       "Port" JSON..= port]}
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Database" JSON..= database, "Host" JSON..= host,
+                            "Port" JSON..= port]
+                           (Prelude.catMaybes
+                              [(JSON..=) "UseServiceName" Prelude.<$> useServiceName]))}
 instance JSON.ToJSON OracleParametersProperty where
   toJSON OracleParametersProperty {..}
     = JSON.object
-        ["Database" JSON..= database, "Host" JSON..= host,
-         "Port" JSON..= port]
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Database" JSON..= database, "Host" JSON..= host,
+               "Port" JSON..= port]
+              (Prelude.catMaybes
+                 [(JSON..=) "UseServiceName" Prelude.<$> useServiceName])))
 instance Property "Database" OracleParametersProperty where
   type PropertyType "Database" OracleParametersProperty = Value Prelude.Text
   set newValue OracleParametersProperty {..}
@@ -48,3 +58,8 @@ instance Property "Port" OracleParametersProperty where
   type PropertyType "Port" OracleParametersProperty = Value Prelude.Double
   set newValue OracleParametersProperty {..}
     = OracleParametersProperty {port = newValue, ..}
+instance Property "UseServiceName" OracleParametersProperty where
+  type PropertyType "UseServiceName" OracleParametersProperty = Value Prelude.Bool
+  set newValue OracleParametersProperty {..}
+    = OracleParametersProperty
+        {useServiceName = Prelude.pure newValue, ..}

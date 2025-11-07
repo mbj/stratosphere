@@ -23,6 +23,8 @@ data Dataset
              name :: (Value Prelude.Text),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions>
              pathOptions :: (Prelude.Maybe PathOptionsProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-source>
+             source :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags>
              tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -31,7 +33,8 @@ mkDataset input name
   = Dataset
       {haddock_workaround_ = (), input = input, name = name,
        format = Prelude.Nothing, formatOptions = Prelude.Nothing,
-       pathOptions = Prelude.Nothing, tags = Prelude.Nothing}
+       pathOptions = Prelude.Nothing, source = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Dataset where
   toResourceProperties Dataset {..}
     = ResourceProperties
@@ -43,6 +46,7 @@ instance ToResourceProperties Dataset where
                               [(JSON..=) "Format" Prelude.<$> format,
                                (JSON..=) "FormatOptions" Prelude.<$> formatOptions,
                                (JSON..=) "PathOptions" Prelude.<$> pathOptions,
+                               (JSON..=) "Source" Prelude.<$> source,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Dataset where
   toJSON Dataset {..}
@@ -54,6 +58,7 @@ instance JSON.ToJSON Dataset where
                  [(JSON..=) "Format" Prelude.<$> format,
                   (JSON..=) "FormatOptions" Prelude.<$> formatOptions,
                   (JSON..=) "PathOptions" Prelude.<$> pathOptions,
+                  (JSON..=) "Source" Prelude.<$> source,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "Format" Dataset where
   type PropertyType "Format" Dataset = Value Prelude.Text
@@ -73,6 +78,10 @@ instance Property "PathOptions" Dataset where
   type PropertyType "PathOptions" Dataset = PathOptionsProperty
   set newValue Dataset {..}
     = Dataset {pathOptions = Prelude.pure newValue, ..}
+instance Property "Source" Dataset where
+  type PropertyType "Source" Dataset = Value Prelude.Text
+  set newValue Dataset {..}
+    = Dataset {source = Prelude.pure newValue, ..}
 instance Property "Tags" Dataset where
   type PropertyType "Tags" Dataset = [Tag]
   set newValue Dataset {..}

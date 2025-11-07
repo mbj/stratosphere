@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Runtime.AgentRuntimeArtifactProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AgentRuntimeArtifactProperty :: Prelude.Type
+instance ToResourceProperties AgentRuntimeArtifactProperty
+instance Prelude.Eq AgentRuntimeArtifactProperty
+instance Prelude.Show AgentRuntimeArtifactProperty
+instance JSON.ToJSON AgentRuntimeArtifactProperty

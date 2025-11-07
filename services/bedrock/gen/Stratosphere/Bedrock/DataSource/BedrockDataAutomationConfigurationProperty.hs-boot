@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.DataSource.BedrockDataAutomationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BedrockDataAutomationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties BedrockDataAutomationConfigurationProperty
+instance Prelude.Eq BedrockDataAutomationConfigurationProperty
+instance Prelude.Show BedrockDataAutomationConfigurationProperty
+instance JSON.ToJSON BedrockDataAutomationConfigurationProperty

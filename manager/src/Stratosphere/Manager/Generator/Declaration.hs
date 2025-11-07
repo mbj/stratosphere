@@ -521,15 +521,15 @@ genMap :: GHC.HsType' -> Generator GHC.HsType'
 genMap hsType = addImport Prelude $ (GHC.var "Prelude.Map" @@ GHC.var "Prelude.Text") @@ hsType
 
 propertyFieldName :: IsString a => Raw.PropertyName -> a
-propertyFieldName propertyName = fromString . Text.unpack $ case toText propertyName of
-  "Data"     -> "data'"
-  "Default"  -> "default'"
-  "Else"     -> "else'"
-  "Instance" -> "instance'"
-  "Set"      -> "set'"
-  "Then"     -> "then'"
-  "Type"     -> "type'"
-  other      -> Text.lowerHead other
+propertyFieldName propertyName = fromString . Text.unpack $ case Text.lowerHead (toText propertyName) of
+  "data"     -> "data'"
+  "default"  -> "default'"
+  "else"     -> "else'"
+  "instance" -> "instance'"
+  "set"      -> "set'"
+  "then"     -> "then'"
+  "type"     -> "type'"
+  other      -> other
 
 addImport :: Import -> a -> Generator a
 addImport importSpec node = writer (node, State { exports = exports, imports = [importSpec]})

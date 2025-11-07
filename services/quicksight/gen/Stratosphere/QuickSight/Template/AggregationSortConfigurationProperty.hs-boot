@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.AggregationSortConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AggregationSortConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AggregationSortConfigurationProperty
+instance Prelude.Eq AggregationSortConfigurationProperty
+instance Prelude.Show AggregationSortConfigurationProperty
+instance JSON.ToJSON AggregationSortConfigurationProperty

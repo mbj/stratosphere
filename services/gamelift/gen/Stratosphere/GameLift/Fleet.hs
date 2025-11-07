@@ -12,6 +12,7 @@ import {-# SOURCE #-} Stratosphere.GameLift.Fleet.ResourceCreationLimitPolicyPro
 import {-# SOURCE #-} Stratosphere.GameLift.Fleet.RuntimeConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.GameLift.Fleet.ScalingPolicyProperty as Exports
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data Fleet
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html>
@@ -28,8 +29,6 @@ data Fleet
            computeType :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description>
            description :: (Prelude.Maybe (Value Prelude.Text)),
-           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances>
-           desiredEC2Instances :: (Prelude.Maybe (Value Prelude.Integer)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions>
            eC2InboundPermissions :: (Prelude.Maybe [IpPermissionProperty]),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype>
@@ -42,12 +41,8 @@ data Fleet
            instanceRoleCredentialsProvider :: (Prelude.Maybe (Value Prelude.Text)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations>
            locations :: (Prelude.Maybe [LocationConfigurationProperty]),
-           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize>
-           maxSize :: (Prelude.Maybe (Value Prelude.Integer)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups>
            metricGroups :: (Prelude.Maybe (ValueList Prelude.Text)),
-           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize>
-           minSize :: (Prelude.Maybe (Value Prelude.Integer)),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name>
            name :: (Value Prelude.Text),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy>
@@ -63,7 +58,9 @@ data Fleet
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scalingpolicies>
            scalingPolicies :: (Prelude.Maybe [ScalingPolicyProperty]),
            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid>
-           scriptId :: (Prelude.Maybe (Value Prelude.Text))}
+           scriptId :: (Prelude.Maybe (Value Prelude.Text)),
+           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-tags>
+           tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkFleet :: Value Prelude.Text -> Fleet
 mkFleet name
@@ -73,22 +70,21 @@ mkFleet name
        applyCapacity = Prelude.Nothing, buildId = Prelude.Nothing,
        certificateConfiguration = Prelude.Nothing,
        computeType = Prelude.Nothing, description = Prelude.Nothing,
-       desiredEC2Instances = Prelude.Nothing,
        eC2InboundPermissions = Prelude.Nothing,
        eC2InstanceType = Prelude.Nothing, fleetType = Prelude.Nothing,
        instanceRoleARN = Prelude.Nothing,
        instanceRoleCredentialsProvider = Prelude.Nothing,
-       locations = Prelude.Nothing, maxSize = Prelude.Nothing,
-       metricGroups = Prelude.Nothing, minSize = Prelude.Nothing,
+       locations = Prelude.Nothing, metricGroups = Prelude.Nothing,
        newGameSessionProtectionPolicy = Prelude.Nothing,
        peerVpcAwsAccountId = Prelude.Nothing, peerVpcId = Prelude.Nothing,
        resourceCreationLimitPolicy = Prelude.Nothing,
        runtimeConfiguration = Prelude.Nothing,
-       scalingPolicies = Prelude.Nothing, scriptId = Prelude.Nothing}
+       scalingPolicies = Prelude.Nothing, scriptId = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties Fleet where
   toResourceProperties Fleet {..}
     = ResourceProperties
-        {awsType = "AWS::GameLift::Fleet", supportsTags = Prelude.False,
+        {awsType = "AWS::GameLift::Fleet", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["Name" JSON..= name]
@@ -101,7 +97,6 @@ instance ToResourceProperties Fleet where
                                  Prelude.<$> certificateConfiguration,
                                (JSON..=) "ComputeType" Prelude.<$> computeType,
                                (JSON..=) "Description" Prelude.<$> description,
-                               (JSON..=) "DesiredEC2Instances" Prelude.<$> desiredEC2Instances,
                                (JSON..=) "EC2InboundPermissions"
                                  Prelude.<$> eC2InboundPermissions,
                                (JSON..=) "EC2InstanceType" Prelude.<$> eC2InstanceType,
@@ -110,9 +105,7 @@ instance ToResourceProperties Fleet where
                                (JSON..=) "InstanceRoleCredentialsProvider"
                                  Prelude.<$> instanceRoleCredentialsProvider,
                                (JSON..=) "Locations" Prelude.<$> locations,
-                               (JSON..=) "MaxSize" Prelude.<$> maxSize,
                                (JSON..=) "MetricGroups" Prelude.<$> metricGroups,
-                               (JSON..=) "MinSize" Prelude.<$> minSize,
                                (JSON..=) "NewGameSessionProtectionPolicy"
                                  Prelude.<$> newGameSessionProtectionPolicy,
                                (JSON..=) "PeerVpcAwsAccountId" Prelude.<$> peerVpcAwsAccountId,
@@ -121,7 +114,8 @@ instance ToResourceProperties Fleet where
                                  Prelude.<$> resourceCreationLimitPolicy,
                                (JSON..=) "RuntimeConfiguration" Prelude.<$> runtimeConfiguration,
                                (JSON..=) "ScalingPolicies" Prelude.<$> scalingPolicies,
-                               (JSON..=) "ScriptId" Prelude.<$> scriptId]))}
+                               (JSON..=) "ScriptId" Prelude.<$> scriptId,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Fleet where
   toJSON Fleet {..}
     = JSON.object
@@ -137,7 +131,6 @@ instance JSON.ToJSON Fleet where
                     Prelude.<$> certificateConfiguration,
                   (JSON..=) "ComputeType" Prelude.<$> computeType,
                   (JSON..=) "Description" Prelude.<$> description,
-                  (JSON..=) "DesiredEC2Instances" Prelude.<$> desiredEC2Instances,
                   (JSON..=) "EC2InboundPermissions"
                     Prelude.<$> eC2InboundPermissions,
                   (JSON..=) "EC2InstanceType" Prelude.<$> eC2InstanceType,
@@ -146,9 +139,7 @@ instance JSON.ToJSON Fleet where
                   (JSON..=) "InstanceRoleCredentialsProvider"
                     Prelude.<$> instanceRoleCredentialsProvider,
                   (JSON..=) "Locations" Prelude.<$> locations,
-                  (JSON..=) "MaxSize" Prelude.<$> maxSize,
                   (JSON..=) "MetricGroups" Prelude.<$> metricGroups,
-                  (JSON..=) "MinSize" Prelude.<$> minSize,
                   (JSON..=) "NewGameSessionProtectionPolicy"
                     Prelude.<$> newGameSessionProtectionPolicy,
                   (JSON..=) "PeerVpcAwsAccountId" Prelude.<$> peerVpcAwsAccountId,
@@ -157,7 +148,8 @@ instance JSON.ToJSON Fleet where
                     Prelude.<$> resourceCreationLimitPolicy,
                   (JSON..=) "RuntimeConfiguration" Prelude.<$> runtimeConfiguration,
                   (JSON..=) "ScalingPolicies" Prelude.<$> scalingPolicies,
-                  (JSON..=) "ScriptId" Prelude.<$> scriptId])))
+                  (JSON..=) "ScriptId" Prelude.<$> scriptId,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "AnywhereConfiguration" Fleet where
   type PropertyType "AnywhereConfiguration" Fleet = AnywhereConfigurationProperty
   set newValue Fleet {..}
@@ -182,10 +174,6 @@ instance Property "Description" Fleet where
   type PropertyType "Description" Fleet = Value Prelude.Text
   set newValue Fleet {..}
     = Fleet {description = Prelude.pure newValue, ..}
-instance Property "DesiredEC2Instances" Fleet where
-  type PropertyType "DesiredEC2Instances" Fleet = Value Prelude.Integer
-  set newValue Fleet {..}
-    = Fleet {desiredEC2Instances = Prelude.pure newValue, ..}
 instance Property "EC2InboundPermissions" Fleet where
   type PropertyType "EC2InboundPermissions" Fleet = [IpPermissionProperty]
   set newValue Fleet {..}
@@ -211,18 +199,10 @@ instance Property "Locations" Fleet where
   type PropertyType "Locations" Fleet = [LocationConfigurationProperty]
   set newValue Fleet {..}
     = Fleet {locations = Prelude.pure newValue, ..}
-instance Property "MaxSize" Fleet where
-  type PropertyType "MaxSize" Fleet = Value Prelude.Integer
-  set newValue Fleet {..}
-    = Fleet {maxSize = Prelude.pure newValue, ..}
 instance Property "MetricGroups" Fleet where
   type PropertyType "MetricGroups" Fleet = ValueList Prelude.Text
   set newValue Fleet {..}
     = Fleet {metricGroups = Prelude.pure newValue, ..}
-instance Property "MinSize" Fleet where
-  type PropertyType "MinSize" Fleet = Value Prelude.Integer
-  set newValue Fleet {..}
-    = Fleet {minSize = Prelude.pure newValue, ..}
 instance Property "Name" Fleet where
   type PropertyType "Name" Fleet = Value Prelude.Text
   set newValue Fleet {..} = Fleet {name = newValue, ..}
@@ -255,3 +235,6 @@ instance Property "ScriptId" Fleet where
   type PropertyType "ScriptId" Fleet = Value Prelude.Text
   set newValue Fleet {..}
     = Fleet {scriptId = Prelude.pure newValue, ..}
+instance Property "Tags" Fleet where
+  type PropertyType "Tags" Fleet = [Tag]
+  set newValue Fleet {..} = Fleet {tags = Prelude.pure newValue, ..}

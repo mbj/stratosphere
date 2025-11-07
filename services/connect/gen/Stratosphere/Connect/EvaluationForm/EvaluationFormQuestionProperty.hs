@@ -5,12 +5,15 @@ module Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionProperty (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormItemEnablementConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.Connect.EvaluationForm.EvaluationFormQuestionTypePropertiesProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
 data EvaluationFormQuestionProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html>
     EvaluationFormQuestionProperty {haddock_workaround_ :: (),
+                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-enablement>
+                                    enablement :: (Prelude.Maybe EvaluationFormItemEnablementConfigurationProperty),
                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-instructions>
                                     instructions :: (Prelude.Maybe (Value Prelude.Text)),
                                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-notapplicableenabled>
@@ -33,7 +36,8 @@ mkEvaluationFormQuestionProperty ::
 mkEvaluationFormQuestionProperty questionType refId title
   = EvaluationFormQuestionProperty
       {haddock_workaround_ = (), questionType = questionType,
-       refId = refId, title = title, instructions = Prelude.Nothing,
+       refId = refId, title = title, enablement = Prelude.Nothing,
+       instructions = Prelude.Nothing,
        notApplicableEnabled = Prelude.Nothing,
        questionTypeProperties = Prelude.Nothing, weight = Prelude.Nothing}
 instance ToResourceProperties EvaluationFormQuestionProperty where
@@ -46,7 +50,8 @@ instance ToResourceProperties EvaluationFormQuestionProperty where
                            ["QuestionType" JSON..= questionType, "RefId" JSON..= refId,
                             "Title" JSON..= title]
                            (Prelude.catMaybes
-                              [(JSON..=) "Instructions" Prelude.<$> instructions,
+                              [(JSON..=) "Enablement" Prelude.<$> enablement,
+                               (JSON..=) "Instructions" Prelude.<$> instructions,
                                (JSON..=) "NotApplicableEnabled" Prelude.<$> notApplicableEnabled,
                                (JSON..=) "QuestionTypeProperties"
                                  Prelude.<$> questionTypeProperties,
@@ -59,11 +64,17 @@ instance JSON.ToJSON EvaluationFormQuestionProperty where
               ["QuestionType" JSON..= questionType, "RefId" JSON..= refId,
                "Title" JSON..= title]
               (Prelude.catMaybes
-                 [(JSON..=) "Instructions" Prelude.<$> instructions,
+                 [(JSON..=) "Enablement" Prelude.<$> enablement,
+                  (JSON..=) "Instructions" Prelude.<$> instructions,
                   (JSON..=) "NotApplicableEnabled" Prelude.<$> notApplicableEnabled,
                   (JSON..=) "QuestionTypeProperties"
                     Prelude.<$> questionTypeProperties,
                   (JSON..=) "Weight" Prelude.<$> weight])))
+instance Property "Enablement" EvaluationFormQuestionProperty where
+  type PropertyType "Enablement" EvaluationFormQuestionProperty = EvaluationFormItemEnablementConfigurationProperty
+  set newValue EvaluationFormQuestionProperty {..}
+    = EvaluationFormQuestionProperty
+        {enablement = Prelude.pure newValue, ..}
 instance Property "Instructions" EvaluationFormQuestionProperty where
   type PropertyType "Instructions" EvaluationFormQuestionProperty = Value Prelude.Text
   set newValue EvaluationFormQuestionProperty {..}

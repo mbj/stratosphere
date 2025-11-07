@@ -27,8 +27,12 @@ data Cluster
              bootstrapSelfManagedAddons :: (Prelude.Maybe (Value Prelude.Bool)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig>
              computeConfig :: (Prelude.Maybe ComputeConfigProperty),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-deletionprotection>
+             deletionProtection :: (Prelude.Maybe (Value Prelude.Bool)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig>
              encryptionConfig :: (Prelude.Maybe [EncryptionConfigProperty]),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-force>
+             force :: (Prelude.Maybe (Value Prelude.Bool)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig>
              kubernetesNetworkConfig :: (Prelude.Maybe KubernetesNetworkConfigProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-logging>
@@ -62,7 +66,8 @@ mkCluster resourcesVpcConfig roleArn
        roleArn = roleArn, accessConfig = Prelude.Nothing,
        bootstrapSelfManagedAddons = Prelude.Nothing,
        computeConfig = Prelude.Nothing,
-       encryptionConfig = Prelude.Nothing,
+       deletionProtection = Prelude.Nothing,
+       encryptionConfig = Prelude.Nothing, force = Prelude.Nothing,
        kubernetesNetworkConfig = Prelude.Nothing,
        logging = Prelude.Nothing, name = Prelude.Nothing,
        outpostConfig = Prelude.Nothing,
@@ -83,7 +88,9 @@ instance ToResourceProperties Cluster where
                                (JSON..=) "BootstrapSelfManagedAddons"
                                  Prelude.<$> bootstrapSelfManagedAddons,
                                (JSON..=) "ComputeConfig" Prelude.<$> computeConfig,
+                               (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                                (JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig,
+                               (JSON..=) "Force" Prelude.<$> force,
                                (JSON..=) "KubernetesNetworkConfig"
                                  Prelude.<$> kubernetesNetworkConfig,
                                (JSON..=) "Logging" Prelude.<$> logging,
@@ -107,7 +114,9 @@ instance JSON.ToJSON Cluster where
                   (JSON..=) "BootstrapSelfManagedAddons"
                     Prelude.<$> bootstrapSelfManagedAddons,
                   (JSON..=) "ComputeConfig" Prelude.<$> computeConfig,
+                  (JSON..=) "DeletionProtection" Prelude.<$> deletionProtection,
                   (JSON..=) "EncryptionConfig" Prelude.<$> encryptionConfig,
+                  (JSON..=) "Force" Prelude.<$> force,
                   (JSON..=) "KubernetesNetworkConfig"
                     Prelude.<$> kubernetesNetworkConfig,
                   (JSON..=) "Logging" Prelude.<$> logging,
@@ -131,10 +140,18 @@ instance Property "ComputeConfig" Cluster where
   type PropertyType "ComputeConfig" Cluster = ComputeConfigProperty
   set newValue Cluster {..}
     = Cluster {computeConfig = Prelude.pure newValue, ..}
+instance Property "DeletionProtection" Cluster where
+  type PropertyType "DeletionProtection" Cluster = Value Prelude.Bool
+  set newValue Cluster {..}
+    = Cluster {deletionProtection = Prelude.pure newValue, ..}
 instance Property "EncryptionConfig" Cluster where
   type PropertyType "EncryptionConfig" Cluster = [EncryptionConfigProperty]
   set newValue Cluster {..}
     = Cluster {encryptionConfig = Prelude.pure newValue, ..}
+instance Property "Force" Cluster where
+  type PropertyType "Force" Cluster = Value Prelude.Bool
+  set newValue Cluster {..}
+    = Cluster {force = Prelude.pure newValue, ..}
 instance Property "KubernetesNetworkConfig" Cluster where
   type PropertyType "KubernetesNetworkConfig" Cluster = KubernetesNetworkConfigProperty
   set newValue Cluster {..}

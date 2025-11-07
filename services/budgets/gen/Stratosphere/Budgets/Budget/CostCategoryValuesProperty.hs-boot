@@ -1,0 +1,9 @@
+module Stratosphere.Budgets.Budget.CostCategoryValuesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CostCategoryValuesProperty :: Prelude.Type
+instance ToResourceProperties CostCategoryValuesProperty
+instance Prelude.Eq CostCategoryValuesProperty
+instance Prelude.Show CostCategoryValuesProperty
+instance JSON.ToJSON CostCategoryValuesProperty

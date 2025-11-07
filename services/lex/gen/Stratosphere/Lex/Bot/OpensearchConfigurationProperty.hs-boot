@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.OpensearchConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpensearchConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OpensearchConfigurationProperty
+instance Prelude.Eq OpensearchConfigurationProperty
+instance Prelude.Show OpensearchConfigurationProperty
+instance JSON.ToJSON OpensearchConfigurationProperty

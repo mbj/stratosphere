@@ -15,6 +15,8 @@ data VirtualCluster
                     containerProvider :: ContainerProviderProperty,
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name>
                     name :: (Value Prelude.Text),
+                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-securityconfigurationid>
+                    securityConfigurationId :: (Prelude.Maybe (Value Prelude.Text)),
                     -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags>
                     tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
@@ -23,7 +25,8 @@ mkVirtualCluster ::
 mkVirtualCluster containerProvider name
   = VirtualCluster
       {haddock_workaround_ = (), containerProvider = containerProvider,
-       name = name, tags = Prelude.Nothing}
+       name = name, securityConfigurationId = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties VirtualCluster where
   toResourceProperties VirtualCluster {..}
     = ResourceProperties
@@ -33,7 +36,10 @@ instance ToResourceProperties VirtualCluster where
                         ((Prelude.<>)
                            ["ContainerProvider" JSON..= containerProvider,
                             "Name" JSON..= name]
-                           (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags]))}
+                           (Prelude.catMaybes
+                              [(JSON..=) "SecurityConfigurationId"
+                                 Prelude.<$> securityConfigurationId,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON VirtualCluster where
   toJSON VirtualCluster {..}
     = JSON.object
@@ -41,7 +47,10 @@ instance JSON.ToJSON VirtualCluster where
            ((Prelude.<>)
               ["ContainerProvider" JSON..= containerProvider,
                "Name" JSON..= name]
-              (Prelude.catMaybes [(JSON..=) "Tags" Prelude.<$> tags])))
+              (Prelude.catMaybes
+                 [(JSON..=) "SecurityConfigurationId"
+                    Prelude.<$> securityConfigurationId,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "ContainerProvider" VirtualCluster where
   type PropertyType "ContainerProvider" VirtualCluster = ContainerProviderProperty
   set newValue VirtualCluster {..}
@@ -50,6 +59,11 @@ instance Property "Name" VirtualCluster where
   type PropertyType "Name" VirtualCluster = Value Prelude.Text
   set newValue VirtualCluster {..}
     = VirtualCluster {name = newValue, ..}
+instance Property "SecurityConfigurationId" VirtualCluster where
+  type PropertyType "SecurityConfigurationId" VirtualCluster = Value Prelude.Text
+  set newValue VirtualCluster {..}
+    = VirtualCluster
+        {securityConfigurationId = Prelude.pure newValue, ..}
 instance Property "Tags" VirtualCluster where
   type PropertyType "Tags" VirtualCluster = [Tag]
   set newValue VirtualCluster {..}

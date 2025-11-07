@@ -1,0 +1,9 @@
+module Stratosphere.ApplicationSignals.ServiceLevelObjective.RecurrenceRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RecurrenceRuleProperty :: Prelude.Type
+instance ToResourceProperties RecurrenceRuleProperty
+instance Prelude.Eq RecurrenceRuleProperty
+instance Prelude.Show RecurrenceRuleProperty
+instance JSON.ToJSON RecurrenceRuleProperty

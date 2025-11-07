@@ -1,0 +1,9 @@
+module Stratosphere.IVS.Stage.ParticipantThumbnailConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ParticipantThumbnailConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ParticipantThumbnailConfigurationProperty
+instance Prelude.Eq ParticipantThumbnailConfigurationProperty
+instance Prelude.Show ParticipantThumbnailConfigurationProperty
+instance JSON.ToJSON ParticipantThumbnailConfigurationProperty

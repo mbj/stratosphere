@@ -1,0 +1,9 @@
+module Stratosphere.EC2.IPAM.IpamOrganizationalUnitExclusionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IpamOrganizationalUnitExclusionProperty :: Prelude.Type
+instance ToResourceProperties IpamOrganizationalUnitExclusionProperty
+instance Prelude.Eq IpamOrganizationalUnitExclusionProperty
+instance Prelude.Show IpamOrganizationalUnitExclusionProperty
+instance JSON.ToJSON IpamOrganizationalUnitExclusionProperty

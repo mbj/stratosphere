@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.ColdStorageOptionsProperty as Exports
+import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.NodeOptionProperty as Exports
 import {-# SOURCE #-} Stratosphere.OpenSearchService.Domain.ZoneAwarenessConfigProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Value
@@ -25,6 +26,8 @@ data ClusterConfigProperty
                            instanceType :: (Prelude.Maybe (Value Prelude.Text)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-multiazwithstandbyenabled>
                            multiAZWithStandbyEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-nodeoptions>
+                           nodeOptions :: (Prelude.Maybe [NodeOptionProperty]),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmcount>
                            warmCount :: (Prelude.Maybe (Value Prelude.Integer)),
                            -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html#cfn-opensearchservice-domain-clusterconfig-warmenabled>
@@ -45,8 +48,9 @@ mkClusterConfigProperty
        dedicatedMasterType = Prelude.Nothing,
        instanceCount = Prelude.Nothing, instanceType = Prelude.Nothing,
        multiAZWithStandbyEnabled = Prelude.Nothing,
-       warmCount = Prelude.Nothing, warmEnabled = Prelude.Nothing,
-       warmType = Prelude.Nothing, zoneAwarenessConfig = Prelude.Nothing,
+       nodeOptions = Prelude.Nothing, warmCount = Prelude.Nothing,
+       warmEnabled = Prelude.Nothing, warmType = Prelude.Nothing,
+       zoneAwarenessConfig = Prelude.Nothing,
        zoneAwarenessEnabled = Prelude.Nothing}
 instance ToResourceProperties ClusterConfigProperty where
   toResourceProperties ClusterConfigProperty {..}
@@ -64,6 +68,7 @@ instance ToResourceProperties ClusterConfigProperty where
                             (JSON..=) "InstanceType" Prelude.<$> instanceType,
                             (JSON..=) "MultiAZWithStandbyEnabled"
                               Prelude.<$> multiAZWithStandbyEnabled,
+                            (JSON..=) "NodeOptions" Prelude.<$> nodeOptions,
                             (JSON..=) "WarmCount" Prelude.<$> warmCount,
                             (JSON..=) "WarmEnabled" Prelude.<$> warmEnabled,
                             (JSON..=) "WarmType" Prelude.<$> warmType,
@@ -84,6 +89,7 @@ instance JSON.ToJSON ClusterConfigProperty where
                (JSON..=) "InstanceType" Prelude.<$> instanceType,
                (JSON..=) "MultiAZWithStandbyEnabled"
                  Prelude.<$> multiAZWithStandbyEnabled,
+               (JSON..=) "NodeOptions" Prelude.<$> nodeOptions,
                (JSON..=) "WarmCount" Prelude.<$> warmCount,
                (JSON..=) "WarmEnabled" Prelude.<$> warmEnabled,
                (JSON..=) "WarmType" Prelude.<$> warmType,
@@ -123,6 +129,10 @@ instance Property "MultiAZWithStandbyEnabled" ClusterConfigProperty where
   set newValue ClusterConfigProperty {..}
     = ClusterConfigProperty
         {multiAZWithStandbyEnabled = Prelude.pure newValue, ..}
+instance Property "NodeOptions" ClusterConfigProperty where
+  type PropertyType "NodeOptions" ClusterConfigProperty = [NodeOptionProperty]
+  set newValue ClusterConfigProperty {..}
+    = ClusterConfigProperty {nodeOptions = Prelude.pure newValue, ..}
 instance Property "WarmCount" ClusterConfigProperty where
   type PropertyType "WarmCount" ClusterConfigProperty = Value Prelude.Integer
   set newValue ClusterConfigProperty {..}

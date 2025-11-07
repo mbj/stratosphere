@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Dashboard.ImageStaticFileProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageStaticFileProperty :: Prelude.Type
+instance ToResourceProperties ImageStaticFileProperty
+instance Prelude.Eq ImageStaticFileProperty
+instance Prelude.Show ImageStaticFileProperty
+instance JSON.ToJSON ImageStaticFileProperty

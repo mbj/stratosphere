@@ -13,6 +13,8 @@ data ConfigurationProfile
     ConfigurationProfile {haddock_workaround_ :: (),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-applicationid>
                           applicationId :: (Value Prelude.Text),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-deletionprotectioncheck>
+                          deletionProtectionCheck :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-description>
                           description :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-configurationprofile.html#cfn-appconfig-configurationprofile-kmskeyidentifier>
@@ -37,6 +39,7 @@ mkConfigurationProfile applicationId locationUri name
   = ConfigurationProfile
       {haddock_workaround_ = (), applicationId = applicationId,
        locationUri = locationUri, name = name,
+       deletionProtectionCheck = Prelude.Nothing,
        description = Prelude.Nothing, kmsKeyIdentifier = Prelude.Nothing,
        retrievalRoleArn = Prelude.Nothing, tags = Prelude.Nothing,
        type' = Prelude.Nothing, validators = Prelude.Nothing}
@@ -50,7 +53,9 @@ instance ToResourceProperties ConfigurationProfile where
                            ["ApplicationId" JSON..= applicationId,
                             "LocationUri" JSON..= locationUri, "Name" JSON..= name]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "DeletionProtectionCheck"
+                                 Prelude.<$> deletionProtectionCheck,
+                               (JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                                (JSON..=) "RetrievalRoleArn" Prelude.<$> retrievalRoleArn,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -64,7 +69,9 @@ instance JSON.ToJSON ConfigurationProfile where
               ["ApplicationId" JSON..= applicationId,
                "LocationUri" JSON..= locationUri, "Name" JSON..= name]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "DeletionProtectionCheck"
+                    Prelude.<$> deletionProtectionCheck,
+                  (JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "KmsKeyIdentifier" Prelude.<$> kmsKeyIdentifier,
                   (JSON..=) "RetrievalRoleArn" Prelude.<$> retrievalRoleArn,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -74,6 +81,11 @@ instance Property "ApplicationId" ConfigurationProfile where
   type PropertyType "ApplicationId" ConfigurationProfile = Value Prelude.Text
   set newValue ConfigurationProfile {..}
     = ConfigurationProfile {applicationId = newValue, ..}
+instance Property "DeletionProtectionCheck" ConfigurationProfile where
+  type PropertyType "DeletionProtectionCheck" ConfigurationProfile = Value Prelude.Text
+  set newValue ConfigurationProfile {..}
+    = ConfigurationProfile
+        {deletionProtectionCheck = Prelude.pure newValue, ..}
 instance Property "Description" ConfigurationProfile where
   type PropertyType "Description" ConfigurationProfile = Value Prelude.Text
   set newValue ConfigurationProfile {..}

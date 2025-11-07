@@ -1,0 +1,9 @@
+module Stratosphere.ImageBuilder.Image.DeletionSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeletionSettingsProperty :: Prelude.Type
+instance ToResourceProperties DeletionSettingsProperty
+instance Prelude.Eq DeletionSettingsProperty
+instance Prelude.Show DeletionSettingsProperty
+instance JSON.ToJSON DeletionSettingsProperty

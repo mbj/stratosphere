@@ -1,0 +1,9 @@
+module Stratosphere.Glue.TableOptimizer.RetentionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RetentionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RetentionConfigurationProperty
+instance Prelude.Eq RetentionConfigurationProperty
+instance Prelude.Show RetentionConfigurationProperty
+instance JSON.ToJSON RetentionConfigurationProperty

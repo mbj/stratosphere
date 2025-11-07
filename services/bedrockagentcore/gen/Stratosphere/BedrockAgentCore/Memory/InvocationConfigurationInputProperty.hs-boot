@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Memory.InvocationConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InvocationConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties InvocationConfigurationInputProperty
+instance Prelude.Eq InvocationConfigurationInputProperty
+instance Prelude.Show InvocationConfigurationInputProperty
+instance JSON.ToJSON InvocationConfigurationInputProperty

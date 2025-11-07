@@ -1,9 +1,10 @@
 module Stratosphere.Logs.DeliveryDestination (
-        DeliveryDestination(..), mkDeliveryDestination
+        module Exports, DeliveryDestination(..), mkDeliveryDestination
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Logs.DeliveryDestination.DestinationPolicyProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -11,7 +12,9 @@ data DeliveryDestination
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html>
     DeliveryDestination {haddock_workaround_ :: (),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-deliverydestinationpolicy>
-                         deliveryDestinationPolicy :: (Prelude.Maybe JSON.Object),
+                         deliveryDestinationPolicy :: (Prelude.Maybe DestinationPolicyProperty),
+                         -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-deliverydestinationtype>
+                         deliveryDestinationType :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-destinationresourcearn>
                          destinationResourceArn :: (Prelude.Maybe (Value Prelude.Text)),
                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html#cfn-logs-deliverydestination-name>
@@ -26,6 +29,7 @@ mkDeliveryDestination name
   = DeliveryDestination
       {haddock_workaround_ = (), name = name,
        deliveryDestinationPolicy = Prelude.Nothing,
+       deliveryDestinationType = Prelude.Nothing,
        destinationResourceArn = Prelude.Nothing,
        outputFormat = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties DeliveryDestination where
@@ -39,6 +43,8 @@ instance ToResourceProperties DeliveryDestination where
                            (Prelude.catMaybes
                               [(JSON..=) "DeliveryDestinationPolicy"
                                  Prelude.<$> deliveryDestinationPolicy,
+                               (JSON..=) "DeliveryDestinationType"
+                                 Prelude.<$> deliveryDestinationType,
                                (JSON..=) "DestinationResourceArn"
                                  Prelude.<$> destinationResourceArn,
                                (JSON..=) "OutputFormat" Prelude.<$> outputFormat,
@@ -52,15 +58,22 @@ instance JSON.ToJSON DeliveryDestination where
               (Prelude.catMaybes
                  [(JSON..=) "DeliveryDestinationPolicy"
                     Prelude.<$> deliveryDestinationPolicy,
+                  (JSON..=) "DeliveryDestinationType"
+                    Prelude.<$> deliveryDestinationType,
                   (JSON..=) "DestinationResourceArn"
                     Prelude.<$> destinationResourceArn,
                   (JSON..=) "OutputFormat" Prelude.<$> outputFormat,
                   (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "DeliveryDestinationPolicy" DeliveryDestination where
-  type PropertyType "DeliveryDestinationPolicy" DeliveryDestination = JSON.Object
+  type PropertyType "DeliveryDestinationPolicy" DeliveryDestination = DestinationPolicyProperty
   set newValue DeliveryDestination {..}
     = DeliveryDestination
         {deliveryDestinationPolicy = Prelude.pure newValue, ..}
+instance Property "DeliveryDestinationType" DeliveryDestination where
+  type PropertyType "DeliveryDestinationType" DeliveryDestination = Value Prelude.Text
+  set newValue DeliveryDestination {..}
+    = DeliveryDestination
+        {deliveryDestinationType = Prelude.pure newValue, ..}
 instance Property "DestinationResourceArn" DeliveryDestination where
   type PropertyType "DestinationResourceArn" DeliveryDestination = Value Prelude.Text
   set newValue DeliveryDestination {..}

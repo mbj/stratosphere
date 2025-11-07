@@ -4,6 +4,7 @@ module Stratosphere.SystemsManagerSAP.Application (
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SystemsManagerSAP.Application.ComponentInfoProperty as Exports
 import {-# SOURCE #-} Stratosphere.SystemsManagerSAP.Application.CredentialProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
@@ -15,6 +16,8 @@ data Application
                  applicationId :: (Value Prelude.Text),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-applicationtype>
                  applicationType :: (Value Prelude.Text),
+                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-componentsinfo>
+                 componentsInfo :: (Prelude.Maybe [ComponentInfoProperty]),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-credentials>
                  credentials :: (Prelude.Maybe [CredentialProperty]),
                  -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html#cfn-systemsmanagersap-application-databasearn>
@@ -33,7 +36,8 @@ mkApplication ::
 mkApplication applicationId applicationType
   = Application
       {haddock_workaround_ = (), applicationId = applicationId,
-       applicationType = applicationType, credentials = Prelude.Nothing,
+       applicationType = applicationType,
+       componentsInfo = Prelude.Nothing, credentials = Prelude.Nothing,
        databaseArn = Prelude.Nothing, instances = Prelude.Nothing,
        sapInstanceNumber = Prelude.Nothing, sid = Prelude.Nothing,
        tags = Prelude.Nothing}
@@ -47,7 +51,8 @@ instance ToResourceProperties Application where
                            ["ApplicationId" JSON..= applicationId,
                             "ApplicationType" JSON..= applicationType]
                            (Prelude.catMaybes
-                              [(JSON..=) "Credentials" Prelude.<$> credentials,
+                              [(JSON..=) "ComponentsInfo" Prelude.<$> componentsInfo,
+                               (JSON..=) "Credentials" Prelude.<$> credentials,
                                (JSON..=) "DatabaseArn" Prelude.<$> databaseArn,
                                (JSON..=) "Instances" Prelude.<$> instances,
                                (JSON..=) "SapInstanceNumber" Prelude.<$> sapInstanceNumber,
@@ -61,7 +66,8 @@ instance JSON.ToJSON Application where
               ["ApplicationId" JSON..= applicationId,
                "ApplicationType" JSON..= applicationType]
               (Prelude.catMaybes
-                 [(JSON..=) "Credentials" Prelude.<$> credentials,
+                 [(JSON..=) "ComponentsInfo" Prelude.<$> componentsInfo,
+                  (JSON..=) "Credentials" Prelude.<$> credentials,
                   (JSON..=) "DatabaseArn" Prelude.<$> databaseArn,
                   (JSON..=) "Instances" Prelude.<$> instances,
                   (JSON..=) "SapInstanceNumber" Prelude.<$> sapInstanceNumber,
@@ -75,6 +81,10 @@ instance Property "ApplicationType" Application where
   type PropertyType "ApplicationType" Application = Value Prelude.Text
   set newValue Application {..}
     = Application {applicationType = newValue, ..}
+instance Property "ComponentsInfo" Application where
+  type PropertyType "ComponentsInfo" Application = [ComponentInfoProperty]
+  set newValue Application {..}
+    = Application {componentsInfo = Prelude.pure newValue, ..}
 instance Property "Credentials" Application where
   type PropertyType "Credentials" Application = [CredentialProperty]
   set newValue Application {..}

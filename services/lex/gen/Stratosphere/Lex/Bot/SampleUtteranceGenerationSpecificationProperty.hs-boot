@@ -1,0 +1,9 @@
+module Stratosphere.Lex.Bot.SampleUtteranceGenerationSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SampleUtteranceGenerationSpecificationProperty :: Prelude.Type
+instance ToResourceProperties SampleUtteranceGenerationSpecificationProperty
+instance Prelude.Eq SampleUtteranceGenerationSpecificationProperty
+instance Prelude.Show SampleUtteranceGenerationSpecificationProperty
+instance JSON.ToJSON SampleUtteranceGenerationSpecificationProperty

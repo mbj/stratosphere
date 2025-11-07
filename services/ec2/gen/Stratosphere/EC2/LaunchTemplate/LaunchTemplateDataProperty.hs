@@ -9,18 +9,17 @@ import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.BlockDeviceMappingProperty
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CapacityReservationSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CpuOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.CreditSpecificationProperty as Exports
-import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.ElasticGpuSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.EnclaveOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.HibernationOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.IamInstanceProfileProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.InstanceMarketOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.InstanceRequirementsProperty as Exports
-import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.LaunchTemplateElasticInferenceAcceleratorProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.LicenseSpecificationProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.MaintenanceOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.MetadataOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.MonitoringProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.NetworkInterfaceProperty as Exports
+import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.NetworkPerformanceOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.PlacementProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.PrivateDnsNameOptionsProperty as Exports
 import {-# SOURCE #-} Stratosphere.EC2.LaunchTemplate.TagSpecificationProperty as Exports
@@ -43,10 +42,6 @@ data LaunchTemplateDataProperty
                                 disableApiTermination :: (Prelude.Maybe (Value Prelude.Bool)),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ebsoptimized>
                                 ebsOptimized :: (Prelude.Maybe (Value Prelude.Bool)),
-                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications>
-                                elasticGpuSpecifications :: (Prelude.Maybe [ElasticGpuSpecificationProperty]),
-                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators>
-                                elasticInferenceAccelerators :: (Prelude.Maybe [LaunchTemplateElasticInferenceAcceleratorProperty]),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions>
                                 enclaveOptions :: (Prelude.Maybe EnclaveOptionsProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions>
@@ -77,6 +72,8 @@ data LaunchTemplateDataProperty
                                 monitoring :: (Prelude.Maybe MonitoringProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces>
                                 networkInterfaces :: (Prelude.Maybe [NetworkInterfaceProperty]),
+                                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkperformanceoptions>
+                                networkPerformanceOptions :: (Prelude.Maybe NetworkPerformanceOptionsProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-placement>
                                 placement :: (Prelude.Maybe PlacementProperty),
                                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-privatednsnameoptions>
@@ -101,10 +98,7 @@ mkLaunchTemplateDataProperty
        creditSpecification = Prelude.Nothing,
        disableApiStop = Prelude.Nothing,
        disableApiTermination = Prelude.Nothing,
-       ebsOptimized = Prelude.Nothing,
-       elasticGpuSpecifications = Prelude.Nothing,
-       elasticInferenceAccelerators = Prelude.Nothing,
-       enclaveOptions = Prelude.Nothing,
+       ebsOptimized = Prelude.Nothing, enclaveOptions = Prelude.Nothing,
        hibernationOptions = Prelude.Nothing,
        iamInstanceProfile = Prelude.Nothing, imageId = Prelude.Nothing,
        instanceInitiatedShutdownBehavior = Prelude.Nothing,
@@ -114,7 +108,9 @@ mkLaunchTemplateDataProperty
        keyName = Prelude.Nothing, licenseSpecifications = Prelude.Nothing,
        maintenanceOptions = Prelude.Nothing,
        metadataOptions = Prelude.Nothing, monitoring = Prelude.Nothing,
-       networkInterfaces = Prelude.Nothing, placement = Prelude.Nothing,
+       networkInterfaces = Prelude.Nothing,
+       networkPerformanceOptions = Prelude.Nothing,
+       placement = Prelude.Nothing,
        privateDnsNameOptions = Prelude.Nothing,
        ramDiskId = Prelude.Nothing, securityGroupIds = Prelude.Nothing,
        securityGroups = Prelude.Nothing,
@@ -135,10 +131,6 @@ instance ToResourceProperties LaunchTemplateDataProperty where
                             (JSON..=) "DisableApiTermination"
                               Prelude.<$> disableApiTermination,
                             (JSON..=) "EbsOptimized" Prelude.<$> ebsOptimized,
-                            (JSON..=) "ElasticGpuSpecifications"
-                              Prelude.<$> elasticGpuSpecifications,
-                            (JSON..=) "ElasticInferenceAccelerators"
-                              Prelude.<$> elasticInferenceAccelerators,
                             (JSON..=) "EnclaveOptions" Prelude.<$> enclaveOptions,
                             (JSON..=) "HibernationOptions" Prelude.<$> hibernationOptions,
                             (JSON..=) "IamInstanceProfile" Prelude.<$> iamInstanceProfile,
@@ -157,6 +149,8 @@ instance ToResourceProperties LaunchTemplateDataProperty where
                             (JSON..=) "MetadataOptions" Prelude.<$> metadataOptions,
                             (JSON..=) "Monitoring" Prelude.<$> monitoring,
                             (JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,
+                            (JSON..=) "NetworkPerformanceOptions"
+                              Prelude.<$> networkPerformanceOptions,
                             (JSON..=) "Placement" Prelude.<$> placement,
                             (JSON..=) "PrivateDnsNameOptions"
                               Prelude.<$> privateDnsNameOptions,
@@ -179,10 +173,6 @@ instance JSON.ToJSON LaunchTemplateDataProperty where
                (JSON..=) "DisableApiTermination"
                  Prelude.<$> disableApiTermination,
                (JSON..=) "EbsOptimized" Prelude.<$> ebsOptimized,
-               (JSON..=) "ElasticGpuSpecifications"
-                 Prelude.<$> elasticGpuSpecifications,
-               (JSON..=) "ElasticInferenceAccelerators"
-                 Prelude.<$> elasticInferenceAccelerators,
                (JSON..=) "EnclaveOptions" Prelude.<$> enclaveOptions,
                (JSON..=) "HibernationOptions" Prelude.<$> hibernationOptions,
                (JSON..=) "IamInstanceProfile" Prelude.<$> iamInstanceProfile,
@@ -201,6 +191,8 @@ instance JSON.ToJSON LaunchTemplateDataProperty where
                (JSON..=) "MetadataOptions" Prelude.<$> metadataOptions,
                (JSON..=) "Monitoring" Prelude.<$> monitoring,
                (JSON..=) "NetworkInterfaces" Prelude.<$> networkInterfaces,
+               (JSON..=) "NetworkPerformanceOptions"
+                 Prelude.<$> networkPerformanceOptions,
                (JSON..=) "Placement" Prelude.<$> placement,
                (JSON..=) "PrivateDnsNameOptions"
                  Prelude.<$> privateDnsNameOptions,
@@ -244,16 +236,6 @@ instance Property "EbsOptimized" LaunchTemplateDataProperty where
   set newValue LaunchTemplateDataProperty {..}
     = LaunchTemplateDataProperty
         {ebsOptimized = Prelude.pure newValue, ..}
-instance Property "ElasticGpuSpecifications" LaunchTemplateDataProperty where
-  type PropertyType "ElasticGpuSpecifications" LaunchTemplateDataProperty = [ElasticGpuSpecificationProperty]
-  set newValue LaunchTemplateDataProperty {..}
-    = LaunchTemplateDataProperty
-        {elasticGpuSpecifications = Prelude.pure newValue, ..}
-instance Property "ElasticInferenceAccelerators" LaunchTemplateDataProperty where
-  type PropertyType "ElasticInferenceAccelerators" LaunchTemplateDataProperty = [LaunchTemplateElasticInferenceAcceleratorProperty]
-  set newValue LaunchTemplateDataProperty {..}
-    = LaunchTemplateDataProperty
-        {elasticInferenceAccelerators = Prelude.pure newValue, ..}
 instance Property "EnclaveOptions" LaunchTemplateDataProperty where
   type PropertyType "EnclaveOptions" LaunchTemplateDataProperty = EnclaveOptionsProperty
   set newValue LaunchTemplateDataProperty {..}
@@ -326,6 +308,11 @@ instance Property "NetworkInterfaces" LaunchTemplateDataProperty where
   set newValue LaunchTemplateDataProperty {..}
     = LaunchTemplateDataProperty
         {networkInterfaces = Prelude.pure newValue, ..}
+instance Property "NetworkPerformanceOptions" LaunchTemplateDataProperty where
+  type PropertyType "NetworkPerformanceOptions" LaunchTemplateDataProperty = NetworkPerformanceOptionsProperty
+  set newValue LaunchTemplateDataProperty {..}
+    = LaunchTemplateDataProperty
+        {networkPerformanceOptions = Prelude.pure newValue, ..}
 instance Property "Placement" LaunchTemplateDataProperty where
   type PropertyType "Placement" LaunchTemplateDataProperty = PlacementProperty
   set newValue LaunchTemplateDataProperty {..}

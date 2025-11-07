@@ -14,7 +14,7 @@ data ExperimentTemplateExperimentReportConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html>
     ExperimentTemplateExperimentReportConfigurationProperty {haddock_workaround_ :: (),
                                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-datasources>
-                                                             dataSources :: DataSourcesProperty,
+                                                             dataSources :: (Prelude.Maybe DataSourcesProperty),
                                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-outputs>
                                                              outputs :: OutputsProperty,
                                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html#cfn-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration-postexperimentduration>
@@ -23,15 +23,13 @@ data ExperimentTemplateExperimentReportConfigurationProperty
                                                              preExperimentDuration :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkExperimentTemplateExperimentReportConfigurationProperty ::
-  DataSourcesProperty
-  -> OutputsProperty
-     -> ExperimentTemplateExperimentReportConfigurationProperty
-mkExperimentTemplateExperimentReportConfigurationProperty
-  dataSources
-  outputs
+  OutputsProperty
+  -> ExperimentTemplateExperimentReportConfigurationProperty
+mkExperimentTemplateExperimentReportConfigurationProperty outputs
   = ExperimentTemplateExperimentReportConfigurationProperty
-      {haddock_workaround_ = (), dataSources = dataSources,
-       outputs = outputs, postExperimentDuration = Prelude.Nothing,
+      {haddock_workaround_ = (), outputs = outputs,
+       dataSources = Prelude.Nothing,
+       postExperimentDuration = Prelude.Nothing,
        preExperimentDuration = Prelude.Nothing}
 instance ToResourceProperties ExperimentTemplateExperimentReportConfigurationProperty where
   toResourceProperties
@@ -41,9 +39,10 @@ instance ToResourceProperties ExperimentTemplateExperimentReportConfigurationPro
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         ((Prelude.<>)
-                           ["DataSources" JSON..= dataSources, "Outputs" JSON..= outputs]
+                           ["Outputs" JSON..= outputs]
                            (Prelude.catMaybes
-                              [(JSON..=) "PostExperimentDuration"
+                              [(JSON..=) "DataSources" Prelude.<$> dataSources,
+                               (JSON..=) "PostExperimentDuration"
                                  Prelude.<$> postExperimentDuration,
                                (JSON..=) "PreExperimentDuration"
                                  Prelude.<$> preExperimentDuration]))}
@@ -52,9 +51,10 @@ instance JSON.ToJSON ExperimentTemplateExperimentReportConfigurationProperty whe
     = JSON.object
         (Prelude.fromList
            ((Prelude.<>)
-              ["DataSources" JSON..= dataSources, "Outputs" JSON..= outputs]
+              ["Outputs" JSON..= outputs]
               (Prelude.catMaybes
-                 [(JSON..=) "PostExperimentDuration"
+                 [(JSON..=) "DataSources" Prelude.<$> dataSources,
+                  (JSON..=) "PostExperimentDuration"
                     Prelude.<$> postExperimentDuration,
                   (JSON..=) "PreExperimentDuration"
                     Prelude.<$> preExperimentDuration])))
@@ -64,7 +64,7 @@ instance Property "DataSources" ExperimentTemplateExperimentReportConfigurationP
     newValue
     ExperimentTemplateExperimentReportConfigurationProperty {..}
     = ExperimentTemplateExperimentReportConfigurationProperty
-        {dataSources = newValue, ..}
+        {dataSources = Prelude.pure newValue, ..}
 instance Property "Outputs" ExperimentTemplateExperimentReportConfigurationProperty where
   type PropertyType "Outputs" ExperimentTemplateExperimentReportConfigurationProperty = OutputsProperty
   set

@@ -1,0 +1,9 @@
+module Stratosphere.FSx.S3AccessPointAttachment.OpenZFSFileSystemIdentityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenZFSFileSystemIdentityProperty :: Prelude.Type
+instance ToResourceProperties OpenZFSFileSystemIdentityProperty
+instance Prelude.Eq OpenZFSFileSystemIdentityProperty
+instance Prelude.Show OpenZFSFileSystemIdentityProperty
+instance JSON.ToJSON OpenZFSFileSystemIdentityProperty

@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.FilterCrossSheetControlProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterCrossSheetControlProperty :: Prelude.Type
+instance ToResourceProperties FilterCrossSheetControlProperty
+instance Prelude.Eq FilterCrossSheetControlProperty
+instance Prelude.Show FilterCrossSheetControlProperty
+instance JSON.ToJSON FilterCrossSheetControlProperty

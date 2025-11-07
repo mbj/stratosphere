@@ -1,0 +1,9 @@
+module Stratosphere.APS.AnomalyDetector.RandomCutForestConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RandomCutForestConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RandomCutForestConfigurationProperty
+instance Prelude.Eq RandomCutForestConfigurationProperty
+instance Prelude.Show RandomCutForestConfigurationProperty
+instance JSON.ToJSON RandomCutForestConfigurationProperty

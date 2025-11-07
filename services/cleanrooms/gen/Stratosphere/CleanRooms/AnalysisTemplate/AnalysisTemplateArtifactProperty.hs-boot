@@ -1,0 +1,9 @@
+module Stratosphere.CleanRooms.AnalysisTemplate.AnalysisTemplateArtifactProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalysisTemplateArtifactProperty :: Prelude.Type
+instance ToResourceProperties AnalysisTemplateArtifactProperty
+instance Prelude.Eq AnalysisTemplateArtifactProperty
+instance Prelude.Show AnalysisTemplateArtifactProperty
+instance JSON.ToJSON AnalysisTemplateArtifactProperty

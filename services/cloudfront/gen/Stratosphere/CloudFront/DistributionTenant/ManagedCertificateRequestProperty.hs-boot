@@ -1,0 +1,9 @@
+module Stratosphere.CloudFront.DistributionTenant.ManagedCertificateRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedCertificateRequestProperty :: Prelude.Type
+instance ToResourceProperties ManagedCertificateRequestProperty
+instance Prelude.Eq ManagedCertificateRequestProperty
+instance Prelude.Show ManagedCertificateRequestProperty
+instance JSON.ToJSON ManagedCertificateRequestProperty

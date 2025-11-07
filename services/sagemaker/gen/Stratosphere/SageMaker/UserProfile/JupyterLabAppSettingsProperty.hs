@@ -16,6 +16,8 @@ data JupyterLabAppSettingsProperty
     JupyterLabAppSettingsProperty {haddock_workaround_ :: (),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-applifecyclemanagement>
                                    appLifecycleManagement :: (Prelude.Maybe AppLifecycleManagementProperty),
+                                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-builtinlifecycleconfigarn>
+                                   builtInLifecycleConfigArn :: (Prelude.Maybe (Value Prelude.Text)),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-coderepositories>
                                    codeRepositories :: (Prelude.Maybe [CodeRepositoryProperty]),
                                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html#cfn-sagemaker-userprofile-jupyterlabappsettings-customimages>
@@ -30,6 +32,7 @@ mkJupyterLabAppSettingsProperty
   = JupyterLabAppSettingsProperty
       {haddock_workaround_ = (),
        appLifecycleManagement = Prelude.Nothing,
+       builtInLifecycleConfigArn = Prelude.Nothing,
        codeRepositories = Prelude.Nothing, customImages = Prelude.Nothing,
        defaultResourceSpec = Prelude.Nothing,
        lifecycleConfigArns = Prelude.Nothing}
@@ -42,6 +45,8 @@ instance ToResourceProperties JupyterLabAppSettingsProperty where
                         (Prelude.catMaybes
                            [(JSON..=) "AppLifecycleManagement"
                               Prelude.<$> appLifecycleManagement,
+                            (JSON..=) "BuiltInLifecycleConfigArn"
+                              Prelude.<$> builtInLifecycleConfigArn,
                             (JSON..=) "CodeRepositories" Prelude.<$> codeRepositories,
                             (JSON..=) "CustomImages" Prelude.<$> customImages,
                             (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
@@ -53,6 +58,8 @@ instance JSON.ToJSON JupyterLabAppSettingsProperty where
            (Prelude.catMaybes
               [(JSON..=) "AppLifecycleManagement"
                  Prelude.<$> appLifecycleManagement,
+               (JSON..=) "BuiltInLifecycleConfigArn"
+                 Prelude.<$> builtInLifecycleConfigArn,
                (JSON..=) "CodeRepositories" Prelude.<$> codeRepositories,
                (JSON..=) "CustomImages" Prelude.<$> customImages,
                (JSON..=) "DefaultResourceSpec" Prelude.<$> defaultResourceSpec,
@@ -62,6 +69,11 @@ instance Property "AppLifecycleManagement" JupyterLabAppSettingsProperty where
   set newValue JupyterLabAppSettingsProperty {..}
     = JupyterLabAppSettingsProperty
         {appLifecycleManagement = Prelude.pure newValue, ..}
+instance Property "BuiltInLifecycleConfigArn" JupyterLabAppSettingsProperty where
+  type PropertyType "BuiltInLifecycleConfigArn" JupyterLabAppSettingsProperty = Value Prelude.Text
+  set newValue JupyterLabAppSettingsProperty {..}
+    = JupyterLabAppSettingsProperty
+        {builtInLifecycleConfigArn = Prelude.pure newValue, ..}
 instance Property "CodeRepositories" JupyterLabAppSettingsProperty where
   type PropertyType "CodeRepositories" JupyterLabAppSettingsProperty = [CodeRepositoryProperty]
   set newValue JupyterLabAppSettingsProperty {..}

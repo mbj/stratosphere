@@ -1,0 +1,9 @@
+module Stratosphere.Lambda.EventSourceMapping.SchemaValidationConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SchemaValidationConfigProperty :: Prelude.Type
+instance ToResourceProperties SchemaValidationConfigProperty
+instance Prelude.Eq SchemaValidationConfigProperty
+instance Prelude.Show SchemaValidationConfigProperty
+instance JSON.ToJSON SchemaValidationConfigProperty

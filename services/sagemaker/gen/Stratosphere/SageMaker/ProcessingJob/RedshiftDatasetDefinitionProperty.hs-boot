@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.RedshiftDatasetDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RedshiftDatasetDefinitionProperty :: Prelude.Type
+instance ToResourceProperties RedshiftDatasetDefinitionProperty
+instance Prelude.Eq RedshiftDatasetDefinitionProperty
+instance Prelude.Show RedshiftDatasetDefinitionProperty
+instance JSON.ToJSON RedshiftDatasetDefinitionProperty

@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.AssociatedAlarmProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssociatedAlarmProperty :: Prelude.Type
+instance ToResourceProperties AssociatedAlarmProperty
+instance Prelude.Eq AssociatedAlarmProperty
+instance Prelude.Show AssociatedAlarmProperty
+instance JSON.ToJSON AssociatedAlarmProperty

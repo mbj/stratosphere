@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.DefaultSliderControlOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultSliderControlOptionsProperty :: Prelude.Type
+instance ToResourceProperties DefaultSliderControlOptionsProperty
+instance Prelude.Eq DefaultSliderControlOptionsProperty
+instance Prelude.Show DefaultSliderControlOptionsProperty
+instance JSON.ToJSON DefaultSliderControlOptionsProperty

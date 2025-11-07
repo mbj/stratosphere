@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.AppSync.ChannelNamespace.AuthModeProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppSync.ChannelNamespace.HandlerConfigsProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -17,6 +18,8 @@ data ChannelNamespace
                       codeHandlers :: (Prelude.Maybe (Value Prelude.Text)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-codes3location>
                       codeS3Location :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-handlerconfigs>
+                      handlerConfigs :: (Prelude.Maybe HandlerConfigsProperty),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-name>
                       name :: (Value Prelude.Text),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html#cfn-appsync-channelnamespace-publishauthmodes>
@@ -32,6 +35,7 @@ mkChannelNamespace apiId name
   = ChannelNamespace
       {haddock_workaround_ = (), apiId = apiId, name = name,
        codeHandlers = Prelude.Nothing, codeS3Location = Prelude.Nothing,
+       handlerConfigs = Prelude.Nothing,
        publishAuthModes = Prelude.Nothing,
        subscribeAuthModes = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties ChannelNamespace where
@@ -45,6 +49,7 @@ instance ToResourceProperties ChannelNamespace where
                            (Prelude.catMaybes
                               [(JSON..=) "CodeHandlers" Prelude.<$> codeHandlers,
                                (JSON..=) "CodeS3Location" Prelude.<$> codeS3Location,
+                               (JSON..=) "HandlerConfigs" Prelude.<$> handlerConfigs,
                                (JSON..=) "PublishAuthModes" Prelude.<$> publishAuthModes,
                                (JSON..=) "SubscribeAuthModes" Prelude.<$> subscribeAuthModes,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
@@ -57,6 +62,7 @@ instance JSON.ToJSON ChannelNamespace where
               (Prelude.catMaybes
                  [(JSON..=) "CodeHandlers" Prelude.<$> codeHandlers,
                   (JSON..=) "CodeS3Location" Prelude.<$> codeS3Location,
+                  (JSON..=) "HandlerConfigs" Prelude.<$> handlerConfigs,
                   (JSON..=) "PublishAuthModes" Prelude.<$> publishAuthModes,
                   (JSON..=) "SubscribeAuthModes" Prelude.<$> subscribeAuthModes,
                   (JSON..=) "Tags" Prelude.<$> tags])))
@@ -72,6 +78,10 @@ instance Property "CodeS3Location" ChannelNamespace where
   type PropertyType "CodeS3Location" ChannelNamespace = Value Prelude.Text
   set newValue ChannelNamespace {..}
     = ChannelNamespace {codeS3Location = Prelude.pure newValue, ..}
+instance Property "HandlerConfigs" ChannelNamespace where
+  type PropertyType "HandlerConfigs" ChannelNamespace = HandlerConfigsProperty
+  set newValue ChannelNamespace {..}
+    = ChannelNamespace {handlerConfigs = Prelude.pure newValue, ..}
 instance Property "Name" ChannelNamespace where
   type PropertyType "Name" ChannelNamespace = Value Prelude.Text
   set newValue ChannelNamespace {..}

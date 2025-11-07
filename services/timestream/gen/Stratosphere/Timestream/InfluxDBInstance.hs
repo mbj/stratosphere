@@ -27,10 +27,14 @@ data InfluxDBInstance
                       logDeliveryConfiguration :: (Prelude.Maybe LogDeliveryConfigurationProperty),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-name>
                       name :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-networktype>
+                      networkType :: (Prelude.Maybe (Value Prelude.Text)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-organization>
                       organization :: (Prelude.Maybe (Value Prelude.Text)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-password>
                       password :: (Prelude.Maybe (Value Prelude.Text)),
+                      -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-port>
+                      port :: (Prelude.Maybe (Value Prelude.Integer)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-publiclyaccessible>
                       publiclyAccessible :: (Prelude.Maybe (Value Prelude.Bool)),
                       -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html#cfn-timestream-influxdbinstance-tags>
@@ -50,7 +54,8 @@ mkInfluxDBInstance
        dbParameterGroupIdentifier = Prelude.Nothing,
        dbStorageType = Prelude.Nothing, deploymentType = Prelude.Nothing,
        logDeliveryConfiguration = Prelude.Nothing, name = Prelude.Nothing,
-       organization = Prelude.Nothing, password = Prelude.Nothing,
+       networkType = Prelude.Nothing, organization = Prelude.Nothing,
+       password = Prelude.Nothing, port = Prelude.Nothing,
        publiclyAccessible = Prelude.Nothing, tags = Prelude.Nothing,
        username = Prelude.Nothing, vpcSecurityGroupIds = Prelude.Nothing,
        vpcSubnetIds = Prelude.Nothing}
@@ -71,8 +76,10 @@ instance ToResourceProperties InfluxDBInstance where
                             (JSON..=) "LogDeliveryConfiguration"
                               Prelude.<$> logDeliveryConfiguration,
                             (JSON..=) "Name" Prelude.<$> name,
+                            (JSON..=) "NetworkType" Prelude.<$> networkType,
                             (JSON..=) "Organization" Prelude.<$> organization,
                             (JSON..=) "Password" Prelude.<$> password,
+                            (JSON..=) "Port" Prelude.<$> port,
                             (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                             (JSON..=) "Tags" Prelude.<$> tags,
                             (JSON..=) "Username" Prelude.<$> username,
@@ -93,8 +100,10 @@ instance JSON.ToJSON InfluxDBInstance where
                (JSON..=) "LogDeliveryConfiguration"
                  Prelude.<$> logDeliveryConfiguration,
                (JSON..=) "Name" Prelude.<$> name,
+               (JSON..=) "NetworkType" Prelude.<$> networkType,
                (JSON..=) "Organization" Prelude.<$> organization,
                (JSON..=) "Password" Prelude.<$> password,
+               (JSON..=) "Port" Prelude.<$> port,
                (JSON..=) "PubliclyAccessible" Prelude.<$> publiclyAccessible,
                (JSON..=) "Tags" Prelude.<$> tags,
                (JSON..=) "Username" Prelude.<$> username,
@@ -134,6 +143,10 @@ instance Property "Name" InfluxDBInstance where
   type PropertyType "Name" InfluxDBInstance = Value Prelude.Text
   set newValue InfluxDBInstance {..}
     = InfluxDBInstance {name = Prelude.pure newValue, ..}
+instance Property "NetworkType" InfluxDBInstance where
+  type PropertyType "NetworkType" InfluxDBInstance = Value Prelude.Text
+  set newValue InfluxDBInstance {..}
+    = InfluxDBInstance {networkType = Prelude.pure newValue, ..}
 instance Property "Organization" InfluxDBInstance where
   type PropertyType "Organization" InfluxDBInstance = Value Prelude.Text
   set newValue InfluxDBInstance {..}
@@ -142,6 +155,10 @@ instance Property "Password" InfluxDBInstance where
   type PropertyType "Password" InfluxDBInstance = Value Prelude.Text
   set newValue InfluxDBInstance {..}
     = InfluxDBInstance {password = Prelude.pure newValue, ..}
+instance Property "Port" InfluxDBInstance where
+  type PropertyType "Port" InfluxDBInstance = Value Prelude.Integer
+  set newValue InfluxDBInstance {..}
+    = InfluxDBInstance {port = Prelude.pure newValue, ..}
 instance Property "PubliclyAccessible" InfluxDBInstance where
   type PropertyType "PubliclyAccessible" InfluxDBInstance = Value Prelude.Bool
   set newValue InfluxDBInstance {..}

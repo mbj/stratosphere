@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Template.ForecastScenarioProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ForecastScenarioProperty :: Prelude.Type
+instance ToResourceProperties ForecastScenarioProperty
+instance Prelude.Eq ForecastScenarioProperty
+instance Prelude.Show ForecastScenarioProperty
+instance JSON.ToJSON ForecastScenarioProperty

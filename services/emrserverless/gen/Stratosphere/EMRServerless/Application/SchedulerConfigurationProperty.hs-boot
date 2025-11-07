@@ -1,0 +1,9 @@
+module Stratosphere.EMRServerless.Application.SchedulerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SchedulerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SchedulerConfigurationProperty
+instance Prelude.Eq SchedulerConfigurationProperty
+instance Prelude.Show SchedulerConfigurationProperty
+instance JSON.ToJSON SchedulerConfigurationProperty

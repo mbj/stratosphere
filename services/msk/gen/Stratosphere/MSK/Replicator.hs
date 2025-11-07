@@ -12,8 +12,6 @@ import Stratosphere.Value
 data Replicator
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html>
     Replicator {haddock_workaround_ :: (),
-                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-currentversion>
-                currentVersion :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#cfn-msk-replicator-kafkaclusters>
@@ -41,8 +39,7 @@ mkReplicator
        replicationInfoList = replicationInfoList,
        replicatorName = replicatorName,
        serviceExecutionRoleArn = serviceExecutionRoleArn,
-       currentVersion = Prelude.Nothing, description = Prelude.Nothing,
-       tags = Prelude.Nothing}
+       description = Prelude.Nothing, tags = Prelude.Nothing}
 instance ToResourceProperties Replicator where
   toResourceProperties Replicator {..}
     = ResourceProperties
@@ -54,8 +51,7 @@ instance ToResourceProperties Replicator where
                             "ReplicatorName" JSON..= replicatorName,
                             "ServiceExecutionRoleArn" JSON..= serviceExecutionRoleArn]
                            (Prelude.catMaybes
-                              [(JSON..=) "CurrentVersion" Prelude.<$> currentVersion,
-                               (JSON..=) "Description" Prelude.<$> description,
+                              [(JSON..=) "Description" Prelude.<$> description,
                                (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON Replicator where
   toJSON Replicator {..}
@@ -67,13 +63,8 @@ instance JSON.ToJSON Replicator where
                "ReplicatorName" JSON..= replicatorName,
                "ServiceExecutionRoleArn" JSON..= serviceExecutionRoleArn]
               (Prelude.catMaybes
-                 [(JSON..=) "CurrentVersion" Prelude.<$> currentVersion,
-                  (JSON..=) "Description" Prelude.<$> description,
+                 [(JSON..=) "Description" Prelude.<$> description,
                   (JSON..=) "Tags" Prelude.<$> tags])))
-instance Property "CurrentVersion" Replicator where
-  type PropertyType "CurrentVersion" Replicator = Value Prelude.Text
-  set newValue Replicator {..}
-    = Replicator {currentVersion = Prelude.pure newValue, ..}
 instance Property "Description" Replicator where
   type PropertyType "Description" Replicator = Value Prelude.Text
   set newValue Replicator {..}

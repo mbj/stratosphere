@@ -1,0 +1,9 @@
+module Stratosphere.CustomerProfiles.EventTrigger.EventTriggerDimensionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventTriggerDimensionProperty :: Prelude.Type
+instance ToResourceProperties EventTriggerDimensionProperty
+instance Prelude.Eq EventTriggerDimensionProperty
+instance Prelude.Show EventTriggerDimensionProperty
+instance JSON.ToJSON EventTriggerDimensionProperty

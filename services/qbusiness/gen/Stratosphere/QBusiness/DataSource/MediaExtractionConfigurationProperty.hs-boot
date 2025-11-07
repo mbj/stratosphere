@@ -1,0 +1,9 @@
+module Stratosphere.QBusiness.DataSource.MediaExtractionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MediaExtractionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MediaExtractionConfigurationProperty
+instance Prelude.Eq MediaExtractionConfigurationProperty
+instance Prelude.Show MediaExtractionConfigurationProperty
+instance JSON.ToJSON MediaExtractionConfigurationProperty

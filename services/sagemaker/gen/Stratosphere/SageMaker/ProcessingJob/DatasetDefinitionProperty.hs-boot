@@ -1,0 +1,9 @@
+module Stratosphere.SageMaker.ProcessingJob.DatasetDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatasetDefinitionProperty :: Prelude.Type
+instance ToResourceProperties DatasetDefinitionProperty
+instance Prelude.Eq DatasetDefinitionProperty
+instance Prelude.Show DatasetDefinitionProperty
+instance JSON.ToJSON DatasetDefinitionProperty

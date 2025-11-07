@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.CodeInterpreterCustom.CodeInterpreterNetworkConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CodeInterpreterNetworkConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CodeInterpreterNetworkConfigurationProperty
+instance Prelude.Eq CodeInterpreterNetworkConfigurationProperty
+instance Prelude.Show CodeInterpreterNetworkConfigurationProperty
+instance JSON.ToJSON CodeInterpreterNetworkConfigurationProperty

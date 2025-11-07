@@ -1,0 +1,9 @@
+module Stratosphere.Bedrock.Agent.SessionSummaryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SessionSummaryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SessionSummaryConfigurationProperty
+instance Prelude.Eq SessionSummaryConfigurationProperty
+instance Prelude.Show SessionSummaryConfigurationProperty
+instance JSON.ToJSON SessionSummaryConfigurationProperty

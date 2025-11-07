@@ -1,0 +1,9 @@
+module Stratosphere.WorkSpacesWeb.UserSettings.ToolbarConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ToolbarConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ToolbarConfigurationProperty
+instance Prelude.Eq ToolbarConfigurationProperty
+instance Prelude.Show ToolbarConfigurationProperty
+instance JSON.ToJSON ToolbarConfigurationProperty

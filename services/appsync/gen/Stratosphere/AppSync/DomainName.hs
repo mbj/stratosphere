@@ -5,6 +5,7 @@ import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import Stratosphere.ResourceProperties
+import Stratosphere.Tag
 import Stratosphere.Value
 data DomainName
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html>
@@ -14,25 +15,28 @@ data DomainName
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-description>
                 description :: (Prelude.Maybe (Value Prelude.Text)),
                 -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-domainname>
-                domainName :: (Value Prelude.Text)}
+                domainName :: (Value Prelude.Text),
+                -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-tags>
+                tags :: (Prelude.Maybe [Tag])}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkDomainName ::
   Value Prelude.Text -> Value Prelude.Text -> DomainName
 mkDomainName certificateArn domainName
   = DomainName
       {haddock_workaround_ = (), certificateArn = certificateArn,
-       domainName = domainName, description = Prelude.Nothing}
+       domainName = domainName, description = Prelude.Nothing,
+       tags = Prelude.Nothing}
 instance ToResourceProperties DomainName where
   toResourceProperties DomainName {..}
     = ResourceProperties
-        {awsType = "AWS::AppSync::DomainName",
-         supportsTags = Prelude.False,
+        {awsType = "AWS::AppSync::DomainName", supportsTags = Prelude.True,
          properties = Prelude.fromList
                         ((Prelude.<>)
                            ["CertificateArn" JSON..= certificateArn,
                             "DomainName" JSON..= domainName]
                            (Prelude.catMaybes
-                              [(JSON..=) "Description" Prelude.<$> description]))}
+                              [(JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
 instance JSON.ToJSON DomainName where
   toJSON DomainName {..}
     = JSON.object
@@ -41,7 +45,8 @@ instance JSON.ToJSON DomainName where
               ["CertificateArn" JSON..= certificateArn,
                "DomainName" JSON..= domainName]
               (Prelude.catMaybes
-                 [(JSON..=) "Description" Prelude.<$> description])))
+                 [(JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
 instance Property "CertificateArn" DomainName where
   type PropertyType "CertificateArn" DomainName = Value Prelude.Text
   set newValue DomainName {..}
@@ -54,3 +59,7 @@ instance Property "DomainName" DomainName where
   type PropertyType "DomainName" DomainName = Value Prelude.Text
   set newValue DomainName {..}
     = DomainName {domainName = newValue, ..}
+instance Property "Tags" DomainName where
+  type PropertyType "Tags" DomainName = [Tag]
+  set newValue DomainName {..}
+    = DomainName {tags = Prelude.pure newValue, ..}

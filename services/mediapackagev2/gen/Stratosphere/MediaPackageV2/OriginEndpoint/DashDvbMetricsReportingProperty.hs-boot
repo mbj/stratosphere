@@ -1,0 +1,9 @@
+module Stratosphere.MediaPackageV2.OriginEndpoint.DashDvbMetricsReportingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashDvbMetricsReportingProperty :: Prelude.Type
+instance ToResourceProperties DashDvbMetricsReportingProperty
+instance Prelude.Eq DashDvbMetricsReportingProperty
+instance Prelude.Show DashDvbMetricsReportingProperty
+instance JSON.ToJSON DashDvbMetricsReportingProperty

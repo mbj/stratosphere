@@ -1,0 +1,9 @@
+module Stratosphere.QuickSight.Analysis.TreeMapAggregatedFieldWellsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TreeMapAggregatedFieldWellsProperty :: Prelude.Type
+instance ToResourceProperties TreeMapAggregatedFieldWellsProperty
+instance Prelude.Eq TreeMapAggregatedFieldWellsProperty
+instance Prelude.Show TreeMapAggregatedFieldWellsProperty
+instance JSON.ToJSON TreeMapAggregatedFieldWellsProperty

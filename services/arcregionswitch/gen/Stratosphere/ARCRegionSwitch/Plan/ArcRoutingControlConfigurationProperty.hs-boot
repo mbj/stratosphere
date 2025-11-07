@@ -1,0 +1,9 @@
+module Stratosphere.ARCRegionSwitch.Plan.ArcRoutingControlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ArcRoutingControlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ArcRoutingControlConfigurationProperty
+instance Prelude.Eq ArcRoutingControlConfigurationProperty
+instance Prelude.Show ArcRoutingControlConfigurationProperty
+instance JSON.ToJSON ArcRoutingControlConfigurationProperty

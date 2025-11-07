@@ -6,6 +6,7 @@ import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
 import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.ImageScanningConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.ImageTestsConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.PipelineLoggingConfigurationProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.ScheduleProperty as Exports
 import {-# SOURCE #-} Stratosphere.ImageBuilder.ImagePipeline.WorkflowConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
@@ -31,6 +32,8 @@ data ImagePipeline
                    imageTestsConfiguration :: (Prelude.Maybe ImageTestsConfigurationProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn>
                    infrastructureConfigurationArn :: (Value Prelude.Text),
+                   -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-loggingconfiguration>
+                   loggingConfiguration :: (Prelude.Maybe PipelineLoggingConfigurationProperty),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name>
                    name :: (Value Prelude.Text),
                    -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule>
@@ -55,8 +58,9 @@ mkImagePipeline infrastructureConfigurationArn name
        executionRole = Prelude.Nothing, imageRecipeArn = Prelude.Nothing,
        imageScanningConfiguration = Prelude.Nothing,
        imageTestsConfiguration = Prelude.Nothing,
-       schedule = Prelude.Nothing, status = Prelude.Nothing,
-       tags = Prelude.Nothing, workflows = Prelude.Nothing}
+       loggingConfiguration = Prelude.Nothing, schedule = Prelude.Nothing,
+       status = Prelude.Nothing, tags = Prelude.Nothing,
+       workflows = Prelude.Nothing}
 instance ToResourceProperties ImagePipeline where
   toResourceProperties ImagePipeline {..}
     = ResourceProperties
@@ -80,6 +84,7 @@ instance ToResourceProperties ImagePipeline where
                                  Prelude.<$> imageScanningConfiguration,
                                (JSON..=) "ImageTestsConfiguration"
                                  Prelude.<$> imageTestsConfiguration,
+                               (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
                                (JSON..=) "Schedule" Prelude.<$> schedule,
                                (JSON..=) "Status" Prelude.<$> status,
                                (JSON..=) "Tags" Prelude.<$> tags,
@@ -105,6 +110,7 @@ instance JSON.ToJSON ImagePipeline where
                     Prelude.<$> imageScanningConfiguration,
                   (JSON..=) "ImageTestsConfiguration"
                     Prelude.<$> imageTestsConfiguration,
+                  (JSON..=) "LoggingConfiguration" Prelude.<$> loggingConfiguration,
                   (JSON..=) "Schedule" Prelude.<$> schedule,
                   (JSON..=) "Status" Prelude.<$> status,
                   (JSON..=) "Tags" Prelude.<$> tags,
@@ -149,6 +155,10 @@ instance Property "InfrastructureConfigurationArn" ImagePipeline where
   type PropertyType "InfrastructureConfigurationArn" ImagePipeline = Value Prelude.Text
   set newValue ImagePipeline {..}
     = ImagePipeline {infrastructureConfigurationArn = newValue, ..}
+instance Property "LoggingConfiguration" ImagePipeline where
+  type PropertyType "LoggingConfiguration" ImagePipeline = PipelineLoggingConfigurationProperty
+  set newValue ImagePipeline {..}
+    = ImagePipeline {loggingConfiguration = Prelude.pure newValue, ..}
 instance Property "Name" ImagePipeline where
   type PropertyType "Name" ImagePipeline = Value Prelude.Text
   set newValue ImagePipeline {..}

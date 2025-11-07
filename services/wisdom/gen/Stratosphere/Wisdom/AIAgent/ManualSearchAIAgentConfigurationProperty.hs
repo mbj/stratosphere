@@ -11,18 +11,24 @@ import Stratosphere.Value
 data ManualSearchAIAgentConfigurationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html>
     ManualSearchAIAgentConfigurationProperty {haddock_workaround_ :: (),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-answergenerationaiguardrailid>
+                                              answerGenerationAIGuardrailId :: (Prelude.Maybe (Value Prelude.Text)),
                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-answergenerationaipromptid>
                                               answerGenerationAIPromptId :: (Prelude.Maybe (Value Prelude.Text)),
                                               -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-associationconfigurations>
-                                              associationConfigurations :: (Prelude.Maybe [AssociationConfigurationProperty])}
+                                              associationConfigurations :: (Prelude.Maybe [AssociationConfigurationProperty]),
+                                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-manualsearchaiagentconfiguration.html#cfn-wisdom-aiagent-manualsearchaiagentconfiguration-locale>
+                                              locale :: (Prelude.Maybe (Value Prelude.Text))}
   deriving stock (Prelude.Eq, Prelude.Show)
 mkManualSearchAIAgentConfigurationProperty ::
   ManualSearchAIAgentConfigurationProperty
 mkManualSearchAIAgentConfigurationProperty
   = ManualSearchAIAgentConfigurationProperty
       {haddock_workaround_ = (),
+       answerGenerationAIGuardrailId = Prelude.Nothing,
        answerGenerationAIPromptId = Prelude.Nothing,
-       associationConfigurations = Prelude.Nothing}
+       associationConfigurations = Prelude.Nothing,
+       locale = Prelude.Nothing}
 instance ToResourceProperties ManualSearchAIAgentConfigurationProperty where
   toResourceProperties ManualSearchAIAgentConfigurationProperty {..}
     = ResourceProperties
@@ -30,19 +36,30 @@ instance ToResourceProperties ManualSearchAIAgentConfigurationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "AnswerGenerationAIPromptId"
+                           [(JSON..=) "AnswerGenerationAIGuardrailId"
+                              Prelude.<$> answerGenerationAIGuardrailId,
+                            (JSON..=) "AnswerGenerationAIPromptId"
                               Prelude.<$> answerGenerationAIPromptId,
                             (JSON..=) "AssociationConfigurations"
-                              Prelude.<$> associationConfigurations])}
+                              Prelude.<$> associationConfigurations,
+                            (JSON..=) "Locale" Prelude.<$> locale])}
 instance JSON.ToJSON ManualSearchAIAgentConfigurationProperty where
   toJSON ManualSearchAIAgentConfigurationProperty {..}
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "AnswerGenerationAIPromptId"
+              [(JSON..=) "AnswerGenerationAIGuardrailId"
+                 Prelude.<$> answerGenerationAIGuardrailId,
+               (JSON..=) "AnswerGenerationAIPromptId"
                  Prelude.<$> answerGenerationAIPromptId,
                (JSON..=) "AssociationConfigurations"
-                 Prelude.<$> associationConfigurations]))
+                 Prelude.<$> associationConfigurations,
+               (JSON..=) "Locale" Prelude.<$> locale]))
+instance Property "AnswerGenerationAIGuardrailId" ManualSearchAIAgentConfigurationProperty where
+  type PropertyType "AnswerGenerationAIGuardrailId" ManualSearchAIAgentConfigurationProperty = Value Prelude.Text
+  set newValue ManualSearchAIAgentConfigurationProperty {..}
+    = ManualSearchAIAgentConfigurationProperty
+        {answerGenerationAIGuardrailId = Prelude.pure newValue, ..}
 instance Property "AnswerGenerationAIPromptId" ManualSearchAIAgentConfigurationProperty where
   type PropertyType "AnswerGenerationAIPromptId" ManualSearchAIAgentConfigurationProperty = Value Prelude.Text
   set newValue ManualSearchAIAgentConfigurationProperty {..}
@@ -53,3 +70,8 @@ instance Property "AssociationConfigurations" ManualSearchAIAgentConfigurationPr
   set newValue ManualSearchAIAgentConfigurationProperty {..}
     = ManualSearchAIAgentConfigurationProperty
         {associationConfigurations = Prelude.pure newValue, ..}
+instance Property "Locale" ManualSearchAIAgentConfigurationProperty where
+  type PropertyType "Locale" ManualSearchAIAgentConfigurationProperty = Value Prelude.Text
+  set newValue ManualSearchAIAgentConfigurationProperty {..}
+    = ManualSearchAIAgentConfigurationProperty
+        {locale = Prelude.pure newValue, ..}

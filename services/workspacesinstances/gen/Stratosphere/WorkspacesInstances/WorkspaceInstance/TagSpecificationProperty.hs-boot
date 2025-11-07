@@ -1,0 +1,9 @@
+module Stratosphere.WorkspacesInstances.WorkspaceInstance.TagSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TagSpecificationProperty :: Prelude.Type
+instance ToResourceProperties TagSpecificationProperty
+instance Prelude.Eq TagSpecificationProperty
+instance Prelude.Show TagSpecificationProperty
+instance JSON.ToJSON TagSpecificationProperty

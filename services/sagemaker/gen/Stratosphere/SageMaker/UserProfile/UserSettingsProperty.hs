@@ -19,6 +19,8 @@ import Stratosphere.Value
 data UserSettingsProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html>
     UserSettingsProperty {haddock_workaround_ :: (),
+                          -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-automounthomeefs>
+                          autoMountHomeEFS :: (Prelude.Maybe (Value Prelude.Text)),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-codeeditorappsettings>
                           codeEditorAppSettings :: (Prelude.Maybe CodeEditorAppSettingsProperty),
                           -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-customfilesystemconfigs>
@@ -51,7 +53,8 @@ data UserSettingsProperty
 mkUserSettingsProperty :: UserSettingsProperty
 mkUserSettingsProperty
   = UserSettingsProperty
-      {haddock_workaround_ = (), codeEditorAppSettings = Prelude.Nothing,
+      {haddock_workaround_ = (), autoMountHomeEFS = Prelude.Nothing,
+       codeEditorAppSettings = Prelude.Nothing,
        customFileSystemConfigs = Prelude.Nothing,
        customPosixUserConfig = Prelude.Nothing,
        defaultLandingUri = Prelude.Nothing,
@@ -72,7 +75,8 @@ instance ToResourceProperties UserSettingsProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "CodeEditorAppSettings"
+                           [(JSON..=) "AutoMountHomeEFS" Prelude.<$> autoMountHomeEFS,
+                            (JSON..=) "CodeEditorAppSettings"
                               Prelude.<$> codeEditorAppSettings,
                             (JSON..=) "CustomFileSystemConfigs"
                               Prelude.<$> customFileSystemConfigs,
@@ -99,7 +103,8 @@ instance JSON.ToJSON UserSettingsProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "CodeEditorAppSettings"
+              [(JSON..=) "AutoMountHomeEFS" Prelude.<$> autoMountHomeEFS,
+               (JSON..=) "CodeEditorAppSettings"
                  Prelude.<$> codeEditorAppSettings,
                (JSON..=) "CustomFileSystemConfigs"
                  Prelude.<$> customFileSystemConfigs,
@@ -121,6 +126,11 @@ instance JSON.ToJSON UserSettingsProperty where
                (JSON..=) "StudioWebPortal" Prelude.<$> studioWebPortal,
                (JSON..=) "StudioWebPortalSettings"
                  Prelude.<$> studioWebPortalSettings]))
+instance Property "AutoMountHomeEFS" UserSettingsProperty where
+  type PropertyType "AutoMountHomeEFS" UserSettingsProperty = Value Prelude.Text
+  set newValue UserSettingsProperty {..}
+    = UserSettingsProperty
+        {autoMountHomeEFS = Prelude.pure newValue, ..}
 instance Property "CodeEditorAppSettings" UserSettingsProperty where
   type PropertyType "CodeEditorAppSettings" UserSettingsProperty = CodeEditorAppSettingsProperty
   set newValue UserSettingsProperty {..}

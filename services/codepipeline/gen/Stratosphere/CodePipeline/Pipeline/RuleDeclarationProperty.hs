@@ -12,6 +12,8 @@ import Stratosphere.Value
 data RuleDeclarationProperty
   = -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html>
     RuleDeclarationProperty {haddock_workaround_ :: (),
+                             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-commands>
+                             commands :: (Prelude.Maybe (ValueList Prelude.Text)),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-configuration>
                              configuration :: (Prelude.Maybe JSON.Object),
                              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-inputartifacts>
@@ -28,10 +30,10 @@ data RuleDeclarationProperty
 mkRuleDeclarationProperty :: RuleDeclarationProperty
 mkRuleDeclarationProperty
   = RuleDeclarationProperty
-      {haddock_workaround_ = (), configuration = Prelude.Nothing,
-       inputArtifacts = Prelude.Nothing, name = Prelude.Nothing,
-       region = Prelude.Nothing, roleArn = Prelude.Nothing,
-       ruleTypeId = Prelude.Nothing}
+      {haddock_workaround_ = (), commands = Prelude.Nothing,
+       configuration = Prelude.Nothing, inputArtifacts = Prelude.Nothing,
+       name = Prelude.Nothing, region = Prelude.Nothing,
+       roleArn = Prelude.Nothing, ruleTypeId = Prelude.Nothing}
 instance ToResourceProperties RuleDeclarationProperty where
   toResourceProperties RuleDeclarationProperty {..}
     = ResourceProperties
@@ -39,7 +41,8 @@ instance ToResourceProperties RuleDeclarationProperty where
          supportsTags = Prelude.False,
          properties = Prelude.fromList
                         (Prelude.catMaybes
-                           [(JSON..=) "Configuration" Prelude.<$> configuration,
+                           [(JSON..=) "Commands" Prelude.<$> commands,
+                            (JSON..=) "Configuration" Prelude.<$> configuration,
                             (JSON..=) "InputArtifacts" Prelude.<$> inputArtifacts,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Region" Prelude.<$> region,
@@ -50,12 +53,17 @@ instance JSON.ToJSON RuleDeclarationProperty where
     = JSON.object
         (Prelude.fromList
            (Prelude.catMaybes
-              [(JSON..=) "Configuration" Prelude.<$> configuration,
+              [(JSON..=) "Commands" Prelude.<$> commands,
+               (JSON..=) "Configuration" Prelude.<$> configuration,
                (JSON..=) "InputArtifacts" Prelude.<$> inputArtifacts,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Region" Prelude.<$> region,
                (JSON..=) "RoleArn" Prelude.<$> roleArn,
                (JSON..=) "RuleTypeId" Prelude.<$> ruleTypeId]))
+instance Property "Commands" RuleDeclarationProperty where
+  type PropertyType "Commands" RuleDeclarationProperty = ValueList Prelude.Text
+  set newValue RuleDeclarationProperty {..}
+    = RuleDeclarationProperty {commands = Prelude.pure newValue, ..}
 instance Property "Configuration" RuleDeclarationProperty where
   type PropertyType "Configuration" RuleDeclarationProperty = JSON.Object
   set newValue RuleDeclarationProperty {..}

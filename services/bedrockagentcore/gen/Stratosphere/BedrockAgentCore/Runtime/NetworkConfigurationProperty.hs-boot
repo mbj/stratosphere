@@ -1,0 +1,9 @@
+module Stratosphere.BedrockAgentCore.Runtime.NetworkConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NetworkConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NetworkConfigurationProperty
+instance Prelude.Eq NetworkConfigurationProperty
+instance Prelude.Show NetworkConfigurationProperty
+instance JSON.ToJSON NetworkConfigurationProperty

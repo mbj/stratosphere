@@ -1,0 +1,9 @@
+module Stratosphere.DataZone.Connection.AthenaPropertiesInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AthenaPropertiesInputProperty :: Prelude.Type
+instance ToResourceProperties AthenaPropertiesInputProperty
+instance Prelude.Eq AthenaPropertiesInputProperty
+instance Prelude.Show AthenaPropertiesInputProperty
+instance JSON.ToJSON AthenaPropertiesInputProperty

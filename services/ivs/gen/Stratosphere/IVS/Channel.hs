@@ -1,9 +1,10 @@
 module Stratosphere.IVS.Channel (
-        Channel(..), mkChannel
+        module Exports, Channel(..), mkChannel
     ) where
 import qualified Data.Aeson as JSON
 import qualified Stratosphere.Prelude as Prelude
 import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.IVS.Channel.MultitrackInputConfigurationProperty as Exports
 import Stratosphere.ResourceProperties
 import Stratosphere.Tag
 import Stratosphere.Value
@@ -12,10 +13,14 @@ data Channel
     Channel {haddock_workaround_ :: (),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized>
              authorized :: (Prelude.Maybe (Value Prelude.Bool)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-containerformat>
+             containerFormat :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-insecureingest>
              insecureIngest :: (Prelude.Maybe (Value Prelude.Bool)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode>
              latencyMode :: (Prelude.Maybe (Value Prelude.Text)),
+             -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-multitrackinputconfiguration>
+             multitrackInputConfiguration :: (Prelude.Maybe MultitrackInputConfigurationProperty),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name>
              name :: (Prelude.Maybe (Value Prelude.Text)),
              -- | See: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-preset>
@@ -31,7 +36,9 @@ mkChannel :: Channel
 mkChannel
   = Channel
       {haddock_workaround_ = (), authorized = Prelude.Nothing,
+       containerFormat = Prelude.Nothing,
        insecureIngest = Prelude.Nothing, latencyMode = Prelude.Nothing,
+       multitrackInputConfiguration = Prelude.Nothing,
        name = Prelude.Nothing, preset = Prelude.Nothing,
        recordingConfigurationArn = Prelude.Nothing,
        tags = Prelude.Nothing, type' = Prelude.Nothing}
@@ -42,8 +49,11 @@ instance ToResourceProperties Channel where
          properties = Prelude.fromList
                         (Prelude.catMaybes
                            [(JSON..=) "Authorized" Prelude.<$> authorized,
+                            (JSON..=) "ContainerFormat" Prelude.<$> containerFormat,
                             (JSON..=) "InsecureIngest" Prelude.<$> insecureIngest,
                             (JSON..=) "LatencyMode" Prelude.<$> latencyMode,
+                            (JSON..=) "MultitrackInputConfiguration"
+                              Prelude.<$> multitrackInputConfiguration,
                             (JSON..=) "Name" Prelude.<$> name,
                             (JSON..=) "Preset" Prelude.<$> preset,
                             (JSON..=) "RecordingConfigurationArn"
@@ -56,8 +66,11 @@ instance JSON.ToJSON Channel where
         (Prelude.fromList
            (Prelude.catMaybes
               [(JSON..=) "Authorized" Prelude.<$> authorized,
+               (JSON..=) "ContainerFormat" Prelude.<$> containerFormat,
                (JSON..=) "InsecureIngest" Prelude.<$> insecureIngest,
                (JSON..=) "LatencyMode" Prelude.<$> latencyMode,
+               (JSON..=) "MultitrackInputConfiguration"
+                 Prelude.<$> multitrackInputConfiguration,
                (JSON..=) "Name" Prelude.<$> name,
                (JSON..=) "Preset" Prelude.<$> preset,
                (JSON..=) "RecordingConfigurationArn"
@@ -68,6 +81,10 @@ instance Property "Authorized" Channel where
   type PropertyType "Authorized" Channel = Value Prelude.Bool
   set newValue Channel {..}
     = Channel {authorized = Prelude.pure newValue, ..}
+instance Property "ContainerFormat" Channel where
+  type PropertyType "ContainerFormat" Channel = Value Prelude.Text
+  set newValue Channel {..}
+    = Channel {containerFormat = Prelude.pure newValue, ..}
 instance Property "InsecureIngest" Channel where
   type PropertyType "InsecureIngest" Channel = Value Prelude.Bool
   set newValue Channel {..}
@@ -76,6 +93,11 @@ instance Property "LatencyMode" Channel where
   type PropertyType "LatencyMode" Channel = Value Prelude.Text
   set newValue Channel {..}
     = Channel {latencyMode = Prelude.pure newValue, ..}
+instance Property "MultitrackInputConfiguration" Channel where
+  type PropertyType "MultitrackInputConfiguration" Channel = MultitrackInputConfigurationProperty
+  set newValue Channel {..}
+    = Channel
+        {multitrackInputConfiguration = Prelude.pure newValue, ..}
 instance Property "Name" Channel where
   type PropertyType "Name" Channel = Value Prelude.Text
   set newValue Channel {..}
