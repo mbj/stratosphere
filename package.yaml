@@ -7,7 +7,7 @@ maintainer:   Markus Schirp
 name:         stratosphere
 stability:    experimental
 synopsis:     EDSL for AWS CloudFormation
-version:      1.0.0
+version:      1.0.1
 
 <<: *defaults
 
