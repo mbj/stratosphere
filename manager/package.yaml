@@ -38,6 +38,7 @@ library:
   - text
   - text-manipulate
   - typed-process
+  - unliftio
   - yaml
 
 executables:
