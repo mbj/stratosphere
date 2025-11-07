@@ -1,9 +1,10 @@
 - &defaults
   category:     AWS, Cloud
+  github:       mbj/stratosphere
+  license:      MIT
+  license-file: LICENSE.md
   maintainer:   Markus Schirp
   stability:    experimental
-  license:      MIT
-  github:       mbj/stratosphere
 
   flags:
     development: &development_flag

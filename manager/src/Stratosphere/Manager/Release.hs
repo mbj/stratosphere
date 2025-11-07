@@ -6,9 +6,10 @@ module Stratosphere.Manager.Release
 import Prelude
 
 import Data.List (sort)
+import Data.Text (Text)
 import Stratosphere.Manager.ModelPath (modelFilePath)
-import System.Exit (ExitCode(..))
-import System.Process.Typed (proc, runProcess)
+import System.Process.Typed (proc, runProcess_)
+import System.FilePath ((</>))
 
 import qualified Data.Map                           as Map
 import qualified Data.Set                           as Set
@@ -27,19 +28,18 @@ releasePackages :: ReleaseMode -> IO ()
 releasePackages releaseMode = do
   -- Read the model file to get service names
   rawSpec <- either error id <$> Raw.readSpec modelFilePath
-  let services = extractServices rawSpec
-      packages = buildPackageList services
+
+  let definitions = buildPackageDefinitions $ extractServices rawSpec
 
   let modeText = case releaseMode of
         Candidate -> "candidate"
         Publish -> "published"
 
   Text.putStrLn $ "Releasing packages to Hackage as " <> modeText <> " using stack upload..."
-  Text.putStrLn $ "Total packages to release: " <> Text.pack (show (length packages))
+  Text.putStrLn $ "Total packages to release: " <> Text.pack (show (length definitions))
   Text.putStrLn ""
 
-  -- Release each package
-  mapM_ (releasePackage releaseMode) packages
+  mapM_ (releasePackage releaseMode) definitions
 
   Text.putStrLn ""
   case releaseMode of
@@ -51,29 +51,22 @@ extractServices :: Raw.Spec -> [Raw.Service]
 extractServices rawSpec =
   sort . Set.toList . Set.fromList $ (.service) <$> Map.keys rawSpec.specResourceTypes
 
--- | Build the list of packages to release (excludes manager)
-buildPackageList :: [Raw.Service] -> [String]
-buildPackageList services = "stratosphere" : map buildServicePackageName services
-
--- | Build package name for a service
-buildServicePackageName :: Raw.Service -> String
-buildServicePackageName service =
-  Text.unpack $ "stratosphere-" <> Text.toLower service.service
+buildPackageDefinitions :: [Raw.Service] -> [(Text, FilePath)]
+buildPackageDefinitions services = ("stratosphere", ".") : map buildDefinition services
+  where
+    buildDefinition :: Raw.Service -> (Text, FilePath)
+    buildDefinition service =
+      ("stratosphere-" <> slug, "services" </> Text.unpack slug)
+     where
+       slug = Text.toLower service.service
 
 -- | Release a single package using stack upload
-releasePackage :: ReleaseMode -> String -> IO ()
-releasePackage releaseMode packageName = do
-  let args = case releaseMode of
-        Candidate -> ["upload", "--candidate", packageName]
-        Publish -> ["upload", packageName]
-      action = case releaseMode of
-        Candidate -> "Uploading candidate"
-        Publish -> "Releasing"
+releasePackage :: ReleaseMode -> (Text, FilePath) -> IO ()
+releasePackage releaseMode (packageName, directory) = do
+  Text.putStrLn $ "Processing " <> message <> ": " <> packageName
 
-  Text.putStrLn $ action <> ": " <> Text.pack packageName
-  exitCode <- runProcess $ proc "stack" args
-  case exitCode of
-    ExitSuccess -> Text.putStrLn $ "✓ Successfully " <> (if releaseMode == Candidate then "uploaded candidate" else "released") <> " " <> Text.pack packageName
-    ExitFailure code -> do
-      Text.putStrLn $ "✗ Failed to " <> (if releaseMode == Candidate then "upload candidate" else "release") <> " " <> Text.pack packageName <> " (exit code: " <> Text.pack (show code) <> ")"
-      error $ "Failed to release package: " <> packageName
+  runProcess_ $ proc "stack" arguments
+  where
+     (arguments, message) = case releaseMode of
+        Candidate -> (["upload", "--candidate", directory], "candidate")
+        Publish   -> (["upload", directory], "release")

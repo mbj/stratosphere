@@ -7,13 +7,14 @@ cabal-version: 1.12
 name:           stratosphere
 version:        1.0.0
 synopsis:       EDSL for AWS CloudFormation
-description:    EDSL for AWS CloudFormation
+description:    EDSL for AWS CloudFormation, base types to be used by sibling stratosphere-* packages.
 category:       AWS, Cloud
 stability:      experimental
 homepage:       https://github.com/mbj/stratosphere#readme
 bug-reports:    https://github.com/mbj/stratosphere/issues
 maintainer:     Markus Schirp
 license:        MIT
+license-file:   LICENSE.md
 build-type:     Simple
 extra-source-files:
     CHANGELOG.md
@@ -83,13 +84,13 @@ library
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path
   build-depends:
-      aeson >=2
-    , aeson-pretty >=0.8
-    , base >=4.8
-    , bytestring
-    , containers
-    , mono-traversable
-    , text >=1.1
+      aeson ==2.*
+    , aeson-pretty >=0.8 && <2.9
+    , base >=4.8 && <4.22
+    , bytestring >=0.11 && <0.13
+    , containers >=0.6 && <0.9
+    , mono-traversable >=1.0 && <2.0
+    , text >=1.1 && <3.0
   default-language: Haskell2010
   if flag(development)
     ghc-options: -Werror
@@ -134,16 +135,16 @@ test-suite spec
       TypeFamilies
   ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path
   build-depends:
-      aeson >=2
-    , aeson-pretty >=0.8
+      aeson ==2.*
+    , aeson-pretty >=0.8 && <2.9
     , base
-    , bytestring
-    , containers
-    , mono-traversable
+    , bytestring >=0.11 && <0.13
+    , containers >=0.6 && <0.9
+    , mono-traversable >=1.0 && <2.0
     , stratosphere
     , sydtest
     , sydtest-discover
-    , text >=1.1
+    , text >=1.1 && <3.0
   default-language: Haskell2010
   if flag(development)
     ghc-options: -Werror
