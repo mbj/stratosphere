@@ -25,8 +25,6 @@ This library is maintained by [mbj](https://github.com/sponsors/mbj) and any ple
 
 ## Example
 
-**THIS SHOWS UNRELEASED API, to use it use a git source while 1.0 is under development** [old readme](https://github.com/mbj/stratosphere/tree/v0.60.0#readme).
-
 Here is an example of a `Template` that creates an EC2 instance, along with the
 JSON output:
 
