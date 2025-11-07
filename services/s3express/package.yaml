@@ -2,7 +2,7 @@
 _common/package: !include "../../common/package.yaml"
 
 name: stratosphere-s3express
-version: 1.0.0
+version: 1.0.1
 synopsis: Stratosphere integration for AWS S3Express.
 description: Integration into stratosphere to generate resources and properties for AWS S3Express
 category: AWS, Cloud, S3Express
@@ -16,4 +16,4 @@ library:
 dependencies:
 - aeson >= 2 && < 3
 - base  >= 4.8  && < 4.22
-- stratosphere == 1.0.0
+- stratosphere == 1.0.1
