@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.1 2025-11-07
+
+Fix misleading note in readme about old API.
+
 ## 1.0 2025-11-07
 
 TLDR: Loads of breaking changes, with good reasons.
