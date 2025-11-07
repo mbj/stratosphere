@@ -5,6 +5,7 @@ module Stratosphere.Manager.Release
 
 import Prelude
 
+import UnliftIO.Async (pooledMapConcurrentlyN)
 import Data.List (sort)
 import Data.Text (Text)
 import Stratosphere.Manager.ModelPath (modelFilePath)
@@ -37,9 +38,10 @@ releasePackages releaseMode = do
 
   Text.putStrLn $ "Releasing packages to Hackage as " <> modeText <> " using stack upload..."
   Text.putStrLn $ "Total packages to release: " <> Text.pack (show (length definitions))
+  Text.putStrLn $ "Running uploads in parallel with concurrency limit of 32..."
   Text.putStrLn ""
 
-  mapM_ (releasePackage releaseMode) definitions
+  _ <- pooledMapConcurrentlyN 32 (releasePackage releaseMode) definitions
 
   Text.putStrLn ""
   case releaseMode of
